@@ -1,0 +1,139 @@
+<!-- 
+===========================================
+Triad of Angels - Official Website: Merch Page (merch.html)
+-------------------------------------------
+• Purpose: This page showcases official merchandise: apparel, posters, accessories, and more.
+
+• Key Sections:
+    1?? Header Navigation - Full site-wide navigation.
+    2?? Full Hero Banner - Branded video/image at the top.
+    3?? Merch Hero Section - Title + intro tagline.
+    4?? Merch Grid - Each merch item with thumbnail, description, and buy link.
+    5?? Footer - Copyright.
+
+• Notes:
+    - Add real merch images in /assets/images/.
+    - Replace placeholder links with your actual shop URLs (e.g., Shopify, Etsy, Printful).
+    - All grid items are responsive & scale well.
+
+• Expansion Tip:
+    - You can include filters for "Apparel", "Posters", "Accessories", etc. if you have many items.
+    - Add hover effects or badges like "New", "Best Seller", "Limited Edition" for stronger engagement.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop official Triad of Angels merchandise: apparel, posters, accessories and more.">
+    <title>Merch | Triad of Angels</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ========================================
+    HEADER NAVIGATION
+    ======================================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="visual.html">Visual</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="publishing.html">Publishing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========================================
+    FULL-PAGE HERO BANNER
+    ======================================== -->
+    <section class="hero-banner">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+            <!-- fallback image -->
+            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels Hero Banner">
+        </video>
+        <div class="hero-content">
+            <h1>Triad of Angels</h1>
+            <p>Hope. Strength. Fire. Innovation.</p>
+            <a href="music.html" class="cta-button">Listen Now</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+    MAIN CONTENT START
+    ======================================== -->
+    <main>
+
+        <!-- ========================================
+        MERCH HERO SECTION
+        - Title + tagline for merch
+        ======================================== -->
+        <section class="hero" style="padding: 40px 20px; text-align: center;">
+            <h1>Merch</h1>
+            <p>Official apparel, posters & exclusive merch from Triad of Angels.</p>
+        </section>
+
+        <!-- ========================================
+        MERCH GRID SECTION
+        - Showcase each merch item
+        ======================================== -->
+        <section class="merch-grid" style="padding: 40px 20px;">
+            <h2 style="text-align: center;">Shop Now</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+
+                <!-- ================================
+                MERCH ITEM - EXAMPLE: T-Shirt
+                ================================= -->
+                <div style="background: #222; padding: 20px; border-radius: 8px; text-align: center;">
+                    <img src="assets/images/shirt1.jpg" alt="Triad of Angels T-Shirt" style="width:100%; border-radius:8px; margin-bottom: 15px;">
+                    <h3>Official T-Shirt</h3>
+                    <p>Comfortable cotton tee with the Triad of Angels logo. Available in multiple sizes & colors.</p>
+                    <a href="#" target="_blank">Buy Now ?</a>
+                </div>
+
+                <!-- ================================
+                MERCH ITEM - EXAMPLE: Poster
+                ================================= -->
+                <div style="background: #222; padding: 20px; border-radius: 8px; text-align: center;">
+                    <img src="assets/images/poster1.jpg" alt="Wings of Fire Poster" style="width:100%; border-radius:8px; margin-bottom: 15px;">
+                    <h3>Wings of Fire Poster</h3>
+                    <p>High-quality print of the Wings of Fire album cover. Perfect for framing & display.</p>
+                    <a href="#" target="_blank">Buy Now ?</a>
+                </div>
+
+                <!-- ================================
+                MERCH ITEM - TEMPLATE FOR MORE
+                ================================= -->
+                <!-- 
+                <div style="background: #222; padding: 20px; border-radius: 8px; text-align: center;">
+                    <img src="assets/images/merchX.jpg" alt="Merch X" style="width:100%; border-radius:8px; margin-bottom: 15px;">
+                    <h3>Merch Title X</h3>
+                    <p>Short description of the item.</p>
+                    <a href="#" target="_blank">Buy Now ?</a>
+                </div>
+                -->
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer>
+        <p>© 2025 Triad of Angels. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

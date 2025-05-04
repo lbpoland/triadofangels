@@ -1,0 +1,139 @@
+<!-- 
+===========================================
+Triad of Angels - Official Website: Apps Page (apps.html)
+-------------------------------------------
+• Purpose: This page showcases AI apps, productivity tools, and digital experiences built by Triad of Angels.
+
+• Key Sections:
+    1?? Header Navigation - Full site navigation.
+    2?? Full Hero Banner - Video + fallback image, consistent across pages.
+    3?? Apps Hero Section - Title + tagline.
+    4?? Apps Grid - Highlight each app/tool with thumbnail, description, and download/info link.
+    5?? Footer - Copyright info.
+
+• Notes:
+    - Add real app thumbnails to /assets/images/.
+    - Replace placeholder text/links as new apps are added.
+    - Grid auto-scales for responsiveness.
+
+• Expansion Tip:
+    - For each app, you can add badges (iOS/Android/Web), ratings, or screenshots to boost engagement.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Triad of Angels' AI apps, productivity tools, and digital experiences.">
+    <title>Apps | Triad of Angels</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ========================================
+    HEADER NAVIGATION
+    ======================================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="visual.html">Visual</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="publishing.html">Publishing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========================================
+    FULL-PAGE HERO BANNER
+    ======================================== -->
+    <section class="hero-banner">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+            <!-- fallback image -->
+            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels Hero Banner">
+        </video>
+        <div class="hero-content">
+            <h1>Triad of Angels</h1>
+            <p>Hope. Strength. Fire. Innovation.</p>
+            <a href="music.html" class="cta-button">Listen Now</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+    MAIN CONTENT START
+    ======================================== -->
+    <main>
+
+        <!-- ========================================
+        APPS HERO SECTION
+        - Title + tagline for apps
+        ======================================== -->
+        <section class="hero" style="padding: 40px 20px; text-align: center;">
+            <h1>Apps</h1>
+            <p>Explore our AI-powered tools and innovative digital experiences.</p>
+        </section>
+
+        <!-- ========================================
+        APPS GRID SECTION
+        - Grid layout showcasing apps/tools
+        ======================================== -->
+        <section class="apps-grid" style="padding: 40px 20px;">
+            <h2 style="text-align: center;">Our Apps</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+
+                <!-- ================================
+                APP BLOCK - EXAMPLE APP 1
+                Replace 'app1-thumbnail.jpg' with real image
+                ================================= -->
+                <div style="background: #222; padding: 20px; border-radius: 8px; text-align: center;">
+                    <h3>App Name 1</h3>
+                    <img src="assets/images/app1-thumbnail.jpg" alt="App 1 Thumbnail" style="width:100%; border-radius:8px; margin: 15px 0;">
+                    <p>Short description of what this app does and how it helps users. Highlight the unique value and key features.</p>
+                    <a href="#" target="_blank">Learn More / Download ?</a>
+                </div>
+
+                <!-- ================================
+                APP BLOCK - EXAMPLE APP 2
+                ================================= -->
+                <div style="background: #222; padding: 20px; border-radius: 8px; text-align: center;">
+                    <h3>App Name 2</h3>
+                    <img src="assets/images/app2-thumbnail.jpg" alt="App 2 Thumbnail" style="width:100%; border-radius:8px; margin: 15px 0;">
+                    <p>Short description of this app. What problem does it solve? Why is it awesome? Make it compelling.</p>
+                    <a href="#" target="_blank">Learn More / Download ?</a>
+                </div>
+
+                <!-- ================================
+                APP BLOCK - TEMPLATE FOR MORE
+                ================================= -->
+                <!-- 
+                <div style="background: #222; padding: 20px; border-radius: 8px; text-align: center;">
+                    <h3>App Name X</h3>
+                    <img src="assets/images/appX-thumbnail.jpg" alt="App X Thumbnail" style="width:100%; border-radius:8px; margin: 15px 0;">
+                    <p>Short description.</p>
+                    <a href="#" target="_blank">Learn More / Download ?</a>
+                </div>
+                -->
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer>
+        <p>© 2025 Triad of Angels. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

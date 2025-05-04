@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore Triad of Angels music: cinematic pop, angelic harmonies, and inspiring soundscapes." />
+    <title>Music | Triad of Angels</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* Music Page Specific Styles */
+
+        .music-hero {
+            padding: 100px 20px 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .music-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .music-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .music-hero .cta-button {
+            margin-top: 15px;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px auto 40px;
+            max-width: 800px;
+        }
+
+        .categories button {
+            padding: 8px 18px;
+            border: 2px solid #f1c40f;
+            background: transparent;
+            color: #f1c40f;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .categories button:hover {
+            background: #f1c40f;
+            color: #000;
+        }
+
+        .album-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .album-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .album-card img {
+            width: 250px;
+            object-fit: cover;
+        }
+
+        .album-info {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .album-info h2 {
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .album-info p {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .album-info .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #f1c40f;
+            color: #000;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .album-info .btn:hover {
+            background: #d4ac0d;
+        }
+
+        .platforms {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: #111;
+        }
+
+        .platforms h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .platforms a {
+            display: inline-block;
+            margin: 5px 10px;
+            color: #f1c40f;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .album-card {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .album-card img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="visual.html">Visual</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="publishing.html">Publishing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ? FULL-PAGE HERO BANNER SECTION -->
+    <section class="hero-banner">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+            <!-- fallback image -->
+            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels">
+        </video>
+        <div class="hero-content">
+            <h1>Triad of Angels</h1>
+            <p>Hope. Strength. Fire. Innovation.</p>
+            <a href="music.html" class="cta-button">Listen Now</a>
+        </div>
+    </section>
+	
+    <main>
+        <section class="music-hero">
+            <h1>Triad of Angels - Music</h1>
+            <p>Cinematic Pop, Angelic Harmonies, and More</p>
+            <a href="#albums" class="cta-button">Explore Music</a>
+        </section>
+
+        <section class="categories">
+            <button>All</button>
+            <button>Cinematic Pop</button>
+            <button>Inspirational</button>
+            <button>Orchestral</button>
+            <button>Ambient</button>
+            <button>Experimental</button>
+            <button>Healing</button>
+            <button>Soundtrack</button>
+        </section>
+
+        <section id="albums" class="album-section">
+            <!-- Album 1 -->
+            <div class="album-card">
+                <img src="assets/images/wings-of-fire-cover.jpg" alt="Wings of Fire Album Cover" />
+                <div class="album-info">
+                    <h2>Wings of Fire</h2>
+                    <p>Released: 2025</p>
+                    <p>Genres: Cinematic Pop, Inspirational</p>
+                    <a href="https://open.spotify.com/album/YOUR-SPOTIFY-ALBUM-ID" target="_blank" class="btn">Listen Now</a>
+                </div>
+            </div>
+
+            <!-- Album 2 -->
+            <div class="album-card">
+                <img src="assets/images/ascend-cover.jpg" alt="Ascend Album Cover" />
+                <div class="album-info">
+                    <h2>Ascend (Coming Soon)</h2>
+                    <p>Expected: 2025</p>
+                    <p>Genres: Orchestral, Ambient</p>
+                    <p>Stay tuned for this uplifting and inspiring new release.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="platforms">
+            <h3>Available On:</h3>
+            <a href="#" target="_blank">Spotify</a>
+            <a href="#" target="_blank">Apple Music</a>
+            <a href="#" target="_blank">Deezer</a>
+            <a href="#" target="_blank">Amazon Music</a>
+            <a href="#" target="_blank">Tidal</a>
+            <a href="#" target="_blank">YouTube Music</a>
+            <a href="#" target="_blank">SoundCloud</a>
+            <a href="#" target="_blank">Bandcamp</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Triad of Angels. All rights reserved.</p>
+        <p>
+            <a href="https://www.instagram.com/triadofangels" target="_blank">Instagram</a> |
+            <a href="https://www.youtube.com/@triadofangels_new" target="_blank">YouTube</a> |
+            <a href="https://open.spotify.com/artist/YOUR-SPOTIFY-ARTIST-ID" target="_blank">Spotify</a>
+        </p>
+    </footer>
+</body>
+</html>

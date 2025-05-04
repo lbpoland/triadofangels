@@ -1,0 +1,125 @@
+<!-- 
+===========================================
+Triad of Angels - Official Website: Visual Page (visual.html)
+-------------------------------------------
+• Purpose: Showcases all official videos, trailers, music videos, and visual projects from Triad of Angels.
+
+• Key Sections:
+    1?? Header Navigation - Global site-wide nav.
+    2?? Full Hero Banner - Video/image header.
+    3?? Visual Hero Section - Intro tagline.
+    4?? Video Grid - YouTube embeds with titles.
+    5?? Footer - Copyright.
+
+• Notes:
+    - Replace `PUT-YOUR-VIDEO-ID-HERE` with your actual YouTube video IDs.
+    - You can embed videos from other platforms (Vimeo, etc.) as needed.
+    - Add thumbnail previews using iframe or a styled container for fancier galleries.
+
+• Expansion Tip:
+    - Add filters/tabs for Music Videos, Trailers, Behind-the-Scenes if you grow the collection.
+    - Optionally include video descriptions or playlists for deeper engagement.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Watch Triad of Angels' official videos: music videos, trailers, and more.">
+    <title>Visual | Triad of Angels</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ========================================
+    HEADER NAVIGATION
+    ======================================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="visual.html">Visual</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="publishing.html">Publishing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========================================
+    FULL-PAGE HERO BANNER
+    ======================================== -->
+    <section class="hero-banner">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+            <!-- fallback image -->
+            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels Hero Banner">
+        </video>
+        <div class="hero-content">
+            <h1>Triad of Angels</h1>
+            <p>Hope. Strength. Fire. Innovation.</p>
+            <a href="music.html" class="cta-button">Listen Now</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+    MAIN CONTENT START
+    ======================================== -->
+    <main>
+
+        <!-- ========================================
+        VISUAL HERO SECTION
+        - Title + tagline for video section
+        ======================================== -->
+        <section class="hero" style="padding: 40px 20px; text-align: center;">
+            <h1>Visual Media</h1>
+            <p>Official videos, trailers, and creative visual projects.</p>
+        </section>
+
+        <!-- ========================================
+        VIDEO GRID SECTION
+        - Grid of YouTube videos with titles
+        ======================================== -->
+        <section class="video-grid" style="padding: 40px 20px;">
+            <h2 style="text-align: center;">Watch Now</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 20px;">
+
+                <!-- ================================
+                VIDEO ITEM - Wings of Fire
+                ================================= -->
+                <div style="text-align: center;">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/PUT-YOUR-VIDEO-ID-HERE" frameborder="0" allowfullscreen></iframe>
+                    <p>Wings of Fire - Official Music Video</p>
+                </div>
+
+                <!-- ================================
+                VIDEO ITEM - TEMPLATE FOR MORE
+                ================================= -->
+                <!-- 
+                <div style="text-align: center;">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/PUT-VIDEO-ID-HERE" frameborder="0" allowfullscreen></iframe>
+                    <p>Video Title Here</p>
+                </div>
+                -->
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer>
+        <p>© 2025 Triad of Angels. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

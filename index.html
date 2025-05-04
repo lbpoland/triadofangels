@@ -1,0 +1,134 @@
+<!-- 
+===========================================
+Triad of Angels - Official Website: Home Page (index.html)
+-------------------------------------------
+• Purpose: This is the landing page of the Triad of Angels brand, designed to present an immersive introduction, highlight key offerings (music, visual, games, etc.), and showcase the latest album.
+
+• Key Sections:
+    1?? Header Navigation - Top menu for site-wide navigation.
+    2?? Full Hero Banner - Full-width video/image banner with brand slogan + CTA.
+    3?? Featured Album Section - Embedded latest album preview + link.
+    4?? About Preview - Quick brand mission/vision.
+    5?? Quick Links Grid - Shortcut to core brand sections.
+    6?? Footer - Social links + copyright.
+
+• Notes:
+    - The hero section uses a looping video (MP4) with a fallback image for unsupported browsers.
+    - Replace placeholder Spotify/YouTube/Instagram links + Album ID.
+    - All assets (images/videos) are stored in /assets/images/ and /assets/videos/.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Triad of Angels - Music, Visual Media, Games, Apps, Merch, and more. Join the movement of hope, strength, and fire.">
+    <title>Triad of Angels | Official Website</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- ========================================
+    HEADER NAVIGATION
+    - Global site navigation bar
+    ======================================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="visual.html">Visual</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="publishing.html">Publishing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========================================
+    FULL-PAGE HERO BANNER
+    - Background video + fallback image
+    - Main CTA to Music Page
+    ======================================== -->
+    <section class="hero-banner">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+            <!-- Fallback image shown if video is not supported -->
+            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels Hero Banner">
+        </video>
+        <div class="hero-content">
+            <h1>Triad of Angels</h1>
+            <p>Hope. Strength. Fire. Innovation.</p>
+            <a href="music.html" class="cta-button">Listen Now</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+    MAIN PAGE CONTENT START
+    ======================================== -->
+    <main>
+
+        <!-- ========================================
+        FEATURED ALBUM SECTION
+        - Embedded Spotify iframe for Wings of Fire
+        - Notes: Replace "PUT-YOUR-ALBUM-ID-HERE" with actual Spotify album ID.
+        ======================================== -->
+        <section class="featured">
+            <h2>New Album: Wings of Fire</h2>
+            <iframe 
+                style="border-radius:12px" 
+                src="https://open.spotify.com/embed/album/PUT-YOUR-ALBUM-ID-HERE" 
+                width="100%" 
+                height="152" 
+                frameborder="0" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            </iframe>
+            <p><a href="music.html">Explore All Music ??</a></p>
+        </section>
+
+        <!-- ========================================
+        ABOUT PREVIEW SECTION
+        - Quick intro/mission statement of Triad of Angels.
+        ======================================== -->
+        <section class="about-preview">
+            <h2>About Triad of Angels</h2>
+            <p>Triad of Angels is a cutting-edge creative force blending music, visual media, games, apps, and more. Rooted in hope, strength, and pure innovation, we build worlds that inspire and ignite.</p>
+            <p><a href="about.html">Learn More ?</a></p>
+        </section>
+
+        <!-- ========================================
+        QUICK LINKS SECTION
+        - Shortcut grid to key brand divisions
+        - Icons/Emojis can be replaced with actual graphics in the future.
+        ======================================== -->
+        <section class="quick-links">
+            <div><a href="music.html">?? Music</a></div>
+            <div><a href="visual.html">?? Visual</a></div>
+            <div><a href="games.html">?? Games</a></div>
+            <div><a href="apps.html">?? Apps</a></div>
+            <div><a href="merch.html">?? Merch</a></div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    - Social links + copyright notice
+    - Notes: Replace "PUT-YOUR-SPOTIFY-ID-HERE" with your actual artist ID.
+    ======================================== -->
+    <footer>
+        <p>© 2025 Triad of Angels. All rights reserved.</p>
+        <p>
+            <a href="https://www.instagram.com/triadofangels" target="_blank">Instagram</a> |
+            <a href="https://www.youtube.com/@triadofangels_new" target="_blank">YouTube</a> |
+            <a href="https://open.spotify.com/artist/PUT-YOUR-SPOTIFY-ID-HERE" target="_blank">Spotify</a>
+        </p>
+    </footer>
+
+</body>
+</html>

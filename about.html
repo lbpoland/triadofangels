@@ -1,0 +1,146 @@
+<!-- 
+===========================================
+Triad of Angels - Official Website: About Page (about.html)
+-------------------------------------------
+• Purpose: This page introduces visitors to the Triad of Angels brand—sharing the story, mission, and members of the group.
+
+• Key Sections:
+    1?? Header Navigation - Site-wide navigation.
+    2?? Full Hero Banner - Consistent branding banner.
+    3?? About Hero Section - Page title + subtitle.
+    4?? Our Story - Background and vision.
+    5?? Our Mission - Brand’s purpose & goals.
+    6?? Meet the Angels - Team member bios.
+    7?? Call to Action - Contact prompt.
+    8?? Footer - Copyright info.
+
+• Notes:
+    - The hero banner uses a video (MP4) with fallback image, consistent across all pages.
+    - Inline styles can be moved to the main stylesheet for cleaner code (recommended long-term).
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Triad of Angels: our story, mission, and the voices behind the movement.">
+    <title>About | Triad of Angels</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ========================================
+    HEADER NAVIGATION
+    ======================================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="visual.html">Visual</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="publishing.html">Publishing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========================================
+    FULL-PAGE HERO BANNER
+    - Background video + fallback image
+    ======================================== -->
+    <section class="hero-banner">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+            <!-- fallback image -->
+            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels Hero Banner">
+        </video>
+        <div class="hero-content">
+            <h1>Triad of Angels</h1>
+            <p>Hope. Strength. Fire. Innovation.</p>
+            <a href="music.html" class="cta-button">Listen Now</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+    MAIN CONTENT START
+    ======================================== -->
+    <main>
+
+        <!-- ========================================
+        ABOUT HERO SECTION
+        - Title + tagline for About page
+        ======================================== -->
+        <section class="hero" style="padding: 40px 20px; text-align: center;">
+            <h1>About Triad of Angels</h1>
+            <p>Where hope, strength, and fire meet creativity.</p>
+        </section>
+
+        <!-- ========================================
+        OUR STORY SECTION
+        - Brand history + inspiration
+        ======================================== -->
+        <section class="about-story" style="padding: 40px 20px; max-width: 800px; margin: auto; text-align: center;">
+            <h2>Our Story</h2>
+            <p>Triad of Angels was born from a vision: to create a movement that transcends music and media, weaving together sound, visuals, technology, and pure creative fire. We are not just a brand—we are a force for inspiration, strength, and innovation in a world that craves authenticity.</p>
+        </section>
+
+        <!-- ========================================
+        OUR MISSION SECTION
+        - Mission & purpose statement
+        ======================================== -->
+        <section class="about-mission" style="background: #1a1a1a; padding: 40px 20px; text-align: center;">
+            <h2>Our Mission</h2>
+            <p>We aim to push the boundaries of what's possible across music, gaming, visual media, apps, and more. Our mission is to inspire, empower, and uplift through every beat, every visual, every story we tell.</p>
+        </section>
+
+        <!-- ========================================
+        MEET THE ANGELS SECTION
+        - Bios of each member of the Triad
+        ======================================== -->
+        <section class="about-bios" style="padding: 40px 20px; text-align: center;">
+            <h2>Meet the Angels</h2>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: auto;">
+                <!-- Samantha Bio -->
+                <div style="flex: 1 1 250px; background: #222; padding: 20px; border-radius: 8px;">
+                    <h3>Samantha</h3>
+                    <p>The voice of light and power. Samantha brings soaring soprano tones that lift and inspire, with a presence that commands attention.</p>
+                </div>
+                <!-- Jessica Bio -->
+                <div style="flex: 1 1 250px; background: #222; padding: 20px; border-radius: 8px;">
+                    <h3>Jessica</h3>
+                    <p>Fierce and bold, Jessica’s strong vocals and fearless creativity fuel the core of the Triad’s energy and drive.</p>
+                </div>
+                <!-- Sonya Bio -->
+                <div style="flex: 1 1 250px; background: #222; padding: 20px; border-radius: 8px;">
+                    <h3>Sonya</h3>
+                    <p>The heart and soul of the Triad, Sonya’s deep, emotional tones bring balance and warmth to every creation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+        CALL TO ACTION SECTION
+        - Invite to connect or collaborate
+        ======================================== -->
+        <section style="padding: 40px 20px; text-align: center;">
+            <p>Want to connect or collaborate? <a href="contact.html">Get in touch ?</a></p>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer>
+        <p>© 2025 Triad of Angels. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

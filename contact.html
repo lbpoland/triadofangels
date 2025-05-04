@@ -1,0 +1,134 @@
+<!-- 
+===========================================
+Triad of Angels - Official Website: Contact Page (contact.html)
+-------------------------------------------
+• Purpose: This page allows users to reach out for collaborations, questions, or general contact. Includes email, social media, and a message form.
+
+• Key Sections:
+    1?? Header Navigation - Full site nav.
+    2?? Full Hero Banner - Consistent brand banner.
+    3?? Contact Hero Section - Intro title & tagline.
+    4?? Contact Info - Email + social links.
+    5?? Contact Form - Basic form (placeholder for now).
+    6?? Footer - Copyright.
+
+• Notes:
+    - Email: Update if needed (contact@triadofangels.com).
+    - Social links: Add any others as needed (TikTok, X, etc.).
+    - Form: Currently dummy; needs backend integration for real use.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Triad of Angels: send us a message, connect on social media, or collaborate.">
+    <title>Contact | Triad of Angels</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ========================================
+    HEADER NAVIGATION
+    ======================================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="visual.html">Visual</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="publishing.html">Publishing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========================================
+    FULL-PAGE HERO BANNER
+    ======================================== -->
+    <section class="hero-banner">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+            <!-- fallback image -->
+            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels Hero Banner">
+        </video>
+        <div class="hero-content">
+            <h1>Triad of Angels</h1>
+            <p>Hope. Strength. Fire. Innovation.</p>
+            <a href="music.html" class="cta-button">Listen Now</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+    MAIN CONTENT START
+    ======================================== -->
+    <main>
+
+        <!-- ========================================
+        CONTACT HERO SECTION
+        - Intro to the Contact page
+        ======================================== -->
+        <section class="hero" style="padding: 40px 20px; text-align: center;">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you. Reach out for collaborations, questions, or just to connect.</p>
+        </section>
+
+        <!-- ========================================
+        CONTACT INFO SECTION
+        - Email + social media links
+        ======================================== -->
+        <section class="contact-info" style="padding: 40px 20px; text-align: center;">
+            <h2>Email</h2>
+            <p><a href="mailto:contact@triadofangels.com">contact@triadofangels.com</a></p>
+
+            <h2>Follow Us</h2>
+            <p>
+                <a href="https://www.instagram.com/triadofangels" target="_blank">Instagram</a> |
+                <a href="https://www.youtube.com/@triadofangels_new" target="_blank">YouTube</a> |
+                <a href="https://www.facebook.com/triadofangels" target="_blank">Facebook</a>
+            </p>
+        </section>
+
+        <!-- ========================================
+        CONTACT FORM SECTION
+        - Basic form (placeholder for now)
+        ======================================== -->
+        <section class="contact-form" style="padding: 40px 20px; max-width: 600px; margin: auto;">
+            <h2>Send a Message</h2>
+            <form action="#" method="post">
+                <!-- Name Field -->
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required style="width:100%; padding:8px; margin-bottom: 15px;"><br>
+
+                <!-- Email Field -->
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required style="width:100%; padding:8px; margin-bottom: 15px;"><br>
+
+                <!-- Message Field -->
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="5" required style="width:100%; padding:8px; margin-bottom: 15px;"></textarea><br>
+
+                <!-- Submit Button -->
+                <button type="submit" style="padding: 10px 20px; border: none; background: #444; color: #fff; cursor: pointer;">Send</button>
+            </form>
+            <p style="margin-top: 10px; font-size: 0.9em;">*This form is currently inactive. Please email us directly for now.</p>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+    FOOTER
+    ======================================== -->
+    <footer>
+        <p>© 2025 Triad of Angels. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
