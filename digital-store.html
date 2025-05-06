@@ -1,0 +1,260 @@
+<!--
+====================================================================
+File: digital-store.html
+Purpose: Full-featured digital store page for Triad of Angels / ToA Studios.
+This file includes:
+- Full navigation bar
+- Hero section
+- Dynamic filter system for categories
+- Product grid with sample product blocks
+- Coming soon section
+- Footer with social links
+
+NOTES:
+- To add a new product, copy a full <div class="product-block">...</div>
+  and place it in the .products-container grid.
+- Each product must have a data-category="Category Name" for filtering.
+- To add a new category: update the 'categories' array in the JS section.
+
+====================================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Shop exclusive digital products from Triad of Angels & ToA Studios: music packs, visuals, game assets & more." />
+    <title>Digital Store | Triad of Angels</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* ======================================
+           INLINE STYLES SPECIFIC TO THIS PAGE
+           ====================================== */
+
+        .filter-btn {
+            margin: 5px;
+            padding: 10px 20px;
+            background: #333;
+            color: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #f1c40f;
+            color: #000;
+        }
+        .product-block {
+            background: #222;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+        .product-block.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ==========================
+     NAVIGATION BAR (HEADER)
+============================== -->
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="visual.html">Visual</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="apps.html">Apps</a></li>
+            <li><a href="merch.html">Merch</a></li>
+            <li><a href="publishing.html">Publishing</a></li>
+            <li><a href="digital-store.html">Digital Store</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ================================
+     HERO BANNER SECTION (VIDEO IMG)
+==================================== -->
+
+<section class="hero-banner">
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="assets/videos/hero-banner.mp4" type="video/mp4" />
+        <img src="assets/images/hero-banner.jpg" alt="Triad of Angels" />
+    </video>
+    <div class="hero-content">
+        <h1>Digital Store</h1>
+        <p>Explore exclusive digital products: music packs, visual art, game assets, templates & more.</p>
+    </div>
+</section>
+
+<!-- =========================================
+     CATEGORY FILTER BUTTONS SECTION
+     INSTRUCTIONS:
+     - Categories are dynamically created in JS.
+     - Add new categories in the 'categories' array in the script.
+============================================= -->
+
+<main>
+<section style="padding: 30px 20px; text-align: center;">
+    <h2>Browse by Category</h2>
+    <div id="filter-buttons" style="margin-top: 15px;">
+        <!-- Filter buttons auto-generated here by JS -->
+    </div>
+</section>
+
+<!-- ==================================================
+     PRODUCTS GRID SECTION
+     INSTRUCTIONS:
+     - Each product is inside a <div class="product-block">.
+     - Make sure each product has:
+       * data-category="Matching Category Name"
+       * An image, title, description, and links.
+     - To add more products, copy & paste a full product-block.
+==================================================== -->
+
+<section class="products-grid" style="padding: 40px 20px;">
+    <div class="products-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+
+        <!-- ========== PRODUCT: MUSIC PACK EXAMPLE ========== -->
+        <div class="product-block" data-category="Music Packs">
+            <img src="assets/images/music-pack1.jpg" alt="Epic Sound Pack Vol. 1" style="width:100%; border-radius:8px; margin-bottom: 15px;">
+            <h3>Epic Sound Pack Vol. 1</h3>
+            <p>High-quality loops & samples for cinematic productions. WAV format, 100% royalty-free.</p>
+            <a href="#" target="_blank">Buy Now (ToA Store)</a><br>
+            <a href="#" target="_blank">Also on Etsy</a>
+        </div>
+
+        <!-- ========== PRODUCT: VISUAL ART EXAMPLE ========== -->
+        <div class="product-block" data-category="Visual Art">
+            <img src="assets/images/visual-pack1.jpg" alt="Celestial Art Pack" style="width:100%; border-radius:8px; margin-bottom: 15px;">
+            <h3>Celestial Art Pack</h3>
+            <p>10 stunning high-res digital artworks for personal & commercial use.</p>
+            <a href="#" target="_blank">Buy Now (ToA Store)</a>
+        </div>
+
+        <!-- ========== PRODUCT: GAME ASSET EXAMPLE ========== -->
+        <div class="product-block" data-category="Game Assets">
+            <img src="assets/images/game-assets1.jpg" alt="Fantasy Sprite Pack" style="width:100%; border-radius:8px; margin-bottom: 15px;">
+            <h3>Fantasy Sprite Pack</h3>
+            <p>40+ 2D sprites for RPG & fantasy games. PNG & PSD formats.</p>
+            <a href="#" target="_blank">Buy Now (ToA Store)</a>
+        </div>
+
+        <!-- ========== PRODUCT: APP TEMPLATE EXAMPLE ========== -->
+        <div class="product-block" data-category="App Templates">
+            <img src="assets/images/app-template1.jpg" alt="Productivity App Template" style="width:100%; border-radius:8px; margin-bottom: 15px;">
+            <h3>Productivity App Template</h3>
+            <p>Starter code & UI kit for a cross-platform task manager app. Flutter.</p>
+            <a href="#" target="_blank">Learn More / Download</a>
+        </div>
+
+        <!-- ========== PRODUCT: PLANNERS & CALENDARS EXAMPLE ========== -->
+        <div class="product-block" data-category="Planners & Calendars">
+            <img src="assets/images/calendar-pack1.jpg" alt="2025 Angelic Calendar" style="width:100%; border-radius:8px; margin-bottom: 15px;">
+            <h3>2025 Angelic Calendar (Printable)</h3>
+            <p>12-page PDF calendar with ethereal designs. A4 & Letter sizes.</p>
+            <a href="#" target="_blank">Buy Now (ToA Store)</a>
+        </div>
+
+        <!-- ========== PRODUCT: E-BOOK EXAMPLE ========== -->
+        <div class="product-block" data-category="E-Books & Guides">
+            <img src="assets/images/ebook1.jpg" alt="Lyrics & Stories Vol. 1" style="width:100%; border-radius:8px; margin-bottom: 15px;">
+            <h3>Lyrics & Stories Vol. 1</h3>
+            <p>Full lyrics & background stories from the Wings of Fire album. PDF & ePub.</p>
+            <a href="#" target="_blank">Buy Now (ToA Store)</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===================================================
+     COMING SOON SECTION
+     INSTRUCTIONS:
+     - Simple placeholder for upcoming products or collections.
+======================================================= -->
+
+<section style="padding: 40px 20px; text-align: center;">
+    <h2>Coming Soon</h2>
+    <p>We’re always creating! Stay tuned for new digital releases & exclusive bundles.</p>
+</section>
+
+        <section class="quick-links">
+            <div><a href="music.html">Music</a></div>
+            <div><a href="visual.html">Visual</a></div>
+            <div><a href="games.html">Games</a></div>
+            <div><a href="apps.html">Apps</a></div>
+            <div><a href="merch.html">Merch</a></div>
+            <div><a href="digital-store.html">Digital Store</a></div>	
+        </section>			
+<!-- ==========================
+     FOOTER SECTION
+============================== -->
+
+<footer>
+    <p>© 2025 Triad of Angels / ToA Studios. All rights reserved.</p>
+    <p>
+        <a href="https://www.instagram.com/triadofangels" target="_blank">Instagram</a> |
+        <a href="https://www.youtube.com/@triadofangels_new" target="_blank">YouTube</a> |
+        <a href="https://open.spotify.com/artist/PUT-YOUR-SPOTIFY-ID-HERE" target="_blank">Spotify</a>
+    </p>
+</footer>
+
+<!-- =========================================
+     FILTER SCRIPT (Dynamic Categories + Logic)
+     INSTRUCTIONS:
+     - Edit 'categories' array to add/remove categories.
+     - Products must have matching data-category="Name".
+============================================= -->
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const categories = ['All', 'Music Packs', 'Visual Art', 'Game Assets', 'App Templates', 'Planners & Calendars', 'E-Books & Guides'];
+    const filterButtonsContainer = document.getElementById('filter-buttons');
+    const productBlocks = document.querySelectorAll('.product-block');
+
+    // Generate filter buttons dynamically
+    categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.classList.add('filter-btn');
+        btn.textContent = cat;
+        filterButtonsContainer.appendChild(btn);
+
+        // Set 'All' active by default
+        if (cat === 'All') btn.classList.add('active');
+
+        btn.addEventListener('click', () => {
+            // Toggle active button
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Show/hide products
+            productBlocks.forEach(block => {
+                const category = block.getAttribute('data-category');
+                if (cat === 'All' || category === cat) {
+                    block.classList.remove('hidden');
+                } else {
+                    block.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+</script>
+
+</main>
+</body>
+</html>

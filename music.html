@@ -1,245 +1,127 @@
+<!--
+===================================================
+File: music.html
+Purpose: Music showcase page for Triad of Angels & ToA Studios
+Notes: Divided into 2 clear sections (Triad of Angels & ToA Studios), with clear comments for updating albums, embeds, and filters.
+===================================================
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Explore Triad of Angels music: cinematic pop, angelic harmonies, and inspiring soundscapes." />
-    <title>Music | Triad of Angels</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-        /* Music Page Specific Styles */
-
-        .music-hero {
-            padding: 100px 20px 40px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .music-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .music-hero p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .music-hero .cta-button {
-            margin-top: 15px;
-        }
-
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin: 30px auto 40px;
-            max-width: 800px;
-        }
-
-        .categories button {
-            padding: 8px 18px;
-            border: 2px solid #f1c40f;
-            background: transparent;
-            color: #f1c40f;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .categories button:hover {
-            background: #f1c40f;
-            color: #000;
-        }
-
-        .album-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
-        }
-
-        .album-card {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            background: #1a1a1a;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            max-width: 900px;
-            width: 100%;
-        }
-
-        .album-card img {
-            width: 250px;
-            object-fit: cover;
-        }
-
-        .album-info {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .album-info h2 {
-            margin-bottom: 10px;
-            font-size: 1.8rem;
-        }
-
-        .album-info p {
-            margin-bottom: 10px;
-            font-size: 1rem;
-            color: #ccc;
-        }
-
-        .album-info .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #f1c40f;
-            color: #000;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: background 0.3s;
-        }
-
-        .album-info .btn:hover {
-            background: #d4ac0d;
-        }
-
-        .platforms {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            background: #111;
-        }
-
-        .platforms h3 {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .platforms a {
-            display: inline-block;
-            margin: 5px 10px;
-            color: #f1c40f;
-            font-weight: bold;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .album-card {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .album-card img {
-                width: 100%;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore all music from Triad of Angels and ToA Studios: cinematic pop, country, soundtracks, and more.">
+    <title>Music | Triad of Angels & ToA Studios</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="music.html">Music</a></li>
-                <li><a href="visual.html">Visual</a></li>
-                <li><a href="games.html">Games</a></li>
-                <li><a href="apps.html">Apps</a></li>
-                <li><a href="merch.html">Merch</a></li>
-                <li><a href="publishing.html">Publishing</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="visual.html">Visual</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="apps.html">Apps</a></li>
+            <li><a href="merch.html">Merch</a></li>
+            <li><a href="publishing.html">Publishing</a></li>
+            <li><a href="digital-store.html">Digital Store</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- ? FULL-PAGE HERO BANNER SECTION -->
-    <section class="hero-banner">
-        <video autoplay muted loop playsinline class="background-video">
-            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
-            <!-- fallback image -->
-            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels">
-        </video>
-        <div class="hero-content">
-            <h1>Triad of Angels</h1>
-            <p>Hope. Strength. Fire. Innovation.</p>
-            <a href="music.html" class="cta-button">Listen Now</a>
+<!-- ? HERO BANNER -->
+<section class="hero-banner">
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+        <img src="assets/images/hero-banner.jpg" alt="Triad of Angels">
+    </video>
+    <div class="hero-content">
+        <h1>Triad of Angels - Music</h1>
+        <p>Discover the power of cinematic sound & creative artistry.</p>
+    </div>
+</section>
+
+<main>
+
+    <!-- =================================================== -->
+    <!-- TRIAD OF ANGELS SECTION -->
+    <!-- =================================================== -->
+    <section class="music-section" style="padding: 40px 20px;">
+        <h2>Triad of Angels (Band)</h2>
+        <p>Official releases by Samantha, Jessica, and Sonya.</p>
+
+        <div class="album-grid">
+            <!-- Album 1: Wings of Fire -->
+            <div class="album-item">
+                <img src="assets/images/wings-of-fire.jpg" alt="Wings of Fire Album Cover" style="width:100%; border-radius:8px;">
+                <h3>Wings of Fire</h3>
+                <p>Released: 2025<br>Cinematic Pop · Inspirational</p>
+                <!-- Embed: Spotify Player -->
+                <iframe style="border-radius:12px; width:100%; height:152px;" src="https://open.spotify.com/embed/album/PUT-ALBUM-ID-HERE" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+            <!-- Add more Triad of Angels albums here -->
         </div>
     </section>
-	
-    <main>
-        <section class="music-hero">
-            <h1>Triad of Angels - Music</h1>
-            <p>Cinematic Pop, Angelic Harmonies, and More</p>
-            <a href="#albums" class="cta-button">Explore Music</a>
-        </section>
 
-        <section class="categories">
-            <button>All</button>
-            <button>Cinematic Pop</button>
-            <button>Inspirational</button>
-            <button>Orchestral</button>
-            <button>Ambient</button>
-            <button>Experimental</button>
-            <button>Healing</button>
-            <button>Soundtrack</button>
-        </section>
+    <!-- =================================================== -->
+    <!-- TOA STUDIOS SECTION -->
+    <!-- =================================================== -->
+    <section class="music-section" style="padding: 40px 20px; background: #1a1a1a;">
+        <h2>ToA Studios (Label)</h2>
+        <p>All other music projects, genres, and collaborations.</p>
 
-        <section id="albums" class="album-section">
-            <!-- Album 1 -->
-            <div class="album-card">
-                <img src="assets/images/wings-of-fire-cover.jpg" alt="Wings of Fire Album Cover" />
-                <div class="album-info">
-                    <h2>Wings of Fire</h2>
-                    <p>Released: 2025</p>
-                    <p>Genres: Cinematic Pop, Inspirational</p>
-                    <a href="https://open.spotify.com/album/YOUR-SPOTIFY-ALBUM-ID" target="_blank" class="btn">Listen Now</a>
-                </div>
+        <div class="album-grid">
+            <!-- Album: Echoes on the Dirt Road -->
+            <div class="album-item">
+                <img src="assets/images/echoes-album.jpg" alt="Echoes on the Dirt Road Cover" style="width:100%; border-radius:8px;">
+                <h3>Echoes on the Dirt Road</h3>
+                <p>Expected: May 2025<br>Country · Acoustic</p>
+                <!-- Embed: Spotify or relevant player -->
+                <iframe style="border-radius:12px; width:100%; height:152px;" src="https://open.spotify.com/embed/album/PUT-ALBUM-ID-HERE" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             </div>
+            <!-- Add more ToA Studios albums here -->
+        </div>
+    </section>
 
-            <!-- Album 2 -->
-            <div class="album-card">
-                <img src="assets/images/ascend-cover.jpg" alt="Ascend Album Cover" />
-                <div class="album-info">
-                    <h2>Ascend (Coming Soon)</h2>
-                    <p>Expected: 2025</p>
-                    <p>Genres: Orchestral, Ambient</p>
-                    <p>Stay tuned for this uplifting and inspiring new release.</p>
-                </div>
-            </div>
+    <!-- =================================================== -->
+    <!-- CATEGORIES (OPTIONAL) -->
+    <!-- =================================================== -->
+    <section class="categories" style="padding: 30px 20px; text-align:center;">
+        <h3>Explore by Genre</h3>
+        <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+            <button class="filter-button">All</button>
+            <button class="filter-button">Cinematic Pop</button>
+            <button class="filter-button">Country</button>
+            <button class="filter-button">Orchestral</button>
+            <button class="filter-button">Ambient</button>
+            <button class="filter-button">Soundtrack</button>
+            <!-- Add or remove categories as needed -->
+        </div>
+        <p style="margin-top: 10px; font-size: 0.85em; color: #aaa;">*Categories are for browsing ease only. (Filters can be scripted if needed)</p>
+    </section>
+        <section class="quick-links">
+            <div><a href="music.html">Music</a></div>
+            <div><a href="visual.html">Visual</a></div>
+            <div><a href="games.html">Games</a></div>
+            <div><a href="apps.html">Apps</a></div>
+            <div><a href="merch.html">Merch</a></div>
+            <div><a href="digital-store.html">Digital Store</a></div>	
         </section>
+</main>
 
-        <section class="platforms">
-            <h3>Available On:</h3>
-            <a href="#" target="_blank">Spotify</a>
-            <a href="#" target="_blank">Apple Music</a>
-            <a href="#" target="_blank">Deezer</a>
-            <a href="#" target="_blank">Amazon Music</a>
-            <a href="#" target="_blank">Tidal</a>
-            <a href="#" target="_blank">YouTube Music</a>
-            <a href="#" target="_blank">SoundCloud</a>
-            <a href="#" target="_blank">Bandcamp</a>
-        </section>
-    </main>
+<footer>
+    <p>© 2025 Triad of Angels / ToA Studios. All rights reserved.</p>
+    <p>
+        <a href="https://www.instagram.com/triadofangels" target="_blank">Instagram</a> |
+        <a href="https://www.youtube.com/@triadofangels_new" target="_blank">YouTube</a> |
+        <a href="https://open.spotify.com/artist/PUT-YOUR-SPOTIFY-ID-HERE" target="_blank">Spotify</a>
+    </p>
+    <p style="margin-top:10px; font-size: 0.8em; color: #aaa;">Triad of Angels is the flagship band under ToA Studios.</p>
+</footer>
 
-    <footer>
-        <p>© 2025 Triad of Angels. All rights reserved.</p>
-        <p>
-            <a href="https://www.instagram.com/triadofangels" target="_blank">Instagram</a> |
-            <a href="https://www.youtube.com/@triadofangels_new" target="_blank">YouTube</a> |
-            <a href="https://open.spotify.com/artist/YOUR-SPOTIFY-ARTIST-ID" target="_blank">Spotify</a>
-        </p>
-    </footer>
 </body>
 </html>
