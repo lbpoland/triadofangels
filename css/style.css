@@ -1,32 +1,57 @@
-/* Triad of Angels - Main Stylesheet */
+/* 
+========================================================
+Triad of Angels - Main Stylesheet (Optimized & Enhanced)
+--------------------------------------------------------
+• Reset & Base
+• Navigation
+• Hero Section (Sticky Scrolling Video)
+• Sections (Featured, About, Quick Links)
+• Footer
+• Responsive Enhancements
+• Accessibility & Performance Tweaks
+========================================================
+*/
 
-/* Reset + Base */
-* {
+/* Reset + Base Styles */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #0b0c10;
     color: #f5f5f5;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* Universal Link Style */
 a {
     color: #f1c40f;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-a:hover {
+a:hover,
+a:focus {
     text-decoration: underline;
+    color: #d4ac0d;
+    outline: none;
 }
 
 /* Navigation */
 header {
     background: #1f1f1f;
-    padding: 15px;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 header nav ul {
@@ -34,37 +59,47 @@ header nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-header nav ul li {
-    margin: 0 15px;
+    gap: 20px;
 }
 
 header nav ul li a {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
 }
 
-/* HERO SECTION (NEW & IMPROVED) */
+header nav ul li a:hover,
+header nav ul li a:focus {
+    background: #333;
+}
+
+/* HERO SECTION - Sticky Scrolling Background Video */
 .hero-banner {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-    background: url("../assets/images/hero-banner.png") no-repeat center center fixed;
-    background-size: cover;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero-banner::after {
-    content: '';
-    position: absolute;
+.background-video {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* dark overlay */
-    z-index: 1;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-banner::after {
+    content: none; /* Remove the overlay entirely */
 }
 
 .hero-content {
@@ -73,29 +108,26 @@ header nav ul li a {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #ffffff;
+    color: #fff;
     z-index: 2;
-    padding: 0 20px;
+    padding: 0; /* remove padding entirely */
+    max-width: none; /* remove any max-width blocky feel */
+    background: none; /* make sure no background */
+    box-shadow: none;
 }
 
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    text-shadow: none; /* Remove text shadow if making it cleaner */
+    background: none;
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-}
-
-.background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
+    text-shadow: none;
+    background: none;
 }
 
 .cta-button {
@@ -108,75 +140,196 @@ header nav ul li a {
     border-radius: 30px;
     font-weight: bold;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.cta-button:hover {
+.cta-button:hover,
+.cta-button:focus {
     background: #d4ac0d;
     color: #000;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    text-decoration: none;
+    outline: none;
 }
 
-/* Featured Section */
+/* Featured Section - now semi-transparent */
 .featured {
-    padding: 50px 20px;
+    padding: 60px 20px;
     text-align: center;
+    background: rgba(11, 12, 16, 0.85); /* 85% opacity */
+    backdrop-filter: blur(5px); /* Optional: subtle blur effect */
 }
 
-.featured h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-/* About Preview */
+/* About Preview Section - semi-transparent */
 .about-preview {
-    background: #1a1a1a;
-    padding: 50px 20px;
+    background: rgba(26, 26, 26, 0.85);
+    padding: 60px 20px;
     text-align: center;
+    backdrop-filter: blur(5px);
 }
 
-.about-preview h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-/* Quick Links */
+/* Quick Links Grid - semi-transparent */
 .quick-links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
     padding: 40px 20px;
-    background: #111;
+    background: rgba(17, 17, 17, 0.85);
     text-align: center;
+    backdrop-filter: blur(5px);
 }
 
-.quick-links div {
-    padding: 20px;
-    background: #222;
+/* Quick Link individual block (keeps solid but could also be adjusted if needed) */
+.quick-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    background: rgba(34, 34, 34, 0.9);
     border-radius: 8px;
-    transition: transform 0.3s, background 0.3s;
+    font-weight: bold;
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+    backdrop-filter: blur(2px);
 }
 
-.quick-links div:hover {
+
+.quick-link:hover,
+.quick-link:focus {
     transform: translateY(-5px);
     background: #333;
+    color: #f1c40f;
+    text-decoration: none;
+    outline: none;
 }
 
 /* Footer */
 footer {
     background: #1f1f1f;
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
     font-size: 0.9rem;
     color: #aaa;
+    line-height: 1.6;
 }
 
-/* Responsive */
+footer p {
+    margin: 8px 0;
+}
+
+/* Make footer links more touch-friendly */
+footer a {
+    margin: 0 5px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #f1c40f;
+    text-decoration: none;
+    outline: none;
+}
+
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+    header nav ul {
+        gap: 10px;
+    }
+
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .hero-content p {
         font-size: 1rem;
     }
+
+    .quick-links {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+}
+
+/* Performance: Remove outlines from videos/images when clicked */
+img,
+video {
+    outline: none;
+}
+
+/* ===============================
+   Section Backgrounds for INNER Pages
+   (Music, About, etc.)
+   -------------------------------
+   - Adds stronger backgrounds ONLY on inner pages.
+   - Each page <body> tag should have a unique class, e.g.:
+     <body class="music-page">
+     <body class="about-page">
+================================ */
+
+/* Example: music page sections */
+body.index-page section:not(.hero-banner),
+body.visual-page section:not(.hero-banner),
+body.music-page section:not(.hero-banner),
+body.about-page section:not(.hero-banner),
+body.games-page section:not(.hero-banner),
+body.apps-page section:not(.hero-banner),
+body.merch-page section:not(.hero-banner),
+body.publishing-page section:not(.hero-banner),
+body.contact-page section:not(.hero-banner),
+body.visual-page section:not(.hero-banner),
+body.privacy-page section:not(.hero-banner),
+body.terms-page section:not(.hero-banner),
+body.digital-store-page section:not(.hero-banner) {
+    background: rgba(0, 0, 0, 0.75);  /* 75% opaque for readability */
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Optional: if you want the text inside to stay bright */
+body.index-page section h1,
+body.index-page section h2,
+body.index-page section p,
+body.visual-page section h1,
+body.visual-page section h2,
+body.visual-page section p,
+body.music-page section h1,
+body.music-page section h2,
+body.music-page section p,
+body.about-page section h1,
+body.about-page section h2,
+body.about-page section p,
+body.games-page section h1,
+body.games-page section h2,
+body.games-page section p,
+body.apps-page section h1,
+body.apps-page section h2,
+body.apps-page section p,
+body.merch-page section h1,
+body.merch-page section h2,
+body.merch-page section p,
+body.publishing-page section h1,
+body.publishing-page section h2,
+body.publishing-page section p,
+body.contact-page section h1,
+body.contact-page section h2,
+body.contact-page section p,
+body.visual-page section h1,
+body.visual-page section h2,
+body.visual-page section p,
+body.privacy-page section h1,
+body.privacy-page section h2,
+body.privacy-page section p,
+body.terms-page section h1,
+body.terms-page section h2,
+body.terms-page section p,
+body.digital-store-page section h1,
+body.digital-store-page section h2,
+body.digital-store-page section p {
+    color: #FFFFFF;
 }

@@ -1,10 +1,13 @@
-<!--
-===================================================
+<!-- ===================================================
 File: music.html
-Purpose: Music showcase page for Triad of Angels & ToA Studios
-Notes: Divided into 2 clear sections (Triad of Angels & ToA Studios), with clear comments for updating albums, embeds, and filters.
-===================================================
--->
+Purpose: Full music showcase for Triad of Angels & ToA Studios
+Includes:
+? Hero banner
+? Genre filters
+? Featured albums/singles
+? Artist profile links
+? Footer with social + legal
+=================================================== -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,113 +18,119 @@ Notes: Divided into 2 clear sections (Triad of Angels & ToA Studios), with clear
     <title>Music | Triad of Angels & ToA Studios</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="visual.html">Visual</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="apps.html">Apps</a></li>
-            <li><a href="merch.html">Merch</a></li>
-            <li><a href="publishing.html">Publishing</a></li>
-            <li><a href="digital-store.html">Digital Store</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
 
-<!-- ? HERO BANNER -->
-<section class="hero-banner">
-    <video autoplay muted loop playsinline class="background-video">
-        <source src="assets/videos/hero-banner.mp4" type="video/mp4">
-        <img src="assets/images/hero-banner.jpg" alt="Triad of Angels">
-    </video>
-    <div class="hero-content">
-        <h1>Triad of Angels - Music</h1>
-        <p>Discover the power of cinematic sound & creative artistry.</p>
-    </div>
-</section>
+<body class="music-page">
 
-<main>
+    <!-- ========================================
+    HEADER NAVIGATION
+    ======================================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="visual.html">Visual</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="publishing.html">Publishing</a></li>
+                <li><a href="digital-store.html">Digital Store</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- =================================================== -->
-    <!-- TRIAD OF ANGELS SECTION -->
-    <!-- =================================================== -->
-    <section class="music-section" style="padding: 40px 20px;">
-        <h2>Triad of Angels (Band)</h2>
-        <p>Official releases by Samantha, Jessica, and Sonya.</p>
+    <!-- ========================================
+    HERO BANNER (No background block, text only)
+    ======================================== -->
+    <section class="hero-banner">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels">
+        </video>
+        <div class="hero-content" style="background: none; box-shadow: none;">
+            <h1>Triad of Angels - Featured Music</h1>
+            <p>Showcasing cinematic sound, creativity, and innovation.</p>
+        </div>
+    </section>
 
-        <div class="album-grid">
-            <!-- Album 1: Wings of Fire -->
-            <div class="album-item">
-                <img src="assets/images/wings-of-fire.jpg" alt="Wings of Fire Album Cover" style="width:100%; border-radius:8px;">
-                <h3>Wings of Fire</h3>
-                <p>Released: 2025<br>Cinematic Pop · Inspirational</p>
-                <!-- Embed: Spotify Player -->
-                <iframe style="border-radius:12px; width:100%; height:152px;" src="https://open.spotify.com/embed/album/PUT-ALBUM-ID-HERE" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <main>
+        <!-- ========================================
+        GENRE FILTERS (Static for now, can wire with JS later)
+        ======================================== -->
+        <section class="categories" style="text-align:center;">
+            <h3>Browse by Genre</h3>
+            <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <button class="filter-button">All</button>
+                <button class="filter-button">Cinematic Pop</button>
+                <button class="filter-button">Country</button>
+                <button class="filter-button">Orchestral</button>
+                <button class="filter-button">Ambient</button>
+                <button class="filter-button">Soundtrack</button>
+                <button class="filter-button">Electronic</button>
+                <button class="filter-button">Acoustic</button>
+                <button class="filter-button">Rock</button>
+                <button class="filter-button">Experimental</button>
             </div>
-            <!-- Add more Triad of Angels albums here -->
-        </div>
-    </section>
-
-    <!-- =================================================== -->
-    <!-- TOA STUDIOS SECTION -->
-    <!-- =================================================== -->
-    <section class="music-section" style="padding: 40px 20px; background: #1a1a1a;">
-        <h2>ToA Studios (Label)</h2>
-        <p>All other music projects, genres, and collaborations.</p>
-
-        <div class="album-grid">
-            <!-- Album: Echoes on the Dirt Road -->
-            <div class="album-item">
-                <img src="assets/images/echoes-album.jpg" alt="Echoes on the Dirt Road Cover" style="width:100%; border-radius:8px;">
-                <h3>Echoes on the Dirt Road</h3>
-                <p>Expected: May 2025<br>Country · Acoustic</p>
-                <!-- Embed: Spotify or relevant player -->
-                <iframe style="border-radius:12px; width:100%; height:152px;" src="https://open.spotify.com/embed/album/PUT-ALBUM-ID-HERE" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            </div>
-            <!-- Add more ToA Studios albums here -->
-        </div>
-    </section>
-
-    <!-- =================================================== -->
-    <!-- CATEGORIES (OPTIONAL) -->
-    <!-- =================================================== -->
-    <section class="categories" style="padding: 30px 20px; text-align:center;">
-        <h3>Explore by Genre</h3>
-        <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-            <button class="filter-button">All</button>
-            <button class="filter-button">Cinematic Pop</button>
-            <button class="filter-button">Country</button>
-            <button class="filter-button">Orchestral</button>
-            <button class="filter-button">Ambient</button>
-            <button class="filter-button">Soundtrack</button>
-            <!-- Add or remove categories as needed -->
-        </div>
-        <p style="margin-top: 10px; font-size: 0.85em; color: #aaa;">*Categories are for browsing ease only. (Filters can be scripted if needed)</p>
-    </section>
-        <section class="quick-links">
-            <div><a href="music.html">Music</a></div>
-            <div><a href="visual.html">Visual</a></div>
-            <div><a href="games.html">Games</a></div>
-            <div><a href="apps.html">Apps</a></div>
-            <div><a href="merch.html">Merch</a></div>
-            <div><a href="digital-store.html">Digital Store</a></div>	
+            <p style="margin-top: 10px; font-size: 0.85em; color: #aaa;">*Explore by clicking; dynamic filters coming soon.</p>
         </section>
-</main>
 
-<footer>
-    <p>© 2025 Triad of Angels / ToA Studios. All rights reserved.</p>
-    <p>
-        <a href="https://www.instagram.com/triadofangels" target="_blank">Instagram</a> |
-        <a href="https://www.youtube.com/@triadofangels_new" target="_blank">YouTube</a> |
-        <a href="https://open.spotify.com/artist/PUT-YOUR-SPOTIFY-ID-HERE" target="_blank">Spotify</a>
-    </p>
-    <p style="margin-top:10px; font-size: 0.8em; color: #aaa;">Triad of Angels is the flagship band under ToA Studios.</p>
-</footer>
+        <!-- ========================================
+        FEATURED ALBUMS & SINGLES SECTION
+        ======================================== -->
+        <section class="featured-music" style="padding: 40px 20px;">
+            <h2 style="text-align: center; margin-bottom: 20px;">Featured Albums & Singles</h2>
+            <div class="album-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <!-- Triad of Angels - Wings of Fire Album -->
+                <div>
+                        <a href="https://open.spotify.com/artist/57KgHoxG7paxKh3Q4pLXvP" target="_blank">Triad of Angels on Spotify</a>				
+                    <iframe style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/4K83YJEeETmcybKtQ1LP5l?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <p style="text-align: center; margin-top: 10px;">
+
+				<!-- Add More Albums for Triad of Angels here -->	
+                </div>
+
+                <!-- ToA Studios - Probed & Confused Album -->
+                <div>
+                        <a href="https://open.spotify.com/artist/40BdnWGmvTVO60uEp1MLrA" target="_blank">ToA Studios on Spotify</a>				
+                    <iframe style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/5pdZRwo8VXH3sxTZzqsUjN?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <p style="text-align: center; margin-top: 10px;">
+						
+				<!-- Add More Albums for ToA Studios here -->			
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================
+    FOOTER SECTION (Legal + Social)
+    ======================================== -->
+    <footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
+        <p>&copy; 2025 ToA Studios & Triad of Angels. All rights reserved.</p>
+
+        <!-- Legal Links -->
+        <p>
+            <a href="index.html">Home</a> |
+            <a href="terms.html">Terms & Conditions</a> |
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="contact.html">Contact</a>
+        </p>
+
+        <!-- Line Separator -->
+        <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
+
+        <!-- Social Icons -->
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+            <a href="https://www.tiktok.com/@triadofangels" target="_blank"><img src="assets/icons/tiktok-icon.svg" alt="TikTok" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.instagram.com/triadofangels/" target="_blank"><img src="assets/icons/instagram-icon.svg" alt="Instagram" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.youtube.com/@triadofangels_new" target="_blank"><img src="assets/icons/youtube-icon.svg" alt="YouTube" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.facebook.com/triadofangels" target="_blank"><img src="assets/icons/facebook-icon.svg" alt="Facebook" style="width: 30px; height: 30px;"></a>
+            <a href="https://x.com/triadofangels" target="_blank"><img src="assets/icons/x-icon.svg" alt="X (Twitter)" style="width: 30px; height: 30px;"></a>
+        </div>
+    </footer>
 
 </body>
 </html>
+
