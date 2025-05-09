@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Triad of Angels - Advanced MUD Client Portal">
+    <title>MUD Portal | Triad of Angels</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mud.css">
+</head>
+<body class="mud-page">
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="mud.html">MUD Portal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero-banner">
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+        <img src="assets/images/hero-banner.jpg" alt="Triad of Angels">
+    </video>
+    <div class="hero-content">
+        <h1>Triad of Angels Advanced MUD Client</h1>
+        <p>Connect to your favorite MUD worlds directly in-browser with advanced features, fullscreen mode, customizable UI, logging, aliases, sound, color modes, and more.</p>
+        <button onclick="enterFullscreen()" class="cta-button">Enter Fullscreen Mode</button>
+    </div>
+</section>
+
+<main style="padding: 40px; max-width: 1400px; margin: auto;">
+    <div class="mud-client-container">
+        <div class="mud-client-left">
+            <h2>Client Window</h2>
+            <div id="mudOutput" class="mud-output"></div>
+            <input id="mudCommand" type="text" placeholder="Type your command here..." class="mud-input">
+            <div class="mud-controls">
+                <button onclick="sendCommand()">Send</button>
+                <button onclick="clearOutput()">Clear</button>
+                <button onclick="connectToServer('mud.example.com', 4000)">Connect</button>
+                <button onclick="disconnectServer()">Disconnect</button>
+            </div>
+        </div>
+
+        <div class="mud-client-right">
+            <h2>Options</h2>
+            <label><input type="checkbox" id="colorToggle"> Enable Colors</label><br>
+            <label><input type="checkbox" id="soundToggle"> Enable Sound</label><br>
+            <label><input type="checkbox" id="logToggle"> Enable Logging</label><br>
+            <label><input type="checkbox" id="compactModeToggle"> Compact Mode</label><br>
+            <label><input type="checkbox" id="autoScrollToggle"> Auto-Scroll</label>
+
+            <h3>Aliases</h3>
+            <input type="text" id="aliasKey" placeholder="Alias (e.g. l)">
+            <input type="text" id="aliasValue" placeholder="Command (e.g. look)">
+            <button onclick="addAlias(document.getElementById('aliasKey').value, document.getElementById('aliasValue').value)">Add</button>
+            <button onclick="removeAlias(document.getElementById('aliasKey').value)">Remove</button>
+        </div>
+    </div>
+
+    <section class="mud-info">
+        <h2>What is a MUD?</h2>
+        <p>A MUD (Multi-User Dungeon) is a multiplayer real-time virtual world, typically text-based, where players explore, roleplay, and interact. This client connects via a WebSocket proxy to MUD servers and provides an enriched, modern experience with advanced tools.</p>
+        <p><a href="https://www.topmudsites.com/" target="_blank">🔗 Visit Top MUD Sites</a> to discover popular servers and get connection info.</p>
+        <p>✨ Features include: advanced logging, multi-tab connections (coming soon), theme switching (dark/light), customizable fonts, macro setups, scrollback buffer, and more!</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 ToA Studios & Triad of Angels. All rights reserved.</p>
+    <p>
+        <a href="terms.html">Terms</a> |
+        <a href="privacy.html">Privacy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+</footer>
+
+<script src="js/mud-client.js"></script>
+<script>
+function enterFullscreen() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+    }
+}
+</script>
+</body>
+</html>
