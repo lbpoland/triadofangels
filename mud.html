@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Triad of Angels - Advanced MUD Client Portal">
+    <meta name="description" content="Triad of Angels - Ultimate Advanced MUD Client Portal">
     <title>MUD Portal | Triad of Angels</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mud.css">
@@ -28,49 +28,59 @@
         <img src="assets/images/hero-banner.jpg" alt="Triad of Angels">
     </video>
     <div class="hero-content">
-        <h1>Triad of Angels Advanced MUD Client</h1>
-        <p>Connect to your favorite MUD worlds directly in-browser with advanced features, fullscreen mode, customizable UI, logging, aliases, sound, color modes, and more.</p>
-        <button onclick="enterFullscreen()" class="cta-button">Enter Fullscreen Mode</button>
+        <h1>Triad of Angels Ultimate MUD Client</h1>
+        <p>Elite browser-based client with advanced features: multi-tab, scripting, logging, customizable themes, sound triggers, macros, mapping tools & more.</p>
     </div>
 </section>
 
-<main style="padding: 40px; max-width: 1400px; margin: auto;">
-    <div class="mud-client-container">
-        <div class="mud-client-left">
-            <h2>Client Window</h2>
-            <div id="mudOutput" class="mud-output"></div>
-            <input id="mudCommand" type="text" placeholder="Type your command here..." class="mud-input">
-            <div class="mud-controls">
-                <button onclick="sendCommand()">Send</button>
-                <button onclick="clearOutput()">Clear</button>
-                <button onclick="connectToServer('mud.example.com', 4000)">Connect</button>
-                <button onclick="disconnectServer()">Disconnect</button>
-            </div>
+<main style="padding: 40px; max-width: 1600px; margin: auto; display: flex; gap: 20px;">
+    <div class="mud-client-panel" style="flex: 3; background: rgba(0,0,0,0.85); padding: 20px; border-radius: 10px;">
+        <div class="client-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>Client Console</h2>
+            <button onclick="toggleFullscreenClient()">Fullscreen Console</button>
         </div>
-
-        <div class="mud-client-right">
-            <h2>Options</h2>
-            <label><input type="checkbox" id="colorToggle"> Enable Colors</label><br>
-            <label><input type="checkbox" id="soundToggle"> Enable Sound</label><br>
-            <label><input type="checkbox" id="logToggle"> Enable Logging</label><br>
-            <label><input type="checkbox" id="compactModeToggle"> Compact Mode</label><br>
-            <label><input type="checkbox" id="autoScrollToggle"> Auto-Scroll</label>
-
-            <h3>Aliases</h3>
-            <input type="text" id="aliasKey" placeholder="Alias (e.g. l)">
-            <input type="text" id="aliasValue" placeholder="Command (e.g. look)">
-            <button onclick="addAlias(document.getElementById('aliasKey').value, document.getElementById('aliasValue').value)">Add</button>
-            <button onclick="removeAlias(document.getElementById('aliasKey').value)">Remove</button>
+        <div id="mudTabs">
+            <!-- Dynamic tab creation -->
+            <button onclick="addNewTab()">+ Add Tab</button>
+        </div>
+        <div id="mudOutput" class="mud-output"></div>
+        <input id="mudCommand" type="text" placeholder="Type your command here..." class="mud-input">
+        <div class="mud-controls">
+            <button onclick="sendCommand()">Send</button>
+            <button onclick="clearOutput()">Clear</button>
+            <button onclick="connectToServer()">Connect</button>
+            <button onclick="disconnectServer()">Disconnect</button>
+            <button onclick="openMacroPanel()">Macros</button>
+            <button onclick="openScriptingPanel()">Scripting</button>
+            <button onclick="openMappingPanel()">Map</button>
         </div>
     </div>
 
-    <section class="mud-info">
-        <h2>What is a MUD?</h2>
-        <p>A MUD (Multi-User Dungeon) is a multiplayer real-time virtual world, typically text-based, where players explore, roleplay, and interact. This client connects via a WebSocket proxy to MUD servers and provides an enriched, modern experience with advanced tools.</p>
-        <p><a href="https://www.topmudsites.com/" target="_blank">🔗 Visit Top MUD Sites</a> to discover popular servers and get connection info.</p>
-        <p>✨ Features include: advanced logging, multi-tab connections (coming soon), theme switching (dark/light), customizable fonts, macro setups, scrollback buffer, and more!</p>
-    </section>
+    <aside style="flex: 1; background: rgba(20,20,20,0.9); padding: 20px; border-radius: 10px;">
+        <h2>Options</h2>
+        <label><input type="checkbox" id="colorToggle"> Enable Colors</label><br>
+        <label><input type="checkbox" id="soundToggle"> Enable Sound Triggers</label><br>
+        <label><input type="checkbox" id="logToggle"> Enable Logging</label><br>
+        <label><input type="checkbox" id="autoScrollToggle"> Auto-Scroll</label><br>
+        <label><input type="checkbox" id="themeToggle" onchange="toggleTheme()"> Dark/Light Theme</label>
+
+        <h3>Aliases & Macros</h3>
+        <input type="text" id="aliasKey" placeholder="Alias (e.g. l)">
+        <input type="text" id="aliasValue" placeholder="Command (e.g. look)">
+        <button onclick="addAlias()">Add Alias</button>
+        <button onclick="removeAlias()">Remove Alias</button>
+
+        <h3>🎵 Music Player</h3>
+        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <small>*Enjoy music from Triad of Angels & ToA Studios while you adventure!</small>
+    </aside>
 </main>
+
+<section class="mud-info" style="padding: 20px; max-width: 1600px; margin: 30px auto; background: rgba(0,0,0,0.7); border-radius: 10px;">
+    <h2>What is a MUD?</h2>
+    <p>A MUD (Multi-User Dungeon) is a real-time multiplayer text-based world. This client offers advanced tools: multi-tab sessions, scripting support, triggers, color modes, alias/macro systems, and in-browser mapping for power users.</p>
+    <p><a href="https://www.topmudsites.com/" target="_blank">🔗 Visit Top MUD Sites</a> for popular servers and connection info.</p>
+</section>
 
 <footer>
     <p>&copy; 2025 ToA Studios & Triad of Angels. All rights reserved.</p>
@@ -83,14 +93,18 @@
 
 <script src="js/mud-client.js"></script>
 <script>
-function enterFullscreen() {
-    const elem = document.documentElement;
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-        elem.msRequestFullscreen();
+function toggleFullscreenClient() {
+    const elem = document.querySelector('.mud-client-panel');
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    } else {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
     }
 }
 </script>

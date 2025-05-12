@@ -1,143 +1,187 @@
 <!--
-===================================================
+===================================================================================
 File: about.html
-Purpose: About page for Triad of Angels + ToA Studios clarification
-Notes: Updated with ToA Studios explanation + footer clean-up.
-===================================================
+Page: About | Triad of Angels + ToA Studios
+-----------------------------------------------------------------------------------
+• Purpose: Describe the brand's vision, mission, angel lineup, and introduce ToA Studios.
+• Sections: Header nav, Hero, Our Story, Mission, ToA Studios, Meet the Angels, CTA
+• Future Additions: Bios expansion, embedded video feature, timeline, photo grid
+• Status: Accessibility-Enhanced / SEO Ready / Future-Scalable
+===================================================================================
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about Triad of Angels: our story, mission, and the label ToA Studios.">
-    <title>About | Triad of Angels & ToA Studios</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Triad of Angels: our mission, vision, and the powerhouse creative label ToA Studios.">
+  <meta name="keywords" content="Triad of Angels, ToA Studios, music brand, creative label, angels, sonic, futuristic music, inspiring artists">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="About | Triad of Angels">
+  <meta property="og:description" content="Triad of Angels is more than a band. Discover the vision behind ToA Studios and meet the angels.">
+  <meta property="og:image" content="https://www.triadofangels.com/assets/images/og-banner.jpg">
+  <meta property="og:url" content="https://www.triadofangels.com/about.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <title>About | Triad of Angels & ToA Studios</title>
 </head>
+
 <body class="about-page">
-<header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="visual.html">Visual</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="apps.html">Apps</a></li>
-            <li><a href="merch.html">Merch</a></li>
-            <li><a href="publishing.html">Publishing</a></li>
-            <li><a href="digital-store.html">Digital Store</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+
+<!-- ========== HEADER NAVIGATION ==========
+Global navigation reused from index. ARIA enabled.
+-->
+<header role="banner">
+  <nav role="navigation" aria-label="Main site navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="visual.html">Visual</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="publishing.html">Publishing</a></li>
+      <li><a href="digital-store.html">Digital Store</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- ? HERO BANNER -->
-<section class="hero-banner">
-    <video autoplay muted loop playsinline class="background-video">
-        <source src="assets/videos/hero-banner.mp4" type="video/mp4">
-        <img src="assets/images/hero-banner.jpg" alt="Triad of Angels">
-    </video>
-    <div class="hero-content">
-        <h1>About Triad of Angels</h1>
-        <p>Hope. Strength. Fire. Innovation.</p>
-    </div>
+<!-- ========== HERO BANNER ==========
+Same visual identity as homepage — can be customized per page with different overlays later.
+-->
+<section class="hero-banner" aria-label="About page hero banner">
+  <video autoplay muted loop playsinline class="background-video" aria-hidden="true">
+    <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+    <img src="assets/images/hero-banner.jpg" alt="Visual banner background for Triad of Angels About Page">
+  </video>
+  <div class="hero-content">
+    <h1>About Triad of Angels</h1>
+    <p>Hope. Strength. Fire. Innovation.</p>
+  </div>
 </section>
+<main role="main">
 
-<main>
-    <section class="hero">
-        <h1>Our Story</h1>
-        <p>Where hope, strength, and fire meet creativity.</p>
-    </section>
+  <!-- ========== OUR STORY SECTION ==========
+  Intro mission for Triad of Angels. Expandable with timeline or origin video embed.
+  -->
+  <section class="hero" aria-labelledby="story-title">
+    <h1 id="story-title">Our Story</h1>
+    <p>Where hope, strength, and fire meet creativity.</p>
+  </section>
 
-    <section class="about-story" style="padding: 40px 20px; max-width: 800px; margin: auto; text-align: center;">
-        <h2>Who We Are</h2>
-        <p>Triad of Angels was born from a vision: to create a movement that transcends music and media, weaving together sound, visuals, technology, and pure creative fire. We are not just a band—we are a force for inspiration, strength, and innovation in a world that craves authenticity.</p>
-    </section>
+  <!-- ========== ABOUT IDENTITY ==========
+  More brand context here. Future: Add scroll animations or brand evolution highlights.
+  -->
+  <section class="about-story" style="padding: 40px 20px; max-width: 800px; margin: auto; text-align: center;" aria-labelledby="about-identity">
+    <h2 id="about-identity">Who We Are</h2>
+    <p>Triad of Angels was born from a vision: to create a movement that transcends music and media, weaving together sound, visuals, technology, and pure creative fire. We are not just a band—we are a force for inspiration, strength, and innovation in a world that craves authenticity.</p>
+  </section>
 
-    <section class="about-mission" style="background: #1a1a1a; padding: 40px 20px; text-align: center;">
-        <h2>Our Mission</h2>
-        <p>We aim to push the boundaries of what's possible across music, gaming, visual media, apps, and more. Our mission is to inspire, empower, and uplift through every beat, every visual, every story we tell.</p>
-    </section>
+  <!-- ========== MISSION STATEMENT ==========
+  Deep brand purpose. Consider adding a visual background or video loop behind text in future.
+  -->
+  <section class="about-mission" style="background: #1a1a1a; padding: 40px 20px; text-align: center;" aria-labelledby="mission-title">
+    <h2 id="mission-title">Our Mission</h2>
+    <p>We aim to push the boundaries of what's possible across music, gaming, visual media, apps, and more. Our mission is to inspire, empower, and uplift through every beat, every visual, every story we tell.</p>
+  </section>
 
-    <!-- ? NEW SECTION: ToA Studios Overview -->
-    <section class="about-label" style="padding: 40px 20px; text-align: center; max-width: 800px; margin: auto;">
-        <h2>About ToA Studios</h2>
-        <p>ToA Studios is the creative umbrella and record label behind Triad of Angels. While Triad of Angels is our flagship band—bringing angelic harmonies and fierce energy to global audiences—ToA Studios powers a wide range of music projects, visual creations, apps, games, and more. Everything we do is connected by a mission to inspire and innovate.</p>
-    </section>
+  <!-- ========== TOA STUDIOS SECTION ==========
+  Label explanation. Expandable with a carousel or timeline of projects/brands.
+  -->
+  <section class="about-label" style="padding: 40px 20px; text-align: center; max-width: 800px; margin: auto;" aria-labelledby="toa-title">
+    <h2 id="toa-title">About ToA Studios</h2>
+    <p>ToA Studios is the creative umbrella and record label behind Triad of Angels. While Triad of Angels is our flagship band—bringing angelic harmonies and fierce energy to global audiences—ToA Studios powers a wide range of music projects, visual creations, apps, games, and more. Everything we do is connected by a mission to inspire and innovate.</p>
+  </section>
 
-    <section class="about-bios" style="padding: 40px 20px; text-align: center;">
-        <h2>Meet the Angels</h2>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: auto;">
-            <div style="flex: 1 1 250px; background: #222; padding: 20px; border-radius: 8px;">
-                <h3>Samantha</h3>
-                <p></p>
-            </div>
-            <div style="flex: 1 1 250px; background: #222; padding: 20px; border-radius: 8px;">
-                <h3>Jessica</h3>
-                <p></p>
-            </div>
-            <div style="flex: 1 1 250px; background: #222; padding: 20px; border-radius: 8px;">
-                <h3>Sonya</h3>
-                <p></p>
-            </div>
-        </div>
-    </section>
-
-    <section style="padding: 40px 20px; text-align: center;">
-        <p>Want to connect or collaborate? <a href="contact.html">Get in touch ?</a></p>
-    </section>
-	
-</main>
-
-<footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
-
-    <p>&copy; 2025 Triad of Angels. All rights reserved.</p>
-
-    <!-- Legal + Core Links -->
-    <p>
-        <a href="index.html">Home</a> |
-        <a href="terms.html">Terms & Conditions</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="contact.html">Contact</a>
-    </p>
-
-    <!-- Stylish line separator -->
-    <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
-
-    <!-- Social Media Icons Section -->
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
-
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/tiktok-icon.svg" alt="TikTok" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/triadofangels/" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/instagram-icon.svg" alt="Instagram" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- YouTube -->
-        <a href="https://www.youtube.com/@triadofangels_new" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/youtube-icon.svg" alt="YouTube" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/facebook-icon.svg" alt="Facebook" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- X (Twitter) -->
-        <a href="https://x.com/triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/x-icon.svg" alt="X (Twitter)" style="width: 30px; height: 30px;">
-        </a>
-
+  <!-- ========== MEET THE ANGELS ==========
+  This section can include artist bios, links to individual projects or social profiles.
+  -->
+  <section class="about-bios" style="padding: 40px 20px; text-align: center;" aria-labelledby="meet-title">
+    <h2 id="meet-title">Meet the Angels</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: auto;">
+      <div style="flex: 1 1 250px; background: #222; padding: 20px; border-radius: 8px;">
+        <h3>Samantha</h3>
+        <p><!-- TODO: Add bio or quote here --></p>
+      </div>
+      <div style="flex: 1 1 250px; background: #222; padding: 20px; border-radius: 8px;">
+        <h3>Jessica</h3>
+        <p><!-- TODO: Add bio or quote here --></p>
+      </div>
+      <div style="flex: 1 1 250px; background: #222; padding: 20px; border-radius: 8px;">
+        <h3>Sonya</h3>
+        <p><!-- TODO: Add bio or quote here --></p>
+      </div>
     </div>
+  </section>
+
+  <!-- ========== COLLAB CALL TO ACTION ==========
+  Can expand this with a form or social CTA bar.
+  -->
+  <section style="padding: 40px 20px; text-align: center;" aria-label="Contact invitation">
+    <p>Want to connect or collaborate? <a href="contact.html">Get in touch ?</a></p>
+  </section>
+
+</main>
+<!-- ========== GLOBAL FOOTER ==========
+Includes legal links + social icons.
+Future Ideas: Add newsletter sign-up, press kit, or dynamic recent activity feed.
+-->
+<footer role="contentinfo" style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
+
+  <p>&copy; 2025 Triad of Angels. All rights reserved.</p>
+
+  <!-- Footer Navigation (Static) -->
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+
+  <!-- Divider Line -->
+  <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
+
+  <!-- SOCIAL MEDIA ICONS -->
+  <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;" aria-label="Social media links">
+<!-- TikTok -->
+<a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="TikTok" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/tiktok-icon.svg" alt="TikTok icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>TikTok</span>
+</a>
+<!-- Instagram -->
+<a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/instagram-icon.svg" alt="Instagram icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>Instagram</span>
+</a>
+<!-- YouTube -->
+<a href="https://www.youtube.com/@triadofangels_new" target="_blank" rel="noopener" aria-label="YouTube" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/youtube-icon.svg" alt="YouTube icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>YouTube</span>
+</a>
+<!-- Facebook -->
+<a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/facebook-icon.svg" alt="Facebook icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>Facebook</span>
+</a>
+<!-- Facebook -->
+<a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/x-icon.svg" alt="X (Twitter) icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>X (Twitter)</span>
+</a>
+</a>
+  </div>
 
 </footer>
 
+<!-- OPTIONAL BEHAVIOR SCRIPT (Smooth Scroll, JS Hooks for Expansion) -->
+<script>
+  document.documentElement.style.scrollBehavior = 'smooth';
+</script>
 
 </body>
 </html>

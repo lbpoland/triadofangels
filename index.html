@@ -1,150 +1,199 @@
 <!-- 
-===========================================
+==============================================================================
 Triad of Angels - Official Website: Home Page (index.html)
--------------------------------------------
-• Purpose: This is the landing page of the Triad of Angels brand, designed to present an immersive introduction, highlight key offerings (music, visual, games, etc.), and showcase the latest album.
+------------------------------------------------------------------------------
+• PURPOSE:
+  This is the primary landing page of the Triad of Angels ecosystem. It introduces the universe of the brand,
+  including its music, visuals, games, apps, and philosophy of hope, strength, fire, and innovation.
 
-• Key Sections:
-    1?? Header Navigation - Top menu for site-wide navigation.
-    2?? Full Hero Banner - Full-width video/image banner with brand slogan + CTA.
-    3?? Featured Album Section - Embedded latest album preview + link.
-    4?? About Preview - Quick brand mission/vision.
-    5?? Quick Links Grid - Shortcut to core brand sections.
-    6?? Footer - Social links + copyright.
+• STRUCTURE OVERVIEW:
+  1. Metadata (SEO, social, structured data)
+  2. Header Navigation (ARIA + keyboard nav accessible)
+  3. Hero Banner (video + CTA)
+  4. Featured Album Embed (Spotify)
+  5. About Preview
+  6. Footer (socials + legal)
 
-• Notes:
-    - The hero section uses a looping video (MP4) with a fallback image for unsupported browsers.
-    - Replace placeholder Spotify/YouTube/Instagram links + Album ID.
-    - All assets (images/videos) are stored in /assets/images/ and /assets/videos/.
-===========================================
+• DEV NOTES:
+  - All core brand sections are covered and easy to expand (e.g., news, announcements, seasonal features).
+  - Fully responsive, lazy-loading images, screen reader-friendly, Open Graph + JSON-LD schema included.
+  - Use external CSS/JS files for style and dynamic interaction scalability.
+
+• LAST UPDATE:
+  Enhanced and accessibility-optimized: 2025-05-11
+==============================================================================
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Triad of Angels - Music, Visual Media, Games, Apps, Merch, and more. Join the movement of hope, strength, and fire.">
-    <title>Triad of Angels | Official Website</title>
-    <link rel="stylesheet" href="css/style.css">
+  <!-- ========== GLOBAL METADATA (SEO, SOCIAL, MOBILE) ========== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Triad of Angels - Music, Visual Media, Games, Apps, Merch, and more. Join the movement of hope, strength, and fire.">
+  <meta name="keywords" content="Triad of Angels, music, art, games, ToA Studios, creativity, innovation, hope, fire">
+  <meta name="author" content="Triad of Angels">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Triad of Angels | Official Website">
+  <meta property="og:description" content="Triad of Angels is a cosmic creative force uniting music, visuals, games and more into one brand of fire.">
+  <meta property="og:image" content="https://www.triadofangels.com/assets/images/og-banner.jpg">
+  <meta property="og:url" content="https://www.triadofangels.com">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ========== STRUCTURED DATA (JSON-LD) ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Triad of Angels",
+    "url": "https://www.triadofangels.com",
+    "logo": "https://www.triadofangels.com/assets/images/logo.png",
+    "sameAs": [
+      "https://www.youtube.com/@triadofangels_new",
+      "https://www.instagram.com/triadofangels/",
+      "https://www.tiktok.com/@triadofangels",
+      "https://www.facebook.com/triadofangels",
+      "https://x.com/triadofangels"
+    ]
+  }
+  </script>
+
+  <title>Triad of Angels | Official Website</title>
 </head>
 
 <body class="index-page">
-    <!-- ========================================
-    HEADER NAVIGATION
-    - Global site navigation bar
-    ======================================== -->
-    <header>
-        <nav>
-            <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="visual.html">Visual</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="apps.html">Apps</a></li>
-            <li><a href="merch.html">Merch</a></li>
-            <li><a href="publishing.html">Publishing</a></li>
-            <li><a href="digital-store.html">Digital Store</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- ========================================
-    FULL-PAGE HERO BANNER
-    - Background video + fallback image
-    - Main CTA to Music Page
-    ======================================== -->
-    <section class="hero-banner">
-        <video autoplay muted loop playsinline class="background-video">
-            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
-            <!-- Fallback image shown if video is not supported -->
-            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels Hero Banner">
-        </video>
-        <div class="hero-content">
-            <h1>Triad of Angels</h1>
-            <p>Hope. Strength. Fire. Innovation.</p>
-            <a href="music.html" class="cta-button">Listen Now</a>
-        </div>
+  <!-- ========== HEADER NAVIGATION BAR ========== 
+  Contains all global nav links for site access. Expandable for drop-down menus in future.
+  -->
+  <header role="banner">
+    <nav role="navigation" aria-label="Main site navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="visual.html">Visual</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="publishing.html">Publishing</a></li>
+        <li><a href="digital-store.html">Digital Store</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- ========== HERO BANNER SECTION ==========
+  Hero includes: looping video, fallback image, brand message, and CTA.
+  Future Tip: Swap video seasonally or during major album releases.
+  -->
+  <section class="hero-banner" aria-label="Main hero banner with video and call-to-action">
+    <video autoplay muted loop playsinline class="background-video" aria-hidden="true">
+      <source src="assets/videos/hero-banner.mp4" type="video/mp4">
+      <img src="assets/images/hero-banner.jpg" alt="Fallback image: cosmic banner for Triad of Angels">
+    </video>
+    <div class="hero-content">
+      <h1>Triad of Angels</h1>
+      <p>Hope. Strength. Fire. Innovation.</p>
+      <a href="music.html" class="cta-button" aria-label="Go to Music page">Listen Now</a>
+    </div>
+  </section>
+
+  <!-- ========== MAIN CONTENT START ========== -->
+  <main role="main">
+
+    <!-- ========== FEATURED ALBUM SECTION ==========
+    Embedded Spotify album player.
+    Dev Tip: You can swap this iframe link when new albums are released.
+    To embed another source, like Apple Music, follow same container styling.
+    -->
+    <section class="featured" aria-labelledby="album-title">
+      <h2 id="album-title">New Album: Wings of Fire</h2>
+      <iframe style="border-radius:12px"
+              src="https://open.spotify.com/embed/album/4K83YJEeETmcybKtQ1LP5l?utm_source=generator"
+              width="100%"
+              height="352"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Spotify embed for Wings of Fire album">
+      </iframe>
+      <p><a href="music.html">Explore All Music</a></p>
     </section>
 
-    <!-- ========================================
-    MAIN PAGE CONTENT START
-    ======================================== -->
-    <main>
+    <!-- ========== ABOUT PREVIEW SECTION ==========
+    Short intro to Triad of Angels purpose and identity.
+    Dev Tip: Can extend this section with a "Meet the Team" or "Founders’ Vision" segment.
+    -->
+    <section class="about-preview" aria-labelledby="about-title">
+      <h2 id="about-title">About Triad of Angels</h2>
+      <p>
+        Triad of Angels is a cutting-edge creative force blending music, visual media, games, apps, and more.
+        Rooted in hope, strength, and pure innovation, we build worlds that inspire and ignite.
+      </p>
+      <p><a href="about.html">Learn More</a></p>
+    </section>
 
-        <!-- ========================================
-        FEATURED ALBUM SECTION
-        - Embedded Spotify iframe for Wings of Fire
-        - Notes: Replace "PUT-YOUR-ALBUM-ID-HERE" with actual Spotify album ID.
-        ======================================== -->
-        <section class="featured">
-            <h2>New Album: Wings of Fire</h2>
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/4K83YJEeETmcybKtQ1LP5l?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <p><a href="music.html">Explore All Music</a></p>
-        </section>
-
-        <!-- ========================================
-        ABOUT PREVIEW SECTION
-        - Quick intro/mission statement of Triad of Angels.
-        ======================================== -->
-        <section class="about-preview">
-            <h2>About Triad of Angels</h2>
-            <p>Triad of Angels is a cutting-edge creative force blending music, visual media, games, apps, and more. Rooted in hope, strength, and pure innovation, we build worlds that inspire and ignite.</p>
-            <p><a href="about.html">Learn More</a></p>
-        </section>
-
-
-    </main>
-
-<footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
-
+  </main>
+  <!-- ========== GLOBAL FOOTER ==========
+  Includes: Legal pages, contact, social media icons.
+  Future Tip: You can extend this footer with newsletter sign-up, recent blog links, or dynamic feed.
+  -->
+  <footer role="contentinfo" style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
     <p>&copy; 2025 Triad of Angels. All rights reserved.</p>
 
-    <!-- Legal + Core Links -->
+    <!-- Footer Nav: Legal + Utility -->
     <p>
-        <a href="index.html">Home</a> |
-        <a href="terms.html">Terms & Conditions</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a> |
+      <a href="terms.html">Terms & Conditions</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="contact.html">Contact</a>
     </p>
 
-    <!-- Stylish line separator -->
+    <!-- Visual Divider -->
     <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
 
-    <!-- Social Media Icons Section -->
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+  <!-- SOCIAL MEDIA ICONS -->
+  <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;" aria-label="Social media links">
+<!-- TikTok -->
+<a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="TikTok" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/tiktok-icon.svg" alt="TikTok icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>TikTok</span>
+</a>
+<!-- Instagram -->
+<a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/instagram-icon.svg" alt="Instagram icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>Instagram</span>
+</a>
+<!-- YouTube -->
+<a href="https://www.youtube.com/@triadofangels_new" target="_blank" rel="noopener" aria-label="YouTube" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/youtube-icon.svg" alt="YouTube icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>YouTube</span>
+</a>
+<!-- Facebook -->
+<a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/facebook-icon.svg" alt="Facebook icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>Facebook</span>
+</a>
+<!-- X -->
+<a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+  <img src="assets/icons/x-icon.svg" alt="X (Twitter) icon" style="width: 24px; height: 24px;" loading="lazy">
+  <span>X (Twitter)</span>
+</a>
+</a>
+  </div>
+  </footer>
 
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/tiktok-icon.svg" alt="TikTok" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/triadofangels/" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/instagram-icon.svg" alt="Instagram" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- YouTube -->
-        <a href="https://www.youtube.com/@triadofangels_new" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/youtube-icon.svg" alt="YouTube" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/facebook-icon.svg" alt="Facebook" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- X (Twitter) -->
-        <a href="https://x.com/triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/x-icon.svg" alt="X (Twitter)" style="width: 30px; height: 30px;">
-        </a>
-
-    </div>
-
-</footer>
-
+  <!-- ========== ACCESSIBILITY / BEHAVIOR ENHANCEMENTS ==========
+  This section ensures smooth scrolling and user experience on all devices.
+  Extend with more scripts like keyboard shortcuts or screen reader enhancements.
+  -->
+  <script>
+    document.documentElement.style.scrollBehavior = 'smooth';
+  </script>
 
 </body>
 </html>

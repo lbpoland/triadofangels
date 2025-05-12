@@ -20,287 +20,258 @@ NOTES:
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Shop exclusive digital products from Triad of Angels & ToA Studios: music packs, visuals, game assets & more." />
-    <title>Digital Store | Triad of Angels</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-        /* ======================================
-           INLINE STYLES SPECIFIC TO THIS PAGE
-           ====================================== */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shop exclusive digital products from Triad of Angels & ToA Studios: music packs, visuals, game assets & more." />
+  <title>Digital Store | Triad of Angels</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ============= PAGE-SPECIFIC STYLES ============= */
 
-        .filter-btn {
-            margin: 5px;
-            padding: 10px 20px;
-            background: #333;
-            color: #f5f5f5;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s, color 0.3s;
-        }
-        .filter-btn:hover, .filter-btn.active {
-            background: #f1c40f;
-            color: #000;
-        }
-        .product-block {
-            background: #222;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            opacity: 1;
-            transform: scale(1);
-            transition: all 0.3s ease;
-        }
-        .product-block.hidden {
-            opacity: 0;
-            transform: scale(0.95);
-            pointer-events: none;
-        }
-    </style>
+    .filter-btn {
+      margin: 5px;
+      padding: 10px 20px;
+      background: #333;
+      color: #f5f5f5;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #f1c40f;
+      color: #000;
+    }
+
+    .product-block {
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.3s ease;
+    }
+
+    .product-block.hidden {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+
+    .no-products-message {
+      text-align: center;
+      margin-top: 30px;
+      color: #ccc;
+      font-size: 1em;
+    }
+  </style>
 </head>
 
 <body class="digital-store-page">
 
-<!-- ==========================
-     NAVIGATION BAR (HEADER)
-============================== -->
-
-<header>
+  <!-- HEADER -->
+  <header>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="visual.html">Visual</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="apps.html">Apps</a></li>
-            <li><a href="merch.html">Merch</a></li>
-            <li><a href="publishing.html">Publishing</a></li>
-            <li><a href="digital-store.html">Digital Store</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="visual.html">Visual</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="publishing.html">Publishing</a></li>
+        <li><a href="digital-store.html">Digital Store</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<!-- ================================
-     HERO BANNER SECTION (VIDEO IMG)
-==================================== -->
-
-<section class="hero-banner">
+  <!-- HERO BANNER -->
+  <section class="hero-banner">
     <video autoplay muted loop playsinline class="background-video">
-        <source src="assets/videos/hero-banner.mp4" type="video/mp4" />
-        <img src="assets/images/hero-banner.jpg" alt="Triad of Angels" />
+      <source src="assets/videos/hero-banner.mp4" type="video/mp4" />
+      <img src="assets/images/hero-banner.jpg" alt="Triad of Angels Hero Banner" />
     </video>
     <div class="hero-content">
-        <h1>Digital Store</h1>
-        <p>Explore exclusive digital products: music packs, visual art, game assets, templates & more.</p>
+      <h1>Digital Store</h1>
+      <p>Explore exclusive digital products: music packs, visual art, game assets, templates & more.</p>
     </div>
-</section>
+  </section>
 
-<!-- =========================================
-     CATEGORY FILTER BUTTONS SECTION
-     INSTRUCTIONS:
-     - Categories are dynamically created in JS.
-     - Add new categories in the 'categories' array in the script.
-============================================= -->
+  <main role="main">
+    <!-- CATEGORY FILTER -->
+    <section style="padding: 30px 20px; text-align: center;">
+      <h2>Browse by Category</h2>
+      <div id="filter-buttons" style="margin-top: 15px;" role="group" aria-label="Filter products by category">
+        <!-- Filter buttons added via JavaScript -->
+      </div>
+    </section>
+    <!-- PRODUCTS GRID -->
+    <section class="products-grid" style="padding: 40px 20px;">
+      <div class="products-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
 
-<main>
-<section style="padding: 30px 20px; text-align: center;">
-    <h2>Browse by Category</h2>
-    <div id="filter-buttons" style="margin-top: 15px;">
-        <!-- Filter buttons auto-generated here by JS -->
-    </div>
-</section>
-
-<!-- ==================================================
-     PRODUCTS GRID SECTION
-     INSTRUCTIONS:
-     - Each product is inside a <div class="product-block">.
-     - Make sure each product has:
-       * data-category="Matching Category Name"
-       * An image, title, description, and links.
-     - To add more products, copy & paste a full product-block.
-==================================================== -->
-
-<section class="products-grid" style="padding: 40px 20px;">
-    <div class="products-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-
-        <!-- ========== PRODUCT: MUSIC PACK EXAMPLE ========== -->
+        <!-- ========== PRODUCT BLOCK TEMPLATE ========== -->
+        <!-- Music Pack -->
         <div class="product-block" data-category="Music Packs">
-			<p>Coming Soon!<p>
-			<!--           
-		   <img src="assets/images/music-pack1.jpg" alt="Epic Sound Pack Vol. 1" style="width:100%; border-radius:8px; margin-bottom: 15px;">
-            <h3>Epic Sound Pack Vol. 1</h3>
-            <p>High-quality loops & samples for cinematic productions. WAV format, 100% royalty-free.</p>
-            <a href="#" target="_blank">Buy Now (ToA Store)</a><br>
-            <a href="#" target="_blank">Also on Etsy</a>
-        -->
-		</div>
+          <h3>🎵 Music Packs</h3>
+          <p>Coming Soon!</p>
+        </div>
 
-        <!-- ========== PRODUCT: VISUAL ART EXAMPLE ========== -->
+        <!-- Visual Art -->
         <div class="product-block" data-category="Visual Art">
-            			<p>Coming Soon!<p>
-			<!--
-			<img src="assets/images/visual-pack1.jpg" alt="Celestial Art Pack" style="width:100%; border-radius:8px; margin-bottom: 15px;">
-            <h3>Celestial Art Pack</h3>
-            <p>10 stunning high-res digital artworks for personal & commercial use.</p>
-            <a href="#" target="_blank">Buy Now (ToA Store)</a>
-        -->
-		</div>
+          <h3>🎨 Visual Art</h3>
+          <p>Coming Soon!</p>
+        </div>
 
-        <!-- ========== PRODUCT: GAME ASSET EXAMPLE ========== -->
+        <!-- Game Assets -->
         <div class="product-block" data-category="Game Assets">
-            			<p>Coming Soon!<p>
-			<!--
-			<img src="assets/images/game-assets1.jpg" alt="Fantasy Sprite Pack" style="width:100%; border-radius:8px; margin-bottom: 15px;">
-            <h3>Fantasy Sprite Pack</h3>
-            <p>40+ 2D sprites for RPG & fantasy games. PNG & PSD formats.</p>
-            <a href="#" target="_blank">Buy Now (ToA Store)</a>
-            -->
-		</div>
+          <h3>🕹️ Game Assets</h3>
+          <p>Coming Soon!</p>
+        </div>
 
-        <!-- ========== PRODUCT: APP TEMPLATE EXAMPLE ========== -->
+        <!-- App Templates -->
         <div class="product-block" data-category="App Templates">
-            			<p>Coming Soon!<p>
-			<!--
-			<img src="assets/images/app-template1.jpg" alt="Productivity App Template" style="width:100%; border-radius:8px; margin-bottom: 15px;">
-            <h3>Productivity App Template</h3>
-            <p>Starter code & UI kit for a cross-platform task manager app. Flutter.</p>
-            <a href="#" target="_blank">Learn More / Download</a>
-            -->    
-		</div>
+          <h3>📱 App Templates</h3>
+          <p>Coming Soon!</p>
+        </div>
 
-        <!-- ========== PRODUCT: PLANNERS & CALENDARS EXAMPLE ========== -->
+        <!-- Planners -->
         <div class="product-block" data-category="Planners & Calendars">
-			<p>Coming Soon!<p>
-			<!--
-            <img src="assets/images/calendar-pack1.jpg" alt="2025 Angelic Calendar" style="width:100%; border-radius:8px; margin-bottom: 15px;">
-            <h3>2025 Angelic Calendar (Printable)</h3>
-            <p>12-page PDF calendar with ethereal designs. A4 & Letter sizes.</p>
-            <a href="#" target="_blank">Buy Now (ToA Store)</a>
-            -->
+          <h3>📅 Planners & Calendars</h3>
+          <p>Coming Soon!</p>
         </div>
 
-        <!-- ========== PRODUCT: E-BOOK EXAMPLE ========== -->
+        <!-- E-Books -->
         <div class="product-block" data-category="E-Books & Guides">
-            <img src="assets/images/ebook1.jpg" alt="Lyrics & Stories Vol. 1" style="width:100%; border-radius:8px; margin-bottom: 15px;">
-			<p>Coming Soon!<p>
-			<!--
-            <h3>Lyrics & Stories Vol. 1</h3>
-            <p>Full lyrics & background stories from the Wings of Fire album. PDF & ePub.</p>
-            <a href="#" target="_blank">Buy Now (ToA Store)</a>
-            -->
+          <h3>📖 E-Books & Guides</h3>
+          <p>Coming Soon!</p>
         </div>
 
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- ===================================================
-     COMING SOON SECTION
-     INSTRUCTIONS:
-     - Simple placeholder for upcoming products or collections.
-======================================================= -->
+    <!-- COMING SOON BLOCK -->
+    <section style="padding: 40px 20px; text-align: center;">
+      <h2>More Coming Soon</h2>
+      <p>We’re always building. Stay tuned for new bundles, digital merch drops, and experimental formats.</p>
+    </section>
+    <!-- FOOTER -->
+    <footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
 
-<section style="padding: 40px 20px; text-align: center;">
-    <h2>Coming Soon</h2>
-    <p>We are always creating! Stay tuned for new digital releases & exclusive bundles.</p>
-</section>
+      <p>&copy; 2025 Triad of Angels. All rights reserved.</p>
 
-	
-<footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
-
-    <p>&copy; 2025 Triad of Angels. All rights reserved.</p>
-
-    <!-- Legal + Core Links -->
-    <p>
+      <!-- Legal Navigation -->
+      <p>
         <a href="index.html">Home</a> |
         <a href="terms.html">Terms & Conditions</a> |
         <a href="privacy.html">Privacy Policy</a> |
         <a href="contact.html">Contact</a>
-    </p>
+      </p>
 
-    <!-- Stylish line separator -->
-    <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
+      <!-- Divider -->
+      <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
 
-    <!-- Social Media Icons Section -->
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
-
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/tiktok-icon.svg" alt="TikTok" style="width: 30px; height: 30px;">
+      <!-- SOCIAL MEDIA ICONS + LABELS -->
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;" aria-label="Social media links">
+        <a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="TikTok"
+           style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+          <img src="assets/icons/tiktok-icon.svg" alt="TikTok icon" style="width: 24px; height: 24px;" loading="lazy">
+          <span>TikTok</span>
         </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/triadofangels/" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/instagram-icon.svg" alt="Instagram" style="width: 30px; height: 30px;">
+        <a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Instagram"
+           style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+          <img src="assets/icons/instagram-icon.svg" alt="Instagram icon" style="width: 24px; height: 24px;" loading="lazy">
+          <span>Instagram</span>
         </a>
-
-        <!-- YouTube -->
-        <a href="https://www.youtube.com/@triadofangels_new" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/youtube-icon.svg" alt="YouTube" style="width: 30px; height: 30px;">
+        <a href="https://www.youtube.com/@triadofangels_new" target="_blank" rel="noopener" aria-label="YouTube"
+           style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+          <img src="assets/icons/youtube-icon.svg" alt="YouTube icon" style="width: 24px; height: 24px;" loading="lazy">
+          <span>YouTube</span>
         </a>
-
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/facebook-icon.svg" alt="Facebook" style="width: 30px; height: 30px;">
+        <a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Facebook"
+           style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+          <img src="assets/icons/facebook-icon.svg" alt="Facebook icon" style="width: 24px; height: 24px;" loading="lazy">
+          <span>Facebook</span>
         </a>
-
-        <!-- X (Twitter) -->
-        <a href="https://x.com/triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/x-icon.svg" alt="X (Twitter)" style="width: 30px; height: 30px;">
+        <a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="X (Twitter)"
+           style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+          <img src="assets/icons/x-icon.svg" alt="X icon" style="width: 24px; height: 24px;" loading="lazy">
+          <span>X</span>
         </a>
+      </div>
 
-    </div>
+    </footer>
+    <!-- CATEGORY FILTER SCRIPT -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const categories = [
+        'All',
+        'Music Packs',
+        'Visual Art',
+        'Game Assets',
+        'App Templates',
+        'Planners & Calendars',
+        'E-Books & Guides'
+      ];
 
-</footer>
+      const filterButtonsContainer = document.getElementById('filter-buttons');
+      const productBlocks = document.querySelectorAll('.product-block');
 
+      // Clear old buttons just in case
+      filterButtonsContainer.innerHTML = '';
 
-<!-- =========================================
-     FILTER SCRIPT (Dynamic Categories + Logic)
-     INSTRUCTIONS:
-     - Edit 'categories' array to add/remove categories.
-     - Products must have matching data-category="Name".
-============================================= -->
+      // Create buttons
+      categories.forEach(category => {
+        const button = document.createElement('button');
+        button.classList.add('filter-btn');
+        button.textContent = category;
+        button.setAttribute('aria-pressed', category === 'All' ? 'true' : 'false');
+        button.setAttribute('aria-label', `Filter by category: ${category}`);
+        if (category === 'All') button.classList.add('active');
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const categories = ['All', 'Music Packs', 'Visual Art', 'Game Assets', 'App Templates', 'Planners & Calendars', 'E-Books & Guides'];
-    const filterButtonsContainer = document.getElementById('filter-buttons');
-    const productBlocks = document.querySelectorAll('.product-block');
+        button.addEventListener('click', () => {
+          // Reset other buttons
+          document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-pressed', 'false');
+          });
 
-    // Generate filter buttons dynamically
-    categories.forEach(cat => {
-        const btn = document.createElement('button');
-        btn.classList.add('filter-btn');
-        btn.textContent = cat;
-        filterButtonsContainer.appendChild(btn);
+          button.classList.add('active');
+          button.setAttribute('aria-pressed', 'true');
 
-        // Set 'All' active by default
-        if (cat === 'All') btn.classList.add('active');
+          let shown = 0;
 
-        btn.addEventListener('click', () => {
-            // Toggle active button
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+          productBlocks.forEach(block => {
+            const cat = block.getAttribute('data-category');
+            const match = category === 'All' || cat === category;
+            block.classList.toggle('hidden', !match);
+            if (match) shown++;
+          });
 
-            // Show/hide products
-            productBlocks.forEach(block => {
-                const category = block.getAttribute('data-category');
-                if (cat === 'All' || category === cat) {
-                    block.classList.remove('hidden');
-                } else {
-                    block.classList.add('hidden');
-                }
-            });
+          const existingNotice = document.querySelector('.no-products-message');
+          if (existingNotice) existingNotice.remove();
+
+          if (shown === 0) {
+            const notice = document.createElement('div');
+            notice.className = 'no-products-message';
+            notice.setAttribute('role', 'alert');
+            notice.textContent = 'No products available in this category yet.';
+            filterButtonsContainer.parentNode.appendChild(notice);
+          }
         });
-    });
-});
-</script>
 
-</main>
+        filterButtonsContainer.appendChild(button);
+      });
+    });
+    </script>
+
+  </main>
 </body>
 </html>
+

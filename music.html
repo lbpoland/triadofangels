@@ -1,138 +1,167 @@
 <!-- ===================================================
 File: music.html
-Purpose: Full music showcase for Triad of Angels & ToA Studios
+Purpose: Complete music showcase for Triad of Angels & ToA Studios
 Includes:
-? Hero banner
-? Genre filters
-? Featured albums/singles
-? Artist profile links
-? Footer with social + legal
+• Hero banner with video
+• Genre filters
+• Full artist profile sections
+• Responsive embeds
+• Accessible, labeled footer with icons and names
+• Efficient filter system with JavaScript
 =================================================== -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore all music from Triad of Angels and ToA Studios: cinematic pop, country, soundtracks, and more.">
-    <title>Music | Triad of Angels & ToA Studios</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore music from Triad of Angels and ToA Studios: cinematic pop, country, soundtracks, and more." />
+  <title>Music | Triad of Angels & ToA Studios</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .filter-btn {
+      margin: 5px;
+      padding: 10px 20px;
+      background: #333;
+      color: #f5f5f5;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #f1c40f;
+      color: #000;
+    }
+    .music-block {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.3s ease;
+    }
+    .music-block.hidden {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+  </style>
 </head>
-
 <body class="music-page">
 
-    <!-- ========================================
-    HEADER NAVIGATION
-    ======================================== -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="music.html">Music</a></li>
-                <li><a href="visual.html">Visual</a></li>
-                <li><a href="games.html">Games</a></li>
-                <li><a href="apps.html">Apps</a></li>
-                <li><a href="merch.html">Merch</a></li>
-                <li><a href="publishing.html">Publishing</a></li>
-                <li><a href="digital-store.html">Digital Store</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="visual.html">Visual</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="publishing.html">Publishing</a></li>
+      <li><a href="digital-store.html">Digital Store</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <!-- ========================================
-    HERO BANNER (No background block, text only)
-    ======================================== -->
-    <section class="hero-banner">
-        <video autoplay muted loop playsinline class="background-video">
-            <source src="assets/videos/hero-banner.mp4" type="video/mp4">
-            <img src="assets/images/hero-banner.jpg" alt="Triad of Angels">
-        </video>
-        <div class="hero-content" style="background: none; box-shadow: none;">
-            <h1>Triad of Angels - Featured Music</h1>
-            <p>Showcasing cinematic sound, creativity, and innovation.</p>
-        </div>
-    </section>
+<section class="hero-banner">
+  <video autoplay muted loop playsinline class="background-video">
+    <source src="assets/videos/hero-banner.mp4" type="video/mp4" />
+    <img src="assets/images/hero-banner.jpg" alt="Triad of Angels banner fallback image" />
+  </video>
+  <div class="hero-content" style="background: none; box-shadow: none;">
+    <h1>Triad of Angels - Music Collection</h1>
+    <p>Soundtracks of strength, spirit, and innovation</p>
+  </div>
+</section>
 
-    <main>
-        <!-- ========================================
-        GENRE FILTERS (Static for now, can wire with JS later)
-        ======================================== -->
-        <section class="categories" style="text-align:center;">
-            <h3>Browse by Genre</h3>
-            <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                <button class="filter-button">All</button>
-                <button class="filter-button">Cinematic Pop</button>
-                <button class="filter-button">Country</button>
-                <button class="filter-button">Orchestral</button>
-                <button class="filter-button">Ambient</button>
-                <button class="filter-button">Soundtrack</button>
-                <button class="filter-button">Electronic</button>
-                <button class="filter-button">Acoustic</button>
-                <button class="filter-button">Rock</button>
-                <button class="filter-button">Experimental</button>
-            </div>
-            <p style="margin-top: 10px; font-size: 0.85em; color: #aaa;">*Explore by clicking; dynamic filters coming soon.</p>
-        </section>
+<main>
+<section class="categories" style="text-align:center; padding: 40px 20px;">
+  <h3>Browse by Genre</h3>
+  <div id="filter-buttons" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+    <!-- Buttons injected by JS -->
+  </div>
+  <p style="margin-top: 10px; font-size: 0.85em; color: #aaa;">*Filter by clicking on genres</p>
+</section>
 
-        <!-- ========================================
-        FEATURED ALBUMS & SINGLES SECTION
-        ======================================== -->
-        <section class="featured-music" style="padding: 40px 20px;">
-            <h2 style="text-align: center; margin-bottom: 20px;">Featured Albums & Singles</h2>
-            <div class="album-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <!-- Triad of Angels - Wings of Fire Album -->
-                <div>
-                        <a href="https://open.spotify.com/artist/57KgHoxG7paxKh3Q4pLXvP" target="_blank">Triad of Angels on Spotify</a>				
-                    <iframe style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/4K83YJEeETmcybKtQ1LP5l?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    <p style="text-align: center; margin-top: 10px;">
+<section style="padding: 40px 20px;">
+  <h2 style="text-align:center;">Triad of Angels – Albums & Singles</h2>
+  <div style="text-align:center; margin: 10px 0 20px;">
+    <a href="https://open.spotify.com/artist/57KgHoxG7paxKh3Q4pLXvP" target="_blank" rel="noopener" class="cta-button" style="padding: 10px 20px; background: #f1c40f; color: #000; border-radius: 5px;">View on Spotify</a>
+  </div>
+  <div class="album-grid">
+    <iframe class="music-block" data-category="Cinematic Pop" style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/4K83YJEeETmcybKtQ1LP5l?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <iframe class="music-block" data-category="Orchestral" style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/5EetoHOZzPFoLGfM7XzTim?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  </div>
+</section>
 
-				<!-- Add More Albums for Triad of Angels here -->	
-                </div>
+<section style="padding: 40px 20px;">
+  <h2 style="text-align:center;">ToA Studios – Artist Releases</h2>
+  <div style="text-align:center; margin: 10px 0 20px;">
+    <a href="https://open.spotify.com/artist/40BdnWGmvTVO60uEp1MLrA" target="_blank" rel="noopener" class="cta-button" style="padding: 10px 20px; background: #f1c40f; color: #000; border-radius: 5px;">View on Spotify</a>
+  </div>
+  <div class="album-grid">
+    <iframe class="music-block" data-category="Soundtrack" style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/5pdZRwo8VXH3sxTZzqsUjN?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <iframe class="music-block" data-category="Electronic" style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/0y1rCdAJggJMoFvX1FFKDe?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <iframe class="music-block" data-category="Ambient" style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/5xqK1MMJrhPOcPM58zjlvE?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <iframe class="music-block" data-category="Experimental" style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/6SzYfretgTzLUITlIP6AMy?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  </div>
+</section>
 
-                <!-- ToA Studios - Probed & Confused Album -->
-                <div>
-                        <a href="https://open.spotify.com/artist/40BdnWGmvTVO60uEp1MLrA" target="_blank">ToA Studios on Spotify</a>				
-                    <iframe style="border-radius:12px; width:100%; height:352px;" src="https://open.spotify.com/embed/album/5pdZRwo8VXH3sxTZzqsUjN?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    <p style="text-align: center; margin-top: 10px;">
-						
-					<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0y1rCdAJggJMoFvX1FFKDe?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>	
-					<p style="text-align: center; margin-top: 10px;">
-				<!-- Add More Albums for ToA Studios here -->			
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
+<footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
+  <p>&copy; 2025 ToA Studios & Triad of Angels. All rights reserved.</p>
+  <p><a href="index.html">Home</a> | <a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact</a></p>
+  <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 15px;" aria-label="Social media links">
+    <a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="TikTok" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;"><img src="assets/icons/tiktok-icon.svg" alt="TikTok icon" style="width: 24px; height: 24px;" loading="lazy"><span>TikTok</span></a>
+    <a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;"><img src="assets/icons/instagram-icon.svg" alt="Instagram icon" style="width: 24px; height: 24px;" loading="lazy"><span>Instagram</span></a>
+    <a href="https://www.youtube.com/@triadofangels_new" target="_blank" rel="noopener" aria-label="YouTube" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;"><img src="assets/icons/youtube-icon.svg" alt="YouTube icon" style="width: 24px; height: 24px;" loading="lazy"><span>YouTube</span></a>
+    <a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;"><img src="assets/icons/facebook-icon.svg" alt="Facebook icon" style="width: 24px; height: 24px;" loading="lazy"><span>Facebook</span></a>
+    <a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="X (Twitter)" style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;"><img src="assets/icons/x-icon.svg" alt="X (Twitter) icon" style="width: 24px; height: 24px;" loading="lazy"><span>X (Twitter)</span></a>
+  </div>
+</footer>
 
-    <!-- ========================================
-    FOOTER SECTION (Legal + Social)
-    ======================================== -->
-    <footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
-        <p>&copy; 2025 ToA Studios & Triad of Angels. All rights reserved.</p>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const genres = [
+    'All',
+    'Cinematic Pop',
+    'Country',
+    'Orchestral',
+    'Ambient',
+    'Soundtrack',
+    'Electronic',
+    'Acoustic',
+    'Rock',
+    'Experimental'
+  ];
+  const filterContainer = document.getElementById('filter-buttons');
+  const blocks = document.querySelectorAll('.music-block');
 
-        <!-- Legal Links -->
-        <p>
-            <a href="index.html">Home</a> |
-            <a href="terms.html">Terms & Conditions</a> |
-            <a href="privacy.html">Privacy Policy</a> |
-            <a href="contact.html">Contact</a>
-        </p>
+  genres.forEach(genre => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.textContent = genre;
+    if (genre === 'All') btn.classList.add('active');
 
-        <!-- Line Separator -->
-        <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-        <!-- Social Icons -->
-        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
-            <a href="https://www.tiktok.com/@triadofangels" target="_blank"><img src="assets/icons/tiktok-icon.svg" alt="TikTok" style="width: 30px; height: 30px;"></a>
-            <a href="https://www.instagram.com/triadofangels/" target="_blank"><img src="assets/icons/instagram-icon.svg" alt="Instagram" style="width: 30px; height: 30px;"></a>
-            <a href="https://www.youtube.com/@triadofangels_new" target="_blank"><img src="assets/icons/youtube-icon.svg" alt="YouTube" style="width: 30px; height: 30px;"></a>
-            <a href="https://www.facebook.com/triadofangels" target="_blank"><img src="assets/icons/facebook-icon.svg" alt="Facebook" style="width: 30px; height: 30px;"></a>
-            <a href="https://x.com/triadofangels" target="_blank"><img src="assets/icons/x-icon.svg" alt="X (Twitter)" style="width: 30px; height: 30px;"></a>
-        </div>
-    </footer>
-
+      blocks.forEach(block => {
+        const cat = block.getAttribute('data-category');
+        if (genre === 'All' || cat === genre) {
+          block.classList.remove('hidden');
+        } else {
+          block.classList.add('hidden');
+        }
+      });
+    });
+    filterContainer.appendChild(btn);
+  });
+});
+</script>
+</main>
 </body>
 </html>
-
