@@ -3,12 +3,19 @@
 Triad of Angels - Main Stylesheet (Optimized & Enhanced)
 --------------------------------------------------------
 • Reset & Base
-• Navigation
+• Navigation (with Integrated Login UI)
 • Hero Section (Sticky Scrolling Video)
 • Sections (Featured, About, Quick Links)
 • Footer
 • Responsive Enhancements
 • Accessibility & Performance Tweaks
+• Username Modal (Updated with Cancel Button)
+• Error Toast (Enhanced for Visibility)
+• Auth UI (Flicker-Free with Transitions)
+
+Last Updated: 2025-05-16
+- Added transitions for auth UI to prevent flicker.
+- Enhanced auth-hidden for seamless rendering.
 ========================================================
 */
 
@@ -47,7 +54,7 @@ a:focus {
 /* Navigation */
 header {
     background: #1f1f1f;
-    padding: 15px 20px;
+    padding: 10px 15px;
     position: sticky;
     top: 0;
     width: 100%;
@@ -59,21 +66,75 @@ header nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
+    align-items: center;
+}
+
+header nav ul li {
+    display: inline-flex;
+    align-items: center;
 }
 
 header nav ul li a {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 4px;
     transition: background 0.3s;
+    font-size: 0.9rem;
 }
 
 header nav ul li a:hover,
 header nav ul li a:focus {
     background: #333;
+}
+
+/* Integrated Login UI in Navigation */
+#global-auth-ui {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+#global-user-name {
+    color: #e8e8e8;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+#global-login-btn,
+#global-logout-btn {
+    padding: 6px 10px;
+    background: #1f1f1f;
+    color: #f1c40f;
+    border: 1px solid #f1c40f;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+
+#global-login-btn:hover,
+#global-logout-btn:hover {
+    background: #333;
+    color: #d4ac0d;
+}
+
+#global-login-btn {
+    display: inline-block;
+}
+
+#global-logout-btn {
+    display: none;
 }
 
 /* HERO SECTION - Sticky Scrolling Background Video */
@@ -99,7 +160,7 @@ header nav ul li a:focus {
 }
 
 .hero-banner::after {
-    content: none; /* Remove the overlay entirely */
+    content: none;
 }
 
 .hero-content {
@@ -110,16 +171,16 @@ header nav ul li a:focus {
     text-align: center;
     color: #fff;
     z-index: 2;
-    padding: 0; /* remove padding entirely */
-    max-width: none; /* remove any max-width blocky feel */
-    background: none; /* make sure no background */
+    padding: 0;
+    max-width: none;
+    background: none;
     box-shadow: none;
 }
 
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    text-shadow: none; /* Remove text shadow if making it cleaner */
+    text-shadow: none;
     background: none;
 }
 
@@ -152,34 +213,31 @@ header nav ul li a:focus {
     outline: none;
 }
 
-/* Featured Section - now semi-transparent */
+/* Featured Section - Optimized for Performance */
 .featured {
     padding: 60px 20px;
     text-align: center;
-    background: rgba(11, 12, 16, 0.85); /* 85% opacity */
-    backdrop-filter: blur(5px); /* Optional: subtle blur effect */
+    background: rgba(11, 12, 16, 0.9);
 }
 
-/* About Preview Section - semi-transparent */
+/* About Preview Section - Optimized for Performance */
 .about-preview {
-    background: rgba(26, 26, 26, 0.85);
+    background: rgba(26, 26, 26, 0.9);
     padding: 60px 20px;
     text-align: center;
-    backdrop-filter: blur(5px);
 }
 
-/* Quick Links Grid - semi-transparent */
+/* Quick Links Grid - Optimized for Performance */
 .quick-links {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
     padding: 40px 20px;
-    background: rgba(17, 17, 17, 0.85);
+    background: rgba(17, 17, 17, 0.9);
     text-align: center;
-    backdrop-filter: blur(5px);
 }
 
-/* Quick Link individual block (keeps solid but could also be adjusted if needed) */
+/* Quick Link individual block */
 .quick-link {
     display: flex;
     align-items: center;
@@ -191,9 +249,7 @@ header nav ul li a:focus {
     color: #f5f5f5;
     text-decoration: none;
     transition: transform 0.3s, background 0.3s, color 0.3s;
-    backdrop-filter: blur(2px);
 }
-
 
 .quick-link:hover,
 .quick-link:focus {
@@ -218,7 +274,6 @@ footer p {
     margin: 8px 0;
 }
 
-/* Make footer links more touch-friendly */
 footer a {
     margin: 0 5px;
     display: inline-block;
@@ -235,7 +290,28 @@ footer a:focus {
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
     header nav ul {
-        gap: 10px;
+        flex-direction: column;
+        gap: 12px;
+        padding: 8px 0;
+    }
+
+    header nav ul li a {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    #global-user-name {
+        font-size: 0.8rem;
+    }
+
+    #global-login-btn,
+    #global-logout-btn {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+    }
+
+    .hero-banner {
+        min-height: 70vh;
     }
 
     .hero-content h1 {
@@ -246,9 +322,102 @@ footer a:focus {
         font-size: 1rem;
     }
 
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+
+    .featured,
+    .about-preview,
     .quick-links {
-        grid-template-columns: 1fr 1fr;
+        padding: 40px 15px;
+    }
+
+    .quick-links {
+        grid-template-columns: 1fr;
         gap: 15px;
+    }
+
+    .quick-link {
+        min-height: 80px;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 20px 15px;
+        font-size: 0.8rem;
+    }
+
+    footer div[aria-label="Social media links"] {
+        gap: 10px;
+    }
+
+    footer div[aria-label="Social media links"] a img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul {
+        gap: 10px;
+    }
+
+    header nav ul li a {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+    }
+
+    #global-user-name {
+        font-size: 0.7rem;
+    }
+
+    #global-login-btn,
+    #global-logout-btn {
+        padding: 4px 6px;
+        font-size: 0.7rem;
+    }
+
+    .hero-banner {
+        min-height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+
+    .featured,
+    .about-preview,
+    .quick-links {
+        padding: 30px 10px;
+    }
+
+    .quick-link {
+        min-height: 70px;
+        font-size: 0.8rem;
+    }
+
+    footer {
+        padding: 15px 10px;
+        font-size: 0.7rem;
+    }
+
+    footer div[aria-label="Social media links"] {
+        gap: 8px;
+    }
+
+    footer div[aria-label="Social media links"] a img {
+        width: 18px;
+        height: 18px;
     }
 }
 
@@ -258,17 +427,7 @@ video {
     outline: none;
 }
 
-/* ===============================
-   Section Backgrounds for INNER Pages
-   (Music, About, etc.)
-   -------------------------------
-   - Adds stronger backgrounds ONLY on inner pages.
-   - Each page <body> tag should have a unique class, e.g.:
-     <body class="music-page">
-     <body class="about-page">
-================================ */
-
-/* Example: music page sections */
+/* Inner Page Sections */
 body.index-page section:not(.hero-banner),
 body.visual-page section:not(.hero-banner),
 body.music-page section:not(.hero-banner),
@@ -282,7 +441,7 @@ body.visual-page section:not(.hero-banner),
 body.privacy-page section:not(.hero-banner),
 body.terms-page section:not(.hero-banner),
 body.digital-store-page section:not(.hero-banner) {
-    background: rgba(0, 0, 0, 0.75);  /* 75% opaque for readability */
+    background: rgba(0, 0, 0, 0.75);
     padding: 40px 20px;
     border-radius: 8px;
     margin: 20px auto;
@@ -290,8 +449,6 @@ body.digital-store-page section:not(.hero-banner) {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-
-/* Optional: if you want the text inside to stay bright */
 body.index-page section h1,
 body.index-page section h2,
 body.index-page section p,
@@ -332,4 +489,229 @@ body.digital-store-page section h1,
 body.digital-store-page section h2,
 body.digital-store-page section p {
     color: #FFFFFF;
+}
+
+/* Responsive Inner Page Sections */
+@media (max-width: 768px) {
+    body.index-page section:not(.hero-banner),
+    body.visual-page section:not(.hero-banner),
+    body.music-page section:not(.hero-banner),
+    body.about-page section:not(.hero-banner),
+    body.games-page section:not(.hero-banner),
+    body.apps-page section:not(.hero-banner),
+    body.merch-page section:not(.hero-banner),
+    body.publishing-page section:not(.hero-banner),
+    body.contact-page section:not(.hero-banner),
+    body.visual-page section:not(.hero-banner),
+    body.privacy-page section:not(.hero-banner),
+    body.terms-page section:not(.hero-banner),
+    body.digital-store-page section:not(.hero-banner) {
+        padding: 30px 15px;
+        margin: 15px auto;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body.index-page section:not(.hero-banner),
+    body.visual-page section:not(.hero-banner),
+    body.music-page section:not(.hero-banner),
+    body.about-page section:not(.hero-banner),
+    body.games-page section:not(.hero-banner),
+    body.apps-page section:not(.hero-banner),
+    body.merch-page section:not(.hero-banner),
+    body.publishing-page section:not(.hero-banner),
+    body.contact-page section:not(.hero-banner),
+    body.visual-page section:not(.hero-banner),
+    body.privacy-page section:not(.hero-banner),
+    body.terms-page section:not(.hero-banner),
+    body.digital-store-page section:not(.hero-banner) {
+        padding: 20px 10px;
+        margin: 10px auto;
+    }
+}
+
+/* Ensure consistent styling for h1 elements in sections */
+section h1 {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+.auth-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Username Modal (Updated with Cancel Button) */
+.username-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(20, 20, 20, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid rgba(241, 196, 15, 0.3);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.username-modal.active {
+    display: flex;
+}
+
+.username-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.username-modal h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f1c40f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.username-modal p {
+    font-size: 1.2rem;
+    color: #e8e8e8;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.username-modal input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(241, 196, 15, 0.3);
+    border-radius: 10px;
+    color: #e8e8e8;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.username-modal input:focus {
+    outline: none;
+    border-color: #f1c40f;
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+}
+
+.username-modal .username-error {
+    font-size: 0.9rem;
+    color: #ff4444;
+    text-align: center;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.username-modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 200px;
+}
+
+.username-modal button {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#username-submit {
+    background: linear-gradient(45deg, #f1c40f, #ffeb3b);
+    color: #0a0a0a;
+}
+
+#username-submit:hover {
+    background: linear-gradient(45deg, #ffeb3b, #f1c40f);
+    transform: scale(1.05);
+}
+
+#username-cancel {
+    background: #555;
+    color: #e8e8e8;
+}
+
+#username-cancel:hover {
+    background: #777;
+    transform: scale(1.05);
+}
+
+/* Error Toast */
+#global-error-toast {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff4444;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    z-index: 2000;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+}
+
+/* Comment Form Button Disabled State (for album.html) */
+.comment-form button:disabled {
+    background: #555;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.5;
+    position: relative;
+}
+
+/* Tooltip for Disabled Button (for album.html) */
+.comment-form button:disabled:hover::after {
+    content: "You need to sign in to comment";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(241, 196, 15, 0.9);
+    color: #0a0a0a;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Arrow for the tooltip bubble (for album.html) */
+.comment-form button:disabled:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(241, 196, 15, 0.9);
+    z-index: 10;
 }

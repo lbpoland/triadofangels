@@ -1,0 +1,230 @@
+/*
+================================================================================
+File: chatbot.css
+Location: C:\Users\lbpol\Development\triadofangels\css\chatbot.css
+--------------------------------------------------------------------------------
+Purpose:
+This stylesheet styles the Triad of Angels chatbot as a text-only helpdesk, providing a modern, professional design that integrates with the site's aesthetic (dark theme, yellow accents). It ensures responsiveness, touch-friendliness, and accessibility.
+
+Key Features:
+- Design: Dark background with yellow accents, rounded corners, and a floating chatbot icon.
+- Responsive: Adjusts layout for mobile devices.
+- Accessibility: High contrast, focus states for keyboard navigation, and readable fonts.
+- Simplified: Removed voice toggle styles for text-only functionality.
+
+Instructions for Modification:
+- Change colors by updating the background, color, or border properties (e.g., --chatbot-accent).
+- Adjust the chatbot window size by modifying #chatbot-window dimensions.
+- Modify the icon appearance by updating #chatbot-icon styles (e.g., size, shadow).
+- Add animations by extending the transition properties or adding keyframes.
+================================================================================
+*/
+
+/* ========== VARIABLES ========== */
+:root {
+  --chatbot-bg: #1f1f1f; /* Matches footer/nav background */
+  --chatbot-text: #f5f5f5; /* Matches body text */
+  --chatbot-accent: #f1c40f; /* Matches link/CTA color */
+  --chatbot-secondary: #d4ac0d; /* Hover state for accent */
+  --chatbot-border: #555; /* Matches divider color */
+}
+
+/* ========== CHATBOT CONTAINER ========== */
+#toa-chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* ========== CHATBOT ICON ========== */
+#chatbot-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--chatbot-bg);
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#chatbot-icon:hover,
+#chatbot-icon:focus {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  outline: none;
+}
+
+#chatbot-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ========== CHATBOT WINDOW ========== */
+#chatbot-window {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 400px;
+  height: 500px;
+  background: var(--chatbot-bg);
+  border: 1px solid var(--chatbot-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#chatbot-window.hidden {
+  display: none;
+}
+
+/* ========== HEADER ========== */
+#chatbot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--chatbot-accent);
+  color: #000;
+  font-size: 0.9rem;
+}
+
+#chatbot-header strong {
+  font-weight: bold;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: var(--chatbot-secondary);
+  outline: none;
+}
+
+/* ========== CONVERSATION LOG ========== */
+#chatbot-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: var(--chatbot-bg);
+  color: var(--chatbot-text);
+  font-size: 0.9rem;
+}
+
+#chatbot-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chatbot-body::-webkit-scrollbar-thumb {
+  background: var(--chatbot-border);
+  border-radius: 3px;
+}
+
+.user-message,
+.bot-message {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.user-message {
+  background: var(--chatbot-accent);
+  color: #000;
+  margin-left: auto;
+  text-align: right;
+}
+
+.bot-message {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--chatbot-text);
+  margin-right: auto;
+}
+
+/* ========== INPUT AREA ========== */
+#chatbot-input {
+  display: flex;
+  padding: 12px;
+  border-top: 1px solid var(--chatbot-border);
+  background: var(--chatbot-bg);
+}
+
+#user-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--chatbot-border);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--chatbot-text);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+#user-input:focus {
+  border-color: var(--chatbot-accent);
+}
+
+#chatbot-input button {
+  margin-left: 8px;
+  padding: 8px 16px;
+  background: var(--chatbot-accent);
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#chatbot-input button:hover,
+#chatbot-input button:focus {
+  background: var(--chatbot-secondary);
+  outline: none;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 480px) {
+  #chatbot-window {
+    width: 100%;
+    height: 80vh;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  #chatbot-icon {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+/* ========== ACCESSIBILITY ========== */
+#chatbot-icon:focus,
+.close-button:focus,
+#user-input:focus,
+#chatbot-input button:focus {
+  box-shadow: 0 0 0 2px var(--chatbot-accent);
+}
+
+#chatbot-reset-button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+#chatbot-reset-button:hover {
+  background-color: #cc0000;
+}

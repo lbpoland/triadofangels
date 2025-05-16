@@ -2,21 +2,21 @@
 ===========================================
 Triad of Angels - Official Website: Visual Page (visual.html)
 -------------------------------------------
-• Purpose: Showcases all official videos, trailers, music videos, and visual projects from Triad of Angels.
+â€¢ Purpose: Showcases all official videos, trailers, music videos, and visual projects from Triad of Angels.
 
-• Key Sections:
+â€¢ Key Sections:
     1?? Header Navigation - Global site-wide nav.
     2?? Full Hero Banner - Video/image header.
     3?? Visual Hero Section - Intro tagline.
     4?? Video Grid - YouTube embeds with titles.
     5?? Footer - Copyright.
 
-• Notes:
+â€¢ Notes:
     - Replace `PUT-YOUR-VIDEO-ID-HERE` with your actual YouTube video IDs.
     - You can embed videos from other platforms (Vimeo, etc.) as needed.
     - Add thumbnail previews using iframe or a styled container for fancier galleries.
 
-• Expansion Tip:
+â€¢ Expansion Tip:
     - Add filters/tabs for Music Videos, Trailers, Behind-the-Scenes if you grow the collection.
     - Optionally include video descriptions or playlists for deeper engagement.
 ===========================================
@@ -28,8 +28,11 @@ Triad of Angels - Official Website: Visual Page (visual.html)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Watch Triad of Angels' official videos: music videos, trailers, and more.">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">	
     <title>Visual | Triad of Angels</title>
     <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chatbot.css">	
 </head>
 
 <body class="visual-page">
@@ -37,22 +40,31 @@ Triad of Angels - Official Website: Visual Page (visual.html)
     <!-- ========================================
     HEADER NAVIGATION
     ======================================== -->
-    <header>
-        <nav>
-            <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="visual.html">Visual</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="apps.html">Apps</a></li>
-            <li><a href="merch.html">Merch</a></li>
-            <li><a href="publishing.html">Publishing</a></li>
-            <li><a href="digital-store.html">Digital Store</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- ========== NAVIGATION BAR WITH INTEGRATED LOGIN UI ========== -->
+  <header role="banner">
+    <nav role="navigation" aria-label="Main site navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="visual.html">Visual</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="apps.html">Apps</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="publishing.html">Publishing</a></li>
+        <li><a href="digital-store.html">Digital Store</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <!-- Integrated Login UI -->
+        <li id="auth-nav-item">
+          <div id="global-auth-ui">
+            <span id="global-user-name">Guest</span>
+            <button id="global-login-btn">Sign In</button>
+            <button id="global-logout-btn">Logout</button>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
     <!-- ========================================
     FULL-PAGE HERO BANNER
@@ -133,38 +145,65 @@ Triad of Angels - Official Website: Visual Page (visual.html)
     <!-- Stylish line separator -->
     <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
 
-    <!-- Social Media Icons Section -->
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
-
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/tiktok-icon.svg" alt="TikTok" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/triadofangels/" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/instagram-icon.svg" alt="Instagram" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- YouTube -->
-        <a href="https://www.youtube.com/@triadofangels_new" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/youtube-icon.svg" alt="YouTube" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/facebook-icon.svg" alt="Facebook" style="width: 30px; height: 30px;">
-        </a>
-
-        <!-- X (Twitter) -->
-        <a href="https://x.com/triadofangels" target="_blank" style="display: inline-block;">
-            <img src="assets/icons/x-icon.svg" alt="X (Twitter)" style="width: 30px; height: 30px;">
-        </a>
-
+    <!-- Social Media Icons + Labels -->
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;" aria-label="Social media links">
+      <a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="TikTok"
+         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+        <img src="assets/icons/tiktok-icon.svg" alt="TikTok icon" style="width: 24px; height: 24px;" loading="lazy">
+        <span>TikTok</span>
+      </a>
+      <a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Instagram"
+         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+        <img src="assets/icons/instagram-icon.svg" alt="Instagram icon" style="width: 24px; height: 24px;" loading="lazy">
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.youtube.com/@triadofangels_new" target="_blank" rel="noopener" aria-label="YouTube"
+         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+        <img src="assets/icons/youtube-icon.svg" alt="YouTube icon" style="width: 24px; height: 24px;" loading="lazy">
+        <span>YouTube</span>
+      </a>
+      <a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Facebook"
+         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+        <img src="assets/icons/facebook-icon.svg" alt="Facebook icon" style="width: 24px; height: 24px;" loading="lazy">
+        <span>Facebook</span>
+      </a>
+      <a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="X"
+         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
+        <img src="assets/icons/x-icon.svg" alt="X icon" style="width: 24px; height: 24px;" loading="lazy">
+        <span>X</span>
+      </a>
     </div>
 
-</footer>
+  </footer>
 
+<!-- Chatbot HTML (Text-only helpdesk) -->
+<div id="toa-chatbot">
+  <div id="chatbot-icon" title="Need help? Chat with us!" role="button" tabindex="0" aria-label="Toggle chatbot window">
+    <img src="assets/images/chatbot.png" alt="Triad of Angels Chatbot Icon" width="48" height="48" loading="lazy">
+  </div>
+  <div id="chatbot-window" class="hidden" role="dialog" aria-label="Triad of Angels Helpdesk">
+    <div id="chatbot-header" style="text-align: center">
+      <strong>Triad of Angels Helpdesk</strong>
+      <button id="chatbot-close-button" aria-label="Close Chat Window" class="close-button">[x]</button>
+    </div>
+    <div id="chatbot-body" role="log" aria-live="polite"></div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Ask me anything..." aria-label="Chat input">
+      <button id="chatbot-send-button" aria-label="Send message">Send</button>
+      <button id="chatbot-reset-button" title="Reset Conversation">Reset Chat</button>
+    </div>
+  </div>
+</div>
 
+  <!-- Error Toast -->
+  <div id="global-error-toast" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ff4444; color: #fff; padding: 10px 20px; border-radius: 5px; z-index: 2000;"></div>
+
+  <!-- Scripts -->
+  <script src="js/chatbot.js?v=2"></script>
+  <script src="js/chatbot-persist.js?v=2"></script>
+  <script type="module">
+    import './js/firebase-init.js?v=2';
+    import './js/auth.js?v=2';
+  </script>
 </body>
 </html>

@@ -2,21 +2,21 @@
 ===========================================
 Triad of Angels - Official Website: Merch Page (merch.html)
 -------------------------------------------
-• Purpose: This page showcases official merchandise: apparel, posters, accessories, and more.
+â€¢ Purpose: This page showcases official merchandise: apparel, posters, accessories, and more.
 
-• Key Sections:
+â€¢ Key Sections:
     1?? Header Navigation - Full site-wide navigation.
     2?? Full Hero Banner - Branded video/image at the top.
     3?? Merch Hero Section - Title + intro tagline.
     4?? Merch Grid - Each merch item with thumbnail, description, and buy link.
     5?? Footer - Copyright.
 
-• Notes:
+â€¢ Notes:
     - Add real merch images in /assets/images/.
     - Replace placeholder links with your actual shop URLs (e.g., Shopify, Etsy, Printful).
     - All grid items are responsive & scale well.
 
-• Expansion Tip:
+â€¢ Expansion Tip:
     - You can include filters for "Apparel", "Posters", "Accessories", etc. if you have many items.
     - Add hover effects or badges like "New", "Best Seller", "Limited Edition" for stronger engagement.
 ===========================================
@@ -28,15 +28,18 @@ Triad of Angels - Official Website: Merch Page (merch.html)
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Shop official Triad of Angels merchandise: apparel, posters, accessories and more." />
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">  
   <title>Merch | Triad of Angels</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chatbot.css">  
 </head>
 
 <body class="merch-page">
 
-  <!-- HEADER NAVIGATION -->
-  <header>
-    <nav>
+  <!-- ========== NAVIGATION BAR WITH INTEGRATED LOGIN UI ========== -->
+  <header role="banner">
+    <nav role="navigation" aria-label="Main site navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -48,6 +51,14 @@ Triad of Angels - Official Website: Merch Page (merch.html)
         <li><a href="publishing.html">Publishing</a></li>
         <li><a href="digital-store.html">Digital Store</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <!-- Integrated Login UI -->
+        <li id="auth-nav-item">
+          <div id="global-auth-ui">
+            <span id="global-user-name">Guest</span>
+            <button id="global-login-btn">Sign In</button>
+            <button id="global-logout-btn">Logout</button>
+          </div>
+        </li>
       </ul>
     </nav>
   </header>
@@ -166,5 +177,34 @@ Triad of Angels - Official Website: Merch Page (merch.html)
 
   </footer>
 
+<!-- Chatbot HTML (Text-only helpdesk) -->
+<div id="toa-chatbot">
+  <div id="chatbot-icon" title="Need help? Chat with us!" role="button" tabindex="0" aria-label="Toggle chatbot window">
+    <img src="assets/images/chatbot.png" alt="Triad of Angels Chatbot Icon" width="48" height="48" loading="lazy">
+  </div>
+  <div id="chatbot-window" class="hidden" role="dialog" aria-label="Triad of Angels Helpdesk">
+    <div id="chatbot-header" style="text-align: center">
+      <strong>Triad of Angels Helpdesk</strong>
+      <button id="chatbot-close-button" aria-label="Close Chat Window" class="close-button">[x]</button>
+    </div>
+    <div id="chatbot-body" role="log" aria-live="polite"></div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Ask me anything..." aria-label="Chat input">
+      <button id="chatbot-send-button" aria-label="Send message">Send</button>
+      <button id="chatbot-reset-button" title="Reset Conversation">Reset Chat</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Error Toast -->
+  <div id="global-error-toast" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ff4444; color: #fff; padding: 10px 20px; border-radius: 5px; z-index: 2000;"></div>
+
+  <!-- Scripts -->
+  <script src="js/chatbot.js?v=2"></script>
+  <script src="js/chatbot-persist.js?v=2"></script>
+  <script type="module">
+    import './js/firebase-init.js?v=2';
+    import './js/auth.js?v=2';
+  </script>
 </body>
 </html>
