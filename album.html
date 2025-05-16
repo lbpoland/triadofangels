@@ -141,19 +141,12 @@
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), inset 0 0 35px rgba(241, 196, 15, 0.02);
       border: 2px solid rgba(241, 196, 15, 0.1);
       margin-bottom: 70px;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s ease-out forwards;
-    }
-
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(50px); }
-      100% { opacity: 1; transform: translateY(0); }
+      opacity: 1;
     }
 
     .album-cover {
       flex: 1;
-      min-width: 0; /* Remove min-width for mobile */
+      min-width: 0;
       text-align: center;
       position: relative;
     }
@@ -177,7 +170,7 @@
 
     .album-info {
       flex: 2;
-      min-width: 0; /* Remove min-width for mobile */
+      min-width: 0;
     }
 
     .album-info h2 {
@@ -226,9 +219,7 @@
       border: 2px solid rgba(241, 196, 15, 0.1);
       text-align: center;
       margin-bottom: 70px;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s ease-out forwards 0.2s;
+      opacity: 1;
     }
 
     .streaming-links h2 {
@@ -286,9 +277,7 @@
       border: 2px solid rgba(241, 196, 15, 0.1);
       text-align: center;
       margin-bottom: 70px;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s ease-out forwards 0.4s;
+      opacity: 1;
     }
 
     .music-player h2 {
@@ -328,9 +317,7 @@
       text-align: center;
       max-width: 900px;
       margin: 50px auto;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s ease-out forwards;
+      opacity: 1;
     }
 
     .error-section h2 {
@@ -350,6 +337,31 @@
       line-height: 2;
     }
 
+    .comments-section {
+      background: rgba(20, 20, 20, 0.9);
+      border-radius: 40px;
+      padding: 70px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), inset 0 0 35px rgba(241, 196, 15, 0.02);
+      border: 2px solid rgba(241, 196, 15, 0.1);
+      margin-bottom: 70px;
+      opacity: 1;
+      min-height: 200px;
+      overflow: visible;
+      position: relative;
+      z-index: 2;
+    }
+
+    .comments-section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #f1c40f;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
+    }
+
     @media (max-width: 1024px) {
       .album-hero {
         min-height: 90vh;
@@ -366,8 +378,8 @@
       .album-details {
         flex-direction: column;
         align-items: center;
-        padding: 60px;
-        gap: 60px;
+        padding: 50px;
+        gap: 50px;
       }
 
       .album-cover img {
@@ -386,11 +398,15 @@
         font-size: 1.4rem;
       }
 
-      .streaming-links, .music-player {
-        padding: 60px;
+      .streaming-links,
+      .music-player,
+      .comments-section {
+        padding: 50px;
       }
 
-      .streaming-links h2, .music-player h2 {
+      .streaming-links h2,
+      .music-player h2,
+      .comments-section h2 {
         font-size: 3rem;
       }
     }
@@ -398,34 +414,47 @@
     @media (max-width: 768px) {
       .album-hero {
         min-height: 80vh;
-        padding: 0 20px;
+        padding: 0 15px;
       }
 
       .album-hero-content {
-        padding: 40px;
-        border-radius: 30px;
+        padding: 30px;
+        border-radius: 25px;
         max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       .album-hero-content h1 {
-        font-size: 4rem;
+        font-size: 3.5rem;
       }
 
       .album-hero-content p {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
       }
 
       .album-main {
-        padding: 60px 20px;
+        padding: 40px 15px;
       }
 
       .album-details {
-        padding: 50px;
-        gap: 50px;
+        padding: 30px;
+        gap: 30px;
+      }
+
+      .album-cover {
+        flex: none;
+        width: 100%;
       }
 
       .album-cover img {
         max-width: 100%;
+        width: 100%;
+      }
+
+      .album-info {
+        flex: none;
+        width: 100%;
       }
 
       .album-info h2 {
@@ -439,50 +468,60 @@
 
       #album-description {
         font-size: 1.3rem;
-        padding: 25px;
+        padding: 20px;
       }
 
-      .streaming-links, .music-player {
-        padding: 50px 15px;
+      .streaming-links,
+      .music-player,
+      .comments-section {
+        padding: 30px 15px;
       }
 
-      .streaming-links h2, .music-player h2 {
+      .streaming-links h2,
+      .music-player h2,
+      .comments-section h2 {
         font-size: 2.5rem;
         letter-spacing: 3px;
       }
 
       .link-tab {
-        padding: 8px 24px;
+        padding: 8px 20px;
         font-size: 0.9rem;
       }
 
       .music-player iframe {
-        height: 500px;
+        height: 350px;
         max-width: 100%;
       }
     }
 
     @media (max-width: 480px) {
       .album-hero {
-        min-height: 70vh;
-        padding: 0 15px;
+        min-height: 60vh;
+        padding: 0 10px;
+      }
+
+      .album-hero-content {
+        padding: 20px;
+        border-radius: 20px;
       }
 
       .album-hero-content h1 {
-        font-size: 3.5rem;
+        font-size: 2.8rem;
+        letter-spacing: 3px;
       }
 
       .album-hero-content p {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
       }
 
       .album-main {
-        padding: 40px 15px;
+        padding: 30px 10px;
       }
 
       .album-details {
-        padding: 40px;
-        gap: 40px;
+        padding: 20px;
+        gap: 20px;
       }
 
       .album-cover img {
@@ -500,36 +539,46 @@
 
       #album-description {
         font-size: 1.2rem;
-        padding: 20px;
+        padding: 15px;
       }
 
-      .streaming-links, .music-player {
-        padding: 40px 10px;
+      .streaming-links,
+      .music-player,
+      .comments-section {
+        padding: 20px 10px;
       }
 
-      .streaming-links h2, .music-player h2 {
+      .streaming-links h2,
+      .music-player h2,
+      .comments-section h2 {
         font-size: 2rem;
         letter-spacing: 2px;
       }
 
       .link-tab {
-        padding: 6px 20px;
+        padding: 6px 16px;
         font-size: 0.8rem;
       }
 
       .music-player iframe {
-        height: 400px;
+        height: 250px;
         max-width: 100%;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .link-tab, .album-cover img, .album-details, .streaming-links, .music-player {
+      .link-tab,
+      .album-cover img,
+      .album-details,
+      .streaming-links,
+      .music-player,
+      .comments-section {
         transition: none;
         animation: none;
       }
 
-      .link-tab:hover, .album-cover img:hover {
+      .link-tab:hover,
+      .album-cover img:hover {
         transform: none;
       }
 
@@ -547,6 +596,10 @@
 
   <!-- ========== NAVIGATION BAR WITH INTEGRATED LOGIN UI ========== -->
   <header role="banner">
+    <button id="mobile-menu-toggle" aria-label="Toggle menu">
+      <span class="menu-icon">☰</span>
+      <span class="menu-label">Menu</span>
+    </button>
     <nav role="navigation" aria-label="Main site navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -846,7 +899,7 @@
         genre: "Rock, Metal, Heavy, Alternative",
         year: "19th of May, 2025",
         cover: "assets/images/albums/serpentsveil-album.png",
-        tracks: [""],
+        tracks: ["Dark Serpent", "Veiled Shadows", "Eternal Coil"],
         links: {
           spotify: "",
           appleMusic: "",
@@ -858,7 +911,7 @@
           iTunes: "https://music.apple.com/au/album/serpents-veil/1813142997"
         },
         boomplayEmbed: "",
-        artistInfo: ""
+        artistInfo: "ToA Studios presents *Serpent's Veil*, a heavy metal journey through dark and powerful themes, blending intense riffs with atmospheric elements."
       },
       {
         id: "american-firestorm-songs-of-freedom",
@@ -867,7 +920,7 @@
         genre: "Country, Ballad, Funk, Classical, Alternative, Pop",
         year: "20th of June, 2025",
         cover: "assets/images/albums/songsoffreedom-album.png",
-        tracks: [""],
+        tracks: ["Freedom's Call", "Firestorm Rising", "Open Road"],
         links: {
           spotify: "",
           appleMusic: "",
@@ -879,8 +932,8 @@
           iTunes: "https://music.apple.com/au/album/american-firestorm-songs-of-freedom/1813521823"
         },
         boomplayEmbed: "",
-        artistInfo: ""
-      },
+        artistInfo: "ToA Studios delivers *American Firestorm Songs of Freedom*, a diverse album celebrating freedom and resilience with a mix of country, funk, and pop influences."
+      }
     ];
 
     // Function to populate the page with album data
@@ -907,7 +960,7 @@
         backgroundImg.src = album.cover;
         backgroundImg.onerror = () => {
           console.error(`Failed to load background image: ${album.cover}`);
-          backgroundImg.style.display = 'none';
+          backgroundImg.src = 'assets/images/placeholder-background.png';
         };
         document.getElementById('album-title').textContent = album.title;
         document.getElementById('album-subtitle').textContent = `A ${album.genre} Masterpiece by ${album.artist}`;
@@ -922,7 +975,7 @@
         };
         document.getElementById('album-info-title').textContent = album.title;
         document.getElementById('album-artist').innerHTML = `<strong>Artist:</strong> ${album.artist}`;
-        document.getElementById('album-tracks').innerHTML = `<strong>Tracks:</strong> ${album.tracks.join(', ')}`;
+        document.getElementById('album-tracks').innerHTML = `<strong>Tracks:</strong> ${album.tracks.length > 0 && album.tracks[0] !== "" ? album.tracks.join(', ') : 'Track list unavailable'}`;
         document.getElementById('album-genre').innerHTML = `<strong>Genre:</strong> ${album.genre}`;
         document.getElementById('album-year').innerHTML = `<strong>Release Date:</strong> ${album.year}`;
         document.getElementById('album-description').textContent = album.artistInfo || "No description available.";
@@ -940,27 +993,29 @@
           { name: 'iTunes', key: 'iTunes' }
         ];
 
-        platforms.forEach(platform => {
-          const link = album.links[platform.key];
-          if (link && link !== '') {
+        const validLinks = platforms.filter(platform => album.links[platform.key] && album.links[platform.key] !== '');
+        if (validLinks.length > 0) {
+          validLinks.forEach(platform => {
             const a = document.createElement('a');
-            a.href = link;
+            a.href = album.links[platform.key];
             a.target = '_blank';
             a.rel = 'noopener';
             a.className = 'link-tab';
             a.setAttribute('aria-label', `Stream on ${platform.name}`);
             a.textContent = platform.name;
             linkTabs.appendChild(a);
-          }
-        });
+          });
+        } else {
+          linkTabs.innerHTML = '<p>No streaming links available for this album.</p>';
+        }
 
         // Update Music Player Embed
         const musicPlayerEmbed = document.getElementById('music-player-embed');
         if (album.boomplayEmbed && album.boomplayEmbed !== '') {
           const iframe = document.createElement('iframe');
           iframe.src = album.boomplayEmbed;
-          iframe.width = '600';
-          iframe.height = '600';
+          iframe.width = '100%';
+          iframe.height = '100%';
           iframe.frameBorder = '0';
           musicPlayerEmbed.appendChild(iframe);
         } else {
@@ -979,14 +1034,14 @@
     });
 
     function displayError(title, subtitle) {
+      console.error('Displaying error:', title, subtitle);
       document.getElementById('album-title').innerHTML = title;
       document.getElementById('album-subtitle').innerHTML = subtitle;
       document.getElementById('album-background').style.display = 'none';
       document.querySelector('.album-details').style.display = 'none';
       document.querySelector('.streaming-links').style.display = 'none';
       document.querySelector('.music-player').style.display = 'none';
-      document.querySelector('.comments-section').style.display = 'none';
-
+      // Keep comments section visible
       const main = document.querySelector('.album-main');
       const errorContainer = document.createElement('section');
       errorContainer.className = 'error-section';
@@ -994,11 +1049,10 @@
         <h2>${title}</h2>
         <p>${subtitle}</p>
       `;
-      main.appendChild(errorContainer);
+      main.prepend(errorContainer);
     }
 
     // === Comments Section Logic ===
-    // Utility Functions
     const sanitizeInput = (text) => {
       const div = document.createElement('div');
       div.textContent = text;
@@ -1010,7 +1064,6 @@
         .replace(/'/g, '');
     };
 
-    // Utility function to show error toast
     function showErrorToast(message) {
       const toast = document.getElementById('global-error-toast');
       if (toast) {
@@ -1060,7 +1113,6 @@
       }
     }
 
-    // Comments Manager
     class CommentsManager {
       constructor(albumId) {
         this.albumId = albumId;
@@ -1069,10 +1121,18 @@
         this.commentInput = document.getElementById('comment-input');
         this.submitButton = document.getElementById('submit-comment');
 
-        // Debugging: Check elements
-        if (!this.commentList) console.error('Comment list element not found. Check ID: comment-list');
-        if (!this.commentInput) console.error('Comment input element not found. Check ID: comment-input');
-        if (!this.submitButton) console.error('Submit button not found. Check ID: submit-comment');
+        if (!this.commentList) {
+          console.error('Comment list element not found. Check ID: comment-list');
+          return;
+        }
+        if (!this.commentInput) {
+          console.error('Comment input element not found. Check ID: comment-input');
+          return;
+        }
+        if (!this.submitButton) {
+          console.error('Submit button not found. Check ID: submit-comment');
+          return;
+        }
 
         this.setupEventListeners();
         this.updateUI(null, null);
@@ -1083,7 +1143,6 @@
         this.submitButton.addEventListener('click', () => this.postComment());
         this.commentList.addEventListener('click', (e) => this.handleCommentAction(e));
 
-        // Listen for auth state changes
         onAuthStateChanged(auth, async (user) => {
           let userData = null;
           if (user) {
@@ -1146,6 +1205,7 @@
           };
 
           await addDoc(collection(db, `albums/${this.albumId}/comments`), comment);
+          console.log('Comment posted successfully:', comment);
           this.commentInput.value = '';
           this.renderComments();
         } catch (error) {
@@ -1171,6 +1231,7 @@
         try {
           const commentRef = doc(db, `albums/${this.albumId}/comments`, commentId);
           await deleteDoc(commentRef);
+          console.log('Comment deleted successfully:', commentId);
           this.renderComments();
         } catch (error) {
           console.error('Error deleting comment:', error);
@@ -1195,7 +1256,10 @@
         try {
           const commentRef = doc(db, `albums/${this.albumId}/comments`, commentId);
           const commentDoc = await getDoc(commentRef);
-          if (!commentDoc.exists()) return;
+          if (!commentDoc.exists()) {
+            console.warn('Comment not found:', commentId);
+            return;
+          }
           let comment = commentDoc.data();
 
           if (action === 'like') {
@@ -1222,6 +1286,7 @@
               dislikes: comment.dislikes,
               dislikedBy: comment.dislikedBy
             });
+            console.log('Like updated:', commentId, comment.likes);
           } else if (action === 'dislike' && auth.currentUser.email === 'triadofangels@gmail.com') {
             if (!this.rateLimiter.canPerformAction()) {
               const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
@@ -1246,6 +1311,7 @@
               dislikes: comment.dislikes,
               dislikedBy: comment.dislikedBy
             });
+            console.log('Dislike updated:', commentId, comment.dislikes);
           } else if (action === 'delete-user' && comment.uid === auth.currentUser.uid) {
             await this.deleteComment(commentId);
           } else if (action === 'delete-admin' && auth.currentUser.email === 'triadofangels@gmail.com') {
@@ -1262,8 +1328,14 @@
       async renderComments() {
         this.commentList.innerHTML = '';
         try {
+          console.log('Fetching comments for album:', this.albumId);
           const q = query(collection(db, `albums/${this.albumId}/comments`), orderBy('timestamp', 'desc'));
           const querySnapshot = await getDocs(q);
+          console.log('Comments retrieved:', querySnapshot.size);
+          if (querySnapshot.empty) {
+            this.commentList.innerHTML = '<p>No comments yet. Be the first to comment!</p>';
+            return;
+          }
           querySnapshot.forEach((doc) => {
             const comment = doc.data();
             const commentDiv = document.createElement('div');
@@ -1310,8 +1382,30 @@
     }
 
     function initializeComments(albumId) {
-      new CommentsManager(albumId);
+      try {
+        console.log('Initializing comments for album:', albumId);
+        new CommentsManager(albumId);
+      } catch (error) {
+        console.error('Error initializing comments:', error);
+        const commentList = document.getElementById('comment-list');
+        if (commentList) {
+          commentList.innerHTML = '<p>Error loading comments. Please check your connection and try again.</p>';
+        }
+      }
     }
+
+    // Toggle mobile menu
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleButton = document.getElementById('mobile-menu-toggle');
+      const navMenu = document.querySelector('header nav ul');
+      if (toggleButton && navMenu) {
+        toggleButton.addEventListener('click', () => {
+          navMenu.classList.toggle('show');
+        });
+      } else {
+        console.warn('Mobile menu toggle or nav menu not found.');
+      }
+    });
   </script>
 </body>
 </html>

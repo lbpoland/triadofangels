@@ -41,9 +41,15 @@ Triad of Angels - Official Website: Visual Page (visual.html)
     HEADER NAVIGATION
     ======================================== -->
   <!-- ========== NAVIGATION BAR WITH INTEGRATED LOGIN UI ========== -->
+<body class="index-page">
   <header role="banner">
     <nav role="navigation" aria-label="Main site navigation">
-      <ul>
+<button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+  <span class="menu-icon">☰</span> <span class="menu-label">Menu</span>
+</button>
+
+
+      <ul id="main-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="music.html">Music</a></li>
@@ -54,7 +60,6 @@ Triad of Angels - Official Website: Visual Page (visual.html)
         <li><a href="publishing.html">Publishing</a></li>
         <li><a href="digital-store.html">Digital Store</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <!-- Integrated Login UI -->
         <li id="auth-nav-item">
           <div id="global-auth-ui">
             <span id="global-user-name">Guest</span>
@@ -195,17 +200,26 @@ Triad of Angels - Official Website: Visual Page (visual.html)
   </div>
 </div>
 
+  <!-- Scripts -->
+  <script>
+    document.documentElement.style.scrollBehavior = 'smooth';
+  </script>
   <!-- Error Toast -->
   <div id="global-error-toast" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ff4444; color: #fff; padding: 10px 20px; border-radius: 5px; z-index: 2000;"></div>
 
-  <!-- Scripts -->
-<link rel="stylesheet" href="css/style.css?v=5">
-<link rel="stylesheet" href="css/chatbot.css?v=5">
-<script src="js/chatbot.js?v=5"></script>
-<script src="js/chatbot-persist.js?v=5"></script>
-<script type="module">
-  import './js/firebase-init.js?v=5';
-  import './js/auth.js?v=5';
-</script>
+  <script>
+    document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+      document.getElementById('main-nav').classList.toggle('show');
+    });
+  </script>
+
+  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/chatbot.css?v=5">
+  <script src="js/chatbot.js?v=7"></script>
+  <script src="js/chatbot-persist.js?v=7"></script>
+  <script type="module">
+    import './js/firebase-init.js?v=7';
+    import './js/auth.js?v=7';
+  </script>
 </body>
 </html>

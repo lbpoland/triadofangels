@@ -7,6 +7,7 @@ const url = require('url'); // URL parsing for WebSocket requests
 const express = require('express'); // Express for serving static files
 const path = require('path'); // Path handling for serving static files
 const fs = require('fs').promises; // File system for reading files
+const os = require('os'); // To get local IP address
 
 // ========== EXPRESS SERVER FOR STATIC FILES ==========
 const app = express();
@@ -61,9 +62,24 @@ app.get('*', (req, res) => {
   });
 });
 
+// Function to get local IP address
+function getLocalIP() {
+  const interfaces = os.networkInterfaces();
+  for (const name of Object.keys(interfaces)) {
+    for (const iface of interfaces[name]) {
+      if (iface.family === 'IPv4' && !iface.internal) {
+        return iface.address;
+      }
+    }
+  }
+  return '0.0.0.0';
+}
+
 // Create an HTTP server instance for Express
-const server = app.listen(port, () => {
+const server = app.listen(port, '0.0.0.0', () => {
+  const localIP = getLocalIP();
   console.log(`🌐 Server running on http://localhost:${port}`);
+  console.log(`🌐 Accessible on your network at http://${localIP}:${port}`);
 });
 
 // ========== WEBSOCKET SERVER FOR MUD PROXY ==========

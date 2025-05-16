@@ -17,9 +17,15 @@
 <body class="music-page">
   <!-- Header Navigation -->
   <!-- ========== NAVIGATION BAR WITH INTEGRATED LOGIN UI ========== -->
+<body class="index-page">
   <header role="banner">
     <nav role="navigation" aria-label="Main site navigation">
-      <ul>
+<button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+  <span class="menu-icon">☰</span> <span class="menu-label">Menu</span>
+</button>
+
+
+      <ul id="main-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="music.html">Music</a></li>
@@ -30,7 +36,6 @@
         <li><a href="publishing.html">Publishing</a></li>
         <li><a href="digital-store.html">Digital Store</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <!-- Integrated Login UI -->
         <li id="auth-nav-item">
           <div id="global-auth-ui">
             <span id="global-user-name">Guest</span>
@@ -58,15 +63,94 @@
     <!-- Triad of Angels Albums -->
     <section class="album-catalog" style="padding: 40px 20px;">
       <h2 style="text-align: center;">Triad of Angels – Albums & Singles</h2>
-      <div style="text-align: center; margin: 10px 0 20px;">
-        <a href="https://open.spotify.com/artist/57KgHoxG7paxKh3Q4pLXvP?si=4LfTk0rnTGikShAtIsOKUg" target="_blank" rel="noopener" class="cta-button">Spotify</a>
-        <a href="https://music.apple.com/us/artist/triad-of-angels/1811109753" target="_blank" rel="noopener" class="cta-button">Apple Music</a>
-        <a href="https://music.amazon.com/artists/B0F6NS64D6/triad-of-angels?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_B0Uyj0RI1HUSwMgxifq0r0lt6" target="_blank" rel="noopener" class="cta-button">Amazon Music</a>
-        <a href="https://www.iheart.com/artist/triad-of-angels-46655903/" target="_blank" rel="noopener" class="cta-button">iHeartRadio</a>
-        <a href="https://www.boomplay.com/artists/109941013?from=&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" class="cta-button">Boomplay</a>
-        <a href="https://dzr.page.link/n67DZ3MYDuXyiA2f6" target="_blank" rel="noopener" class="cta-button">Deezer</a>
-        <a href="https://music.youtube.com/channel/UC4gnDALvpQXk7yHcKXmTMyQ?si=YYzlK2xyZC7puwMP" target="_blank" rel="noopener" class="cta-button">YouTube Music</a>
-      </div>
+<div class="music-buttons" style="text-align: center; margin: 10px 0 20px;">
+  <div class="cta-buttons">
+    <a href="https://open.spotify.com/artist/57KgHoxG7paxKh3Q4pLXvP?si=4LfTk0rnTGikShAtIsOKUg" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Spotify">Spotify</a>
+    <a href="https://music.apple.com/us/artist/triad-of-angels/1811109753" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Apple Music">Apple Music</a>
+    <a href="https://music.amazon.com/artists/B0F6NS64D6/triad-of-angels?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_B0Uyj0RI1HUSwMgxifq0r0lt6" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Amazon Music">Amazon Music</a>
+    <a href="https://www.iheart.com/artist/triad-of-angels-46655903/" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on iHeartRadio">iHeartRadio</a>
+    <a href="https://www.boomplay.com/artists/109941013?from=&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Boomplay">Boomplay</a>
+    <a href="https://dzr.page.link/n67DZ3MYDuXyiA2f6" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Deezer">Deezer</a>
+    <a href="https://music.youtube.com/channel/UC4gnDALvpQXk7yHcKXmTMyQ?si=YYzlK2xyZC7puwMP" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on YouTube Music">YouTube Music</a>
+  </div>
+</div>
+
+<style>
+  .music-buttons {
+    text-align: center;
+    margin: 10px 0 20px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #f1c40f, #ffeb3b);
+    color: #0a0a0a;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2);
+    border: 1px solid rgba(241, 196, 15, 0.4);
+    min-width: 120px;
+    min-height: 44px; /* WCAG touch target */
+  }
+
+  .cta-button:hover {
+    background: linear-gradient(45deg, #ffeb3b, #f1c40f);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+  }
+
+  .cta-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    .music-buttons {
+      margin: 10px 0 15px;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cta-button {
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      min-width: 150px;
+      min-height: 48px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .music-buttons {
+      margin: 5px 0 10px;
+    }
+
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      min-width: 140px;
+      min-height: 44px;
+    }
+  }
+</style>
       <div class="album-grid">
         <article class="album-block">
           <a href="album.html?id=wings-of-fire" class="album-link" aria-label="Wings of Fire by Triad of Angels">
@@ -86,15 +170,96 @@
     <!-- ToA Studios Albums -->
     <section class="album-catalog" style="padding: 40px 20px;">
       <h2 style="text-align: center;">ToA Studios – Album & Singles Releases</h2>
-      <div style="text-align: center; margin: 10px 0 20px;">
-        <a href="https://open.spotify.com/artist/40BdnWGmvTVO60uEp1MLrA?si=k6iLPAlxSvOmWPBip0S1AQ" target="_blank" rel="noopener" class="cta-button">Spotify</a>
-        <a href="https://music.apple.com/us/artist/toa-studios/1812346019" target="_blank" rel="noopener" class="cta-button">Apple Music</a>
-        <a href="https://music.amazon.com/artists/B0F7H4DRMY/toa-studios?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_5Dm0uSs3kF5W2W1k9cgrgQtQO" target="_blank" rel="noopener" class="cta-button">Amazon Music</a>
-        <a href="https://www.iheart.com/artist/toa-studios-46720429/" target="_blank" rel="noopener" class="cta-button">iHeartRadio</a>
-        <a href="https://www.boomplay.com/artists/110242219?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" class="cta-button">Boomplay</a>
-        <a href="https://dzr.page.link/6r43FesHEfck9qxr9" target="_blank" rel="noopener" class="cta-button">Deezer</a>
-        <a href="https://music.youtube.com/channel/UCtzgypYznTLsnVW_mZbVzVg?si=9o_d_Li_7CMzfA-t" target="_blank" rel="noopener" class="cta-button">YouTube Music</a>
-      </div>
+  <div class="cta-buttons" style="text-align: center; margin: 10px 0 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+    <a href="https://open.spotify.com/artist/40BdnWGmvTVO60uEp1MLrA?si=k6iLPAlxSvOmWPBip0S1AQ" target="_blank" rel="noopener" class="cta-button">Spotify</a>
+    <a href="https://music.apple.com/us/artist/toa-studios/1812346019" target="_blank" rel="noopener" class="cta-button">Apple Music</a>
+    <a href="https://music.amazon.com/artists/B0F7H4DRMY/toa-studios?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_5Dm0uSs3kF5W2W1k9cgrgQtQO" target="_blank" rel="noopener" class="cta-button">Amazon Music</a>
+    <a href="https://www.iheart.com/artist/toa-studios-46720429/" target="_blank" rel="noopener" class="cta-button">iHeartRadio</a>
+    <a href="https://www.boomplay.com/artists/110242219?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" class="cta-button">Boomplay</a>
+    <a href="https://dzr.page.link/6r43FesHEfck9qxr9" target="_blank" rel="noopener" class="cta-button">Deezer</a>
+    <a href="https://music.youtube.com/channel/UCtzgypYznTLsnVW_mZbVzVg?si=9o_d_Li_7CMzfA-t" target="_blank" rel="noopener" class="cta-button">YouTube Music</a>
+  </div>
+
+
+<style>
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #f1c40f, #ffeb3b);
+    color: #0a0a0a;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2);
+    border: 1px solid rgba(241, 196, 15, 0.4);
+    min-width: 120px;
+    min-height: 44px; /* WCAG touch target */
+  }
+
+  .cta-button:hover {
+    background: linear-gradient(45deg, #ffeb3b, #f1c40f);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+  }
+
+  .cta-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    .album-catalog {
+      padding: 20px 15px;
+    }
+
+    .album-catalog h2 {
+      font-size: 2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cta-button {
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      min-width: 150px;
+      min-height: 48px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .album-catalog {
+      padding: 15px 10px;
+    }
+
+    .album-catalog h2 {
+      font-size: 1.8rem;
+    }
+
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      min-width: 140px;
+      min-height: 44px;
+    }
+  }
+</style>
       <div class="album-grid">
         <article class="album-block">
           <a href="album.html?id=probed-and-confused" class="album-link" aria-label="Probed & Confused by ToA Studios">
@@ -217,17 +382,26 @@
   </div>
 </div>
 
+  <!-- Scripts -->
+  <script>
+    document.documentElement.style.scrollBehavior = 'smooth';
+  </script>
   <!-- Error Toast -->
   <div id="global-error-toast" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ff4444; color: #fff; padding: 10px 20px; border-radius: 5px; z-index: 2000;"></div>
 
-  <!-- Scripts -->
-<link rel="stylesheet" href="css/style.css?v=5">
-<link rel="stylesheet" href="css/chatbot.css?v=5">
-<script src="js/chatbot.js?v=5"></script>
-<script src="js/chatbot-persist.js?v=5"></script>
-<script type="module">
-  import './js/firebase-init.js?v=5';
-  import './js/auth.js?v=5';
-</script>
+  <script>
+    document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+      document.getElementById('main-nav').classList.toggle('show');
+    });
+  </script>
+
+  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/chatbot.css?v=5">
+  <script src="js/chatbot.js?v=7"></script>
+  <script src="js/chatbot-persist.js?v=7"></script>
+  <script type="module">
+    import './js/firebase-init.js?v=7';
+    import './js/auth.js?v=7';
+  </script>
 </body>
 </html>
