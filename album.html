@@ -13,12 +13,12 @@
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/chatbot.css">
+  <link rel="stylesheet" href="css/style.css?v=7" />
+  <link rel="stylesheet" href="css/chatbot.css?v=7">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <title>Album Details | Triad of Angels & ToA Studios</title>
   <style>
-    /* Existing styles */
+    /* Album-specific styles (non-comment related) */
     body {
       margin: 0;
       padding: 0;
@@ -153,7 +153,7 @@
 
     .album-cover {
       flex: 1;
-      min-width: 500px;
+      min-width: 0; /* Remove min-width for mobile */
       text-align: center;
       position: relative;
     }
@@ -177,7 +177,7 @@
 
     .album-info {
       flex: 2;
-      min-width: 500px;
+      min-width: 0; /* Remove min-width for mobile */
     }
 
     .album-info h2 {
@@ -350,188 +350,6 @@
       line-height: 2;
     }
 
-    /* Comments Section Styles */
-    .comments-section {
-      background: rgba(20, 20, 20, 0.9);
-      border-radius: 40px;
-      padding: 70px;
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), inset 0 0 35px rgba(241, 196, 15, 0.02);
-      border: 2px solid rgba(241, 196, 15, 0.1);
-      text-align: left;
-      margin-bottom: 70px;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s ease-out forwards 0.6s;
-    }
-
-    .comments-section h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: #f1c40f;
-      margin-bottom: 50px;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      text-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
-      text-align: center;
-    }
-
-    .comment-form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 40px;
-    }
-
-    .comment-form textarea {
-      width: 100%;
-      min-height: 100px;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(241, 196, 15, 0.3);
-      border-radius: 10px;
-      color: #e8e8e8;
-      font-size: 1.2rem;
-      resize: vertical;
-    }
-
-    .comment-form textarea:focus {
-      outline: none;
-      border-color: #f1c40f;
-      box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
-    }
-
-    .comment-form button {
-      padding: 10px 20px;
-      background: linear-gradient(45deg, #f1c40f, #ffeb3b);
-      color: #0a0a0a;
-      border: none;
-      border-radius: 20px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      align-self: flex-end;
-    }
-
-    .comment-form button:hover {
-      background: linear-gradient(45deg, #ffeb3b, #f1c40f);
-      transform: scale(1.05);
-    }
-
-    .comment-form button:disabled {
-      background: #555;
-      cursor: not-allowed;
-      transform: none;
-      opacity: 0.5;
-      position: relative;
-    }
-
-    /* Tooltip for Disabled Button */
-    .comment-form button:disabled:hover::after {
-      content: "You need to sign in to comment";
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(241, 196, 15, 0.9);
-      color: #0a0a0a;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      white-space: nowrap;
-      z-index: 10;
-    }
-
-    /* Arrow for the tooltip bubble */
-    .comment-form button:disabled:hover::before {
-      content: "";
-      position: absolute;
-      bottom: 90%;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 5px solid transparent;
-      border-top-color: rgba(241, 196, 15, 0.9);
-      z-index: 10;
-    }
-
-    .comment-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .comment {
-      background: rgba(15, 15, 15, 0.8);
-      padding: 20px;
-      border-radius: 15px;
-      border: 1px solid rgba(241, 196, 15, 0.2);
-      position: relative;
-    }
-
-    .comment-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .comment-header span {
-      font-size: 1.1rem;
-      color: #f1c40f;
-      font-weight: 600;
-    }
-
-    .comment-header .timestamp {
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
-    .comment-content {
-      font-size: 1.2rem;
-      color: #e8e8e8;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    .comment-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .comment-actions button {
-      background: none;
-      border: none;
-      color: #f1c40f;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .comment-actions button:hover {
-      color: #ffeb3b;
-    }
-
-    .comment-actions button:disabled {
-      color: #555;
-      cursor: not-allowed;
-    }
-
-    .comment-actions span {
-      font-size: 1rem;
-      color: #e8e8e8;
-    }
-
-    .comment-actions .admin-only {
-      display: none;
-    }
-
-    .comment-actions.admin-view .admin-only {
-      display: inline;
-    }
-
     @media (max-width: 1024px) {
       .album-hero {
         min-height: 90vh;
@@ -568,11 +386,11 @@
         font-size: 1.4rem;
       }
 
-      .streaming-links, .music-player, .comments-section {
+      .streaming-links, .music-player {
         padding: 60px;
       }
 
-      .streaming-links h2, .music-player h2, .comments-section h2 {
+      .streaming-links h2, .music-player h2 {
         font-size: 3rem;
       }
     }
@@ -580,11 +398,13 @@
     @media (max-width: 768px) {
       .album-hero {
         min-height: 80vh;
+        padding: 0 20px;
       }
 
       .album-hero-content {
         padding: 40px;
         border-radius: 30px;
+        max-width: 100%;
       }
 
       .album-hero-content h1 {
@@ -595,17 +415,22 @@
         font-size: 1.6rem;
       }
 
+      .album-main {
+        padding: 60px 20px;
+      }
+
       .album-details {
         padding: 50px;
         gap: 50px;
       }
 
       .album-cover img {
-        max-width: 450px;
+        max-width: 100%;
       }
 
       .album-info h2 {
         font-size: 2.5rem;
+        letter-spacing: 3px;
       }
 
       .album-info p {
@@ -617,12 +442,13 @@
         padding: 25px;
       }
 
-      .streaming-links, .music-player, .comments-section {
-        padding: 50px;
+      .streaming-links, .music-player {
+        padding: 50px 15px;
       }
 
-      .streaming-links h2, .music-player h2, .comments-section h2 {
+      .streaming-links h2, .music-player h2 {
         font-size: 2.5rem;
+        letter-spacing: 3px;
       }
 
       .link-tab {
@@ -632,12 +458,14 @@
 
       .music-player iframe {
         height: 500px;
+        max-width: 100%;
       }
     }
 
     @media (max-width: 480px) {
       .album-hero {
         min-height: 70vh;
+        padding: 0 15px;
       }
 
       .album-hero-content h1 {
@@ -648,17 +476,22 @@
         font-size: 1.4rem;
       }
 
+      .album-main {
+        padding: 40px 15px;
+      }
+
       .album-details {
         padding: 40px;
         gap: 40px;
       }
 
       .album-cover img {
-        max-width: 400px;
+        max-width: 100%;
       }
 
       .album-info h2 {
         font-size: 2rem;
+        letter-spacing: 2px;
       }
 
       .album-info p {
@@ -670,12 +503,13 @@
         padding: 20px;
       }
 
-      .streaming-links, .music-player, .comments-section {
-        padding: 40px;
+      .streaming-links, .music-player {
+        padding: 40px 10px;
       }
 
-      .streaming-links h2, .music-player h2, .comments-section h2 {
+      .streaming-links h2, .music-player h2 {
         font-size: 2rem;
+        letter-spacing: 2px;
       }
 
       .link-tab {
@@ -685,11 +519,12 @@
 
       .music-player iframe {
         height: 400px;
+        max-width: 100%;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .link-tab, .album-cover img, .album-details, .streaming-links, .music-player, .comments-section {
+      .link-tab, .album-cover img, .album-details, .streaming-links, .music-player {
         transition: none;
         animation: none;
       }
@@ -839,591 +674,644 @@
   </div>
 
   <!-- Error Toast -->
-  <div id="global-error-toast" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ff4444; color: #fff; padding: 10px 20px; border-radius: 5px; z-index: 2000;"></div>
+  <div id="global-error-toast"></div>
 
   <!-- Scripts -->
-  <script src="js/chatbot.js?v=2"></script>
-  <script src="js/chatbot-persist.js?v=2"></script>
+  <script src="js/chatbot.js?v=7"></script>
+  <script src="js/chatbot-persist.js?v=7"></script>
   <script type="module">
-    import './js/firebase-init.js?v=2';
-    import './js/auth.js?v=2';
+    import './js/firebase-init.js?v=7';
+    import './js/auth.js?v=7';
   </script>
 
-<script type="module">
-  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-  import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-  import { auth, db } from './js/firebase-init.js';
-  import './js/auth.js';
+  <script type="module">
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { auth, db } from './js/firebase-init.js';
+    import './js/auth.js';
 
-  // Album data
-  const albums = [
-    {
-      id: "wings-of-fire",
-      title: "Wings of Fire",
-      artist: "Triad of Angels",
-      genre: "Cinematic Pop",
-      year: 2024,
-      cover: "assets/images/albums/wingsoffire-album.png",
-      tracks: ["Ignite the Sky", "Eternal Flame", "Rise Above"],
-      links: {
-        spotify: "https://open.spotify.com/album/4K83YJEeETmcybKtQ1LP5l?si=fOFELopLS9W3eLOSR8x5tA",
-        appleMusic: "https://music.apple.com/us/album/wings-of-fire-ep/1812163266",
-        amazonMusic: "https://music.amazon.com/albums/B0F79L26WV?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_LjFRykAfbo5PSnB7mT8yMjN2a",
-        iHeartRadio: "https://www.iheart.com/artist/triad-of-angels-46655903/albums/wings-of-fire-326706390/",
-        boomplay: "https://www.boomplay.com/albums/110140275?from=search&srModel=COPYLINK&srList=WEB",
-        deezer: "https://dzr.page.link/SvK8hbw8DH1q33xXA",
-        youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_kpbLV2nL-Ryt_nKkJ8CFfll701Zrw9N6k&si=c0d1GLRChrOKtkbK",
-        iTunes: "https://music.apple.com/us/album/wings-of-fire-ep/1812163266"
+    // Album data
+    const albums = [
+      {
+        id: "wings-of-fire",
+        title: "Wings of Fire",
+        artist: "Triad of Angels",
+        genre: "Female Group, Cinematic Pop, Orchestral, Ballad",
+        year: "May, 2025",
+        cover: "assets/images/albums/wingsoffire-album.png",
+        tracks: ["Ignite the Sky", "Eternal Flame", "Rise Above"],
+        links: {
+          spotify: "https://open.spotify.com/album/4K83YJEeETmcybKtQ1LP5l?si=fOFELopLS9W3eLOSR8x5tA",
+          appleMusic: "https://music.apple.com/us/album/wings-of-fire-ep/1812163266",
+          amazonMusic: "https://music.amazon.com/albums/B0F79L26WV?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_LjFRykAfbo5PSnB7mT8yMjN2a",
+          iHeartRadio: "https://www.iheart.com/artist/triad-of-angels-46655903/albums/wings-of-fire-326706390/",
+          boomplay: "https://www.boomplay.com/albums/110140275?from=search&srModel=COPYLINK&srList=WEB",
+          deezer: "https://dzr.page.link/SvK8hbw8DH1q33xXA",
+          youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_kpbLV2nL-Ryt_nKkJ8CFfll701Zrw9N6k&si=c0d1GLRChrOKtkbK",
+          iTunes: "https://music.apple.com/us/album/wings-of-fire-ep/1812163266"
+        },
+        boomplayEmbed: "https://www.boomplay.com/embed/110140275/COL",
+        artistInfo: "This is the first (among many) Albums from the Female Group *Triad of Angels* releasing their EP Album. This Album has cinematic pop sounds, melodies, beautiful soul touching sounds that blends powerful vocals with orchestral elements. *Wings of Fire* showcases their signature style, weaving themes of hope, strength, and fiery passion."
       },
-      boomplayEmbed: "https://www.boomplay.com/embed/110140275/COL",
-      artistInfo: "Triad of Angels is a flagship band under ToA Studios, known for their cinematic pop sound that blends powerful vocals with orchestral elements. *Wings of Fire* showcases their signature style, weaving themes of hope, strength, and fiery passion."
-    },
-    {
-      id: "ascend",
-      title: "Ascend",
-      artist: "PIPIKA",
-      genre: "Cinematic Pop",
-      year: 2025,
-      cover: "assets/images/albums/ascend-album.png",
-      tracks: ["Ascension", "Skyward Bound", "Celestial Rise"],
-      links: {
-        spotify: "https://open.spotify.com/album/5EetoHOZzPFoLGfM7XzTim?si=cWzTT5jKQ5KI-KkQYubADQ",
-        appleMusic: "https://music.apple.com/us/album/ascend/1812603057",
-        amazonMusic: "https://music.amazon.com/albums/B0F7H65CHH?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_8rBuhB66DVXsHWGPokhzw88DN",
-        iHeartRadio: "https://www.iheart.com/artist/triad-of-angels-46655903/albums/ascend-327002587/",
-        boomplay: "https://www.boomplay.com/albums/110238502?from=search&srModel=COPYLINK&srList=WEB",
-        deezer: "https://dzr.page.link/M4d8bxxmmQdLEr3o7",
-        youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_n6axY2s6JOnfyXOqSsWQ9o1Rmz05azC4w&si=5HJAAMnu0iXVlpNb",
-        iTunes: "https://music.apple.com/us/album/ascend/1812603057"
+      {
+        id: "ascend",
+        title: "Ascend",
+        artist: "Triad of Angels",
+        genre: "Female Group, Cinematic Pop, Orchestral, Alternative, Soundtrack",
+        year: "May, 2025",
+        cover: "assets/images/albums/ascend-album.png",
+        tracks: ["Ascension", "Skyward Bound", "Celestial Rise"],
+        links: {
+          spotify: "https://open.spotify.com/album/5EetoHOZzPFoLGfM7XzTim?si=cWzTT5jKQ5KI-KkQYubADQ",
+          appleMusic: "https://music.apple.com/us/album/ascend/1812603057",
+          amazonMusic: "https://music.amazon.com/albums/B0F7H65CHH?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_8rBuhB66DVXsHWGPokhzw88DN",
+          iHeartRadio: "https://www.iheart.com/artist/triad-of-angels-46655903/albums/ascend-327002587/",
+          boomplay: "https://www.boomplay.com/albums/110238502?from=search&srModel=COPYLINK&srList=WEB",
+          deezer: "https://dzr.page.link/M4d8bxxmmQdLEr3o7",
+          youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_n6axY2s6JOnfyXOqSsWQ9o1Rmz05azC4w&si=5HJAAMnu0iXVlpNb",
+          iTunes: "https://music.apple.com/us/album/ascend/1812603057"
+        },
+        boomplayEmbed: "https://www.boomplay.com/embed/110238502/COL",
+        artistInfo: "Triad of Angels is the Female Group of Samantha, Jessica & Sonya. Cinematic pop sound that blends powerful vocals with orchestral elements. *Ascend* takes listeners on a journey of uplifting melodies and soaring emotions with true inspirations and belief."
       },
-      boomplayEmbed: "https://www.boomplay.com/embed/110238502/COL",
-      artistInfo: "Triad of Angels is a flagship band under ToA Studios, known for their cinematic pop sound that blends powerful vocals with orchestral elements. *Ascend* takes listeners on a journey of uplifting melodies and soaring emotions."
-    },
-    {
-      id: "probed-and-confused",
-      title: "Probed & Confused",
-      artist: "ToA Studios",
-      genre: "Electronic",
-      year: 2025,
-      cover: "assets/images/albums/probedandconfused-album.jpeg",
-      tracks: ["First Contact", "Lost in the Void", "Abduction Anthem"],
-      links: {
-        spotify: "https://open.spotify.com/album/5pdZRwo8VXH3sxTZzqsUjN?si=nDt0mqEjQ82k-TaymTQYZQ",
-        appleMusic: "https://music.apple.com/us/album/probed-confused/1812599708",
-        amazonMusic: "https://music.amazon.com/albums/B0F7H6DL4J?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_72nUB1xSWdSCwKH8CX7EColXP",
-        iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/probed-confused-327006359/",
-        boomplay: "https://www.boomplay.com/albums/110242229?from=search&srModel=COPYLINK&srList=WEB",
-        deezer: "https://dzr.page.link/UgaQkHSdvSTSWf7Y8",
-        youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_nZawrRr1jGQNAw3nz0P2B-OoqMKmEn1Tg&si=v-I7avviDAjL1VW0",
-        iTunes: "https://music.apple.com/us/album/probed-confused/1812599708"
+      {
+        id: "probed-and-confused",
+        title: "Probed & Confused",
+        artist: "ToA Studios",
+        genre: "Hip-Hop, Rap, Satirical, Parody, Electronic",
+        year: "May, 2025",
+        cover: "assets/images/albums/probedandconfused-album.jpeg",
+        tracks: ["First Contact", "Lost in the Void", "Abduction Anthem"],
+        links: {
+          spotify: "https://open.spotify.com/album/5pdZRwo8VXH3sxTZzqsUjN?si=nDt0mqEjQ82k-TaymTQYZQ",
+          appleMusic: "https://music.apple.com/us/album/probed-confused/1812599708",
+          amazonMusic: "https://music.amazon.com/albums/B0F7H6DL4J?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_72nUB1xSWdSCwKH8CX7EColXP",
+          iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/probed-confused-327006359/",
+          boomplay: "https://www.boomplay.com/albums/110242229?from=search&srModel=COPYLINK&srList=WEB",
+          deezer: "https://dzr.page.link/UgaQkHSdvSTSWf7Y8",
+          youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_nZawrRr1jGQNAw3nz0P2B-OoqMKmEn1Tg&si=v-I7avviDAjL1VW0",
+          iTunes: "https://music.apple.com/us/album/probed-confused/1812599708"
+        },
+        boomplayEmbed: "https://www.boomplay.com/embed/110242229/COL",
+        artistInfo: "ToA Studios explores the unknown with *Probed & Confused*, an electronic journey from the view of an Alien that has landed on Earth touching base on all the *conspiracies* among us. This is a hip-hop/rap focus story from start to end (Goodbye) with cosmic confusion and extraterrestrial vibes. Satirical fun."
       },
-      boomplayEmbed: "https://www.boomplay.com/embed/110242229/COL",
-      artistInfo: "ToA Studios explores the unknown with *Probed & Confused*, an electronic journey through cosmic confusion and extraterrestrial vibes."
-    },
-    {
-      id: "echoes-on-the-dirt-road",
-      title: "Echoes on the Dirt Road",
-      artist: "ToA Studios",
-      genre: "Country",
-      year: 2025,
-      cover: "assets/images/albums/echoesonthedirtroad-album.png",
-      tracks: ["Dirt Road Echoes", "Whispers in the Wind", "Fading Footprints"],
-      links: {
-        spotify: "https://open.spotify.com/album/0y1rCdAJggJMoFvX1FFKDe?si=Vo8Gj9uXSku2-6WzY6HgQg",
-        appleMusic: "https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626",
-        amazonMusic: "https://music.amazon.com/albums/B0F7H6LXVZ?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_iqGT0j3cMSEGDIQiC59dy6977",
-        iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/echoes-on-the-dirt-road-327006297/",
-        boomplay: "https://www.boomplay.com/albums/110238994?from=search&srModel=COPYLINK&srList=WEB",
-        deezer: "https://dzr.page.link/g2169XseSm3paGi38",
-        youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mL9FznTyx_-6nKq_rm767o73cjLlUCl_g&si=oprCNIO-vF3nwcuH",
-        iTunes: "https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626"
+      {
+        id: "echoes-on-the-dirt-road",
+        title: "Echoes on the Dirt Road",
+        artist: "ToA Studios",
+        genre: "Country, Ballad, Boot Scootin', Alternative",
+        year: "May, 2025",
+        cover: "assets/images/albums/echoesonthedirtroad-album.png",
+        tracks: ["Dirt Road Echoes", "Whispers in the Wind", "Fading Footprints"],
+        links: {
+          spotify: "https://open.spotify.com/album/0y1rCdAJggJMoFvX1FFKDe?si=Vo8Gj9uXSku2-6WzY6HgQg",
+          appleMusic: "https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626",
+          amazonMusic: "https://music.amazon.com/albums/B0F7H6LXVZ?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_iqGT0j3cMSEGDIQiC59dy6977",
+          iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/echoes-on-the-dirt-road-327006297/",
+          boomplay: "https://www.boomplay.com/albums/110238994?from=search&srModel=COPYLINK&srList=WEB",
+          deezer: "https://dzr.page.link/g2169XseSm3paGi38",
+          youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mL9FznTyx_-6nKq_rm767o73cjLlUCl_g&si=oprCNIO-vF3nwcuH",
+          iTunes: "https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626"
+        },
+        boomplayEmbed: "https://www.boomplay.com/embed/110238994/COL",
+        artistInfo: "ToA Studios presents *Echoes on the Dirt Road*, a heartfelt country album capturing the soul of rural life with hauntingly beautiful melodies. Featuring a viral Boot, Scoot & Spin song for those Line Dancers and Boot Scooters among us!"
       },
-      boomplayEmbed: "https://www.boomplay.com/embed/110238994/COL",
-      artistInfo: "ToA Studios presents *Echoes on the Dirt Road*, a heartfelt country album capturing the soul of rural life with hauntingly beautiful melodies."
-    },
-    {
-      id: "phoenix-rising",
-      title: "Phoenix Rising",
-      artist: "ToA Studios",
-      genre: "Orchestral",
-      year: 2025,
-      cover: "assets/images/albums/phoenixrising-album.png",
-      tracks: ["Ashes to Flame", "Wings of Rebirth", "Eternal Ascent"],
-      links: {
-        spotify: "https://open.spotify.com/album/5xqK1MMJrhPOcPM58zjlvE?si=mn6Yx15fQkGzTLKPOPNE7Q",
-        appleMusic: "https://music.apple.com/us/album/phoenix-rising/1812648146",
-        amazonMusic: "https://music.amazon.com/albums/B0F7HKT32B?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_2uGXo9FM5fP0z0IDqTunHMEFQ",
-        iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/phoenix-rising-327032664/",
-        boomplay: "https://www.boomplay.com/albums/110247179?from=search&srModel=COPYLINK&srList=WEB",
-        deezer: "https://dzr.page.link/wpiRxBm7aijHYBts7",
-        youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mcj1x0UNnDOgYxEpw_3dsQWykLrAOPXj4&si=lzimoRyOpANWfQAb",
-        iTunes: "https://music.apple.com/us/album/phoenix-rising/1812648146"
+      {
+        id: "phoenix-rising",
+        title: "Phoenix Rising",
+        artist: "ToA Studios",
+        genre: "Rock, Metal, Alternative, Orchestral",
+        year: "May, 2025",
+        cover: "assets/images/albums/phoenixrising-album.png",
+        tracks: ["Ashes to Flame", "Wings of Rebirth", "Eternal Ascent"],
+        links: {
+          spotify: "https://open.spotify.com/album/5xqK1MMJrhPOcPM58zjlvE?si=mn6Yx15fQkGzTLKPOPNE7Q",
+          appleMusic: "https://music.apple.com/us/album/phoenix-rising/1812648146",
+          amazonMusic: "https://music.amazon.com/albums/B0F7HKT32B?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_2uGXo9FM5fP0z0IDqTunHMEFQ",
+          iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/phoenix-rising-327032664/",
+          boomplay: "https://www.boomplay.com/albums/110247179?from=search&srModel=COPYLINK&srList=WEB",
+          deezer: "https://dzr.page.link/wpiRxBm7aijHYBts7",
+          youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mcj1x0UNnDOgYxEpw_3dsQWykLrAOPXj4&si=lzimoRyOpANWfQAb",
+          iTunes: "https://music.apple.com/us/album/phoenix-rising/1812648146"
+        },
+        boomplayEmbed: "https://www.boomplay.com/embed/110247179/COL",
+        artistInfo: "ToA Studios delivers *Phoenix Rising*, an orchestral with heavy rock masterpiece symbolizing renewal and resilience through soaring compositions."
       },
-      boomplayEmbed: "https://www.boomplay.com/embed/110247179/COL",
-      artistInfo: "ToA Studios delivers *Phoenix Rising*, an orchestral masterpiece symbolizing renewal and resilience through soaring compositions."
-    },
-    {
-      id: "the-quiet-war",
-      title: "The Quiet War",
-      artist: "ToA Studios",
-      genre: "Soundtrack",
-      year: 2025,
-      cover: "assets/images/albums/thequietwar-album.png",
-      tracks: ["Silent Conflict", "Shadows of Valor", "Echoes of Peace"],
-      links: {
-        spotify: "https://open.spotify.com/album/5grqzzq1V4Gaw3jqDjoQbV?si=7YUpINOaRmaKSuYdtlVzvQ",
-        appleMusic: "https://music.apple.com/us/album/the-quiet-war/1812870604",
-        amazonMusic: "https://music.amazon.com/albums/B0F7LTGSTV?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_Kd4MIeBYuzAoFY3yaobhY11t6",
-        iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/the-quiet-war-327214148/",
-        boomplay: "https://www.boomplay.com/albums/110301296?from=search&srModel=COPYLINK&srList=WEB",
-        deezer: "https://dzr.page.link/W8dvTRvGoCzDwxc98",
-        youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mnAyAE1pxoey93kvk6KxqaY8n3CDJtD-0&si=RdO6K4pEyqJVxWQ-",
-        iTunes: "https://music.apple.com/us/album/the-quiet-war/1812870604"
+      {
+        id: "the-quiet-war",
+        title: "The Quiet War",
+        artist: "ToA Studios",
+        genre: "Concept Soundtrack, Hip-Hop, Rap",
+        year: "May, 2025",
+        cover: "assets/images/albums/thequietwar-album.png",
+        tracks: ["Silent Conflict", "Shadows of Valor", "Echoes of Peace"],
+        links: {
+          spotify: "https://open.spotify.com/album/5grqzzq1V4Gaw3jqDjoQbV?si=7YUpINOaRmaKSuYdtlVzvQ",
+          appleMusic: "https://music.apple.com/us/album/the-quiet-war/1812870604",
+          amazonMusic: "https://music.amazon.com/albums/B0F7LTGSTV?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_Kd4MIeBYuzAoFY3yaobhY11t6",
+          iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/the-quiet-war-327214148/",
+          boomplay: "https://www.boomplay.com/albums/110301296?from=search&srModel=COPYLINK&srList=WEB",
+          deezer: "https://dzr.page.link/W8dvTRvGoCzDwxc98",
+          youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mnAyAE1pxoey93kvk6KxqaY8n3CDJtD-0&si=RdO6K4pEyqJVxWQ-",
+          iTunes: "https://music.apple.com/us/album/the-quiet-war/1812870604"
+        },
+        boomplayEmbed: "https://www.boomplay.com/embed/110301296/COL",
+        artistInfo: "ToA Studios crafts *The Quiet War*, a gripping soundtrack for an untold story of inner battles and silent victories."
       },
-      boomplayEmbed: "https://www.boomplay.com/embed/110301296/COL",
-      artistInfo: "ToA Studios crafts *The Quiet War*, a gripping soundtrack for an untold story of inner battles and silent victories."
-    },
-    {
-      id: "reality-exe",
-      title: "Reality.exe",
-      artist: "ToA Studios",
-      genre: "Electronic",
-      year: 2025,
-      cover: "assets/images/albums/reality-exe-album.png",
-      tracks: ["Code of Existence", "Digital Pulse", "System Reboot"],
-      links: {
-        spotify: "https://open.spotify.com/album/6SzYfretgTzLUITlIP6AMy?si=f2cObGo4STKF-YQusk5YGg",
-        appleMusic: "https://music.apple.com/us/album/reality-exe/1812900765",
-        amazonMusic: "https://music.amazon.com/albums/B0F7M1HTYD?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_HpaPCWwzNgVC3Y7pxhTXOJQqW",
-        iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/realityexe-327233858/",
-        boomplay: "https://www.boomplay.com/albums/110303684?from=search&srModel=COPYLINK&srList=WEB",
-        deezer: "https://dzr.page.link/nSpcy613QhmzKCi7A",
-        youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mEUI3xipOKn-zGt9dOHJbIuk6e1J7gHLQ&si=UuVUiJ6uhXTmNmR_",
-        iTunes: "https://music.apple.com/us/album/reality-exe/1812900765"
+      {
+        id: "reality-exe",
+        title: "Reality.exe",
+        artist: "ToA Studios",
+        genre: "Hip-Hop, Rap, Satirical, Parody, Electronic",
+        year: "May, 2025",
+        cover: "assets/images/albums/reality-exe-album.png",
+        tracks: ["Code of Existence", "Digital Pulse", "System Reboot"],
+        links: {
+          spotify: "https://open.spotify.com/album/6SzYfretgTzLUITlIP6AMy?si=f2cObGo4STKF-YQusk5YGg",
+          appleMusic: "https://music.apple.com/us/album/reality-exe/1812900765",
+          amazonMusic: "https://music.amazon.com/albums/B0F7M1HTYD?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_HpaPCWwzNgVC3Y7pxhTXOJQqW",
+          iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/realityexe-327233858/",
+          boomplay: "https://www.boomplay.com/albums/110303684?from=search&srModel=COPYLINK&srList=WEB",
+          deezer: "https://dzr.page.link/nSpcy613QhmzKCi7A",
+          youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mEUI3xipOKn-zGt9dOHJbIuk6e1J7gHLQ&si=UuVUiJ6uhXTmNmR_",
+          iTunes: "https://music.apple.com/us/album/reality-exe/1812900765"
+        },
+        boomplayEmbed: "https://www.boomplay.com/embed/110303684/COL",
+        artistInfo: "ToA Studios reboots reality with *Reality.exe*, a satirical comedy roast fest whilst pointing out the reality of the World and Society as we know it. Hip-hop and rap focus album that glitches through the fabric of existence with pulsating beats."
       },
-      boomplayEmbed: "https://www.boomplay.com/embed/110303684/COL",
-      artistInfo: "ToA Studios reboots reality with *Reality.exe*, an electronic album that glitches through the fabric of existence with pulsating beats."
-    },
-    {
-      id: "serpents-veil",
-      title: "Serpent's Veil",
-      artist: "ToA Studios",
-      genre: "Rock, Metal, Heavy, Alternative",
-      year: "19th of May, 2025",
-      cover: "assets/images/albums/serpentsveil-album.png",
-      tracks: [""],
-      links: {
-        spotify: "",
-        appleMusic: "",
-        amazonMusic: "",
-        iHeartRadio: "",
-        boomplay: "",
-        deezer: "",
-        youTubeMusic: "",
-        iTunes: "https://music.apple.com/au/album/serpents-veil/1813142997"
+      {
+        id: "serpents-veil",
+        title: "Serpent's Veil",
+        artist: "ToA Studios",
+        genre: "Rock, Metal, Heavy, Alternative",
+        year: "19th of May, 2025",
+        cover: "assets/images/albums/serpentsveil-album.png",
+        tracks: [""],
+        links: {
+          spotify: "",
+          appleMusic: "",
+          amazonMusic: "",
+          iHeartRadio: "",
+          boomplay: "",
+          deezer: "",
+          youTubeMusic: "",
+          iTunes: "https://music.apple.com/au/album/serpents-veil/1813142997"
+        },
+        boomplayEmbed: "",
+        artistInfo: ""
       },
-      boomplayEmbed: "",
-      artistInfo: ""
-    },
-    {
-      id: "american-firestorm-songs-of-freedom",
-      title: "American Firestorm Songs of Freedom",
-      artist: "ToA Studios",
-      genre: "Country, Ballad, Funk, Classical, Alternative, Pop",
-      year: "20th of June, 2025",
-      cover: "assets/images/albums/songsoffreedom-album.png",
-      tracks: [""],
-      links: {
-        spotify: "",
-        appleMusic: "",
-        amazonMusic: "",
-        iHeartRadio: "",
-        boomplay: "",
-        deezer: "",
-        youTubeMusic: "",
-        iTunes: "https://music.apple.com/au/album/american-firestorm-songs-of-freedom/1813521823"
+      {
+        id: "american-firestorm-songs-of-freedom",
+        title: "American Firestorm Songs of Freedom",
+        artist: "ToA Studios",
+        genre: "Country, Ballad, Funk, Classical, Alternative, Pop",
+        year: "20th of June, 2025",
+        cover: "assets/images/albums/songsoffreedom-album.png",
+        tracks: [""],
+        links: {
+          spotify: "",
+          appleMusic: "",
+          amazonMusic: "",
+          iHeartRadio: "",
+          boomplay: "",
+          deezer: "",
+          youTubeMusic: "",
+          iTunes: "https://music.apple.com/au/album/american-firestorm-songs-of-freedom/1813521823"
+        },
+        boomplayEmbed: "",
+        artistInfo: ""
       },
-      boomplayEmbed: "",
-      artistInfo: ""
-    },
-  ];
+    ];
 
-  // Function to populate the page with album data
-  document.addEventListener('DOMContentLoaded', () => {
-    try {
-      // Get album ID from query parameter
-      const urlParams = new URLSearchParams(window.location.search);
-      const albumId = urlParams.get('id');
-      console.log('Album ID from URL:', albumId);
+    // Function to populate the page with album data
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        // Get album ID from query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const albumId = urlParams.get('id');
+        console.log('Album ID from URL:', albumId);
 
-      if (!albumId) {
-        throw new Error('No album ID provided in the URL.');
-      }
-
-      // Find the album in the data
-      const album = albums.find(a => a.id === albumId);
-      if (!album) {
-        throw new Error(`Album with ID "${albumId}" not found.`);
-      }
-      console.log('Found album:', album);
-
-      // Update Album Background
-      const backgroundImg = document.getElementById('album-background');
-      backgroundImg.src = album.cover;
-      backgroundImg.onerror = () => {
-        console.error(`Failed to load background image: ${album.cover}`);
-        backgroundImg.style.display = 'none';
-      };
-      document.getElementById('album-title').textContent = album.title;
-      document.getElementById('album-subtitle').textContent = `A ${album.genre} Masterpiece by ${album.artist}`;
-
-      // Update Album Details
-      const coverImg = document.getElementById('album-cover');
-      coverImg.src = album.cover;
-      coverImg.alt = `${album.title} album cover`;
-      coverImg.onerror = () => {
-        console.error(`Failed to load album cover image: ${album.cover}`);
-        coverImg.src = 'assets/images/placeholder-album.png';
-      };
-      document.getElementById('album-info-title').textContent = album.title;
-      document.getElementById('album-artist').innerHTML = `<strong>Artist:</strong> ${album.artist}`;
-      document.getElementById('album-tracks').innerHTML = `<strong>Tracks:</strong> ${album.tracks.join(', ')}`;
-      document.getElementById('album-genre').innerHTML = `<strong>Genre:</strong> ${album.genre}`;
-      document.getElementById('album-year').innerHTML = `<strong>Release Date:</strong> ${album.year}`;
-      document.getElementById('album-description').textContent = album.artistInfo || "No description available.";
-
-      // Update Streaming Links
-      const linkTabs = document.getElementById('link-tabs');
-      const platforms = [
-        { name: 'Spotify', key: 'spotify' },
-        { name: 'Apple Music', key: 'appleMusic' },
-        { name: 'Amazon Music', key: 'amazonMusic' },
-        { name: 'iHeartRadio', key: 'iHeartRadio' },
-        { name: 'Boomplay', key: 'boomplay' },
-        { name: 'Deezer', key: 'deezer' },
-        { name: 'YouTube Music', key: 'youTubeMusic' },
-        { name: 'iTunes', key: 'iTunes' }
-      ];
-
-      platforms.forEach(platform => {
-        const link = album.links[platform.key];
-        if (link && link !== '') {
-          const a = document.createElement('a');
-          a.href = link;
-          a.target = '_blank';
-          a.rel = 'noopener';
-          a.className = 'link-tab';
-          a.setAttribute('aria-label', `Stream on ${platform.name}`);
-          a.textContent = platform.name;
-          linkTabs.appendChild(a);
+        if (!albumId) {
+          throw new Error('No album ID provided in the URL.');
         }
-      });
 
-      // Update Music Player Embed
-      const musicPlayerEmbed = document.getElementById('music-player-embed');
-      if (album.boomplayEmbed && album.boomplayEmbed !== '') {
-        const iframe = document.createElement('iframe');
-        iframe.src = album.boomplayEmbed;
-        iframe.width = '600';
-        iframe.height = '600';
-        iframe.frameBorder = '0';
-        musicPlayerEmbed.appendChild(iframe);
+        // Find the album in the data
+        const album = albums.find(a => a.id === albumId);
+        if (!album) {
+          throw new Error(`Album with ID "${albumId}" not found.`);
+        }
+        console.log('Found album:', album);
+
+        // Update Album Background
+        const backgroundImg = document.getElementById('album-background');
+        backgroundImg.src = album.cover;
+        backgroundImg.onerror = () => {
+          console.error(`Failed to load background image: ${album.cover}`);
+          backgroundImg.style.display = 'none';
+        };
+        document.getElementById('album-title').textContent = album.title;
+        document.getElementById('album-subtitle').textContent = `A ${album.genre} Masterpiece by ${album.artist}`;
+
+        // Update Album Details
+        const coverImg = document.getElementById('album-cover');
+        coverImg.src = album.cover;
+        coverImg.alt = `${album.title} album cover`;
+        coverImg.onerror = () => {
+          console.error(`Failed to load album cover image: ${album.cover}`);
+          coverImg.src = 'assets/images/placeholder-album.png';
+        };
+        document.getElementById('album-info-title').textContent = album.title;
+        document.getElementById('album-artist').innerHTML = `<strong>Artist:</strong> ${album.artist}`;
+        document.getElementById('album-tracks').innerHTML = `<strong>Tracks:</strong> ${album.tracks.join(', ')}`;
+        document.getElementById('album-genre').innerHTML = `<strong>Genre:</strong> ${album.genre}`;
+        document.getElementById('album-year').innerHTML = `<strong>Release Date:</strong> ${album.year}`;
+        document.getElementById('album-description').textContent = album.artistInfo || "No description available.";
+
+        // Update Streaming Links
+        const linkTabs = document.getElementById('link-tabs');
+        const platforms = [
+          { name: 'Spotify', key: 'spotify' },
+          { name: 'Apple Music', key: 'appleMusic' },
+          { name: 'Amazon Music', key: 'amazonMusic' },
+          { name: 'iHeartRadio', key: 'iHeartRadio' },
+          { name: 'Boomplay', key: 'boomplay' },
+          { name: 'Deezer', key: 'deezer' },
+          { name: 'YouTube Music', key: 'youTubeMusic' },
+          { name: 'iTunes', key: 'iTunes' }
+        ];
+
+        platforms.forEach(platform => {
+          const link = album.links[platform.key];
+          if (link && link !== '') {
+            const a = document.createElement('a');
+            a.href = link;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.className = 'link-tab';
+            a.setAttribute('aria-label', `Stream on ${platform.name}`);
+            a.textContent = platform.name;
+            linkTabs.appendChild(a);
+          }
+        });
+
+        // Update Music Player Embed
+        const musicPlayerEmbed = document.getElementById('music-player-embed');
+        if (album.boomplayEmbed && album.boomplayEmbed !== '') {
+          const iframe = document.createElement('iframe');
+          iframe.src = album.boomplayEmbed;
+          iframe.width = '600';
+          iframe.height = '600';
+          iframe.frameBorder = '0';
+          musicPlayerEmbed.appendChild(iframe);
+        } else {
+          musicPlayerEmbed.innerHTML = '<p>No music player available for this album.</p>';
+        }
+
+        // Initialize Comments Section
+        initializeComments(albumId);
+      } catch (error) {
+        console.error('Error loading album data:', error.message);
+        displayError(
+          "Error Loading Album",
+          `We couldn’t load this album. Please try again later or <a href='music.html'>go back to the Music page</a>. Error: ${error.message}`
+        );
+      }
+    });
+
+    function displayError(title, subtitle) {
+      document.getElementById('album-title').innerHTML = title;
+      document.getElementById('album-subtitle').innerHTML = subtitle;
+      document.getElementById('album-background').style.display = 'none';
+      document.querySelector('.album-details').style.display = 'none';
+      document.querySelector('.streaming-links').style.display = 'none';
+      document.querySelector('.music-player').style.display = 'none';
+      document.querySelector('.comments-section').style.display = 'none';
+
+      const main = document.querySelector('.album-main');
+      const errorContainer = document.createElement('section');
+      errorContainer.className = 'error-section';
+      errorContainer.innerHTML = `
+        <h2>${title}</h2>
+        <p>${subtitle}</p>
+      `;
+      main.appendChild(errorContainer);
+    }
+
+    // === Comments Section Logic ===
+    // Utility Functions
+    const sanitizeInput = (text) => {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML
+        .replace(/&/g, '&')
+        .replace(/</g, '<')
+        .replace(/>/g, '>')
+        .replace(/"/g, '"')
+        .replace(/'/g, '');
+    };
+
+    // Utility function to show error toast
+    function showErrorToast(message) {
+      const toast = document.getElementById('global-error-toast');
+      if (toast) {
+        toast.textContent = message;
+        toast.style.display = 'block';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 3000);
       } else {
-        musicPlayerEmbed.innerHTML = '<p>No music player available for this album.</p>';
+        console.warn('Error toast element not found. Check ID: global-error-toast');
+      }
+    }
+
+    class RateLimiter {
+      constructor(limit = 5, windowMs = 600000) { // 5 actions per 10 minutes
+        this.limit = limit;
+        this.windowMs = windowMs;
+        this.requests = JSON.parse(sessionStorage.getItem(`commentRateLimit_${this.getUserId() || 'anonymous'}`)) || [];
       }
 
-      // Initialize Comments Section
-      initializeComments(albumId);
-    } catch (error) {
-      console.error('Error loading album data:', error.message);
-      displayError(
-        "Error Loading Album",
-        `We couldn’t load this album. Please try again later or <a href='music.html'>go back to the Music page</a>. Error: ${error.message}`
-      );
-    }
-  });
-
-  function displayError(title, subtitle) {
-    document.getElementById('album-title').innerHTML = title;
-    document.getElementById('album-subtitle').innerHTML = subtitle;
-    document.getElementById('album-background').style.display = 'none';
-    document.querySelector('.album-details').style.display = 'none';
-    document.querySelector('.streaming-links').style.display = 'none';
-    document.querySelector('.music-player').style.display = 'none';
-    document.querySelector('.comments-section').style.display = 'none';
-
-    const main = document.querySelector('.album-main');
-    const errorContainer = document.createElement('section');
-    errorContainer.className = 'error-section';
-    errorContainer.innerHTML = `
-      <h2>${title}</h2>
-      <p>${subtitle}</p>
-    `;
-    main.appendChild(errorContainer);
-  }
-
-  // === Comments Section Logic ===
-  // Utility Functions
-  const sanitizeInput = (text) => {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML
-      .replace(/&/g, '&')
-      .replace(/</g, '<')
-      .replace(/>/g, '>')
-      .replace(/"/g, '"')
-      .replace(/'/g, '');
-  };
-
-  class RateLimiter {
-    constructor(limit = 5, windowMs = 600000) { // 5 comments per 10 minutes
-      this.limit = limit;
-      this.windowMs = windowMs;
-      this.requests = JSON.parse(sessionStorage.getItem(`commentRateLimit_${this.getUserId() || 'anonymous'}`)) || [];
-    }
-
-    getUserId() {
-      const cachedAuth = sessionStorage.getItem('authState');
-      if (cachedAuth) {
-        try {
-          const user = JSON.parse(cachedAuth);
-          return user.uid;
-        } catch (e) {
-          console.warn('Invalid cached auth state:', e);
-        }
-      }
-      return null;
-    }
-
-    canPost() {
-      const now = Date.now();
-      this.requests = this.requests.filter(timestamp => now - timestamp < this.windowMs);
-      if (this.requests.length >= this.limit) return false;
-      this.requests.push(now);
-      sessionStorage.setItem(`commentRateLimit_${this.getUserId() || 'anonymous'}`, JSON.stringify(this.requests));
-      return true;
-    }
-
-    getRemainingTime() {
-      const now = Date.now();
-      const oldestRequest = this.requests[0] || now;
-      return Math.max(0, this.windowMs - (now - oldestRequest));
-    }
-  }
-
-  // Comments Manager
-  class CommentsManager {
-    constructor(albumId) {
-      this.albumId = albumId;
-      this.rateLimiter = new RateLimiter();
-      this.commentList = document.getElementById('comment-list');
-      this.commentInput = document.getElementById('comment-input');
-      this.submitButton = document.getElementById('submit-comment');
-
-      // Debugging: Check elements
-      if (!this.commentList) console.error('Comment list element not found. Check ID: comment-list');
-      if (!this.commentInput) console.error('Comment input element not found. Check ID: comment-input');
-      if (!this.submitButton) console.error('Submit button not found. Check ID: submit-comment');
-
-      this.setupEventListeners();
-      this.updateUI(null, null);
-      this.renderComments();
-    }
-
-    setupEventListeners() {
-      this.submitButton.addEventListener('click', () => this.postComment());
-      this.commentList.addEventListener('click', (e) => this.handleCommentAction(e));
-
-      // Listen for auth state changes
-      onAuthStateChanged(auth, async (user) => {
-        let userData = null;
-        if (user) {
+      getUserId() {
+        const cachedAuth = sessionStorage.getItem('authState');
+        if (cachedAuth) {
           try {
-            const userDoc = await getDoc(doc(db, 'users', user.uid));
-            userData = userDoc.exists() ? userDoc.data() : {};
-          } catch (error) {
-            console.error('Error fetching user data:', error);
-            userData = { username: user.displayName || user.email || 'User' };
+            const user = JSON.parse(cachedAuth);
+            return user.uid;
+          } catch (e) {
+            console.warn('Invalid cached auth state:', e);
           }
         }
-        console.log('Auth state changed:', user ? `Logged in as ${userData?.username || user?.displayName || user?.email}` : 'No user');
-        this.updateUI(user, userData);
+        return null;
+      }
+
+      canPerformAction() {
+        const now = Date.now();
+        this.requests = this.requests.filter(timestamp => now - timestamp < this.windowMs);
+        if (this.requests.length >= this.limit) return false;
+        this.requests.push(now);
+        sessionStorage.setItem(`commentRateLimit_${this.getUserId() || 'anonymous'}`, JSON.stringify(this.requests));
+        return true;
+      }
+
+      getRemainingTime() {
+        const now = Date.now();
+        const oldestRequest = this.requests[0] || now;
+        return Math.max(0, this.windowMs - (now - oldestRequest));
+      }
+    }
+
+    // Comments Manager
+    class CommentsManager {
+      constructor(albumId) {
+        this.albumId = albumId;
+        this.rateLimiter = new RateLimiter();
+        this.commentList = document.getElementById('comment-list');
+        this.commentInput = document.getElementById('comment-input');
+        this.submitButton = document.getElementById('submit-comment');
+
+        // Debugging: Check elements
+        if (!this.commentList) console.error('Comment list element not found. Check ID: comment-list');
+        if (!this.commentInput) console.error('Comment input element not found. Check ID: comment-input');
+        if (!this.submitButton) console.error('Submit button not found. Check ID: submit-comment');
+
+        this.setupEventListeners();
+        this.updateUI(null, null);
         this.renderComments();
-      });
-    }
-
-    updateUI(user, userData) {
-      if (user) {
-        this.commentInput.disabled = false;
-        this.submitButton.disabled = false;
-      } else {
-        this.commentInput.disabled = true;
-        this.submitButton.disabled = true;
-      }
-    }
-
-    async postComment() {
-      const content = this.commentInput.value.trim();
-      if (!content) {
-        alert('Please enter a comment.');
-        return;
       }
 
-      if (!auth.currentUser) {
-        alert('Please sign in to post a comment.');
-        const loginBtn = document.getElementById('global-login-btn');
-        if (loginBtn) loginBtn.click();
-        return;
-      }
+      setupEventListeners() {
+        this.submitButton.addEventListener('click', () => this.postComment());
+        this.commentList.addEventListener('click', (e) => this.handleCommentAction(e));
 
-      if (!this.rateLimiter.canPost()) {
-        const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
-        alert(`Please wait ${waitTime} seconds before posting another comment.`);
-        return;
-      }
-
-      try {
-        const userDoc = await getDoc(doc(db, 'users', auth.currentUser.uid));
-        const userData = userDoc.exists() ? userDoc.data() : {};
-        const comment = {
-          uid: auth.currentUser.uid,
-          username: userData.username || auth.currentUser.displayName || auth.currentUser.email || 'User',
-          content: sanitizeInput(content),
-          timestamp: new Date().toISOString(),
-          likes: 0,
-          dislikes: 0,
-          likedBy: [],
-          dislikedBy: []
-        };
-
-        await addDoc(collection(db, `albums/${this.albumId}/comments`), comment);
-        this.commentInput.value = '';
-        this.renderComments();
-      } catch (error) {
-        console.error('Error posting comment:', error);
-        alert('Failed to post comment. Please check your network or try again.');
-      }
-    }
-
-    async handleCommentAction(e) {
-      const target = e.target;
-      if (!target.classList.contains('action-btn')) return;
-
-      const commentId = target.dataset.commentId;
-      const action = target.dataset.action;
-
-      if (!auth.currentUser) {
-        alert(`Please sign in to ${action} comments.`);
-        const loginBtn = document.getElementById('global-login-btn');
-        if (loginBtn) loginBtn.click();
-        return;
-      }
-
-      try {
-        const commentRef = doc(db, `albums/${this.albumId}/comments`, commentId);
-        const commentDoc = await getDoc(commentRef);
-        if (!commentDoc.exists()) return;
-        let comment = commentDoc.data();
-
-        if (action === 'like') {
-          const userId = auth.currentUser.uid;
-          if (comment.likedBy.includes(userId)) {
-            comment.likedBy = comment.likedBy.filter(u => u !== userId);
-            comment.likes--;
-          } else {
-            comment.likedBy.push(userId);
-            comment.likes++;
-            if (comment.dislikedBy.includes(userId)) {
-              comment.dislikedBy = comment.dislikedBy.filter(u => u !== userId);
-              comment.dislikes--;
+        // Listen for auth state changes
+        onAuthStateChanged(auth, async (user) => {
+          let userData = null;
+          if (user) {
+            try {
+              const userDoc = await getDoc(doc(db, 'users', user.uid));
+              userData = userDoc.exists() ? userDoc.data() : {};
+            } catch (error) {
+              console.error('Error fetching user data:', error);
+              userData = { username: user.displayName || user.email || 'User' };
             }
           }
-          await updateDoc(commentRef, {
-            likes: comment.likes,
-            likedBy: comment.likedBy,
-            dislikes: comment.dislikes,
-            dislikedBy: comment.dislikedBy
-          });
-        } else if (action === 'dislike') {
-          const userId = auth.currentUser.uid;
-          if (comment.dislikedBy.includes(userId)) {
-            comment.dislikedBy = comment.dislikedBy.filter(u => u !== userId);
-            comment.dislikes--;
-          } else {
-            comment.dislikedBy.push(userId);
-            comment.dislikes++;
+          console.log('Auth state changed:', user ? `Logged in as ${userData?.username || user?.displayName || user?.email}` : 'No user');
+          this.updateUI(user, userData);
+          this.renderComments();
+        });
+      }
+
+      updateUI(user, userData) {
+        if (user) {
+          this.commentInput.disabled = false;
+          this.submitButton.disabled = false;
+        } else {
+          this.commentInput.disabled = true;
+          this.submitButton.disabled = true;
+        }
+      }
+
+      async postComment() {
+        const content = this.commentInput.value.trim();
+        if (!content) {
+          showErrorToast('Please enter a comment.');
+          return;
+        }
+
+        if (!auth.currentUser) {
+          showErrorToast('Please sign in to post a comment.');
+          const loginBtn = document.getElementById('global-login-btn');
+          if (loginBtn) loginBtn.click();
+          return;
+        }
+
+        if (!this.rateLimiter.canPerformAction()) {
+          const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
+          showErrorToast(`Please wait ${waitTime} seconds before posting another comment.`);
+          return;
+        }
+
+        try {
+          const userDoc = await getDoc(doc(db, 'users', auth.currentUser.uid));
+          const userData = userDoc.exists() ? userDoc.data() : {};
+          const comment = {
+            uid: auth.currentUser.uid,
+            username: userData.username || auth.currentUser.displayName || auth.currentUser.email || 'User',
+            content: sanitizeInput(content),
+            timestamp: new Date().toISOString(),
+            likes: 0,
+            dislikes: 0,
+            likedBy: [],
+            dislikedBy: []
+          };
+
+          await addDoc(collection(db, `albums/${this.albumId}/comments`), comment);
+          this.commentInput.value = '';
+          this.renderComments();
+        } catch (error) {
+          console.error('Error posting comment:', error);
+          showErrorToast('Failed to post comment. Please check your network or try again.');
+        }
+      }
+
+      async deleteComment(commentId) {
+        if (!auth.currentUser) {
+          showErrorToast('Please sign in to delete comments.');
+          const loginBtn = document.getElementById('global-login-btn');
+          if (loginBtn) loginBtn.click();
+          return;
+        }
+
+        if (!this.rateLimiter.canPerformAction()) {
+          const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
+          showErrorToast(`Please wait ${waitTime} seconds before deleting another comment.`);
+          return;
+        }
+
+        try {
+          const commentRef = doc(db, `albums/${this.albumId}/comments`, commentId);
+          await deleteDoc(commentRef);
+          this.renderComments();
+        } catch (error) {
+          console.error('Error deleting comment:', error);
+          showErrorToast('Failed to delete comment. Please try again.');
+        }
+      }
+
+      async handleCommentAction(e) {
+        const target = e.target;
+        if (!target.classList.contains('action-btn')) return;
+
+        const commentId = target.dataset.commentId;
+        const action = target.dataset.action;
+
+        if (!auth.currentUser) {
+          showErrorToast(`Please sign in to ${action.replace('-', ' ')} comments.`);
+          const loginBtn = document.getElementById('global-login-btn');
+          if (loginBtn) loginBtn.click();
+          return;
+        }
+
+        try {
+          const commentRef = doc(db, `albums/${this.albumId}/comments`, commentId);
+          const commentDoc = await getDoc(commentRef);
+          if (!commentDoc.exists()) return;
+          let comment = commentDoc.data();
+
+          if (action === 'like') {
+            if (!this.rateLimiter.canPerformAction()) {
+              const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
+              showErrorToast(`Please wait ${waitTime} seconds before liking another comment.`);
+              return;
+            }
+            const userId = auth.currentUser.uid;
             if (comment.likedBy.includes(userId)) {
               comment.likedBy = comment.likedBy.filter(u => u !== userId);
               comment.likes--;
+            } else {
+              comment.likedBy.push(userId);
+              comment.likes++;
+              if (comment.dislikedBy.includes(userId)) {
+                comment.dislikedBy = comment.dislikedBy.filter(u => u !== userId);
+                comment.dislikes--;
+              }
             }
+            await updateDoc(commentRef, {
+              likes: comment.likes,
+              likedBy: comment.likedBy,
+              dislikes: comment.dislikes,
+              dislikedBy: comment.dislikedBy
+            });
+          } else if (action === 'dislike' && auth.currentUser.email === 'triadofangels@gmail.com') {
+            if (!this.rateLimiter.canPerformAction()) {
+              const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
+              showErrorToast(`Please wait ${waitTime} seconds before disliking another comment.`);
+              return;
+            }
+            const userId = auth.currentUser.uid;
+            if (comment.dislikedBy.includes(userId)) {
+              comment.dislikedBy = comment.dislikedBy.filter(u => u !== userId);
+              comment.dislikes--;
+            } else {
+              comment.dislikedBy.push(userId);
+              comment.dislikes++;
+              if (comment.likedBy.includes(userId)) {
+                comment.likedBy = comment.likedBy.filter(u => u !== userId);
+                comment.likes--;
+              }
+            }
+            await updateDoc(commentRef, {
+              likes: comment.likes,
+              likedBy: comment.likedBy,
+              dislikes: comment.dislikes,
+              dislikedBy: comment.dislikedBy
+            });
+          } else if (action === 'delete-user' && comment.uid === auth.currentUser.uid) {
+            await this.deleteComment(commentId);
+          } else if (action === 'delete-admin' && auth.currentUser.email === 'triadofangels@gmail.com') {
+            await this.deleteComment(commentId);
           }
-          await updateDoc(commentRef, {
-            likes: comment.likes,
-            likedBy: comment.likedBy,
-            dislikes: comment.dislikes,
-            dislikedBy: comment.dislikedBy
-          });
-        } else if (action === 'delete' && auth.currentUser.email === 'admin@triadofangels.com') {
-          await deleteDoc(commentRef);
+
+          this.renderComments();
+        } catch (error) {
+          console.error(`Error performing ${action} action:`, error);
+          showErrorToast(`Failed to ${action.replace('-', ' ')} comment. Please try again.`);
         }
+      }
 
-        this.renderComments();
-      } catch (error) {
-        console.error(`Error performing ${action} action:`, error);
-        alert(`Failed to ${action} comment. Please try again.`);
+      async renderComments() {
+        this.commentList.innerHTML = '';
+        try {
+          const q = query(collection(db, `albums/${this.albumId}/comments`), orderBy('timestamp', 'desc'));
+          const querySnapshot = await getDocs(q);
+          querySnapshot.forEach((doc) => {
+            const comment = doc.data();
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+
+            const header = document.createElement('div');
+            header.className = 'comment-header';
+            header.innerHTML = `
+              <span>${comment.username}</span>
+              <span class="timestamp">${new Date(comment.timestamp).toLocaleString()}</span>
+            `;
+
+            const content = document.createElement('div');
+            content.className = 'comment-content';
+            content.textContent = comment.content;
+
+            const actions = document.createElement('div');
+            const isAdmin = auth.currentUser && auth.currentUser.email === 'triadofangels@gmail.com';
+            const isAuthor = auth.currentUser && comment.uid === auth.currentUser.uid;
+            actions.className = `comment-actions ${isAdmin ? 'admin-view' : ''} ${isAuthor ? 'user-view' : ''}`;
+            actions.innerHTML = `
+              <button class="action-btn" data-comment-id="${doc.id}" data-action="like" ${!auth.currentUser ? 'disabled' : ''}>
+                👍
+              </button>
+              <span>${comment.likes}</span>
+              <button class="action-btn admin-only" data-comment-id="${doc.id}" data-action="dislike" ${!isAdmin ? 'disabled' : ''}>
+                👎
+              </button>
+              <span class="admin-only">${comment.dislikes}</span>
+              ${isAuthor ? `<button class="action-btn delete-btn user-only" data-comment-id="${doc.id}" data-action="delete-user" title="Delete your comment">🗑️</button>` : ''}
+              ${isAdmin ? `<button class="action-btn delete-btn admin-delete-btn admin-only" data-comment-id="${doc.id}" data-action="delete-admin" title="Admin delete comment">🗑️ Admin</button>` : ''}
+            `;
+
+            commentDiv.appendChild(header);
+            commentDiv.appendChild(content);
+            commentDiv.appendChild(actions);
+            this.commentList.appendChild(commentDiv);
+          });
+        } catch (error) {
+          console.error('Error rendering comments:', error);
+          this.commentList.innerHTML = '<p>Failed to load comments. Please try again later.</p>';
+        }
       }
     }
 
-    async renderComments() {
-      this.commentList.innerHTML = '';
-      try {
-        const q = query(collection(db, `albums/${this.albumId}/comments`), orderBy('timestamp', 'desc'));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          const comment = doc.data();
-          const commentDiv = document.createElement('div');
-          commentDiv.className = 'comment';
-
-          const header = document.createElement('div');
-          header.className = 'comment-header';
-          header.innerHTML = `
-            <span>${comment.username}</span>
-            <span class="timestamp">${new Date(comment.timestamp).toLocaleString()}</span>
-          `;
-
-          const content = document.createElement('div');
-          content.className = 'comment-content';
-          content.textContent = comment.content;
-
-          const actions = document.createElement('div');
-          actions.className = `comment-actions ${auth.currentUser && auth.currentUser.email === 'admin@triadofangels.com' ? 'admin-view' : ''}`;
-          actions.innerHTML = `
-            <button class="action-btn" data-comment-id="${doc.id}" data-action="like" ${!auth.currentUser ? 'disabled' : ''}>
-              👍
-            </button>
-            <span>${comment.likes}</span>
-            <button class="action-btn admin-only" data-comment-id="${doc.id}" data-action="dislike" ${!auth.currentUser ? 'disabled' : ''}>
-              👎
-            </button>
-            <span class="admin-only">${comment.dislikes}</span>
-            ${auth.currentUser && auth.currentUser.email === 'admin@triadofangels.com' ? `<button class="action-btn admin-only" data-comment-id="${doc.id}" data-action="delete">Delete</button>` : ''}
-          `;
-
-          commentDiv.appendChild(header);
-          commentDiv.appendChild(content);
-          commentDiv.appendChild(actions);
-          this.commentList.appendChild(commentDiv);
-        });
-      } catch (error) {
-        console.error('Error rendering comments:', error);
-        this.commentList.innerHTML = '<p>Failed to load comments. Please try again later.</p>';
-      }
+    function initializeComments(albumId) {
+      new CommentsManager(albumId);
     }
-  }
-
-  function initializeComments(albumId) {
-    new CommentsManager(albumId);
-  }
-</script>
+  </script>
 </body>
 </html>

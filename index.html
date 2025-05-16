@@ -20,11 +20,12 @@ Triad of Angels - Official Website: Home Page (index.html)
   - Removed separate global header to streamline design.
   - Ensured all scripts load correctly for authentication.
   - Added error toast for user-facing error messages.
-  - Added cache-busting for scripts with incremented version.
-  - Fixed auth UI flicker on page navigation.
+  - Updated cache-busting to v=7 for GitHub Pages refresh.
+  - Fixed mobile layout issues for high-res devices like Samsung Galaxy S24 Ultra.
+  - Added cache-control meta tags to prevent CDN caching issues.
 
 ? LAST UPDATE:
-  Fixed flicker-free auth UI: 2025-05-16
+  Fixed mobile layout and updated cache-busting: 2025-05-16
 ==============================================================================
 -->
 
@@ -39,6 +40,9 @@ Triad of Angels - Official Website: Home Page (index.html)
   <meta name="keywords" content="Triad of Angels, music, art, games, ToA Studios, creativity, innovation, hope, fire">
   <meta name="author" content="Triad of Angels">
   <meta name="theme-color" content="#000000">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="pragma" content="no-cache">
   <meta property="og:title" content="Triad of Angels | Official Website">
   <meta property="og:description" content="Triad of Angels is a cosmic creative force uniting music, visuals, games and more into one brand of fire.">
   <meta property="og:image" content="/assets/images/og-banner.jpg">
@@ -46,8 +50,8 @@ Triad of Angels - Official Website: Home Page (index.html)
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/chatbot.css">
+  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/chatbot.css?v=7">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- ========== STRUCTURED DATA (JSON-LD) ========== -->
@@ -75,13 +79,15 @@ Triad of Angels - Official Website: Home Page (index.html)
       display: block;
       margin-left: auto;
       margin-right: auto;
-      width: 50%;
+      width: 100%; /* Full width on mobile for better scaling */
+      max-width: 300px; /* Maintain max-width for desktop */
     }
 
     /* Style for album links */
     .album-link {
       text-decoration: none;
       color: inherit;
+      display: block; /* Ensure proper stacking on mobile */
     }
 
     .album-link h3 {
@@ -90,6 +96,7 @@ Triad of Angels - Official Website: Home Page (index.html)
       font-weight: 700;
       color: #f1c40f;
       margin: 10px 0;
+      text-align: center; /* Center text on all devices */
     }
 
     .album-link img {
@@ -97,7 +104,51 @@ Triad of Angels - Official Website: Home Page (index.html)
       max-width: 300px;
       height: auto;
       border-radius: 10px;
-      margin: 10px 0;
+      margin: 10px auto; /* Center image */
+      display: block; /* Ensure block display for centering */
+    }
+
+    /* Album catalog section */
+    .album-catalog {
+      padding: 40px 20px;
+    }
+
+    .album-catalog h2 {
+      text-align: center;
+    }
+
+    .album-catalog > div {
+      text-align: center;
+      margin: 10px 0 20px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .album-catalog {
+        padding: 30px 15px;
+      }
+
+      .album-link h3 {
+        font-size: 1.2rem;
+      }
+
+      .album-link img {
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .album-catalog {
+        padding: 20px 10px;
+      }
+
+      .album-link h3 {
+        font-size: 1rem;
+      }
+
+      .album-link img {
+        max-width: 200px;
+      }
     }
   </style>
 </head>
@@ -144,9 +195,9 @@ Triad of Angels - Official Website: Home Page (index.html)
 
   <!-- ========== MAIN CONTENT START ========== -->
   <main role="main">
-    <section class="album-catalog" style="padding: 40px 20px;">
-      <h2 style="text-align: center;">New Albums Coming Soon!</h2>
-      <div style="text-align: center; margin: 10px 0 20px;">
+    <section class="album-catalog">
+      <h2>New Albums Coming Soon!</h2>
+      <div>
         <a href="album.html?id=serpents-veil" class="album-link" aria-label="Serpent's Veil by ToA Studios">
           <h3>Serpent's Veil | ToA Studios | Release Date 19th of June, 2025</h3>
           <a href="https://music.apple.com/au/album/serpents-veil/1813142997" target="_blank" rel="noopener" class="cta-button">iTunes Pre-Sale</a>
@@ -172,7 +223,7 @@ Triad of Angels - Official Website: Home Page (index.html)
   </main>
 
   <!-- ========== GLOBAL FOOTER ========== -->
-  <footer role="contentinfo" style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
+  <footer role="contentinfo">
     <p>© 2025 Triad of Angels. All rights reserved.</p>
     <p>
       <a href="index.html">Home</a> |
@@ -225,14 +276,14 @@ Triad of Angels - Official Website: Home Page (index.html)
   </div>
 
   <!-- Error Toast -->
-  <div id="global-error-toast" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ff4444; color: #fff; padding: 10px 20px; border-radius: 5px; z-index: 2000;"></div>
+  <div id="global-error-toast"></div>
 
   <!-- Scripts -->
-  <script src="js/chatbot.js?v=2"></script>
-  <script src="js/chatbot-persist.js?v=2"></script>
+  <script src="js/chatbot.js?v=7"></script>
+  <script src="js/chatbot-persist.js?v=7"></script>
   <script type="module">
-    import './js/firebase-init.js?v=2';
-    import './js/auth.js?v=2';
+    import './js/firebase-init.js?v=7';
+    import './js/auth.js?v=7';
   </script>
 </body>
 </html>

@@ -7,15 +7,16 @@ Triad of Angels - Main Stylesheet (Optimized & Enhanced)
 • Hero Section (Sticky Scrolling Video)
 • Sections (Featured, About, Quick Links)
 • Footer
-• Responsive Enhancements
+• Responsive Enhancements (Mobile-First)
 • Accessibility & Performance Tweaks
 • Username Modal (Updated with Cancel Button)
 • Error Toast (Enhanced for Visibility)
-• Auth UI (Flicker-Free with Transitions)
+• Comment Section (Moved from album.html, Mobile-Optimized)
 
 Last Updated: 2025-05-16
-- Added transitions for auth UI to prevent flicker.
-- Enhanced auth-hidden for seamless rendering.
+- Fixed mobile layout for Samsung Galaxy S24 Ultra
+- Moved comment section styles from album.html
+- Enhanced media queries for mobile-first design
 ========================================================
 */
 
@@ -35,6 +36,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
 /* Universal Link Style */
@@ -172,7 +174,7 @@ header nav ul li a:focus {
     color: #fff;
     z-index: 2;
     padding: 0;
-    max-width: none;
+    max-width: 90%; /* Prevent overflow on mobile */
     background: none;
     box-shadow: none;
 }
@@ -287,146 +289,6 @@ footer a:focus {
     outline: none;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column;
-        gap: 12px;
-        padding: 8px 0;
-    }
-
-    header nav ul li a {
-        font-size: 0.8rem;
-        padding: 8px 12px;
-    }
-
-    #global-user-name {
-        font-size: 0.8rem;
-    }
-
-    #global-login-btn,
-    #global-logout-btn {
-        padding: 5px 8px;
-        font-size: 0.8rem;
-    }
-
-    .hero-banner {
-        min-height: 70vh;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .cta-button {
-        padding: 12px 25px;
-        font-size: 0.9rem;
-    }
-
-    .featured,
-    .about-preview,
-    .quick-links {
-        padding: 40px 15px;
-    }
-
-    .quick-links {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .quick-link {
-        min-height: 80px;
-        font-size: 0.9rem;
-    }
-
-    footer {
-        padding: 20px 15px;
-        font-size: 0.8rem;
-    }
-
-    footer div[aria-label="Social media links"] {
-        gap: 10px;
-    }
-
-    footer div[aria-label="Social media links"] a img {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    header nav ul {
-        gap: 10px;
-    }
-
-    header nav ul li a {
-        font-size: 0.7rem;
-        padding: 6px 10px;
-    }
-
-    #global-user-name {
-        font-size: 0.7rem;
-    }
-
-    #global-login-btn,
-    #global-logout-btn {
-        padding: 4px 6px;
-        font-size: 0.7rem;
-    }
-
-    .hero-banner {
-        min-height: 60vh;
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-
-    .hero-content p {
-        font-size: 0.9rem;
-    }
-
-    .cta-button {
-        padding: 10px 20px;
-        font-size: 0.8rem;
-    }
-
-    .featured,
-    .about-preview,
-    .quick-links {
-        padding: 30px 10px;
-    }
-
-    .quick-link {
-        min-height: 70px;
-        font-size: 0.8rem;
-    }
-
-    footer {
-        padding: 15px 10px;
-        font-size: 0.7rem;
-    }
-
-    footer div[aria-label="Social media links"] {
-        gap: 8px;
-    }
-
-    footer div[aria-label="Social media links"] a img {
-        width: 18px;
-        height: 18px;
-    }
-}
-
-/* Performance: Remove outlines from videos/images when clicked */
-img,
-video {
-    outline: none;
-}
-
 /* Inner Page Sections */
 body.index-page section:not(.hero-banner),
 body.visual-page section:not(.hero-banner),
@@ -440,7 +302,8 @@ body.contact-page section:not(.hero-banner),
 body.visual-page section:not(.hero-banner),
 body.privacy-page section:not(.hero-banner),
 body.terms-page section:not(.hero-banner),
-body.digital-store-page section:not(.hero-banner) {
+body.digital-store-page section:not(.hero-banner),
+body.album-page section:not(.hero-banner) {
     background: rgba(0, 0, 0, 0.75);
     padding: 40px 20px;
     border-radius: 8px;
@@ -487,48 +350,11 @@ body.terms-page section h2,
 body.terms-page section p,
 body.digital-store-page section h1,
 body.digital-store-page section h2,
-body.digital-store-page section p {
+body.digital-store-page section p,
+body.album-page section h1,
+body.album-page section h2,
+body.album-page section p {
     color: #FFFFFF;
-}
-
-/* Responsive Inner Page Sections */
-@media (max-width: 768px) {
-    body.index-page section:not(.hero-banner),
-    body.visual-page section:not(.hero-banner),
-    body.music-page section:not(.hero-banner),
-    body.about-page section:not(.hero-banner),
-    body.games-page section:not(.hero-banner),
-    body.apps-page section:not(.hero-banner),
-    body.merch-page section:not(.hero-banner),
-    body.publishing-page section:not(.hero-banner),
-    body.contact-page section:not(.hero-banner),
-    body.visual-page section:not(.hero-banner),
-    body.privacy-page section:not(.hero-banner),
-    body.terms-page section:not(.hero-banner),
-    body.digital-store-page section:not(.hero-banner) {
-        padding: 30px 15px;
-        margin: 15px auto;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    body.index-page section:not(.hero-banner),
-    body.visual-page section:not(.hero-banner),
-    body.music-page section:not(.hero-banner),
-    body.about-page section:not(.hero-banner),
-    body.games-page section:not(.hero-banner),
-    body.apps-page section:not(.hero-banner),
-    body.merch-page section:not(.hero-banner),
-    body.publishing-page section:not(.hero-banner),
-    body.contact-page section:not(.hero-banner),
-    body.visual-page section:not(.hero-banner),
-    body.privacy-page section:not(.hero-banner),
-    body.terms-page section:not(.hero-banner),
-    body.digital-store-page section:not(.hero-banner) {
-        padding: 20px 10px;
-        margin: 10px auto;
-    }
 }
 
 /* Ensure consistent styling for h1 elements in sections */
@@ -539,10 +365,10 @@ section h1 {
     color: #f5f5f5;
 }
 
-.auth-hidden {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
+/* Performance: Remove outlines from videos/images when clicked */
+img,
+video {
+    outline: none;
 }
 
 /* Username Modal (Updated with Cancel Button) */
@@ -679,7 +505,76 @@ section h1 {
     max-width: 90%;
 }
 
-/* Comment Form Button Disabled State (for album.html) */
+/* Comment Section Styles (Moved from album.html) */
+.comments-section {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 40px;
+    padding: 70px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), inset 0 0 35px rgba(241, 196, 15, 0.02);
+    border: 2px solid rgba(241, 196, 15, 0.1);
+    text-align: left;
+    margin-bottom: 70px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards 0.6s;
+}
+
+.comments-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #f1c40f;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
+    text-align: center;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(241, 196, 15, 0.3);
+    border-radius: 10px;
+    color: #e8e8e8;
+    font-size: 1.2rem;
+    resize: vertical;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #f1c40f;
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+}
+
+.comment-form button {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #f1c40f, #ffeb3b);
+    color: #0a0a0a;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-end;
+}
+
+.comment-form button:hover {
+    background: linear-gradient(45deg, #ffeb3b, #f1c40f);
+    transform: scale(1.05);
+}
+
 .comment-form button:disabled {
     background: #555;
     cursor: not-allowed;
@@ -688,7 +583,7 @@ section h1 {
     position: relative;
 }
 
-/* Tooltip for Disabled Button (for album.html) */
+/* Tooltip for Disabled Button */
 .comment-form button:disabled:hover::after {
     content: "You need to sign in to comment";
     position: absolute;
@@ -704,7 +599,7 @@ section h1 {
     z-index: 10;
 }
 
-/* Arrow for the tooltip bubble (for album.html) */
+/* Arrow for the tooltip bubble */
 .comment-form button:disabled:hover::before {
     content: "";
     position: absolute;
@@ -714,4 +609,410 @@ section h1 {
     border: 5px solid transparent;
     border-top-color: rgba(241, 196, 15, 0.9);
     z-index: 10;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment {
+    background: rgba(15, 15, 15, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(241, 196, 15, 0.2);
+    position: relative;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment-header span {
+    font-size: 1.1rem;
+    color: #f1c40f;
+    font-weight: 600;
+}
+
+.comment-header .timestamp {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.comment-content {
+    font-size: 1.2rem;
+    color: #e8e8e8;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on mobile */
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    color: #f1c40f;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.comment-actions button:hover {
+    color: #ffeb3b;
+}
+
+.comment-actions button:disabled {
+    color: #555;
+    cursor: not-allowed;
+}
+
+.comment-actions span {
+    font-size: 1rem;
+    color: #e8e8e8;
+}
+
+/* Styles for delete buttons */
+.comment-actions .delete-btn {
+    color: #ff4444; /* Red for user delete */
+}
+
+.comment-actions .delete-btn:hover {
+    color: #ff6666;
+}
+
+.comment-actions .admin-delete-btn {
+    color: #ff0000; /* Brighter red for admin delete */
+}
+
+.comment-actions .admin-delete-btn:hover {
+    color: #ff3333;
+}
+
+.comment-actions .user-only, .comment-actions .admin-only {
+    display: none; /* Hidden by default */
+}
+
+.comment-actions.user-view .user-only {
+    display: inline; /* Visible to comment author */
+}
+
+.comment-actions.admin-view .admin-only {
+    display: inline; /* Visible to admin */
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 12px;
+        padding: 8px 0;
+    }
+
+    header nav ul li a {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    #global-user-name {
+        font-size: 0.8rem;
+    }
+
+    #global-login-btn,
+    #global-logout-btn {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+    }
+
+    .hero-banner {
+        min-height: 70vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+
+    .featured,
+    .about-preview,
+    .quick-links {
+        padding: 40px 15px;
+    }
+
+    .quick-links {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .quick-link {
+        min-height: 80px;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 20px 15px;
+        font-size: 0.8rem;
+    }
+
+    footer div[aria-label="Social media links"] {
+        gap: 10px;
+    }
+
+    footer div[aria-label="Social media links"] a img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Inner Page Sections */
+    body.index-page section:not(.hero-banner),
+    body.visual-page section:not(.hero-banner),
+    body.music-page section:not(.hero-banner),
+    body.about-page section:not(.hero-banner),
+    body.games-page section:not(.hero-banner),
+    body.apps-page section:not(.hero-banner),
+    body.merch-page section:not(.hero-banner),
+    body.publishing-page section:not(.hero-banner),
+    body.contact-page section:not(.hero-banner),
+    body.visual-page section:not(.hero-banner),
+    body.privacy-page section:not(.hero-banner),
+    body.terms-page section:not(.hero-banner),
+    body.digital-store-page section:not(.hero-banner),
+    body.album-page section:not(.hero-banner) {
+        padding: 30px 15px;
+        margin: 15px auto;
+        max-width: 100%;
+    }
+
+    /* Comment Section */
+    .comments-section {
+        padding: 50px 15px;
+    }
+
+    .comments-section h2 {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+
+    .comment-form textarea {
+        font-size: 1rem;
+        min-height: 80px;
+    }
+
+    .comment-form button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .comment-header span {
+        font-size: 1rem;
+    }
+
+    .comment-header .timestamp {
+        font-size: 0.8rem;
+    }
+
+    .comment-content {
+        font-size: 1rem;
+    }
+
+    .comment-actions button {
+        font-size: 0.9rem;
+    }
+
+    .comment-actions span {
+        font-size: 0.9rem;
+    }
+
+    .username-modal h3 {
+        font-size: 1.8rem;
+    }
+
+    .username-modal p {
+        font-size: 1rem;
+    }
+
+    .username-modal input {
+        font-size: 1rem;
+    }
+
+    #global-error-toast {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul {
+        gap: 10px;
+    }
+
+    header nav ul li a {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+    }
+
+    #global-user-name {
+        font-size: 0.7rem;
+    }
+
+    #global-login-btn,
+    #global-logout-btn {
+        padding: 4px 6px;
+        font-size: 0.7rem;
+    }
+
+    .hero-banner {
+        min-height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+
+    .featured,
+    .about-preview,
+    .quick-links {
+        padding: 30px 10px;
+    }
+
+    .quick-link {
+        min-height: 70px;
+        font-size: 0.8rem;
+    }
+
+    footer {
+        padding: 15px 10px;
+        font-size: 0.7rem;
+    }
+
+    footer div[aria-label="Social media links"] {
+        gap: 8px;
+    }
+
+    footer div[aria-label="Social media links"] a img {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Inner Page Sections */
+    body.index-page section:not(.hero-banner),
+    body.visual-page section:not(.hero-banner),
+    body.music-page section:not(.hero-banner),
+    body.about-page section:not(.hero-banner),
+    body.games-page section:not(.hero-banner),
+    body.apps-page section:not(.hero-banner),
+    body.merch-page section:not(.hero-banner),
+    body.publishing-page section:not(.hero-banner),
+    body.contact-page section:not(.hero-banner),
+    body.visual-page section:not(.hero-banner),
+    body.privacy-page section:not(.hero-banner),
+    body.terms-page section:not(.hero-banner),
+    body.digital-store-page section:not(.hero-banner),
+    body.album-page section:not(.hero-banner) {
+        padding: 20px 10px;
+        margin: 10px auto;
+    }
+
+    /* Comment Section */
+    .comments-section {
+        padding: 40px 10px;
+    }
+
+    .comments-section h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .comment-form textarea {
+        font-size: 0.9rem;
+        min-height: 70px;
+    }
+
+    .comment-form button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .comment-header span {
+        font-size: 0.9rem;
+    }
+
+    .comment-header .timestamp {
+        font-size: 0.7rem;
+    }
+
+    .comment-content {
+        font-size: 0.9rem;
+    }
+
+    .comment-actions button {
+        font-size: 0.8rem;
+    }
+
+    .comment-actions span {
+        font-size: 0.8rem;
+    }
+
+    .username-modal h3 {
+        font-size: 1.5rem;
+    }
+
+    .username-modal p {
+        font-size: 0.9rem;
+    }
+
+    .username-modal input {
+        font-size: 0.9rem;
+    }
+
+    #global-error-toast {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quick-link,
+    .cta-button,
+    .username-modal button,
+    .comment-form button {
+        transition: none;
+        animation: none;
+    }
+
+    .quick-link:hover,
+    .cta-button:hover,
+    .username-modal button:hover,
+    .comment-form button:hover {
+        transform: none;
+    }
+
+    .comments-section {
+        animation: none;
+    }
 }
