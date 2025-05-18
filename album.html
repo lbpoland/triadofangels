@@ -293,8 +293,9 @@
 
     .music-player iframe {
       width: 100%;
-      max-width: 600px;
-      height: 600px;
+      max-width: auto;
+      max-width: auto;
+      height: 900px;
       border: none;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
@@ -484,13 +485,24 @@
         letter-spacing: 3px;
       }
 
-      .link-tab {
-        padding: 8px 20px;
-        font-size: 0.9rem;
-      }
+  .link-tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .link-tab {
+    width: 90%;
+    padding: 12px 0;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    text-align: center;
+  }
+
 
       .music-player iframe {
-        height: 350px;
+        height: 900px;
         max-width: 100%;
       }
     }
@@ -555,13 +567,17 @@
         letter-spacing: 2px;
       }
 
-      .link-tab {
-        padding: 6px 16px;
-        font-size: 0.8rem;
-      }
+
+
+  .link-tab {
+    width: 95%;
+    padding: 10px 0;
+    font-size: 0.85rem;
+    border-radius: 18px;
+  }
 
       .music-player iframe {
-        height: 250px;
+        height: 900px;
         max-width: 100%;
       }
     }
@@ -715,7 +731,7 @@
     <div id="chatbot-window" class="hidden" role="dialog" aria-label="Triad of Angels Helpdesk">
       <div id="chatbot-header" style="text-align: center">
         <strong>Triad of Angels Helpdesk</strong>
-        <button id="chatbot-close-button" aria-label="Close Chat Window" class="close-button">[x]</button>
+        <button id="chatbot-close-button" aria-label="Close Chat Window" class="close-button">❌</button>
       </div>
       <div id="chatbot-body" role="log" aria-live="polite"></div>
       <div id="chatbot-input">
@@ -752,7 +768,7 @@
         genre: "Female Group, Cinematic Pop, Orchestral, Ballad",
         year: "May, 2025",
         cover: "assets/images/albums/wingsoffire-album.png",
-        tracks: ["Ignite the Sky", "Eternal Flame", "Rise Above"],
+        tracks: ["wings of Fire", "We are the Triad", "Starlight Wounds"],
         links: {
           spotify: "https://open.spotify.com/album/4K83YJEeETmcybKtQ1LP5l?si=fOFELopLS9W3eLOSR8x5tA",
           appleMusic: "https://music.apple.com/us/album/wings-of-fire-ep/1812163266",
@@ -773,7 +789,7 @@
         genre: "Female Group, Cinematic Pop, Orchestral, Alternative, Soundtrack",
         year: "May, 2025",
         cover: "assets/images/albums/ascend-album.png",
-        tracks: ["Ascension", "Skyward Bound", "Celestial Rise"],
+        tracks: ["Fireproof", "Home to My Heart", "Unseen Wings"],
         links: {
           spotify: "https://open.spotify.com/album/5EetoHOZzPFoLGfM7XzTim?si=cWzTT5jKQ5KI-KkQYubADQ",
           appleMusic: "https://music.apple.com/us/album/ascend/1812603057",
@@ -794,7 +810,7 @@
         genre: "Hip-Hop, Rap, Satirical, Parody, Electronic",
         year: "May, 2025",
         cover: "assets/images/albums/probedandconfused-album.jpeg",
-        tracks: ["First Contact", "Lost in the Void", "Abduction Anthem"],
+        tracks: ["Strings Attached", "Project Blue Beam", "The Great Goodbye"],
         links: {
           spotify: "https://open.spotify.com/album/5pdZRwo8VXH3sxTZzqsUjN?si=nDt0mqEjQ82k-TaymTQYZQ",
           appleMusic: "https://music.apple.com/us/album/probed-confused/1812599708",
@@ -815,7 +831,7 @@
         genre: "Country, Ballad, Boot Scootin', Alternative",
         year: "May, 2025",
         cover: "assets/images/albums/echoesonthedirtroad-album.png",
-        tracks: ["Dirt Road Echoes", "Whispers in the Wind", "Fading Footprints"],
+        tracks: ["Echoes on the Dirt Road", "Rust & Roses", "Boot, Scoot & Spin"],
         links: {
           spotify: "https://open.spotify.com/album/0y1rCdAJggJMoFvX1FFKDe?si=Vo8Gj9uXSku2-6WzY6HgQg",
           appleMusic: "https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626",
@@ -836,7 +852,7 @@
         genre: "Rock, Metal, Alternative, Orchestral",
         year: "May, 2025",
         cover: "assets/images/albums/phoenixrising-album.png",
-        tracks: ["Ashes to Flame", "Wings of Rebirth", "Eternal Ascent"],
+        tracks: [""],
         links: {
           spotify: "https://open.spotify.com/album/5xqK1MMJrhPOcPM58zjlvE?si=mn6Yx15fQkGzTLKPOPNE7Q",
           appleMusic: "https://music.apple.com/us/album/phoenix-rising/1812648146",
@@ -857,7 +873,7 @@
         genre: "Concept Soundtrack, Hip-Hop, Rap",
         year: "May, 2025",
         cover: "assets/images/albums/thequietwar-album.png",
-        tracks: ["Silent Conflict", "Shadows of Valor", "Echoes of Peace"],
+        tracks: [""],
         links: {
           spotify: "https://open.spotify.com/album/5grqzzq1V4Gaw3jqDjoQbV?si=7YUpINOaRmaKSuYdtlVzvQ",
           appleMusic: "https://music.apple.com/us/album/the-quiet-war/1812870604",
@@ -878,7 +894,7 @@
         genre: "Hip-Hop, Rap, Satirical, Parody, Electronic",
         year: "May, 2025",
         cover: "assets/images/albums/reality-exe-album.png",
-        tracks: ["Code of Existence", "Digital Pulse", "System Reboot"],
+        tracks: ["Just Roast it!", "Presidential Roast", "Oops… I Thinked Again"],
         links: {
           spotify: "https://open.spotify.com/album/6SzYfretgTzLUITlIP6AMy?si=f2cObGo4STKF-YQusk5YGg",
           appleMusic: "https://music.apple.com/us/album/reality-exe/1812900765",
@@ -899,7 +915,7 @@
         genre: "Rock, Metal, Heavy, Alternative",
         year: "19th of May, 2025",
         cover: "assets/images/albums/serpentsveil-album.png",
-        tracks: ["Dark Serpent", "Veiled Shadows", "Eternal Coil"],
+        tracks: [""],
         links: {
           spotify: "",
           appleMusic: "",
@@ -920,7 +936,7 @@
         genre: "Country, Ballad, Funk, Classical, Alternative, Pop",
         year: "20th of June, 2025",
         cover: "assets/images/albums/songsoffreedom-album.png",
-        tracks: ["Freedom's Call", "Firestorm Rising", "Open Road"],
+        tracks: ["Light up the Weekend", "Red White and Country Strong", "Born to Ride Free", "Stars Across the Water", "Where the Brave Still Stand", "Where We Belong Tonight", "Fireworks and Freedom", "Born for the Red, White, and blue", "Raise That Flag", "Living Free in America", "Home Beneathe the Stars", "American Firelight", "Run the Red, White, and blue", "Land That I Love"],
         links: {
           spotify: "",
           appleMusic: "",

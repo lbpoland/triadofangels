@@ -198,7 +198,7 @@ header nav ul li a:focus {
 /* HERO SECTION - Sticky Scrolling Background Video */
 .hero-banner {
     position: relative;
-    min-height: 100vh;
+    min-height: 80vh;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -359,8 +359,7 @@ body.contact-page section:not(.hero-banner),
 body.visual-page section:not(.hero-banner),
 body.privacy-page section:not(.hero-banner),
 body.terms-page section:not(.hero-banner),
-body.digital-store-page section:not(.hero-banner),
-body.album-page section:not(.hero-banner) {
+body.digital-store-page section:not(.hero-banner) {
     background: rgba(0, 0, 0, 0.75);
     padding: 40px 20px;
     border-radius: 8px;
@@ -827,9 +826,26 @@ video {
         font-size: 0.9rem;
     }
 
-    .hero-banner {
-        min-height: 70vh;
-    }
+.hero-banner {
+    position: relative;
+    min-height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
 
     .hero-content h1 {
         font-size: 2rem;
@@ -887,8 +903,7 @@ video {
     body.visual-page section:not(.hero-banner),
     body.privacy-page section:not(.hero-banner),
     body.terms-page section:not(.hero-banner),
-    body.digital-store-page section:not(.hero-banner),
-    body.album-page section:not(.hero-banner) {
+    body.digital-store-page section:not(.hero-banner) {
         padding: 30px 15px;
         margin: 15px auto;
         max-width: 100%;
@@ -976,9 +991,26 @@ video {
         font-size: 0.8rem;
     }
 
-    .hero-banner {
-        min-height: 60vh;
-    }
+.hero-banner {
+    position: relative;
+    min-height: 60vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
 
     .hero-content h1 {
         font-size: 1.8rem;
@@ -1031,8 +1063,7 @@ video {
     body.visual-page section:not(.hero-banner),
     body.privacy-page section:not(.hero-banner),
     body.terms-page section:not(.hero-banner),
-    body.digital-store-page section:not(.hero-banner),
-    body.album-page section:not(.hero-banner) {
+    body.digital-store-page section:not(.hero-banner) {
         padding: 20px 10px;
         margin: 10px auto;
     }

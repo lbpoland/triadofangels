@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    HEAD SECTION
+    Purpose: Defines metadata, page title, and links to external resources (CSS, favicon).
+    How it works:
+      - `meta charset`: Ensures proper character encoding (UTF-8 for universal compatibility).
+      - `meta viewport`: Makes the page responsive by setting initial scale to device width.
+      - `meta description/keywords`: Improves SEO by describing the page and listing relevant terms.
+      - `link` tags: Load favicon, Apple touch icon, and CSS files (`style.css`, `music.css`, `chatbot.css`).
+      - `title`: Sets the browser tab title.
+    Customization:
+      - Edit `description`/`keywords` for better SEO.
+      - Update `href` in `link` tags if asset paths change.
+      - Add more `meta` tags (e.g., Open Graph for social sharing) if needed.
+  -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Explore music from Triad of Angels and ToA Studios: cinematic pop, country, soundtracks, and more." />
   <meta name="keywords" content="Triad of Angels, ToA Studios, music, albums, cinematic pop, country, electronic, soundtrack" />
-<link rel="icon" type="image/png" href="assets/images/favicon.png">
-<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">  
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">  
   <meta name="author" content="Triad of Angels" />
   <title>Music | Triad of Angels & ToA Studios</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/music.css" />
-  <link rel="stylesheet" href="css/chatbot.css" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
+  <link rel="stylesheet" href="css/music.css?v=5" />
+  <link rel="stylesheet" href="css/chatbot.css?v=5" />
 </head>
 
 <body class="music-page">
-  <!-- Header Navigation -->
-  <!-- ========== NAVIGATION BAR WITH INTEGRATED LOGIN UI ========== -->
-<body class="index-page">
+  <!--
+    HEADER SECTION
+    Purpose: Contains the navigation bar for the website.
+    How it works:
+      - `<header>`: Semantic container with `role="banner"` for accessibility.
+      - `<nav>`: Holds the navigation menu with `aria-label` for screen readers.
+      - Mobile toggle button (`#mobile-menu-toggle`): Shows/hides the menu on mobile via JavaScript.
+      - `<ul id="main-nav">`: Lists navigation links and authentication UI.
+      - Authentication UI (`#global-auth-ui`): Displays user status and login/logout buttons.
+    Customization:
+      - Add/remove `<li>` items in `#main-nav` to change menu links.
+      - Modify `href` values to point to different pages.
+      - Update button text or IDs in `#global-auth-ui` for different auth functionality.
+      - Style via `css/style.css` (assumed to contain desktop nav styles).
+  -->
   <header role="banner">
     <nav role="navigation" aria-label="Main site navigation">
-<button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-  <span class="menu-icon">☰</span> <span class="menu-label">Menu</span>
-</button>
-
-
+      <button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span class="menu-icon">☰</span> <span class="menu-label">Menu</span>
+      </button>
       <ul id="main-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -47,11 +71,24 @@
     </nav>
   </header>
 
-  <!-- Hero Banner -->
+  <!--
+    HERO BANNER SECTION
+    Purpose: Displays a prominent video background with a title and tagline.
+    How it works:
+      - `<section class="hero-banner">`: Container for the video and text.
+      - `<video>`: Autoplays a muted, looping video with a fallback image.
+      - `playsinline`: Ensures video plays inline on mobile devices.
+      - `.hero-content`: Holds the title (`h1`) and description (`p`) with inline styles to remove background/shadow.
+    Customization:
+      - Update `src` in `<source>` or `<img>` to change the video/image.
+      - Modify `h1` and `p` text for different messaging.
+      - Adjust inline styles (e.g., `background`, `box-shadow`) or move to `css/music.css`.
+      - Change video attributes (e.g., remove `loop`) for different behavior.
+  -->
   <section class="hero-banner">
     <video autoplay muted loop playsinline class="background-video">
       <source src="assets/videos/hero-banner.mp4" type="video/mp4" />
-      <img src="assets/images/hero-banner.jpg" alt="Triad of Angels banner fallback image" />
+      <img src="assets/images/hero-banner.jpg" alt="Triad of Angels banner fallback image" loading="lazy" />
     </video>
     <div class="hero-content" style="background: none; box-shadow: none;">
       <h1>Triad of Angels - Music Collection</h1>
@@ -60,343 +97,588 @@
   </section>
 
   <main>
-    <!-- Triad of Angels Albums -->
+    <!--
+      TRIAD OF ANGELS SECTION
+      Purpose: Displays artist streaming links, catalog header, and albums for Triad of Angels.
+      How it works:
+        - `<section class="album-catalog">`: Container with inline padding (`40px 20px`).
+        - `<h2>`: Section title ("Triad of Angels").
+        - `.artist-links`: Contains artist streaming buttons (desktop) and mobile dropdowns.
+        - `.cta-buttons`: Desktop-only artist streaming buttons (Spotify, etc.).
+        - `.streaming-controls`: Mobile-only "Stream Now" and "Buy Now" dropdowns for artist links.
+        - `<h3>`: Catalog subheader ("Albums").
+        - `.album-grid`: Displays albums in a grid (desktop) or carousel (mobile).
+        - `.album-block`: Individual album with title above image, image, and two dropdown buttons below.
+        - `.album-actions`: Contains "Stream Now" and "Buy Now" dropdowns for album-specific links.
+      Customization:
+        - Change `<h2>` or `<h3>` text (e.g., "Albums" to "Catalog").
+        - Update `href`, `aria-label`, and link text in `.cta-buttons` or `.streaming-controls` for artist links.
+        - Update album-specific links in `.album-actions` dropdowns.
+        - Adjust inline styles (e.g., `padding`, `margin`) or move to `css/music.css`.
+        - Desktop styles are in `css/music.css`; mobile styles are in `css/music.css` (@media queries).
+    -->
     <section class="album-catalog" style="padding: 40px 20px;">
-      <h2 style="text-align: center;">Triad of Angels – Albums & Singles</h2>
-<div class="music-buttons" style="text-align: center; margin: 10px 0 20px;">
-  <div class="cta-buttons">
-    <a href="https://open.spotify.com/artist/57KgHoxG7paxKh3Q4pLXvP?si=4LfTk0rnTGikShAtIsOKUg" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Spotify">Spotify</a>
-    <a href="https://music.apple.com/us/artist/triad-of-angels/1811109753" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Apple Music">Apple Music</a>
-    <a href="https://music.amazon.com/artists/B0F6NS64D6/triad-of-angels?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_B0Uyj0RI1HUSwMgxifq0r0lt6" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Amazon Music">Amazon Music</a>
-    <a href="https://www.iheart.com/artist/triad-of-angels-46655903/" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on iHeartRadio">iHeartRadio</a>
-    <a href="https://www.boomplay.com/artists/109941013?from=&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Boomplay">Boomplay</a>
-    <a href="https://dzr.page.link/n67DZ3MYDuXyiA2f6" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Deezer">Deezer</a>
-    <a href="https://music.youtube.com/channel/UC4gnDALvpQXk7yHcKXmTMyQ?si=YYzlK2xyZC7puwMP" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on YouTube Music">YouTube Music</a>
-  </div>
-</div>
+      <h2 style="text-align: center;">Triad of Angels</h2>
+      <div class="artist-links" style="text-align: center; margin: 10px 0 20px;">
+        <div class="cta-buttons">
+          <a href="https://open.spotify.com/artist/57KgHoxG7paxKh3Q4pLXvP?si=4LfTk0rnTGikShAtIsOKUg" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Spotify" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Spotify</a>
+          <a href="https://music.apple.com/us/artist/triad-of-angels/1811109753" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Apple Music" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Apple Music</a>
+          <a href="https://music.amazon.com/artists/B0F6NS64D6/triad-of-angels?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_B0Uyj0RI1HUSwMgxifq0r0lt6" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Amazon Music" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Amazon Music</a>
+          <a href="https://www.iheart.com/artist/triad-of-angels-46655903/" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on iHeartRadio" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">iHeartRadio</a>
+          <a href="https://www.boomplay.com/artists/109941013?from=&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Boomplay" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Boomplay</a>
+          <a href="https://dzr.page.link/n67DZ3MYDuXyiA2f6" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on Deezer" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Deezer</a>
+          <a href="https://music.youtube.com/channel/UC4gnDALvpQXk7yHcKXmTMyQ?si=YYzlK2xyZC7puwMP" target="_blank" rel="noopener" class="cta-button" aria-label="Stream Triad of Angels on YouTube Music" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">YouTube Music</a>
+        </div>
+        <div class="streaming-controls">
+          <div class="streaming-dropdown">
+            <button class="streaming-dropdown-button" aria-expanded="false" aria-controls="triad-artist-streaming-menu">Stream Now</button>
+            <ul class="streaming-dropdown-menu" id="triad-artist-streaming-menu">
+              <li><a href="https://open.spotify.com/artist/57KgHoxG7paxKh3Q4pLXvP?si=4LfTk0rnTGikShAtIsOKUg" target="_blank" rel="noopener" aria-label="Stream Triad of Angels on Spotify">Spotify</a></li>
+              <li><a href="https://music.apple.com/us/artist/triad-of-angels/1811109753" target="_blank" rel="noopener" aria-label="Stream Triad of Angels on Apple Music">Apple Music</a></li>
+              <li><a href="https://music.amazon.com/artists/B0F6NS64D6/triad-of-angels?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_B0Uyj0RI1HUSwMgxifq0r0lt6" target="_blank" rel="noopener" aria-label="Stream Triad of Angels on Amazon Music">Amazon Music</a></li>
+              <li><a href="https://www.iheart.com/artist/triad-of-angels-46655903/" target="_blank" rel="noopener" aria-label="Stream Triad of Angels on iHeartRadio">iHeartRadio</a></li>
+              <li><a href="https://www.boomplay.com/artists/109941013?from=&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Triad of Angels on Boomplay">Boomplay</a></li>
+              <li><a href="https://dzr.page.link/n67DZ3MYDuXyiA2f6" target="_blank" rel="noopener" aria-label="Stream Triad of Angels on Deezer">Deezer</a></li>
+              <li><a href="https://music.youtube.com/channel/UC4gnDALvpQXk7yHcKXmTMyQ?si=YYzlK2xyZC7puwMP" target="_blank" rel="noopener" aria-label="Stream Triad of Angels on YouTube Music">YouTube Music</a></li>
+            </ul>
+          </div>
+          <div class="streaming-dropdown">
+            <button class="streaming-dropdown-button" aria-expanded="false" aria-controls="triad-artist-buy-menu">Buy Now</button>
+            <ul class="streaming-dropdown-menu" id="triad-artist-buy-menu">
+              <li><a href="https://music.apple.com/us/artist/triad-of-angels/1811109753" target="_blank" rel="noopener" aria-label="Purchase Triad of Angels on iTunes">iTunes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+	  </section>
 
-<style>
-  .music-buttons {
-    text-align: center;
-    margin: 10px 0 20px;
-  }
-
-  .cta-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    background: linear-gradient(45deg, #f1c40f, #ffeb3b);
-    color: #0a0a0a;
-    text-decoration: none;
-    border-radius: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2);
-    border: 1px solid rgba(241, 196, 15, 0.4);
-    min-width: 120px;
-    min-height: 44px; /* WCAG touch target */
-  }
-
-  .cta-button:hover {
-    background: linear-gradient(45deg, #ffeb3b, #f1c40f);
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
-  }
-
-  .cta-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.5);
-  }
-
-  @media (max-width: 768px) {
-    .music-buttons {
-      margin: 10px 0 15px;
-    }
-
-    .cta-buttons {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cta-button {
-      padding: 12px 24px;
-      font-size: 1.1rem;
-      min-width: 150px;
-      min-height: 48px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .music-buttons {
-      margin: 5px 0 10px;
-    }
-
-    .cta-button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      min-width: 140px;
-      min-height: 44px;
-    }
-  }
-</style>
+    <section class="album-catalog" style="padding: 40px 20px;">
+      <h2 style="text-align: center;">🎶 Triad of Angels Albums 🎶</h2>
+      <div class="artist-links" style="text-align: center; margin: 10px 0 20px;">
       <div class="album-grid">
         <article class="album-block">
+          <div class="album-actions">
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="wings-of-fire-streaming-menu">Stream Now</button>
+              <ul class="streaming-dropdown-menu" id="wings-of-fire-streaming-menu">
+                <li><a href="https://open.spotify.com/album/4K83YJEeETmcybKtQ1LP5l?si=fOFELopLS9W3eLOSR8x5tA" target="_blank" rel="noopener" aria-label="Stream Wings of Fire on Spotify">Spotify</a></li>
+                <li><a href="https://music.apple.com/us/album/wings-of-fire-ep/1812163266" target="_blank" rel="noopener" aria-label="Stream Wings of Fire on Apple Music">Apple Music</a></li>
+                <li><a href="https://music.amazon.com/albums/B0F79L26WV?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_LjFRykAfbo5PSnB7mT8yMjN2a" target="_blank" rel="noopener" aria-label="Stream Wings of Fire on Amazon Music">Amazon Music</a></li>
+                <li><a href="https://www.iheart.com/artist/triad-of-angels-46655903/albums/wings-of-fire-326706390/" target="_blank" rel="noopener" aria-label="Stream Wings of Fire on iHeartRadio">iHeartRadio</a></li>
+                <li><a href="https://www.boomplay.com/albums/110140275?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Wings of Fire on Boomplay">Boomplay</a></li>
+                <li><a href="https://dzr.page.link/SvK8hbw8DH1q33xXA" target="_blank" rel="noopener" aria-label="Stream Wings of Fire on Deezer">Deezer</a></li>
+                <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_kpbLV2nL-Ryt_nKkJ8CFfll701Zrw9N6k&si=c0d1GLRChrOKtkbK" target="_blank" rel="noopener" aria-label="Stream Wings of Fire on YouTube Music">YouTube Music</a></li>
+              </ul>
+            </div>
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="wings-of-fire-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="wings-of-fire-buy-menu">
+                <li><a href="https://music.apple.com/us/album/wings-of-fire-ep/1812163266" target="_blank" rel="noopener" aria-label="Purchase Wings of Fire on iTunes">iTunes</a></li>
+              </ul>
+            </div>
+          </div>
+          <br>		  	 
           <a href="album.html?id=wings-of-fire" class="album-link" aria-label="Wings of Fire by Triad of Angels">
-            <img src="assets/images/albums/wingsoffire-album.png" alt="Album cover for Wings of Fire by Triad of Angels" loading="lazy">
-            <h3>Wings of Fire</h3>
+            <img src="assets/images/albums/wingsoffire-album.png" alt="Album cover for Wings of Fire by Triad of Angels" loading="lazy" />
           </a>
+          <h4>Wings of Fire</h4>		  
         </article>
         <article class="album-block">
+          <div class="album-actions">
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="ascend-streaming-menu">Stream Now</button>
+              <ul class="streaming-dropdown-menu" id="ascend-streaming-menu">
+                <li><a href="https://open.spotify.com/album/5EetoHOZzPFoLGfM7XzTim?si=cWzTT5jKQ5KI-KkQYubADQ" target="_blank" rel="noopener" aria-label="Stream Ascend on Spotify">Spotify</a></li>
+                <li><a href="https://music.apple.com/us/album/ascend/1812603057" target="_blank" rel="noopener" aria-label="Stream Ascend on Apple Music">Apple Music</a></li>
+                <li><a href="https://music.amazon.com/albums/B0F7H65CHH?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_8rBuhB66DVXsHWGPokhzw88DN" target="_blank" rel="noopener" aria-label="Stream Ascend on Amazon Music">Amazon Music</a></li>
+                <li><a href="https://www.iheart.com/artist/triad-of-angels-46655903/albums/ascend-327002587/" target="_blank" rel="noopener" aria-label="Stream Ascend on iHeartRadio">iHeartRadio</a></li>
+                <li><a href="https://www.boomplay.com/albums/110238502?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Ascend on Boomplay">Boomplay</a></li>
+                <li><a href="https://dzr.page.link/M4d8bxxmmQdLEr3o7" target="_blank" rel="noopener" aria-label="Stream Ascend on Deezer">Deezer</a></li>
+                <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_n6axY2s6JOnfyXOqSsWQ9o1Rmz05azC4w&si=5HJAAMnu0iXVlpNb" target="_blank" rel="noopener" aria-label="Stream Ascend on YouTube Music">YouTube Music</a></li>
+              </ul>
+            </div>
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="ascend-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="ascend-buy-menu">
+                <li><a href="https://music.apple.com/us/album/ascend/1812603057" target="_blank" rel="noopener" aria-label="Purchase Ascend on iTunes">iTunes</a></li>
+              </ul>
+            </div>
+          </div>
+		  <br>		 
           <a href="album.html?id=ascend" class="album-link" aria-label="Ascend by Triad of Angels">
-            <img src="assets/images/albums/ascend-album.png" alt="Album cover for Ascend by Triad of Angels" loading="lazy">
-            <h3>Ascend</h3>
+            <img src="assets/images/albums/ascend-album.png" alt="Album cover for Ascend by Triad of Angels" loading="lazy" />
           </a>
+          <h4>Ascend</h4>
         </article>
       </div>
+	  <div class="scroll-hint">← Scroll albums →</div>
     </section>
 
-    <!-- ToA Studios Albums -->
+    <!--
+      TOA STUDIOS SECTION
+      Purpose: Displays artist streaming links, catalog header, and albums for ToA Studios.
+      How it works:
+        - Similar to Triad of Angels section but with different albums and links.
+        - `.artist-links` and `.album-actions` use the same structure for consistency.
+      Customization:
+        - Same as Triad of Angels section: update headers, links, and styles as needed.
+        - Ensure `href` in streaming and purchase links points to correct URLs.
+    -->
     <section class="album-catalog" style="padding: 40px 20px;">
-      <h2 style="text-align: center;">ToA Studios – Album & Singles Releases</h2>
-  <div class="cta-buttons" style="text-align: center; margin: 10px 0 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-    <a href="https://open.spotify.com/artist/40BdnWGmvTVO60uEp1MLrA?si=k6iLPAlxSvOmWPBip0S1AQ" target="_blank" rel="noopener" class="cta-button">Spotify</a>
-    <a href="https://music.apple.com/us/artist/toa-studios/1812346019" target="_blank" rel="noopener" class="cta-button">Apple Music</a>
-    <a href="https://music.amazon.com/artists/B0F7H4DRMY/toa-studios?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_5Dm0uSs3kF5W2W1k9cgrgQtQO" target="_blank" rel="noopener" class="cta-button">Amazon Music</a>
-    <a href="https://www.iheart.com/artist/toa-studios-46720429/" target="_blank" rel="noopener" class="cta-button">iHeartRadio</a>
-    <a href="https://www.boomplay.com/artists/110242219?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" class="cta-button">Boomplay</a>
-    <a href="https://dzr.page.link/6r43FesHEfck9qxr9" target="_blank" rel="noopener" class="cta-button">Deezer</a>
-    <a href="https://music.youtube.com/channel/UCtzgypYznTLsnVW_mZbVzVg?si=9o_d_Li_7CMzfA-t" target="_blank" rel="noopener" class="cta-button">YouTube Music</a>
-  </div>
-
-
-<style>
-  .cta-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    background: linear-gradient(45deg, #f1c40f, #ffeb3b);
-    color: #0a0a0a;
-    text-decoration: none;
-    border-radius: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2);
-    border: 1px solid rgba(241, 196, 15, 0.4);
-    min-width: 120px;
-    min-height: 44px; /* WCAG touch target */
-  }
-
-  .cta-button:hover {
-    background: linear-gradient(45deg, #ffeb3b, #f1c40f);
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
-  }
-
-  .cta-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.5);
-  }
-
-  @media (max-width: 768px) {
-    .album-catalog {
-      padding: 20px 15px;
-    }
-
-    .album-catalog h2 {
-      font-size: 2rem;
-    }
-
-    .cta-buttons {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cta-button {
-      padding: 12px 24px;
-      font-size: 1.1rem;
-      min-width: 150px;
-      min-height: 48px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .album-catalog {
-      padding: 15px 10px;
-    }
-
-    .album-catalog h2 {
-      font-size: 1.8rem;
-    }
-
-    .cta-button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      min-width: 140px;
-      min-height: 44px;
-    }
-  }
-</style>
+      <h2 style="text-align: center;">ToA Studios</h2>
+      <div class="artist-links" style="text-align: center; margin: 10px 0 20px;">
+        <div class="cta-buttons">
+          <a href="https://open.spotify.com/artist/40BdnWGmvTVO60uEp1MLrA?si=k6iLPAlxSvOmWPBip0S1AQ" target="_blank" rel="noopener" class="cta-button" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Spotify</a>
+          <a href="https://music.apple.com/us/artist/toa-studios/1812346019" target="_blank" rel="noopener" class="cta-button" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Apple Music</a>
+          <a href="https://music.amazon.com/artists/B0F7H4DRMY/toa-studios?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_5Dm0uSs3kF5W2W1k9cgrgQtQO" target="_blank" rel="noopener" class="cta-button" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Amazon Music</a>
+          <a href="https://www.iheart.com/artist/toa-studios-46720429/" target="_blank" rel="noopener" class="cta-button" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">iHeartRadio</a>
+          <a href="https://www.boomplay.com/artists/110242219?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" class="cta-button" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Boomplay</a>
+          <a href="https://dzr.page.link/6r43FesHEfck9qxr9" target="_blank" rel="noopener" class="cta-button" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">Deezer</a>
+          <a href="https://music.youtube.com/channel/UCtzgypYznTLsnVW_mZbVzVg?si=9o_d_Li_7CMzfA-t" target="_blank" rel="noopener" class="cta-button" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; background: linear-gradient(45deg, #f1c40f, #ffeb3b); color: #0a0a0a; text-decoration: none; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2); border: 1px solid rgba(241, 196, 15, 0.4); min-width: 120px; min-height: 44px;">YouTube Music</a>
+        </div>
+        <div class="streaming-controls">
+          <div class="streaming-dropdown">
+            <button class="streaming-dropdown-button" aria-expanded="false" aria-controls="toa-artist-streaming-menu">Stream Now</button>
+            <ul class="streaming-dropdown-menu" id="toa-artist-streaming-menu">
+              <li><a href="https://open.spotify.com/artist/40BdnWGmvTVO60uEp1MLrA?si=k6iLPAlxSvOmWPBip0S1AQ" target="_blank" rel="noopener" aria-label="Stream ToA Studios on Spotify">Spotify</a></li>
+              <li><a href="https://music.apple.com/us/artist/toa-studios/1812346019" target="_blank" rel="noopener" aria-label="Stream ToA Studios on Apple Music">Apple Music</a></li>
+              <li><a href="https://music.amazon.com/artists/B0F7H4DRMY/toa-studios?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_5Dm0uSs3kF5W2W1k9cgrgQtQO" target="_blank" rel="noopener" aria-label="Stream ToA Studios on Amazon Music">Amazon Music</a></li>
+              <li><a href="https://www.iheart.com/artist/toa-studios-46720429/" target="_blank" rel="noopener" aria-label="Stream ToA Studios on iHeartRadio">iHeartRadio</a></li>
+              <li><a href="https://www.boomplay.com/artists/110242219?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream ToA Studios on Boomplay">Boomplay</a></li>
+              <li><a href="https://dzr.page.link/6r43FesHEfck9qxr9" target="_blank" rel="noopener" aria-label="Stream ToA Studios on Deezer">Deezer</a></li>
+              <li><a href="https://music.youtube.com/channel/UCtzgypYznTLsnVW_mZbVzVg?si=9o_d_Li_7CMzfA-t" target="_blank" rel="noopener" aria-label="Stream ToA Studios on YouTube Music">YouTube Music</a></li>
+            </ul>
+          </div>
+          <div class="streaming-dropdown">
+            <button class="streaming-dropdown-button" aria-expanded="false" aria-controls="toa-artist-buy-menu">Buy Now</button>
+            <ul class="streaming-dropdown-menu" id="toa-artist-buy-menu">
+              <li><a href="https://music.apple.com/au/artist/toa-studios/1812346019" target="_blank" rel="noopener" aria-label="Purchase ToA Studios on iTunes">iTunes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+	
+    <section class="album-catalog" style="padding: 40px 20px;">
+      <h2 style="text-align: center;">🎶 ToA Studios Albums 🎶</h2>
+      <div class="artist-links" style="text-align: center; margin: 10px 0 20px;">	  
       <div class="album-grid">
         <article class="album-block">
+          <div class="album-actions">
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="probed-and-confused-streaming-menu">Stream Now</button>
+              <ul class="streaming-dropdown-menu" id="probed-and-confused-streaming-menu">
+                <li><a href="https://open.spotify.com/album/5pdZRwo8VXH3sxTZzqsUjN?si=nDt0mqEjQ82k-TaymTQYZQ" target="_blank" rel="noopener" aria-label="Stream Probed & Confused on Spotify">Spotify</a></li>
+                <li><a href="https://music.apple.com/us/album/probed-confused/1812599708" target="_blank" rel="noopener" aria-label="Stream Probed & Confused on Apple Music">Apple Music</a></li>
+                <li><a href="https://music.amazon.com/albums/B0F7H6DL4J?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_72nUB1xSWdSCwKH8CX7EColXP" target="_blank" rel="noopener" aria-label="Stream Probed & Confused on Amazon Music">Amazon Music</a></li>
+                <li><a href="https://www.iheart.com/artist/toa-studios-46720429/albums/probed-confused-327006359/" target="_blank" rel="noopener" aria-label="Stream Probed & Confused on iHeartRadio">iHeartRadio</a></li>
+                <li><a href="https://www.boomplay.com/albums/110242229?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Probed & Confused on Boomplay">Boomplay</a></li>
+                <li><a href="https://dzr.page.link/UgaQkHSdvSTSWf7Y8" target="_blank" rel="noopener" aria-label="Stream Probed & Confused on Deezer">Deezer</a></li>
+                <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_nZawrRr1jGQNAw3nz0P2B-OoqMKmEn1Tg&si=v-I7avviDAjL1VW0" target="_blank" rel="noopener" aria-label="Stream Probed & Confused on YouTube Music">YouTube Music</a></li>
+              </ul>
+            </div>
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="probed-and-confused-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="probed-and-confused-buy-menu">
+                <li><a href="https://music.apple.com/us/album/probed-confused/1812599708" target="_blank" rel="noopener" aria-label="Purchase Probed & Confused on iTunes">iTunes</a></li>
+              </ul>
+            </div>
+          </div>
+		  <br>
+		  
           <a href="album.html?id=probed-and-confused" class="album-link" aria-label="Probed & Confused by ToA Studios">
-            <img src="assets/images/albums/probedandconfused-album.jpeg" alt="Album cover for Probed & Confused by ToA Studios" loading="lazy">
-            <h3>Probed & Confused</h3>
+            <img src="assets/images/albums/probedandconfused-album.jpeg" alt="Album cover for Probed & Confused by ToA Studios" loading="lazy" />
           </a>
+          <h4>Probed & Confused</h4> 
         </article>
         <article class="album-block">
+          <div class="album-actions">
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="echoes-on-the-dirt-road-streaming-menu">Stream Now</button>
+              <ul class="streaming-dropdown-menu" id="echoes-on-the-dirt-road-streaming-menu">
+                <li><a href="https://open.spotify.com/album/0y1rCdAJggJMoFvX1FFKDe?si=Vo8Gj9uXSku2-6WzY6HgQg" target="_blank" rel="noopener" aria-label="Stream Echoes on the Dirt Road on Spotify">Spotify</a></li>
+                <li><a href="https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626" target="_blank" rel="noopener" aria-label="Stream Echoes on the Dirt Road on Apple Music">Apple Music</a></li>
+                <li><a href="https://music.amazon.com/albums/B0F7H6LXVZ?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_iqGT0j3cMSEGDIQiC59dy6977" target="_blank" rel="noopener" aria-label="Stream Echoes on the Dirt Road on Amazon Music">Amazon Music</a></li>
+                <li><a href="https://www.iheart.com/artist/toa-studios-46720429/albums/echoes-on-the-dirt-road-327006297/" target="_blank" rel="noopener" aria-label="Stream Echoes on the Dirt Road on iHeartRadio">iHeartRadio</a></li>
+                <li><a href="https://www.boomplay.com/albums/110238994?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Echoes on the Dirt Road on Boomplay">Boomplay</a></li>
+                <li><a href="https://dzr.page.link/g2169XseSm3paGi38" target="_blank" rel="noopener" aria-label="Stream Echoes on the Dirt Road on Deezer">Deezer</a></li>
+                <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_mL9FznTyx_-6nKq_rm767o73cjLlUCl_g&si=oprCNIO-vF3nwcuH" target="_blank" rel="noopener" aria-label="Stream Echoes on the Dirt Road on YouTube Music">YouTube Music</a></li>
+              </ul>
+            </div>
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="echoes-on-the-dirt-road-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="echoes-on-the-dirt-road-buy-menu">
+                <li><a href="https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626" target="_blank" rel="noopener" aria-label="Purchase Echoes on the Dirt Road on iTunes">iTunes</a></li>
+              </ul>
+            </div>
+          </div>
+		  <br>
           <a href="album.html?id=echoes-on-the-dirt-road" class="album-link" aria-label="Echoes on the Dirt Road by ToA Studios">
-            <img src="assets/images/albums/echoesonthedirtroad-album.png" alt="Album cover for Echoes on the Dirt Road by ToA Studios" loading="lazy">
-            <h3>Echoes on the Dirt Road</h3>
+            <img src="assets/images/albums/echoesonthedirtroad-album.png" alt="Album cover for Echoes on the Dirt Road by ToA Studios" loading="lazy" />
           </a>
+          <h4>Echoes on the Dirt Road</h4>
         </article>
         <article class="album-block">
+          <div class="album-actions">
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="phoenix-rising-streaming-menu">Stream Now</button>
+              <ul class="streaming-dropdown-menu" id="phoenix-rising-streaming-menu">
+                <li><a href="https://open.spotify.com/album/5xqK1MMJrhPOcPM58zjlvE?si=mn6Yx15fQkGzTLKPOPNE7Q" target="_blank" rel="noopener" aria-label="Stream Phoenix Rising on Spotify">Spotify</a></li>
+                <li><a href="https://music.apple.com/us/album/phoenix-rising/1812648146" target="_blank" rel="noopener" aria-label="Stream Phoenix Rising on Apple Music">Apple Music</a></li>
+                <li><a href="https://music.amazon.com/albums/B0F7HKT32B?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_2uGXo9FM5fP0z0IDqTunHMEFQ" target="_blank" rel="noopener" aria-label="Stream Phoenix Rising on Amazon Music">Amazon Music</a></li>
+                <li><a href="https://www.iheart.com/artist/toa-studios-46720429/albums/phoenix-rising-327032664/" target="_blank" rel="noopener" aria-label="Stream Phoenix Rising on iHeartRadio">iHeartRadio</a></li>
+                <li><a href="https://www.boomplay.com/albums/110247179?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Phoenix Rising on Boomplay">Boomplay</a></li>
+                <li><a href="https://dzr.page.link/wpiRxBm7aijHYBts7" target="_blank" rel="noopener" aria-label="Stream Phoenix Rising on Deezer">Deezer</a></li>
+                <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_mcj1x0UNnDOgYxEpw_3dsQWykLrAOPXj4&si=lzimoRyOpANWfQAb" target="_blank" rel="noopener" aria-label="Stream Phoenix Rising on YouTube Music">YouTube Music</a></li>
+              </ul>
+            </div>
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="phoenix-rising-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="phoenix-rising-buy-menu">
+                <li><a href="https://music.apple.com/us/album/phoenix-rising/1812648146" target="_blank" rel="noopener" aria-label="Purchase Phoenix Rising on iTunes">iTunes</a></li>
+              </ul>
+            </div>
+          </div>
+		  <br>
           <a href="album.html?id=phoenix-rising" class="album-link" aria-label="Phoenix Rising by ToA Studios">
-            <img src="assets/images/albums/phoenixrising-album.png" alt="Album cover for Phoenix Rising by ToA Studios" loading="lazy">
-            <h3>Phoenix Rising</h3>
+            <img src="assets/images/albums/phoenixrising-album.png" alt="Album cover for Phoenix Rising by ToA Studios" loading="lazy" />
           </a>
+          <h4>Phoenix Rising</h4>
         </article>
         <article class="album-block">
+          <div class="album-actions">
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="the-quiet-war-streaming-menu">Stream Now</button>
+              <ul class="streaming-dropdown-menu" id="the-quiet-war-streaming-menu">
+                <li><a href="https://open.spotify.com/album/5grqzzq1V4Gaw3jqDjoQbV?si=7YUpINOaRmaKSuYdtlVzvQ" target="_blank" rel="noopener" aria-label="Stream The Quiet War on Spotify">Spotify</a></li>
+                <li><a href="https://music.apple.com/us/album/the-quiet-war/1812870604" target="_blank" rel="noopener" aria-label="Stream The Quiet War on Apple Music">Apple Music</a></li>
+                <li><a href="https://music.amazon.com/albums/B0F7LTGSTV?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_Kd4MIeBYuzAoFY3yaobhY11t6" target="_blank" rel="noopener" aria-label="Stream The Quiet War on Amazon Music">Amazon Music</a></li>
+                <li><a href="https://www.iheart.com/artist/toa-studios-46720429/albums/the-quiet-war-327214148/" target="_blank" rel="noopener" aria-label="Stream The Quiet War on iHeartRadio">iHeartRadio</a></li>
+                <li><a href="https://www.boomplay.com/albums/110301296?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream The Quiet War on Boomplay">Boomplay</a></li>
+                <li><a href="https://dzr.page.link/W8dvTRvGoCzDwxc98" target="_blank" rel="noopener" aria-label="Stream The Quiet War on Deezer">Deezer</a></li>
+                <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_mnAyAE1pxoey93kvk6KxqaY8n3CDJtD-0&si=RdO6K4pEyqJVxWQ-" target="_blank" rel="noopener" aria-label="Stream The Quiet War on YouTube Music">YouTube Music</a></li>
+              </ul>
+            </div>
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="the-quiet-war-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="the-quiet-war-buy-menu">
+                <li><a href="https://music.apple.com/us/album/the-quiet-war/1812870604" target="_blank" rel="noopener" aria-label="Purchase The Quiet War on iTunes">iTunes</a></li>
+              </ul>
+            </div>
+          </div>
+		  <br>
           <a href="album.html?id=the-quiet-war" class="album-link" aria-label="The Quiet War by ToA Studios">
-            <img src="assets/images/albums/thequietwar-album.png" alt="Album cover for The Quiet War by ToA Studios" loading="lazy">
-            <h3>The Quiet War</h3>
+            <img src="assets/images/albums/thequietwar-album.png" alt="Album cover for The Quiet War by ToA Studios" loading="lazy" />
           </a>
+          <h4>The Quiet War</h4> 
         </article>
-        <article class="album-block">
+        <article class="album-block"> 
+          <div class="album-actions">
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="reality-exe-streaming-menu">Stream Now</button>
+              <ul class="streaming-dropdown-menu" id="reality-exe-streaming-menu">
+                <li><a href="https://open.spotify.com/album/6SzYfretgTzLUITlIP6AMy?si=f2cObGo4STKF-YQusk5YGg" target="_blank" rel="noopener" aria-label="Stream Reality.exe on Spotify">Spotify</a></li>
+                <li><a href="https://music.apple.com/us/album/reality-exe/1812900765" target="_blank" rel="noopener" aria-label="Stream Reality.exe on Apple Music">Apple Music</a></li>
+                <li><a href="https://music.amazon.com/albums/B0F7M1HTYD?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_HpaPCWwzNgVC3Y7pxhTXOJQqW" target="_blank" rel="noopener" aria-label="Stream Reality.exe on Amazon Music">Amazon Music</a></li>
+                <li><a href="https://www.iheart.com/artist/toa-studios-46720429/albums/realityexe-327233858/" target="_blank" rel="noopener" aria-label="Stream Reality.exe on iHeartRadio">iHeartRadio</a></li>
+                <li><a href="https://www.boomplay.com/albums/110303684?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Reality.exe on Boomplay">Boomplay</a></li>
+                <li><a href="https://dzr.page.link/nSpcy613QhmzKCi7A" target="_blank" rel="noopener" aria-label="Stream Reality.exe on Deezer">Deezer</a></li>
+                <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_mEUI3xipOKn-zGt9dOHJbIuk6e1J7gHLQ&si=UuVUiJ6uhXTmNmR_" target="_blank" rel="noopener" aria-label="Stream Reality.exe on YouTube Music">YouTube Music</a></li>
+              </ul>
+            </div>
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="reality-exe-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="reality-exe-buy-menu">
+                <li><a href="https://music.apple.com/us/album/reality-exe/1812900765" target="_blank" rel="noopener" aria-label="Purchase Reality.exe on iTunes">iTunes</a></li>
+              </ul>
+            </div>
+          </div>
+		  <br>
           <a href="album.html?id=reality-exe" class="album-link" aria-label="Reality.exe by ToA Studios">
-            <img src="assets/images/albums/reality-exe-album.png" alt="Album cover for Reality.exe by ToA Studios" loading="lazy">
-            <h3>Reality.exe</h3>
+            <img src="assets/images/albums/reality-exe-album.png" alt="Album cover for Reality.exe by ToA Studios" loading="lazy" />
           </a>
+          <h4>Reality.exe</h4>
         </article>
       </div>
+	  <div class="scroll-hint">← Scroll albums →</div>
+
     </section>
 
-    <!-- COMING SOON -->
+    <!--
+      COMING SOON SECTION
+      Purpose: Displays upcoming albums with a call-to-action for pre-release details.
+      How it works:
+        - Similar to other album sections but with fewer albums and no streaming links.
+        - Two `<h2>` elements for title and instructions, both centered.
+        - Empty `<div>` for spacing (can be removed or styled).
+      Customization:
+        - Add/remove albums in `.album-grid` as needed.
+        - Update instructional text in second `<h2>`.
+        - Remove inline `margin` from `<div>` or style it for different spacing.
+    -->
     <section class="album-catalog" style="padding: 40px 20px;">
-      <h2 style="text-align: center;">Coming Soon!</h2>
-      <h2 style="text-align: center;">Click on the Albums for Release Date and iTunes link for pre-release purchase.</h2>
-      <div style="text-align: center; margin: 10px 0 20px;">
-      </div>	  
+      <h2 style="text-align: center;">🎶 Albums Coming Soon! 🎶</h2>
+      <div style="text-align: center; margin: 10px 0 20px;"></div>
       <div class="album-grid">
         <article class="album-block">
+          <div class="album-actions">		
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="reality-exe-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="reality-exe-buy-menu">
+                <li><a href="https://music.apple.com/au/album/serpents-veil/1813142997" target="_blank" rel="noopener" aria-label="Purchase Reality.exe on iTunes">iTunes</a></li>
+              </ul>
+            </div>
+          </div>
+          <br>		  
           <a href="album.html?id=serpents-veil" class="album-link" aria-label="Serpent's Veil by ToA Studios">
-            <img src="assets/images/albums/serpentsveil-album.png" alt="Album cover for Serpent's Veil by ToA Studios" loading="lazy">
-            <h3>Serpent's Veil</h3>
+            <img src="assets/images/albums/serpentsveil-album.png" alt="Album cover for Serpent's Veil by ToA Studios" loading="lazy" />
           </a>
+          <h4>Serpent's Veil</h4>
+          <h4>19th of May, 2025</h4>		  
         </article>
         <article class="album-block">
-          <a href="album.html?id=american-firestorm-songs-of-freedom" class="album-link" aria-label="American Firestorm Songs of Freedom by ToA Studios">
-            <img src="assets/images/albums/songsoffreedom-album.png" alt="Album cover for American Firestorm Songs of Freedom by ToA Studios" loading="lazy">
-            <h3>American Firestorm Songs of Freedom</h3>
+          <div class="album-actions">			
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="reality-exe-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="reality-exe-buy-menu">
+                <li><a href="https://music.apple.com/au/album/american-firestorm-songs-of-freedom/1813521823" target="_blank" rel="noopener" aria-label="Purchase Reality.exe on iTunes">iTunes</a></li>
+              </ul>
+            </div>
+          </div>		
+          <br>
+		  <a href="album.html?id=american-firestorm-songs-of-freedom" class="album-link" aria-label="American Firestorm Songs of Freedom by ToA Studios">
+            <img src="assets/images/albums/songsoffreedom-album.png" alt="Album cover for American Firestorm Songs of Freedom by ToA Studios" loading="lazy" />
           </a>
-        </article>		
-      </div>		
-    </section>	
+          <h4>American Firestorm Songs of Freedom</h4>
+		  <h4>20th of June, 2025</h4>
+        </article>
+      </div>
+	  <div class="scroll-hint">← Scroll albums →</div>
+    </section>
   </main>
 
-<footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
-
-    <p>&copy; 2025 Triad of Angels. All rights reserved.</p>
-
-    <!-- Legal + Core Links -->
+  <!--
+    FOOTER SECTION
+    Purpose: Displays copyright, navigation links, and social media icons.
+    How it works:
+      - `<footer>`: Semantic container with inline styles for margin, text alignment, font size, color, and padding.
+      - First `<p>`: Copyright notice.
+      - Second `<p>`: Core navigation links.
+      - `<div>` with inline style: Decorative line separator.
+      - Social media links: Flex container with icons and labels, styled inline.
+    Customization:
+      - Update copyright year or text in first `<p>`.
+      - Add/remove links in second `<p>`.
+      - Change social media `href`, `src`, or `span` text.
+      - Adjust inline styles (e.g., `color: #aaa`, `gap: 15px`) or move to `css/style.css`.
+  -->
+  <footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
+    <p>© 2025 Triad of Angels. All rights reserved.</p>
     <p>
-        <a href="index.html">Home</a> |
-        <a href="terms.html">Terms & Conditions</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a> |
+      <a href="terms.html">Terms & Conditions</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="contact.html">Contact</a>
     </p>
-
-    <!-- Stylish line separator -->
     <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
-
-    <!-- Social Media Icons + Labels -->
     <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;" aria-label="Social media links">
       <a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="TikTok"
          style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/tiktok-icon.svg" alt="TikTok icon" style="width: 24px; height: 24px;" loading="lazy">
+        <img src="assets/icons/tiktok-icon.svg" alt="TikTok icon" style="width: 24px; height: 24px;" loading="lazy" />
         <span>TikTok</span>
       </a>
       <a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Instagram"
          style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/instagram-icon.svg" alt="Instagram icon" style="width: 24px; height: 24px;" loading="lazy">
+        <img src="assets/icons/instagram-icon.svg" alt="Instagram icon" style="width: 24px; height: 24px;" loading="lazy" />
         <span>Instagram</span>
       </a>
       <a href="https://www.youtube.com/@triadofangels_new" target="_blank" rel="noopener" aria-label="YouTube"
          style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/youtube-icon.svg" alt="YouTube icon" style="width: 24px; height: 24px;" loading="lazy">
+        <img src="assets/icons/youtube-icon.svg" alt="YouTube icon" style="width: 24px; height: 24px;" loading="lazy" />
         <span>YouTube</span>
       </a>
       <a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Facebook"
          style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/facebook-icon.svg" alt="Facebook icon" style="width: 24px; height: 24px;" loading="lazy">
+        <img src="assets/icons/facebook-icon.svg" alt="Facebook icon" style="width: 24px; height: 24px;" loading="lazy" />
         <span>Facebook</span>
       </a>
       <a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="X"
          style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/x-icon.svg" alt="X icon" style="width: 24px; height: 24px;" loading="lazy">
+        <img src="assets/icons/x-icon.svg" alt="X icon" style="width: 24px; height: 24px;" loading="lazy" />
         <span>X</span>
       </a>
     </div>
-
   </footer>
 
-<!-- Chatbot HTML (Text-only helpdesk) -->
-<div id="toa-chatbot">
-  <div id="chatbot-icon" title="Need help? Chat with us!" role="button" tabindex="0" aria-label="Toggle chatbot window">
-    <img src="assets/images/chatbot.png" alt="Triad of Angels Chatbot Icon" width="48" height="48" loading="lazy">
-  </div>
-  <div id="chatbot-window" class="hidden" role="dialog" aria-label="Triad of Angels Helpdesk">
-    <div id="chatbot-header" style="text-align: center">
-      <strong>Triad of Angels Helpdesk</strong>
-      <button id="chatbot-close-button" aria-label="Close Chat Window" class="close-button">[x]</button>
+  <!--
+    CHATBOT SECTION
+    Purpose: Provides a text-based helpdesk interface.
+    How it works:
+      - `#toa-chatbot`: Fixed-position container for the chatbot.
+      - `#chatbot-icon`: Clickable icon to toggle the chatbot window.
+      - `#chatbot-window`: Hidden by default (`class="hidden"`), contains header, message log, and input.
+      - `#chatbot-header`: Title and close button.
+      - `#chatbot-body`: Message log with `aria-live="polite"` for accessibility.
+      - `#chatbot-input`: Text input and send/reset buttons.
+    Customization:
+      - Update `src` for `#chatbot-icon` image.
+      - Change placeholder text in `#user-input`.
+      - Modify button text or functionality via `js/chatbot.js`.
+      - Style via `css/chatbot.css` or add inline styles.
+  -->
+  <div id="toa-chatbot">
+    <div id="chatbot-icon" title="Need help? Chat with us!" role="button" tabindex="0" aria-label="Toggle chatbot window">
+      <img src="assets/images/chatbot.png" alt="Triad of Angels Chatbot Icon" width="48" height="48" loading="lazy" />
     </div>
-    <div id="chatbot-body" role="log" aria-live="polite"></div>
-    <div id="chatbot-input">
-      <input type="text" id="user-input" placeholder="Ask me anything..." aria-label="Chat input">
-      <button id="chatbot-send-button" aria-label="Send message">Send</button>
-      <button id="chatbot-reset-button" title="Reset Conversation">Reset Chat</button>
+    <div id="chatbot-window" class="hidden" role="dialog" aria-label="Triad of Angels Helpdesk">
+      <div id="chatbot-header" style="text-align: center;">
+        <strong>Triad of Angels Helpdesk</strong>
+        <button id="chatbot-close-button" aria-label="Close Chat Window" class="close-button">❌</button>
+      </div>
+      <div id="chatbot-body" role="log" aria-live="polite"></div>
+      <div id="chatbot-input">
+        <input type="text" id="user-input" placeholder="Ask me anything..." aria-label="Chat input" />
+        <button id="chatbot-send-button" aria-label="Send message">Send</button>
+        <button id="chatbot-reset-button" title="Reset Conversation">Reset Chat</button>
+      </div>
     </div>
   </div>
-</div>
 
-  <!-- Scripts -->
-  <script>
-    document.documentElement.style.scrollBehavior = 'smooth';
-  </script>
-  <!-- Error Toast -->
+  <!--
+    ERROR TOAST SECTION
+    Purpose: Displays temporary error messages.
+    How it works:
+      - `#global-error-toast`: Hidden by default (`display: none`), appears at the bottom center when triggered.
+      - Inline styles: Positions, colors, and styles the toast.
+    Customization:
+      - Update inline styles (e.g., `background`, `color`) for different appearance.
+      - Modify JavaScript in `js/auth.js` or other scripts to control when it appears.
+  -->
   <div id="global-error-toast" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ff4444; color: #fff; padding: 10px 20px; border-radius: 5px; z-index: 2000;"></div>
 
+  <!--
+    SCRIPTS SECTION
+    Purpose: Loads JavaScript for interactivity.
+    How it works:
+      - First `<script>`: Enables smooth scrolling for the entire page.
+      - Second `<script>`: Toggles the mobile menu and streaming dropdowns.
+      - External scripts: Load chatbot, authentication, and Firebase functionality.
+    Customization:
+      - Update `src` in `<script>` tags if file paths change.
+      - Modify dropdown toggle logic if menu behavior changes.
+      - Add new scripts for additional features (e.g., analytics).
+      - Remove unused scripts to reduce load time.
+  -->
   <script>
-    document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
-      document.getElementById('main-nav').classList.toggle('show');
-    });
+    // Enable smooth scrolling for anchor links
+    document.documentElement.style.scrollBehavior = 'smooth';
   </script>
 
-  <link rel="stylesheet" href="css/style.css?v=5">
-  <link rel="stylesheet" href="css/chatbot.css?v=5">
+<script>
+  // Mobile Menu Toggle
+  // Purpose: Shows/hides the navigation menu on mobile when the toggle button is clicked.
+  // How it works: Adds/removes the `show` class on `#main-nav` when `#mobile-menu-toggle` is clicked.
+  // Customization: Update the `show` class in `css/style.css` or change the toggle logic.
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', () => {
+        document.getElementById('main-nav').classList.toggle('show');
+      });
+    } else {
+      console.warn('Mobile menu toggle not found');
+    }
+
+    // Streaming Dropdown Toggle
+    // Purpose: Toggles the visibility of streaming dropdown menus when buttons are clicked or tapped.
+    // How it works:
+    //   - Uses event delegation on `.artist-links` and `.album-actions` to capture clicks/touches on `.streaming-dropdown-button`.
+    //   - Toggles the `open` class on the associated `.streaming-dropdown-menu`.
+    //   - Updates `aria-expanded` for accessibility.
+    //   - Closes other open dropdowns and mobile menu when one is opened.
+    //   - Closes dropdowns when clicking/tapping outside.
+    // Customization:
+    //   - Change `open` class behavior in `css/music.css` (e.g., adjust animation).
+    //   - Modify `aria-expanded` logic if using different ARIA attributes.
+    const toggleDropdown = (button) => {
+      try {
+        const menu = button.nextElementSibling;
+        if (!menu || !menu.classList.contains('streaming-dropdown-menu')) {
+          console.error('No valid menu found for button:', button);
+          return;
+        }
+        const isOpen = menu.classList.contains('open');
+
+        // Close all dropdowns and mobile menu
+        document.querySelectorAll('.streaming-dropdown-menu.open').forEach(openMenu => {
+          openMenu.classList.remove('open');
+          const openButton = openMenu.previousElementSibling;
+          if (openButton) {
+            openButton.setAttribute('aria-expanded', 'false');
+          }
+        });
+        const mainNav = document.getElementById('main-nav');
+        if (mainNav) {
+          mainNav.classList.remove('show');
+        }
+
+        // Toggle current dropdown
+        if (!isOpen) {
+          menu.classList.add('open');
+          button.setAttribute('aria-expanded', 'true');
+          console.log('Opened dropdown for:', button);
+        }
+      } catch (error) {
+        console.error('Error toggling dropdown:', error);
+      }
+    };
+
+    // Delegate events for artist and album buttons
+    const containers = document.querySelectorAll('.artist-links, .album-actions');
+    containers.forEach(container => {
+      container.addEventListener('click', (e) => {
+        const button = e.target.closest('.streaming-dropdown-button');
+        if (button) {
+          e.preventDefault(); // Prevent link or scroll interference
+          toggleDropdown(button);
+        }
+      });
+      container.addEventListener('touchstart', (e) => {
+        const button = e.target.closest('.streaming-dropdown-button');
+        if (button) {
+          e.preventDefault(); // Prevent default touch behavior
+          toggleDropdown(button);
+          console.log('Touch event on:', button);
+        }
+      }, { passive: false });
+    });
+
+    // Close dropdowns when clicking/tapping outside
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.streaming-dropdown')) {
+        document.querySelectorAll('.streaming-dropdown-menu.open').forEach(menu => {
+          menu.classList.remove('open');
+          const button = menu.previousElementSibling;
+          if (button) {
+            button.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+    document.addEventListener('touchstart', (event) => {
+      if (!event.target.closest('.streaming-dropdown')) {
+        document.querySelectorAll('.streaming-dropdown-menu.open').forEach(menu => {
+          menu.classList.remove('open');
+          const button = menu.previousElementSibling;
+          if (button) {
+            button.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    }, { passive: false });
+  });
+</script>
+
   <script src="js/chatbot.js?v=7"></script>
   <script src="js/chatbot-persist.js?v=7"></script>
   <script type="module">
