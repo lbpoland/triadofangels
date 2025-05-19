@@ -384,7 +384,7 @@ Key Features:
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   min-width: 150px;
   width: 100%;
-  opacity: 0%;
+  opacity: 0; /* ✅ Valid */
   visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease;
   transform: translateY(-10px);
@@ -395,6 +395,8 @@ Key Features:
   overflow-y: auto; /* Scroll if menu is too long */
   /* Debug background (remove after testing) */
   background: #222 !important;
+  touch-action: manipulation;
+  will-change: opacity, transform;  
 }
 
 /*

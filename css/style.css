@@ -1,4 +1,4 @@
-/* 
+/*  style.css
 ========================================================
 Triad of Angels - Main Stylesheet (Optimized & Enhanced)
 --------------------------------------------------------
@@ -32,14 +32,31 @@ Last Updated: 2025-05-16
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
     background: #0b0c10;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
     color: #f5f5f5;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #f1c40f;
+      color: #000;
+      padding: 8px;
+      z-index: 1000;
+    }
+    .skip-link:focus { top: 0; }
+    .hero-banner {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
 
 /* Universal Link Style */
 a {
@@ -69,7 +86,7 @@ header {
 #mobile-menu-toggle {
     display: none;
     background: transparent;
-    border: none;
+    border-radius: 35px;
     font-size: 1rem;
     color: #f1c40f;
     cursor: pointer;
@@ -147,53 +164,38 @@ header nav ul li a:focus {
 }
 
 #global-auth-ui {
-    display: flex;
-    align-items: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     justify-content: center;
-    gap: 8px;
     opacity: 1;
     transition: opacity 0.2s ease;
 }
 
 #global-user-name {
-    color: #e8e8e8;
+      color: #f5f5f5;
+      font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
-    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: color 0.2s ease;
 }
 
-#global-login-btn,
-#global-logout-btn {
-    padding: 6px 10px;
-    background: #1f1f1f;
-    color: #f1c40f;
-    border: 1px solid #f1c40f;
-    border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s, opacity 0.2s;
-}
-
-#global-login-btn:hover,
-#global-logout-btn:hover {
-    background: #333;
-    color: #d4ac0d;
-}
-
-#global-login-btn {
-    display: inline-block;
-}
-
-#global-logout-btn {
-    display: none;
-}
+    #global-login-btn, #global-logout-btn {
+      background: #f1c40f;
+      color: #0b0c10;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    #global-login-btn:hover, #global-logout-btn:hover {
+      background: #ffeb3b;
+      transform: scale(1.05);
+    }
 
 /* HERO SECTION - Sticky Scrolling Background Video */
 .hero-banner {
@@ -235,19 +237,32 @@ header nav ul li a:focus {
     box-shadow: none;
 }
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: none;
-    background: none;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    text-shadow: none;
-    background: none;
-}
+    .hero-content h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #f1c40f;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(241, 196, 15, 0.5);
+      margin: 0;
+    }
+    .hero-content p {
+      font-size: 1.5rem;
+      color: #f5f5f5;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      margin: 10px 0;
+    }
+    .hero-content a {
+      background: #f1c40f;
+      color: #0b0c10;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .hero-content a:hover {
+      background: #ffeb3b;
+      transform: scale(1.05);
+    }
 
 .cta-button {
     display: inline-block;
@@ -320,19 +335,26 @@ header nav ul li a:focus {
 }
 
 /* Footer */
-footer {
+    footer {
     background: #1f1f1f;
     text-align: center;
     padding: 30px 20px;
     font-size: 0.9rem;
     color: #aaa;
     line-height: 1.6;
-}
-
+    }
 footer p {
     margin: 8px 0;
 }
-
+    footer nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 footer a {
     margin: 0 5px;
     display: inline-block;
@@ -344,7 +366,48 @@ footer a:focus {
     color: #f1c40f;
     text-decoration: none;
     outline: none;
-}
+}	
+	
+    footer nav ul li { display: inline; }
+    footer nav ul li a {
+      color: #f1c40f;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+    footer nav ul li a:hover {
+      color: #ffeb3b;
+      transform: scale(1.05);
+    }
+    footer .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    footer .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #f1c40f;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+    footer .social-links a:hover {
+      color: #ffeb3b;
+      transform: scale(1.05);
+    }
+    footer .social-links img {
+      width: 24px;
+      height: 24px;
+    }
+	
+    .divider {
+      width: 60%;
+      margin: 20px auto;
+      border-top: 1px solid #555;
+    }	
 
 /* Inner Page Sections */
 body.index-page section:not(.hero-banner),
@@ -543,23 +606,23 @@ video {
 }
 
 /* Error Toast */
-#global-error-toast {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ff4444;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 8px;
-    z-index: 2000;
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    max-width: 90%;
-}
+    #global-error-toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #cc0000;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      z-index: 10000;
+      display: none;
+      transition: opacity 0.3s ease;
+    }
+    #global-error-toast.show {
+      display: block;
+      opacity: 1;
+    }
 
 /* Comment Section Styles (Moved from album.html) */
 .comments-section {
@@ -794,7 +857,7 @@ video {
     header nav ul li {
         text-align: center;
         width: 100%;
-        margin: 10px 0;
+        margin: 3px 0;
     }
 
     header nav ul li a {
@@ -811,9 +874,7 @@ video {
 
     #global-auth-ui {
         justify-content: center;
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 10px;
+        align-items: center;		
     }
 
     #global-user-name {
@@ -1013,7 +1074,7 @@ video {
 }
 
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .hero-content p {
@@ -1145,4 +1206,22 @@ video {
     .comments-section {
         animation: none;
     }
+{
+      .hero-content a, footer nav ul li a, footer .social-links a,
+      #global-login-btn, #global-logout-btn {
+        transition: none;
+      }
+      .hero-content a:hover, footer nav ul li a:hover,
+      footer .social-links a:hover, #global-login-btn:hover, #global-logout-btn:hover {
+        transform: none;
+      }
+    }
+	
 }
+
+    @media (forced-colors: active) {
+      .hero-content a, footer nav ul li a, footer .social-links a,
+      #global-login-btn, #global-logout-btn {
+        color: LinkText;
+      }
+    }

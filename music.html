@@ -1,94 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
 <head>
-  <!--
-    HEAD SECTION
-    Purpose: Defines metadata, page title, and links to external resources (CSS, favicon).
-    How it works:
-      - `meta charset`: Ensures proper character encoding (UTF-8 for universal compatibility).
-      - `meta viewport`: Makes the page responsive by setting initial scale to device width.
-      - `meta description/keywords`: Improves SEO by describing the page and listing relevant terms.
-      - `link` tags: Load favicon, Apple touch icon, and CSS files (`style.css`, `music.css`, `chatbot.css`).
-      - `title`: Sets the browser tab title.
-    Customization:
-      - Edit `description`/`keywords` for better SEO.
-      - Update `href` in `link` tags if asset paths change.
-      - Add more `meta` tags (e.g., Open Graph for social sharing) if needed.
-  -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore music from Triad of Angels and ToA Studios: cinematic pop, country, soundtracks, and more." />
-  <meta name="keywords" content="Triad of Angels, ToA Studios, music, albums, cinematic pop, country, electronic, soundtrack" />
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">  
-  <meta name="author" content="Triad of Angels" />
-  <title>Music | Triad of Angels & ToA Studios</title>
-  <link rel="stylesheet" href="css/style.css?v=5" />
-  <link rel="stylesheet" href="css/music.css?v=5" />
-  <link rel="stylesheet" href="css/chatbot.css?v=5" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- Enhanced SEO Metadata -->
+  <title>Music | Cinematic Albums & Streaming | Triad of Angels</title>
+  <meta name="description" content="Experience the official music catalog from Triad of Angels & ToA Studios. Listen to cinematic pop, metal, country, and experimental albums on all major platforms." />
+  <meta name="keywords" content="Triad of Angels music, cinematic pop albums, metal music, country soundtrack, ToA Studios, Wings of Fire, Ascend, streaming music, Spotify Apple Music Amazon Music" />
+  <meta name="author" content="Triad of Angels & ToA Studios">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0c10">
+
+  <!-- Open Graph Metadata -->
+  <meta property="og:title" content="Music | Cinematic Albums & Streaming | Triad of Angels">
+  <meta property="og:description" content="Discover music from Triad of Angels including Wings of Fire, Ascend, and cinematic albums from ToA Studios. Stream now on Spotify, Apple Music, and more.">
+  <meta property="og:image" content="https://www.triadofangels.com/assets/images/og-music-banner.webp">
+  <meta property="og:image:alt" content="Triad of Angels album cover artwork">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.triadofangels.com/music.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Triad of Angels">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@triadofangels">
+  <meta name="twitter:creator" content="@triadofangels">
+  <meta name="twitter:title" content="Music | Cinematic Albums & Streaming | Triad of Angels">
+  <meta name="twitter:description" content="Stream music from Triad of Angels: cinematic pop, country, metal and more. Now available on all major streaming platforms.">
+  <meta name="twitter:image" content="https://www.triadofangels.com/assets/images/og-music-banner.webp">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.triadofangels.com/music.html">
+
+  <!-- Favicon & Touch Icon -->
+  <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp">
+
+  <!-- Font & Preconnect Optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css?v=7">
+  <link rel="stylesheet" href="/css/music.css?v=7">
+  <link rel="stylesheet" href="/css/chatbot.css?v=7">
+
+  <!-- JSON-LD Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Triad of Angels",
+    "url": "https://www.triadofangels.com/music.html",
+    "genre": ["Cinematic Pop", "Country", "Heavy Metal", "Soundtrack"],
+    "image": "https://www.triadofangels.com/assets/images/logo.webp",
+    "sameAs": [
+      "https://www.tiktok.com/@triadofangels",
+      "https://www.instagram.com/triadofangels/",
+      "https://www.youtube.com/@triadofangels_new",
+      "https://www.facebook.com/triadofangels",
+      "https://x.com/triadofangels"
+    ]
+  }
+  </script>
 </head>
 
 <body class="music-page">
-  <!--
-    HEADER SECTION
-    Purpose: Contains the navigation bar for the website.
-    How it works:
-      - `<header>`: Semantic container with `role="banner"` for accessibility.
-      - `<nav>`: Holds the navigation menu with `aria-label` for screen readers.
-      - Mobile toggle button (`#mobile-menu-toggle`): Shows/hides the menu on mobile via JavaScript.
-      - `<ul id="main-nav">`: Lists navigation links and authentication UI.
-      - Authentication UI (`#global-auth-ui`): Displays user status and login/logout buttons.
-    Customization:
-      - Add/remove `<li>` items in `#main-nav` to change menu links.
-      - Modify `href` values to point to different pages.
-      - Update button text or IDs in `#global-auth-ui` for different auth functionality.
-      - Style via `css/style.css` (assumed to contain desktop nav styles).
-  -->
   <header role="banner">
     <nav role="navigation" aria-label="Main site navigation">
-      <button id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-        <span class="menu-icon">☰</span> <span class="menu-label">Menu</span>
+      <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="menu-icon">☰</span>
+        <span class="menu-label">Menu</span>
       </button>
-      <ul id="main-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="music.html">Music</a></li>
-        <li><a href="visual.html">Visual</a></li>
-        <li><a href="games.html">Games</a></li>
-        <li><a href="apps.html">Apps</a></li>
-        <li><a href="merch.html">Merch</a></li>
-        <li><a href="publishing.html">Publishing</a></li>
-        <li><a href="digital-store.html">Digital Store</a></li>
-        <li><a href="contact.html">Contact</a></li>
+      <ul id="main-nav" role="list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/music.html" aria-current="page">Music</a></li>
+        <li><a href="/visual.html">Visual</a></li>
+        <li><a href="/games.html">Games</a></li>
+        <li><a href="/apps.html">Apps</a></li>
+        <li><a href="/merch.html">Merch</a></li>
+        <li><a href="/publishing.html">Publishing</a></li>
+        <li><a href="/digital-store.html">Digital Store</a></li>
+        <li><a href="/contact.html">Contact</a></li>
         <li id="auth-nav-item">
-          <div id="global-auth-ui">
-            <span id="global-user-name">Guest</span>
-            <button id="global-login-btn">Sign In</button>
-            <button id="global-logout-btn">Logout</button>
+          <div id="global-auth-ui" role="region" aria-live="polite">
+            <span id="global-user-name" aria-label="Current user">Guest</span>
+            <button id="global-login-btn" aria-label="Sign in with Google">Sign In</button>
+            <button id="global-logout-btn" aria-label="Sign out" style="display: none;">Logout</button>
           </div>
         </li>
       </ul>
     </nav>
   </header>
 
-  <!--
-    HERO BANNER SECTION
-    Purpose: Displays a prominent video background with a title and tagline.
-    How it works:
-      - `<section class="hero-banner">`: Container for the video and text.
-      - `<video>`: Autoplays a muted, looping video with a fallback image.
-      - `playsinline`: Ensures video plays inline on mobile devices.
-      - `.hero-content`: Holds the title (`h1`) and description (`p`) with inline styles to remove background/shadow.
-    Customization:
-      - Update `src` in `<source>` or `<img>` to change the video/image.
-      - Modify `h1` and `p` text for different messaging.
-      - Adjust inline styles (e.g., `background`, `box-shadow`) or move to `css/music.css`.
-      - Change video attributes (e.g., remove `loop`) for different behavior.
-  -->
   <section class="hero-banner">
-    <video autoplay muted loop playsinline class="background-video">
-      <source src="assets/videos/hero-banner.mp4" type="video/mp4" />
-      <img src="assets/images/hero-banner.jpg" alt="Triad of Angels banner fallback image" loading="lazy" />
+    <video autoplay muted loop playsinline class="background-video" aria-hidden="true">
+      <source src="assets/videos/hero-banner-480p.mp4" type="video/mp4" media="(max-width: 480px)">
+      <source src="assets/videos/hero-banner-720p.mp4" type="video/mp4" media="(max-width: 768px)">
+      <source src="assets/videos/hero-banner-1080p.mp4" type="video/mp4">
+      <img src="assets/images/hero-banner.webp" alt="Fallback image: cosmic banner" loading="lazy">
     </video>
     <div class="hero-content" style="background: none; box-shadow: none;">
       <h1>Triad of Angels - Music Collection</h1>
@@ -97,26 +113,6 @@
   </section>
 
   <main>
-    <!--
-      TRIAD OF ANGELS SECTION
-      Purpose: Displays artist streaming links, catalog header, and albums for Triad of Angels.
-      How it works:
-        - `<section class="album-catalog">`: Container with inline padding (`40px 20px`).
-        - `<h2>`: Section title ("Triad of Angels").
-        - `.artist-links`: Contains artist streaming buttons (desktop) and mobile dropdowns.
-        - `.cta-buttons`: Desktop-only artist streaming buttons (Spotify, etc.).
-        - `.streaming-controls`: Mobile-only "Stream Now" and "Buy Now" dropdowns for artist links.
-        - `<h3>`: Catalog subheader ("Albums").
-        - `.album-grid`: Displays albums in a grid (desktop) or carousel (mobile).
-        - `.album-block`: Individual album with title above image, image, and two dropdown buttons below.
-        - `.album-actions`: Contains "Stream Now" and "Buy Now" dropdowns for album-specific links.
-      Customization:
-        - Change `<h2>` or `<h3>` text (e.g., "Albums" to "Catalog").
-        - Update `href`, `aria-label`, and link text in `.cta-buttons` or `.streaming-controls` for artist links.
-        - Update album-specific links in `.album-actions` dropdowns.
-        - Adjust inline styles (e.g., `padding`, `margin`) or move to `css/music.css`.
-        - Desktop styles are in `css/music.css`; mobile styles are in `css/music.css` (@media queries).
-    -->
     <section class="album-catalog" style="padding: 40px 20px;">
       <h2 style="text-align: center;">Triad of Angels</h2>
       <div class="artist-links" style="text-align: center; margin: 10px 0 20px;">
@@ -179,7 +175,7 @@
           </div>
           <br>		  	 
           <a href="album.html?id=wings-of-fire" class="album-link" aria-label="Wings of Fire by Triad of Angels">
-            <img src="assets/images/albums/wingsoffire-album.png" alt="Album cover for Wings of Fire by Triad of Angels" loading="lazy" />
+            <img src="assets/images/albums/wingsoffire-album.webp" alt="Album cover for Wings of Fire by Triad of Angels" loading="lazy" />
           </a>
           <h4>Wings of Fire</h4>		  
         </article>
@@ -206,24 +202,13 @@
           </div>
 		  <br>		 
           <a href="album.html?id=ascend" class="album-link" aria-label="Ascend by Triad of Angels">
-            <img src="assets/images/albums/ascend-album.png" alt="Album cover for Ascend by Triad of Angels" loading="lazy" />
+            <img src="assets/images/albums/ascend-album.webp" alt="Album cover for Ascend by Triad of Angels" loading="lazy" />
           </a>
           <h4>Ascend</h4>
         </article>
       </div>
 	  <div class="scroll-hint">← Scroll albums →</div>
     </section>
-
-    <!--
-      TOA STUDIOS SECTION
-      Purpose: Displays artist streaming links, catalog header, and albums for ToA Studios.
-      How it works:
-        - Similar to Triad of Angels section but with different albums and links.
-        - `.artist-links` and `.album-actions` use the same structure for consistency.
-      Customization:
-        - Same as Triad of Angels section: update headers, links, and styles as needed.
-        - Ensure `href` in streaming and purchase links points to correct URLs.
-    -->
     <section class="album-catalog" style="padding: 40px 20px;">
       <h2 style="text-align: center;">ToA Studios</h2>
       <div class="artist-links" style="text-align: center; margin: 10px 0 20px;">
@@ -258,7 +243,6 @@
         </div>
       </div>
     </section>
-	
     <section class="album-catalog" style="padding: 40px 20px;">
       <h2 style="text-align: center;">🎶 ToA Studios Albums 🎶</h2>
       <div class="artist-links" style="text-align: center; margin: 10px 0 20px;">	  
@@ -285,9 +269,8 @@
             </div>
           </div>
 		  <br>
-		  
           <a href="album.html?id=probed-and-confused" class="album-link" aria-label="Probed & Confused by ToA Studios">
-            <img src="assets/images/albums/probedandconfused-album.jpeg" alt="Album cover for Probed & Confused by ToA Studios" loading="lazy" />
+            <img src="assets/images/albums/probedandconfused-album.webp" alt="Album cover for Probed & Confused by ToA Studios" loading="lazy" />
           </a>
           <h4>Probed & Confused</h4> 
         </article>
@@ -314,7 +297,7 @@
           </div>
 		  <br>
           <a href="album.html?id=echoes-on-the-dirt-road" class="album-link" aria-label="Echoes on the Dirt Road by ToA Studios">
-            <img src="assets/images/albums/echoesonthedirtroad-album.png" alt="Album cover for Echoes on the Dirt Road by ToA Studios" loading="lazy" />
+            <img src="assets/images/albums/echoesonthedirtroad-album.webp" alt="Album cover for Echoes on the Dirt Road by ToA Studios" loading="lazy" />
           </a>
           <h4>Echoes on the Dirt Road</h4>
         </article>
@@ -341,7 +324,7 @@
           </div>
 		  <br>
           <a href="album.html?id=phoenix-rising" class="album-link" aria-label="Phoenix Rising by ToA Studios">
-            <img src="assets/images/albums/phoenixrising-album.png" alt="Album cover for Phoenix Rising by ToA Studios" loading="lazy" />
+            <img src="assets/images/albums/phoenixrising-album.webp" alt="Album cover for Phoenix Rising by ToA Studios" loading="lazy" />
           </a>
           <h4>Phoenix Rising</h4>
         </article>
@@ -368,7 +351,7 @@
           </div>
 		  <br>
           <a href="album.html?id=the-quiet-war" class="album-link" aria-label="The Quiet War by ToA Studios">
-            <img src="assets/images/albums/thequietwar-album.png" alt="Album cover for The Quiet War by ToA Studios" loading="lazy" />
+            <img src="assets/images/albums/thequietwar-album.webp" alt="Album cover for The Quiet War by ToA Studios" loading="lazy" />
           </a>
           <h4>The Quiet War</h4> 
         </article>
@@ -395,27 +378,13 @@
           </div>
 		  <br>
           <a href="album.html?id=reality-exe" class="album-link" aria-label="Reality.exe by ToA Studios">
-            <img src="assets/images/albums/reality-exe-album.png" alt="Album cover for Reality.exe by ToA Studios" loading="lazy" />
+            <img src="assets/images/albums/reality-exe-album.webp" alt="Album cover for Reality.exe by ToA Studios" loading="lazy" />
           </a>
           <h4>Reality.exe</h4>
         </article>
       </div>
 	  <div class="scroll-hint">← Scroll albums →</div>
-
     </section>
-
-    <!--
-      COMING SOON SECTION
-      Purpose: Displays upcoming albums with a call-to-action for pre-release details.
-      How it works:
-        - Similar to other album sections but with fewer albums and no streaming links.
-        - Two `<h2>` elements for title and instructions, both centered.
-        - Empty `<div>` for spacing (can be removed or styled).
-      Customization:
-        - Add/remove albums in `.album-grid` as needed.
-        - Update instructional text in second `<h2>`.
-        - Remove inline `margin` from `<div>` or style it for different spacing.
-    -->
     <section class="album-catalog" style="padding: 40px 20px;">
       <h2 style="text-align: center;">🎶 Albums Coming Soon! 🎶</h2>
       <div style="text-align: center; margin: 10px 0 20px;"></div>
@@ -431,7 +400,7 @@
           </div>
           <br>		  
           <a href="album.html?id=serpents-veil" class="album-link" aria-label="Serpent's Veil by ToA Studios">
-            <img src="assets/images/albums/serpentsveil-album.png" alt="Album cover for Serpent's Veil by ToA Studios" loading="lazy" />
+            <img src="assets/images/albums/serpentsveil-album.webp" alt="Album cover for Serpent's Veil by ToA Studios" loading="lazy" />
           </a>
           <h4>Serpent's Veil</h4>
           <h4>19th of May, 2025</h4>		  
@@ -447,7 +416,7 @@
           </div>		
           <br>
 		  <a href="album.html?id=american-firestorm-songs-of-freedom" class="album-link" aria-label="American Firestorm Songs of Freedom by ToA Studios">
-            <img src="assets/images/albums/songsoffreedom-album.png" alt="Album cover for American Firestorm Songs of Freedom by ToA Studios" loading="lazy" />
+            <img src="assets/images/albums/songsoffreedom-album.webp" alt="Album cover for American Firestorm Songs of Freedom by ToA Studios" loading="lazy" />
           </a>
           <h4>American Firestorm Songs of Freedom</h4>
 		  <h4>20th of June, 2025</h4>
@@ -456,90 +425,56 @@
 	  <div class="scroll-hint">← Scroll albums →</div>
     </section>
   </main>
-
-  <!--
-    FOOTER SECTION
-    Purpose: Displays copyright, navigation links, and social media icons.
-    How it works:
-      - `<footer>`: Semantic container with inline styles for margin, text alignment, font size, color, and padding.
-      - First `<p>`: Copyright notice.
-      - Second `<p>`: Core navigation links.
-      - `<div>` with inline style: Decorative line separator.
-      - Social media links: Flex container with icons and labels, styled inline.
-    Customization:
-      - Update copyright year or text in first `<p>`.
-      - Add/remove links in second `<p>`.
-      - Change social media `href`, `src`, or `span` text.
-      - Adjust inline styles (e.g., `color: #aaa`, `gap: 15px`) or move to `css/style.css`.
-  -->
-  <footer style="margin-top: 60px; text-align: center; font-size: 0.9em; color: #aaa; padding: 30px 20px;">
-    <p>© 2025 Triad of Angels. All rights reserved.</p>
-    <p>
-      <a href="index.html">Home</a> |
-      <a href="terms.html">Terms & Conditions</a> |
-      <a href="privacy.html">Privacy Policy</a> |
-      <a href="contact.html">Contact</a>
-    </p>
-    <div style="width: 60%; margin: 20px auto; border-top: 1px solid #555;"></div>
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;" aria-label="Social media links">
-      <a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="TikTok"
-         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/tiktok-icon.svg" alt="TikTok icon" style="width: 24px; height: 24px;" loading="lazy" />
+  
+  <footer role="contentinfo" aria-label="Site footer">
+    <p>© 2025 Triad of Angels & ToA Studios. All rights reserved.</p>
+    <nav aria-label="Footer navigation">
+      <ul>
+        <li><a href="/index.html" aria-current="page">Home</a></li>
+        <li><a href="/terms.html">Terms & Conditions</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="divider"></div>
+    <div class="social-links" aria-label="Social media links">
+      <a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="Follow Triad of Angels on TikTok">
+        <img src="/assets/icons/tiktok-icon.webp" alt="TikTok logo" width="24" height="24" loading="lazy">
         <span>TikTok</span>
       </a>
-      <a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Instagram"
-         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/instagram-icon.svg" alt="Instagram icon" style="width: 24px; height: 24px;" loading="lazy" />
+      <a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Follow Triad of Angels on Instagram">
+        <img src="/assets/icons/instagram-icon.webp" alt="Instagram logo" width="24" height="24" loading="lazy">
         <span>Instagram</span>
       </a>
-      <a href="https://www.youtube.com/@triadofangels_new" target="_blank" rel="noopener" aria-label="YouTube"
-         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/youtube-icon.svg" alt="YouTube icon" style="width: 24px; height: 24px;" loading="lazy" />
+      <a href="https://www.youtube.com/@triadofangels_new" target="_blank" rel="noopener" aria-label="Subscribe to Triad of Angels on YouTube">
+        <img src="/assets/icons/youtube-icon.webp" alt="YouTube logo" width="24" height="24" loading="lazy">
         <span>YouTube</span>
       </a>
-      <a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Facebook"
-         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/facebook-icon.svg" alt="Facebook icon" style="width: 24px; height: 24px;" loading="lazy" />
+      <a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Like Triad of Angels on Facebook">
+        <img src="/assets/icons/facebook-icon.webp" alt="Facebook logo" width="24" height="24" loading="lazy">
         <span>Facebook</span>
       </a>
-      <a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="X"
-         style="display: inline-flex; align-items: center; gap: 8px; color: #f1c40f; text-decoration: none; font-size: 0.9em;">
-        <img src="assets/icons/x-icon.svg" alt="X icon" style="width: 24px; height: 24px;" loading="lazy" />
+      <a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="Follow Triad of Angels on X">
+        <img src="/assets/icons/x-icon.webp" alt="X logo" width="24" height="24" loading="lazy">
         <span>X</span>
       </a>
     </div>
   </footer>
 
-  <!--
-    CHATBOT SECTION
-    Purpose: Provides a text-based helpdesk interface.
-    How it works:
-      - `#toa-chatbot`: Fixed-position container for the chatbot.
-      - `#chatbot-icon`: Clickable icon to toggle the chatbot window.
-      - `#chatbot-window`: Hidden by default (`class="hidden"`), contains header, message log, and input.
-      - `#chatbot-header`: Title and close button.
-      - `#chatbot-body`: Message log with `aria-live="polite"` for accessibility.
-      - `#chatbot-input`: Text input and send/reset buttons.
-    Customization:
-      - Update `src` for `#chatbot-icon` image.
-      - Change placeholder text in `#user-input`.
-      - Modify button text or functionality via `js/chatbot.js`.
-      - Style via `css/chatbot.css` or add inline styles.
-  -->
-  <div id="toa-chatbot">
-    <div id="chatbot-icon" title="Need help? Chat with us!" role="button" tabindex="0" aria-label="Toggle chatbot window">
-      <img src="assets/images/chatbot.png" alt="Triad of Angels Chatbot Icon" width="48" height="48" loading="lazy" />
-    </div>
-    <div id="chatbot-window" class="hidden" role="dialog" aria-label="Triad of Angels Helpdesk">
-      <div id="chatbot-header" style="text-align: center;">
+  <div id="toa-chatbot" role="region" aria-label="Triad of Angels Helpdesk">
+    <button id="chatbot-icon" title="Need help? Chat with us!" aria-label="Toggle chatbot window" aria-controls="chatbot-window">
+      <img src="/assets/images/chatbot.webp" alt="Triad of Angels Chatbot Icon" width="56" height="56" loading="lazy">
+    </button>
+    <div id="chatbot-window" class="hidden" role="dialog" aria-labelledby="chatbot-header">
+      <div id="chatbot-header">
         <strong>Triad of Angels Helpdesk</strong>
-        <button id="chatbot-close-button" aria-label="Close Chat Window" class="close-button">❌</button>
+        <button id="chatbot-close-button" aria-label="Close chatbot window">❌</button>
       </div>
       <div id="chatbot-body" role="log" aria-live="polite"></div>
       <div id="chatbot-input">
-        <input type="text" id="user-input" placeholder="Ask me anything..." aria-label="Chat input" />
+        <input type="text" id="user-input" placeholder="Ask me anything..." aria-label="Chat input">
         <button id="chatbot-send-button" aria-label="Send message">Send</button>
-        <button id="chatbot-reset-button" title="Reset Conversation">Reset Chat</button>
+        <button id="chatbot-reset-button" aria-label="Reset conversation">Reset Chat</button>
       </div>
     </div>
   </div>
@@ -583,6 +518,7 @@
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     if (mobileMenuToggle) {
       mobileMenuToggle.addEventListener('click', () => {
+        console.log('Toggling mobile menu');
         document.getElementById('main-nav').classList.toggle('show');
       });
     } else {
@@ -592,24 +528,33 @@
     // Streaming Dropdown Toggle
     // Purpose: Toggles the visibility of streaming dropdown menus when buttons are clicked or tapped.
     // How it works:
-    //   - Uses event delegation on `.artist-links` and `.album-actions` to capture clicks/touches on `.streaming-dropdown-button`.
+    //   - Directly binds `click` and `touchstart` to all `.streaming-dropdown-button` elements.
     //   - Toggles the `open` class on the associated `.streaming-dropdown-menu`.
     //   - Updates `aria-expanded` for accessibility.
     //   - Closes other open dropdowns and mobile menu when one is opened.
     //   - Closes dropdowns when clicking/tapping outside.
+    //   - Logs actions for debugging.
     // Customization:
     //   - Change `open` class behavior in `css/music.css` (e.g., adjust animation).
     //   - Modify `aria-expanded` logic if using different ARIA attributes.
-    const toggleDropdown = (button) => {
-      try {
+    const buttons = document.querySelectorAll('.streaming-dropdown-button');
+    if (!buttons.length) {
+      console.warn('No dropdown buttons found');
+    }
+
+    buttons.forEach(button => {
+      const toggleMenu = (e) => {
+        e.preventDefault();
+        e.stopPropagation(); // Prevent carousel or link interference
         const menu = button.nextElementSibling;
         if (!menu || !menu.classList.contains('streaming-dropdown-menu')) {
-          console.error('No valid menu found for button:', button);
+          console.error('No valid menu for button:', button);
           return;
         }
         const isOpen = menu.classList.contains('open');
+        console.log(`Button clicked/tapped: ${button.textContent}, isOpen: ${isOpen}`);
 
-        // Close all dropdowns and mobile menu
+        // Close all dropdowns
         document.querySelectorAll('.streaming-dropdown-menu.open').forEach(openMenu => {
           openMenu.classList.remove('open');
           const openButton = openMenu.previousElementSibling;
@@ -617,6 +562,8 @@
             openButton.setAttribute('aria-expanded', 'false');
           }
         });
+
+        // Close mobile menu
         const mainNav = document.getElementById('main-nav');
         if (mainNav) {
           mainNav.classList.remove('show');
@@ -626,54 +573,36 @@
         if (!isOpen) {
           menu.classList.add('open');
           button.setAttribute('aria-expanded', 'true');
-          console.log('Opened dropdown for:', button);
+          console.log(`Opened menu: ${menu.id}`);
+        } else {
+          console.log(`Closed menu: ${menu.id}`);
         }
-      } catch (error) {
-        console.error('Error toggling dropdown:', error);
-      }
-    };
+      };
 
-    // Delegate events for artist and album buttons
-    const containers = document.querySelectorAll('.artist-links, .album-actions');
-    containers.forEach(container => {
-      container.addEventListener('click', (e) => {
-        const button = e.target.closest('.streaming-dropdown-button');
-        if (button) {
-          e.preventDefault(); // Prevent link or scroll interference
-          toggleDropdown(button);
-        }
-      });
-      container.addEventListener('touchstart', (e) => {
-        const button = e.target.closest('.streaming-dropdown-button');
-        if (button) {
-          e.preventDefault(); // Prevent default touch behavior
-          toggleDropdown(button);
-          console.log('Touch event on:', button);
-        }
-      }, { passive: false });
+      button.addEventListener('click', toggleMenu);
+      button.addEventListener('touchstart', toggleMenu, { passive: false });
     });
 
     // Close dropdowns when clicking/tapping outside
+    const closeAllDropdowns = () => {
+      document.querySelectorAll('.streaming-dropdown-menu.open').forEach(menu => {
+        menu.classList.remove('open');
+        const button = menu.previousElementSibling;
+        if (button) {
+          button.setAttribute('aria-expanded', 'false');
+          console.log(`Closed menu on outside click/tap: ${menu.id}`);
+        }
+      });
+    };
+
     document.addEventListener('click', (event) => {
       if (!event.target.closest('.streaming-dropdown')) {
-        document.querySelectorAll('.streaming-dropdown-menu.open').forEach(menu => {
-          menu.classList.remove('open');
-          const button = menu.previousElementSibling;
-          if (button) {
-            button.setAttribute('aria-expanded', 'false');
-          }
-        });
+        closeAllDropdowns();
       }
     });
     document.addEventListener('touchstart', (event) => {
       if (!event.target.closest('.streaming-dropdown')) {
-        document.querySelectorAll('.streaming-dropdown-menu.open').forEach(menu => {
-          menu.classList.remove('open');
-          const button = menu.previousElementSibling;
-          if (button) {
-            button.setAttribute('aria-expanded', 'false');
-          }
-        });
+        closeAllDropdowns();
       }
     }, { passive: false });
   });
