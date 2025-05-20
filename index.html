@@ -144,117 +144,140 @@
   }
   </script>
   <title>Triad of Angels | Official Website</title>
-  <style>
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 1;
-    }
-    .hero-content h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      color: #f1c40f;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(241, 196, 15, 0.5);
-      margin: 0;
-    }
-    .hero-content p {
-      font-size: 1.5rem;
-      color: #f5f5f5;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-      margin: 10px 0;
-    }
-    .hero-content a {
-      background: #f1c40f;
-      color: #0b0c10;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .hero-content a:hover {
-      background: #ffeb3b;
-      transform: scale(1.05);
-    }
+<style>
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+  }
+  .hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #f1c40f;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(241, 196, 15, 0.5);
+    margin: 0;
+  }
+  .hero-content p {
+    font-size: 1.5rem;
+    color: #f5f5f5;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin: 10px 0;
+  }
+  .hero-content a {
+    background: #f1c40f;
+    color: #0b0c10;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .hero-content a:hover {
+    background: #ffeb3b;
+    transform: scale(1.05);
+  }
 
+  .video-grid {
+    border-radius: 15px;
+    border: 2px solid rgba(241, 196, 15, 0.15);	  
+  }
+  .video-grid iframe {
+    max-width: 100%;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+  }
+
+  .album-catalog {
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid rgba(241, 196, 15, 0.15);	  
+  }
+  .album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .album-block {
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .album-block:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+  }
+  .album-link {
+    text-decoration: none;
+    color: #f5f5f5;
+    display: block;
+  }
+  .album-link h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f1c40f;
+    margin: 10px 0;
+  }
+  .album-link img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px auto;
+    display: block;
+  }
+  .album-link p {
+    font-size: 1rem;
+    color: #aaa;
+  }
+  @media (max-width: 768px) {
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 1.2rem; }
+    .album-link h3 { font-size: 1.2rem; }
+    .album-link img { max-width: 250px; }
     .video-grid {
-      border-radius: 15px;
-      border: 2px solid rgba(241, 196, 15, 0.15);	  
+      padding: 20px 10px;
     }
-
-    .album-catalog {
-      padding: 40px 20px;
-      text-align: center;
-      border-radius: 15px;
-      border: 2px solid rgba(241, 196, 15, 0.15);	  
+    .video-grid iframe {
+      height: auto; /* Let aspect-ratio control height */
     }
-    .album-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+  }
+  @media (max-width: 480px) {
+    .hero-content h1 { font-size: 1.5rem; }
+    .hero-content p { font-size: 1rem; }
+    .album-link h3 { font-size: 1rem; }
+    .album-link img { max-width: 200px; }
+    .video-grid {
+      padding: 15px 5px;
     }
-    .album-block {
-      padding: 15px;
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .video-grid iframe {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .album-block, .hero-content a {
+      transition: none;
+    }
+    .album-block:hover, .hero-content a:hover {
+      transform: none;
+    }
+  }
+  @media (forced-colors: active) {
+    .hero-content a {
+      color: LinkText;
     }
     .album-block:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
-    }
-    .album-link {
-      text-decoration: none;
-      color: #f5f5f5;
-      display: block;
-    }
-    .album-link h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #f1c40f;
-      margin: 10px 0;
-    }
-    .album-link img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      border-radius: 10px;
-      margin: 10px auto;
-      display: block;
-    }
-    .album-link p {
-      font-size: 1rem;
-      color: #aaa;
-    }
-    @media (max-width: 480px) {
-      .hero-content h1 { font-size: 1.5rem; }
-      .hero-content p { font-size: 1rem; }
-      .album-link h3 { font-size: 1rem; }
-      .album-link img { max-width: 200px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .album-block, .hero-content a {
-        transition: none;
-      }
-      .album-block:hover, .hero-content a:hover {
-        transform: none;
-      }
-    }
-    @media (forced-colors: active) {
-      .hero-content a {
-        color: LinkText;
-      }
-      .album-block:hover {
-        box-shadow: 0 0 0 2px Highlight;
-      }	  
-    }
-	  
-  </style>
+      box-shadow: 0 0 0 2px Highlight;
+    }	  
+  }
+</style>
 </head>
 
 <body class="index-page">
@@ -302,14 +325,14 @@
   </section>
 
   <main id="main-content" role="main" tabindex="-1">
-        <section class="video-grid" style="padding: 40px 20px;">
-            <h2 style="text-align: center;">🎥🎞️ Featured Videos 🎞️🎥</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 20px;">
-            <div style="text-align: center;">
-			<iframe width="1000" height="400" src="https://www.youtube.com/embed/fBGF-Q-sX9A?si=e1ncdrI1nA25XQxn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>           
-		    </div>
-        </section>
+<section class="video-grid" style="padding: 40px 20px;">
+    <h2 style="text-align: center;">🎥🎞️ Featured Videos 🎞️🎥</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="text-align: center;">
+            <iframe src="https://www.youtube.com/embed/fBGF-Q-sX9A?si=e1ncdrI1nA25XQxn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>           
+    </div>
+</section>
 
     <section class="album-catalog" aria-labelledby="new-albums-title">
       <h2 id="new-albums-title">🎵 Albums Coming Soon! 🎵</h2>
