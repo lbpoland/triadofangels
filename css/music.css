@@ -4,12 +4,13 @@ File: music.css
 Location: C:\Users\lbpol\Development\triadofangels\css\music.css
 --------------------------------------------------------------------------------
 Purpose:
-Styles for the Music page, creating a clean catalog-style layout for albums with a
-responsive design that switches to a horizontal carousel on mobile devices. Includes
-mobile-only artist dropdowns and album-specific dropdowns for both desktop and mobile.
+Styles for the Music page, creating a clean catalog-style layout for albums and video sections with a
+responsive design that switches to a horizontal carousel on mobile devices for albums and on both desktop
+and mobile for videos. Includes mobile-only artist dropdowns, album-specific dropdowns, and video carousels.
 
 Key Features:
 - Album Grid: Grid layout for desktop, swipeable carousel for mobile.
+- Video Grid: Horizontal scrolling carousel for YouTube videos, full-width with auto height, on both desktop and mobile.
 - Artist Links: Buttons on desktop, dropdowns on mobile ("Stream Now" and "Buy Now").
 - Album Dropdowns: "Stream Now" and "Buy Now" dropdowns below each album, spanning image width, on both desktop and mobile.
 - Responsive Design: Adapts seamlessly to desktop, tablet, and mobile screens.
@@ -19,14 +20,14 @@ Key Features:
 */
 
 /* ========== DESKTOP STYLES (Base Styles for >768px) ========== */
+/* Default state: Hidden on all screen sizes */
+.scroll-hint {
+  display: none !important;
+}
+
 /*
   Album Catalog Container
   Purpose: Defines the main container for album sections.
-  How it works:
-    - `padding: 40px 20px`: Adds consistent spacing around the section.
-  Customization:
-    - Adjust `padding` to change spacing (e.g., `30px 15px` for less padding).
-    - Add `background` or `border` for visual effects.
 */
 .album-catalog {
   padding: 40px 20px;
@@ -35,16 +36,6 @@ Key Features:
 /*
   Album Grid
   Purpose: Arranges albums in a responsive grid layout for desktop.
-  How it works:
-    - `display: grid`: Creates a grid layout.
-    - `grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))`: Automatically fills columns with at least 200px width.
-    - `gap: 20px`: Adds spacing between grid items.
-    - `max-width: 1200px`: Limits grid width for large screens.
-    - `margin: 0 auto`: Centers the grid.
-  Customization:
-    - Change `minmax(200px, 1fr)` to adjust column width (e.g., `minmax(250px, 1fr)`).
-    - Modify `gap` for different spacing.
-    - Adjust `max-width` for wider/narrower grids.
 */
 .album-grid {
   display: grid;
@@ -54,24 +45,113 @@ Key Features:
   margin: 0 auto;
 }
 
-/* Default state: Hidden on all screen sizes */
-.scroll-hint {
-  display: none !important;
+.album-grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.album-grid3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*
+  Video Grid
+  Purpose: Container for video carousel sections, providing consistent styling and centering.
+*/
+.video-grid {
+  border-radius: 15px;
+  border: 2px solid rgba(241, 196, 15, 0.15);
+  padding: 40px 20px;
+  overflow-x: hidden; /* Prevent horizontal scrollbar issues */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*
+  Video Carousel
+  Purpose: Creates a horizontal scrolling carousel for YouTube videos.
+*/
+.video-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 20px;
+  padding: 10px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #f1c40f #111;
+}
+
+.video-carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.video-carousel::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.video-carousel::-webkit-scrollbar-thumb {
+  background-color: #f1c40f;
+  border-radius: 6px;
+}
+
+/*
+  Video Item
+  Purpose: Styles individual video containers within the carousel.
+*/
+.video-item {
+  width: 100%;
+  max-width: 100%;
+  scroll-snap-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/*
+  Video Iframe
+  Purpose: Styles YouTube iframes to be full-width with auto height (16:9 aspect ratio).
+*/
+.video-item iframe {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+/*
+  Video Iframe Focus
+  Purpose: Adds focus state for accessibility.
+*/
+.video-item iframe:focus-visible {
+  outline: 3px solid #f1c40f;
+  outline-offset: 2px;
+}
+
+/*
+  Scroll Hint
+  Purpose: Indicates that the carousel is scrollable.
+*/
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
 }
 
 /*
   Album Block
   Purpose: Styles individual album cards.
-  How it works:
-    - `background: #222`: Dark background for contrast.
-    - `padding: 15px`: Adds internal spacing.
-    - `border-radius: 8px`: Rounds corners.
-    - `text-align: center`: Centers content.
-    - `transition: transform 0.3s ease`: Enables smooth hover scaling.
-  Customization:
-    - Change `background` to a different color (e.g., `#333`).
-    - Adjust `padding` or `border-radius` for different card styles.
-    - Modify `transition` for different hover effects (e.g., `0.2s` for faster).
 */
 .album-block {
   padding: 15px;
@@ -81,35 +161,16 @@ Key Features:
 }
 
 /*
-  Album Block Hover
-  Purpose: Adds a scaling effect when hovering over an album.
-  How it works:
-    - `transform: scale(1.05)`: Slightly enlarges the card on hover.
-  Customization:
-    - Change `1.05` to a different value (e.g., `1.1` for more scaling).
-    - Add `box-shadow` for a glow effect (e.g., `box-shadow: 0 4px 10px rgba(0,0,0,0.3);`).
-*/
-.album-block:hover {
-}
-
-/*
   Album Link
   Purpose: Styles the clickable link wrapping the album image.
-  How it works:
-    - `display: block`: Ensures the link fills the card.
-    - `text-decoration: none`: Removes underlines.
-    - `color: #f5f5f5`: Sets light text color for contrast.
-  Customization:
-    - Change `color` to adjust text color (e.g., `#fff`).
-    - Add `font-weight` or `font-family` for different text styles.
 */
 .album-link {
   display: block;
   text-decoration: none;
   color: #f5f5f5;
-  z-index: 1; /* Below buttons */
-  pointer-events: auto; /* Allow image clicks */
-  transition: transform 0.3s ease;  
+  z-index: 1;
+  pointer-events: auto;
+  transition: transform 0.3s ease;
 }
 
 .album-link:hover {
@@ -119,15 +180,6 @@ Key Features:
 /*
   Album Image
   Purpose: Styles the album cover image.
-  How it works:
-    - `width: 100%`: Fills the card width.
-    - `height: 200px`: Sets a fixed height.
-    - `object-fit: cover`: Ensures the image fills the space without distortion.
-    - `border-radius: 8px`: Rounds corners.
-  Customization:
-    - Adjust `height` for different image sizes (e.g., `180px`).
-    - Change `border-radius` for different corner styles.
-    - Add `box-shadow` for depth (e.g., `box-shadow: 0 2px 5px rgba(0,0,0,0.2);`).
 */
 .album-block img {
   width: 100%;
@@ -139,14 +191,6 @@ Key Features:
 /*
   Album Title
   Purpose: Styles the album title above the image.
-  How it works:
-    - `margin: 0 0 10px`: Adds space below the title.
-    - `font-size: 1.2rem`: Sets a readable size.
-    - `color: #f5f5f5`: Matches other text colors.
-  Customization:
-    - Change `font-size` to adjust text size (e.g., `1.1rem`).
-    - Modify `margin` for different spacing.
-    - Add `font-weight` or `color` for different styles.
 */
 .album-block h4 {
   margin: 0 0 10px;
@@ -157,14 +201,6 @@ Key Features:
 /*
   Artist Links Container (Desktop)
   Purpose: Styles the container for artist streaming buttons on desktop.
-  How it works:
-    - `display: flex`: Arranges buttons in a row.
-    - `flex-wrap: wrap`: Wraps buttons to next line if needed.
-    - `justify-content: center`: Centers buttons.
-    - `gap: 15px`: Adds spacing between buttons.
-  Customization:
-    - Change `gap` for different spacing (e.g., `10px`).
-    - Adjust `justify-content` (e.g., `flex-start` for left-aligned).
 */
 .artist-links .cta-buttons {
   display: flex;
@@ -176,15 +212,6 @@ Key Features:
 /*
   Artist Streaming Button (Desktop)
   Purpose: Styles individual artist streaming buttons on desktop.
-  How it works:
-    - Matches inline styles from `music.html` for consistency.
-    - `padding`, `min-width`, `min-height`: Ensures clickable size.
-    - `font-family: 'Montserrat', sans-serif`: Matches your font stack.
-    - `transition`: Smooth hover/focus effects.
-  Customization:
-    - Change `background` for different colors (e.g., `background: #ffeb3b;`).
-    - Adjust `font-size` for text size (e.g., `1.1rem`).
-    - Modify `padding` or `min-width` for button size.
 */
 .cta-button {
   display: inline-flex;
@@ -208,15 +235,6 @@ Key Features:
 
 /*
   Artist Streaming Button Hover/Focus (Desktop)
-  Purpose: Enhances button interactivity.
-  How it works:
-    - `background`: Reverses gradient for feedback.
-    - `transform: scale(1.05)`: Slightly enlarges button.
-    - `box-shadow`: Increases shadow for depth.
-  Customization:
-    - Change `background` for different hover colors.
-    - Adjust `scale` (e.g., `1.1` for more enlargement).
-    - Modify `box-shadow` for different effects.
 */
 .cta-button:hover,
 .cta-button:focus {
@@ -228,10 +246,6 @@ Key Features:
 /*
   Artist Streaming Controls Container (Desktop)
   Purpose: Hides the mobile-specific artist dropdowns on desktop.
-  How it works:
-    - `display: none`: Ensures `.streaming-controls` is hidden for screens >768px.
-  Customization:
-    - No changes needed unless you want to conditionally show it on desktop.
 */
 .artist-links .streaming-controls {
   display: none;
@@ -240,15 +254,6 @@ Key Features:
 /*
   Album Actions Container
   Purpose: Styles the container for album-specific "Stream Now" and "Buy Now" dropdowns.
-  How it works:
-    - `display: flex`: Arranges dropdown buttons side by side.
-    - `gap: 10px`: Adds spacing between buttons.
-    - `margin-top: 10px`: Adds space above the buttons.
-  Customization:
-    - Change `gap` for different spacing (e.g., `15px`).
-    - Adjust `margin-top` for vertical spacing (e.g., `5px`).
-    - Modify `flex-direction` to `column` for vertical stacking:
-      - `flex-direction: column; align-items: center;`
 */
 .album-actions {
   display: flex;
@@ -259,13 +264,6 @@ Key Features:
 /*
   Streaming Dropdown Container
   Purpose: Wraps the dropdown button and menu for both artist and album dropdowns.
-  How it works:
-    - `position: relative`: Allows absolute positioning of the menu.
-    - `flex: 1`: Ensures buttons span equal width within `.album-actions`.
-    - `min-width: 0`: Prevents flex items from overflowing.
-  Customization:
-    - Adjust `flex` to change button width ratios (e.g., `flex: 2` for wider).
-    - Change `min-width` for fixed button sizes (e.g., `min-width: 150px`).
 */
 .streaming-dropdown {
   position: relative;
@@ -276,19 +274,6 @@ Key Features:
 /*
   Streaming Dropdown Button
   Purpose: Styles the dropdown buttons ("Stream Now" and "Buy Now").
-  How it works:
-    - Matches `.cta-button` aesthetic (gradient, rounded corners, shadows).
-    - `padding`, `min-width`, `min-height`: Ensures touch-friendly size.
-    - `font-family: 'Montserrat', sans-serif`: Matches your font stack.
-    - `transition`: Smooth hover/tap effects.
-    - `cursor: pointer`: Indicates clickability.
-    - `z-index: 10`: Ensures button is above the menu.
-    - `width: 100%`: Spans the parent container (for `.album-actions`).
-  Customization:
-    - Change `background` for different colors (e.g., `background: #ffeb3b;`).
-    - Adjust `font-size` for text size (e.g., `1.2rem`).
-    - Modify `padding` or `min-width` for button size (e.g., `padding: 14px 30px`).
-    - Update `border-radius` for corner style (e.g., `20px`).
 */
 .streaming-dropdown-button {
   display: inline-flex;
@@ -323,12 +308,6 @@ Key Features:
 /*
   Album Action Button
   Purpose: Specific styling for album-specific dropdown buttons to ensure they span image width.
-  How it works:
-    - `padding: 10px`: Slightly smaller for compact look.
-    - `font-size: 0.9rem`: Slightly smaller text for balance.
-  Customization:
-    - Adjust `padding` or `font-size` for different button sizes.
-    - Change `background` or `border-radius` for distinct styling.
 */
 .album-action-button {
   padding: 10px;
@@ -337,15 +316,6 @@ Key Features:
 
 /*
   Streaming Dropdown Button Hover/Focus
-  Purpose: Enhances button interactivity.
-  How it works:
-    - `background`: Reverses gradient for feedback.
-    - `transform: scale(1.05)`: Slightly enlarges button.
-    - `box-shadow`: Increases shadow for depth.
-  Customization:
-    - Change `background` for different hover colors.
-    - Adjust `scale` (e.g., `1.1` for more enlargement).
-    - Modify `box-shadow` for different effects.
 */
 .streaming-dropdown-button:hover,
 .streaming-dropdown-button:focus {
@@ -357,23 +327,6 @@ Key Features:
 /*
   Streaming Dropdown Menu
   Purpose: Styles the dropdown menu containing streaming or purchase links.
-  How it works:
-    - `position: absolute`: Positions menu below the button.
-    - `top: 100%`: Aligns menu just below the button.
-    - `left: 0`: Aligns menu with button’s left edge.
-    - `background: #222`: Dark background for contrast.
-    - `border-radius: 8px`: Rounds corners.
-    - `box-shadow`: Adds depth.
-    - `min-width: 150px`: Compact for mobile.
-    - `width: 100%`: Spans button width.
-    - `opacity: 0`, `visibility: hidden`: Hides menu by default.
-    - `transition`: Smooth slide-in animation.
-    - `z-index: 9`: Places menu below button but above other content.
-  Customization:
-    - Change `background` for different menu color (e.g., `#333`).
-    - Adjust `min-width` or `width` for menu size (e.g., `min-width: 200px`).
-    - Modify `border-radius` or `box-shadow` for different styles.
-    - Update `top` to adjust menu position (e.g., `top: 110%` for more space).
 */
 .streaming-dropdown-menu {
   position: absolute;
@@ -384,30 +337,21 @@ Key Features:
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   min-width: 150px;
   width: 100%;
-  opacity: 0; /* ✅ Valid */
+  opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease;
   transform: translateY(-10px);
-  z-index: 100; /* High z-index to ensure visibility */
+  z-index: 100;
   pointer-events: auto;
   list-style: none;
-  max-height: 330px; /* Prevent overly long menus */
-  overflow-y: auto; /* Scroll if menu is too long */
-  /* Debug background (remove after testing) */
-  background: #222 !important;
+  max-height: 330px;
+  overflow-y: auto;
   touch-action: manipulation;
-  will-change: opacity, transform;  
+  will-change: opacity, transform;
 }
 
 /*
   Streaming Dropdown Menu (Open State)
-  Purpose: Shows the menu when the button is clicked.
-  How it works:
-    - `opacity: 1`, `visibility: visible`: Makes menu visible.
-    - `transform: translateY(0)`: Slides menu into place.
-  Customization:
-    - Adjust `translateY` for different animation effects (e.g., `translateY(5px)`).
-    - Modify `transition` timing (e.g., `0.2s` for faster).
 */
 .streaming-dropdown-menu.open {
   opacity: 1;
@@ -417,18 +361,6 @@ Key Features:
 
 /*
   Streaming Dropdown Menu Item
-  Purpose: Styles individual links in the dropdown menu.
-  How it works:
-    - `display: block`: Makes links full-width.
-    - `padding: 12px 15px`: Adds touch-friendly spacing.
-    - `color: #f5f5f5`: Light text for contrast.
-    - `text-decoration: none`: Removes underlines.
-    - `font-size: 0.9rem`: Readable size.
-    - `transition`: Smooth hover effect.
-  Customization:
-    - Change `font-size` for text size (e.g., `1rem` for larger).
-    - Adjust `padding` for item spacing (e.g., `14px 20px`).
-    - Modify `color` for different text color (e.g., `#fff`).
 */
 .streaming-dropdown-menu li a {
   display: block;
@@ -442,40 +374,20 @@ Key Features:
 
 /*
   Streaming Dropdown Menu Item Hover/Focus
-  Purpose: Highlights menu items on hover or focus.
-  How it works:
-    - `background: #333`: Darkens background for feedback.
-  Customization:
-    - Change `background` for different hover color (e.g., `#444`).
-    - Add `color` for text color change (e.g., `color: #f1c40f`).
 */
 .streaming-dropdown-menu li a:hover,
 .streaming-dropdown-menu li a:focus {
   background: #333;
 }
 
-
 /* ========== MOBILE STYLES (<=768px) ========== */
-/*
-  Mobile-Specific Styles
-  Purpose: Overrides desktop styles for mobile devices to create a smooth, touch-friendly interface with full album images and artist dropdowns.
-  How it works:
-    - Wrapped in `@media (max-width: 768px)` to apply only on mobile/tablet screens.
-    - Hides `.cta-buttons` and shows `.streaming-controls` for artist links.
-    - Transforms `.album-grid` into a horizontal carousel with full-size images.
-    - Maintains album dropdowns with same styling as desktop.
-    - Ensures performance with minimal CSS and smooth scrolling.
-  Customization:
-    - Edit values like `90vw`, `font-size`, `padding`, or `gap` to fine-tune the mobile experience.
-    - Add new styles within this media query to customize other elements (e.g., `.hero-content`).
-*/
 @media (max-width: 768px) {
   .album-catalog {
     padding: 15px 10px;
     overflow-y: visible;
     max-height: none;
     box-sizing: border-box;
-    position: relative; /* Allow absolute children to escape */
+    position: relative;
   }
 
   .album-grid {
@@ -486,30 +398,15 @@ Key Features:
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-	scrollbar-color: #f1c40f #111;
+    scrollbar-color: #f1c40f #111;
     gap: 7px;
     padding: 3px;
     max-height: calc(100vh - 120px);
-    position: relative; /* Positioning context for menus */
-  }
-
-  .scroll-hint {
-	display: block !important;
-	animation: pulse 1.8s infinite ease-in-out;  
-    text-align: center;
-    color: #f1c40f;
-    font-size: 0.9rem;
-    margin-top: 5px;
-  }
-
-  @keyframes pulse {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
+    position: relative;
   }
 
   .album-grid::-webkit-scrollbar {
-	height: 6px;
+    height: 6px;
   }
 
   .album-grid::-webkit-scrollbar-track {
@@ -519,7 +416,27 @@ Key Features:
   .album-grid::-webkit-scrollbar-thumb {
     background-color: #f1c40f;
     border-radius: 6px;
-  }  
+  }
+
+  .video-item {
+    flex: 0 0 90vw; /* Full-width videos on mobile */
+    scroll-snap-align: center;
+    padding: 5px;
+  }
+
+  .video-item iframe {
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+   .scroll-hint {
+	display: block !important;
+	animation: pulse 1.8s infinite ease-in-out;  
+    text-align: center;
+    color: #f1c40f;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  } 
 
   .album-block {
     flex: 0 0 90vw;
@@ -528,7 +445,7 @@ Key Features:
     padding: 0;
     max-height: 100%;
     box-sizing: border-box;
-    position: relative; /* Ensure buttons/menus position correctly */
+    position: relative;
   }
 
   .album-block:hover {
@@ -555,7 +472,7 @@ Key Features:
   }
 
   .artist-links .streaming-controls {
-    display: flex !important;
+    display: flex;
     gap: 10px;
     justify-content: center;
     margin: 5px 0 10px;
@@ -576,8 +493,8 @@ Key Features:
     font-size: 1rem;
     min-width: 120px;
     min-height: 30px;
-	max-width: 130px;
-	max-height: 40;
+    max-width: 130px;
+    max-height: 40px;
     z-index: 20;
     touch-action: manipulation;
   }
@@ -590,9 +507,9 @@ Key Features:
   .streaming-dropdown-menu {
     min-width: 120px;
     max-width: 90vw;
-    z-index: 100; /* Ensure menu is above all content */
-    max-height: 330px; /* Limit menu height */
-    overflow-y: auto; /* Scroll if needed */
+    z-index: 100;
+    max-height: 330px;
+    overflow-y: auto;
   }
 
   .streaming-dropdown-menu li a {
@@ -612,17 +529,6 @@ Key Features:
 }
 
 /* ========== SMALLER MOBILE DEVICES (<=480px) ========== */
-/*
-  Smaller Mobile Styles
-  Purpose: Fine-tunes styles for very small screens (e.g., iPhone SE, 375x667 pixels) to prevent visual or functional issues.
-  How it works:
-    - Reduces sizes and spacing for better fit on narrow screens.
-    - Ensures horizontal-only scrolling and touch-friendly buttons.
-    - Maintains polished design with no overflow or misalignment.
-  Customization:
-    - Adjust `85vw` in `.album-block` to change album width (e.g., `80vw` for smaller).
-    - Modify `font-size` or `padding` for finer control.
-*/
 @media (max-width: 480px) {
   .album-block {
     flex: 0 0 85vw;
@@ -645,6 +551,24 @@ Key Features:
     gap: 6px;
   }
 
+  .video-grid {
+    padding: 15px 5px;
+  }
+
+  .video-carousel {
+    gap: 8px;
+    padding: 3px 0;
+  }
+
+  .video-item {
+    flex: 0 0 85vw;
+    padding: 3px;
+  }
+
+  .video-item iframe {
+    border-radius: 6px;
+  }
+
   .artist-links .streaming-controls {
     gap: 6px;
     margin: 4px 0 8px;
@@ -665,8 +589,8 @@ Key Features:
   .streaming-dropdown-menu {
     min-width: 100px;
     max-width: 85vw;
-    z-index: 100; /* Ensure visibility */
-    max-height: 330px; /* Smaller for narrow screens */
+    z-index: 100;
+    max-height: 330px;
     overflow-y: auto;
   }
 
@@ -686,33 +610,16 @@ Key Features:
   }
 
   .scroll-hint {
-	display: block !important;
-	animation: pulse 1.8s infinite ease-in-out;  
+    display: block;
+    animation: pulse 1.8s infinite ease-in-out;
     text-align: center;
     color: #f1c40f;
-    font-size: 0.9rem;
-    margin-top: 5px;
+    font-size: 0.8rem;
+    margin-top: 3px;
   }
-
-  @keyframes pulse {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
-  }
-
-
 }
 
 /* ========== ACCESSIBILITY ========== */
-/*
-  Reduced Motion Preference
-  Purpose: Disables animations for users who prefer reduced motion.
-  How it works:
-    - `transform: none`: Removes scaling effects.
-    - `transition: none`: Disables dropdown animation.
-  Customization:
-    - Add other reduced-motion adjustments as needed.
-*/
 @media (prefers-reduced-motion: reduce) {
   .album-block:hover {
     transform: none;
@@ -725,5 +632,8 @@ Key Features:
   }
   .streaming-dropdown-menu {
     transition: none;
+  }
+  .scroll-hint {
+    animation: none;
   }
 }

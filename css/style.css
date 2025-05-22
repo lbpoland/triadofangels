@@ -1,9 +1,9 @@
-/*  style.css
+/*
 ========================================================
 Triad of Angels - Main Stylesheet (Optimized & Enhanced)
 --------------------------------------------------------
 • Reset & Base
-• Navigation (with Integrated Login UI, Centered Auth UI)
+• Navigation (with Integrated Login UI, Mobile Header with Left Menu Toggle and Right Auth UI)
 • Hero Section (Sticky Scrolling Video)
 • Sections (Featured, About, Quick Links)
 • Footer
@@ -12,13 +12,13 @@ Triad of Angels - Main Stylesheet (Optimized & Enhanced)
 • Username Modal (Updated with Cancel Button)
 • Error Toast (Enhanced for Visibility)
 • Comment Section (Mobile-Optimized)
-• Mobile Navigation Toggle (Centered Auth UI, Mobile-Friendly)
+• Mobile Navigation (Full-Width Header with Menu Toggle Left, Auth UI Right)
 
-Last Updated: 2025-05-16
-- Fixed mobile menu alignment for Samsung Galaxy S24 Ultra
-- Centered Guest/Sign In option in mobile menu
-- Enhanced media queries for mobile-first design
-- Optimized mobile menu toggle for usability
+Last Updated: 2025-05-21
+- Updated mobile header to span full width with menu toggle on left and auth UI on right
+- Maintained desktop navigation unchanged
+- Enhanced mobile auth UI visibility and accessibility
+- Optimized for mobile-first design and touch interaction
 ========================================================
 */
 
@@ -42,21 +42,25 @@ body {
     overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: #f1c40f;
-      color: #000;
-      padding: 8px;
-      z-index: 1000;
-    }
-    .skip-link:focus { top: 0; }
-    .hero-banner {
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #f1c40f;
+    color: #000;
+    padding: 8px;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+.hero-banner {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
 
 /* Universal Link Style */
 a {
@@ -90,11 +94,6 @@ header {
     font-size: 1rem;
     color: #f1c40f;
     cursor: pointer;
-    position: absolute;
-    top: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1001;
     padding: 8px 12px;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.05);
@@ -104,7 +103,7 @@ header {
 
 #mobile-menu-toggle:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    transform: scale(1.05) translateX(-50%);
+    transform: scale(1.05);
 }
 
 .menu-icon {
@@ -164,17 +163,17 @@ header nav ul li a:focus {
 }
 
 #global-auth-ui {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     justify-content: center;
     opacity: 1;
     transition: opacity 0.2s ease;
 }
 
 #global-user-name {
-      color: #f5f5f5;
-      font-weight: 600;
+    color: #f5f5f5;
+    font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -182,20 +181,23 @@ header nav ul li a:focus {
     transition: color 0.2s ease;
 }
 
-    #global-login-btn, #global-logout-btn {
-      background: #f1c40f;
-      color: #0b0c10;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    #global-login-btn:hover, #global-logout-btn:hover {
-      background: #ffeb3b;
-      transform: scale(1.05);
-    }
+#global-login-btn,
+#global-logout-btn {
+    background: #f1c40f;
+    color: #0b0c10;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#global-login-btn:hover,
+#global-logout-btn:hover {
+    background: #ffeb3b;
+    transform: scale(1.05);
+}
 
 /* HERO SECTION - Sticky Scrolling Background Video */
 .hero-banner {
@@ -232,37 +234,40 @@ header nav ul li a:focus {
     color: #fff;
     z-index: 2;
     padding: 0;
-    max-width: 90%; /* Prevent overflow on mobile */
+    max-width: 90%;
     background: none;
     box-shadow: none;
 }
 
-    .hero-content h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      color: #f1c40f;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(241, 196, 15, 0.5);
-      margin: 0;
-    }
-    .hero-content p {
-      font-size: 1.5rem;
-      color: #f5f5f5;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-      margin: 10px 0;
-    }
-    .hero-content a {
-      background: #f1c40f;
-      color: #0b0c10;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .hero-content a:hover {
-      background: #ffeb3b;
-      transform: scale(1.05);
-    }
+.hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #f1c40f;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(241, 196, 15, 0.5);
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: #f5f5f5;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin: 10px 0;
+}
+
+.hero-content a {
+    background: #f1c40f;
+    color: #0b0c10;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.hero-content a:hover {
+    background: #ffeb3b;
+    transform: scale(1.05);
+}
 
 .cta-button {
     display: inline-block;
@@ -335,26 +340,29 @@ header nav ul li a:focus {
 }
 
 /* Footer */
-    footer {
+footer {
     background: #1f1f1f;
     text-align: center;
     padding: 30px 20px;
     font-size: 0.9rem;
     color: #aaa;
     line-height: 1.6;
-    }
+}
+
 footer p {
     margin: 8px 0;
 }
-    footer nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
 footer a {
     margin: 0 5px;
     display: inline-block;
@@ -366,48 +374,62 @@ footer a:focus {
     color: #f1c40f;
     text-decoration: none;
     outline: none;
-}	
-	
-    footer nav ul li { display: inline; }
-    footer nav ul li a {
-      color: #f1c40f;
-      text-decoration: none;
-      transition: color 0.3s ease, transform 0.2s ease;
-    }
-    footer nav ul li a:hover {
-      color: #ffeb3b;
-      transform: scale(1.05);
-    }
-    footer .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-    footer .social-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #f1c40f;
-      text-decoration: none;
-      font-size: 0.9em;
-      transition: color 0.3s ease, transform 0.2s ease;
-    }
-    footer .social-links a:hover {
-      color: #ffeb3b;
-      transform: scale(1.05);
-    }
-    footer .social-links img {
-      width: 24px;
-      height: 24px;
-    }
-	
-    .divider {
-      width: 60%;
-      margin: 20px auto;
-      border-top: 1px solid #555;
-    }	
+}
+
+footer nav ul li {
+    display: inline;
+}
+
+footer nav ul li a {
+    color: #f1c40f;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+footer nav ul li a:hover {
+    color: #ffeb3b;
+    transform: scale(1.05);
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+footer .social-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #f1c40f;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+footer .social-links a:hover {
+    color: #ffeb3b;
+    transform: scale(1.05);
+}
+
+footer .social-links img {
+    width: 24px;
+    height: 24px;
+}
+
+.divider {
+    width: 60%;
+    margin: 20px auto;
+    border-top: 1px solid #555;
+}
+
+.divider2 {
+    width: 100%;
+    margin: 20px auto;
+    border-top: 5px solid #555;
+}
 
 /* Inner Page Sections */
 body.index-page section:not(.hero-banner),
@@ -606,23 +628,24 @@ video {
 }
 
 /* Error Toast */
-    #global-error-toast {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #cc0000;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      z-index: 10000;
-      display: none;
-      transition: opacity 0.3s ease;
-    }
-    #global-error-toast.show {
-      display: block;
-      opacity: 1;
-    }
+#global-error-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #cc0000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 10000;
+    display: none;
+    transition: opacity 0.3s ease;
+}
+
+#global-error-toast.show {
+    display: block;
+    opacity: 1;
+}
 
 /* Comment Section Styles (Moved from album.html) */
 .comments-section {
@@ -633,7 +656,7 @@ video {
     border: 2px solid rgba(241, 196, 15, 0.1);
     text-align: left;
     margin-bottom: 70px;
-    opacity: 1; /* Ensure visibility */
+    opacity: 1;
     min-height: 200px;
     overflow: visible;
     position: relative;
@@ -775,7 +798,7 @@ video {
     display: flex;
     gap: 10px;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on mobile */
+    flex-wrap: wrap;
 }
 
 .comment-actions button {
@@ -803,7 +826,7 @@ video {
 
 /* Styles for delete buttons */
 .comment-actions .delete-btn {
-    color: #ff4444; /* Red for user delete */
+    color: #ff4444;
 }
 
 .comment-actions .delete-btn:hover {
@@ -811,41 +834,56 @@ video {
 }
 
 .comment-actions .admin-delete-btn {
-    color: #ff0000; /* Brighter red for admin delete */
+    color: #ff0000;
 }
 
 .comment-actions .admin-delete-btn:hover {
     color: #ff3333;
 }
 
-.comment-actions .user-only, .comment-actions .admin-only {
-    display: none; /* Hidden by default */
+.comment-actions .user-only,
+.comment-actions .admin-only {
+    display: none;
 }
 
 .comment-actions.user-view .user-only {
-    display: inline; /* Visible to comment author */
+    display: inline;
 }
 
 .comment-actions.admin-view .admin-only {
-    display: inline; /* Visible to admin */
+    display: inline;
 }
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between; /* Left menu toggle, right auth UI */
+        align-items: left;
+        padding: 10px 15px;
+    }
+
     #mobile-menu-toggle {
         display: flex;
         align-items: center;
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Remove centering transform */
+        margin-left: 5px; /* Small offset from left edge */
+    }
+
+    #mobile-menu-toggle:hover {
+        transform: scale(1.05); /* Adjust hover without translateX */
     }
 
     header nav ul {
-        display: none; /* Hide menu by default on mobile */
+        display: none; /* Hide menu by default */
         flex-direction: column;
         gap: 12px;
         padding: 10px 0;
         background: #1f1f1f;
         position: absolute;
         width: 100%;
-        top: 50px;
+        top: 60px; /* Below header */
         left: 0;
         z-index: 999;
     }
@@ -855,7 +893,7 @@ video {
     }
 
     header nav ul li {
-        text-align: center;
+        text-align: left;
         width: 100%;
         margin: 3px 0;
     }
@@ -867,46 +905,49 @@ video {
         padding: 10px 15px;
     }
 
+    /* Move auth UI to header right */
     #auth-nav-item {
-        margin: 10px 0;
-        justify-content: center;
+        margin: 0 5px 0 0; /* Align to right with small offset */
+        justify-content: flex-end;
     }
 
     #global-auth-ui {
-        justify-content: center;
-        align-items: center;		
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px; /* Slightly smaller gap for mobile */
     }
 
     #global-user-name {
-        font-size: 0.9rem;
+        font-size: 0.85rem; /* Slightly smaller for mobile */
     }
 
     #global-login-btn,
     #global-logout-btn {
         padding: 6px 12px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        min-height: 32px; /* Touch-friendly height */
     }
 
-.hero-banner {
-    position: relative;
-    min-height: 80vh;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .hero-banner {
+        position: relative;
+        min-height: 80vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    pointer-events: none;
-}
+    .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        pointer-events: none;
+    }
 
     .hero-content h1 {
         font-size: 2rem;
@@ -1029,11 +1070,18 @@ video {
 }
 
 @media (max-width: 480px) {
+    header {
+        padding: 8px 10px; /* Slightly smaller padding */
+    }
+
     #mobile-menu-toggle {
         font-size: 0.9rem;
+        padding: 6px 10px;
+        margin-left: 3px;
     }
 
     header nav ul {
+        top: 50px; /* Adjust for smaller header */
         gap: 10px;
     }
 
@@ -1050,28 +1098,29 @@ video {
     #global-logout-btn {
         padding: 5px 10px;
         font-size: 0.8rem;
+        min-height: 28px;
     }
 
-.hero-banner {
-    position: relative;
-    min-height: 60vh;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .hero-banner {
+        position: relative;
+        min-height: 60vh;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    pointer-events: none;
-}
+    .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        pointer-events: none;
+    }
 
     .hero-content h1 {
         font-size: 1.5rem;
@@ -1206,22 +1255,32 @@ video {
     .comments-section {
         animation: none;
     }
-{
-      .hero-content a, footer nav ul li a, footer .social-links a,
-      #global-login-btn, #global-logout-btn {
+
+    .hero-content a,
+    footer nav ul li a,
+    footer .social-links a,
+    #global-login-btn,
+    #global-logout-btn,
+    #mobile-menu-toggle {
         transition: none;
-      }
-      .hero-content a:hover, footer nav ul li a:hover,
-      footer .social-links a:hover, #global-login-btn:hover, #global-logout-btn:hover {
-        transform: none;
-      }
     }
-	
+
+    .hero-content a:hover,
+    footer nav ul li a:hover,
+    footer .social-links a:hover,
+    #global-login-btn:hover,
+    #global-logout-btn:hover,
+    #mobile-menu-toggle:hover {
+        transform: none;
+    }
 }
 
-    @media (forced-colors: active) {
-      .hero-content a, footer nav ul li a, footer .social-links a,
-      #global-login-btn, #global-logout-btn {
+@media (forced-colors: active) {
+    .hero-content a,
+    footer nav ul li a,
+    footer .social-links a,
+    #global-login-btn,
+    #global-logout-btn {
         color: LinkText;
-      }
     }
+}
