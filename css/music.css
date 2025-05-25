@@ -72,6 +72,61 @@ Key Features:
   overflow-x: hidden; /* Prevent horizontal scrollbar issues */
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%; /* Ensure it takes full available width */
+  box-sizing: border-box;
+}
+
+/*
+  Video Carousel Container
+  Purpose: Wraps the carousel and navigation buttons for proper positioning.
+*/
+.video-carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+/*
+  Video Navigation Buttons Container
+  Purpose: Positions the left and right navigation buttons below the scrollbar.
+*/
+.video-nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/*
+  Video Navigation Button
+  Purpose: Styles the left and right navigation buttons.
+*/
+.video-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, #f1c40f, #ffeb3b);
+  color: #0a0a0a;
+  border: 1px solid rgba(241, 196, 15, 0.4);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2);
+  touch-action: manipulation;
+}
+
+/*
+  Video Navigation Button Hover/Focus
+*/
+.video-nav-button:hover,
+.video-nav-button:focus {
+  background: linear-gradient(45deg, #ffeb3b, #f1c40f);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+  outline: none;
 }
 
 /*
@@ -88,6 +143,7 @@ Key Features:
   padding: 10px 0;
   scrollbar-width: thin;
   scrollbar-color: #f1c40f #111;
+  width: 100%; /* Ensure it takes full width of parent */
 }
 
 .video-carousel::-webkit-scrollbar {
@@ -108,8 +164,7 @@ Key Features:
   Purpose: Styles individual video containers within the carousel.
 */
 .video-item {
-  width: 100%;
-  max-width: 100%;
+  flex: 0 0 calc(100% - 40px); /* Full width minus padding of video-grid (20px each side) */
   scroll-snap-align: center;
   padding: 10px;
   box-sizing: border-box;
@@ -121,9 +176,8 @@ Key Features:
 */
 .video-item iframe {
   width: 100%;
-  max-width: 100%;
-  aspect-ratio: 16 / 9;
   height: auto;
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: none;
@@ -142,7 +196,6 @@ Key Features:
   Scroll Hint
   Purpose: Indicates that the carousel is scrollable.
 */
-
 @keyframes pulse {
   0% { opacity: 0.3; }
   50% { opacity: 1; }
@@ -419,7 +472,7 @@ Key Features:
   }
 
   .video-item {
-    flex: 0 0 90vw; /* Full-width videos on mobile */
+    flex: 0 0 calc(90vw - 20px); /* Adjust for padding */
     scroll-snap-align: center;
     padding: 5px;
   }
@@ -429,9 +482,9 @@ Key Features:
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
   
-   .scroll-hint {
-	display: block !important;
-	animation: pulse 1.8s infinite ease-in-out;  
+  .scroll-hint {
+    display: block !important;
+    animation: pulse 1.8s infinite ease-in-out;  
     text-align: center;
     color: #f1c40f;
     font-size: 0.9rem;
@@ -526,6 +579,12 @@ Key Features:
     font-size: 1.4rem;
     margin: 15px 0;
   }
+
+  .video-nav-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
 }
 
 /* ========== SMALLER MOBILE DEVICES (<=480px) ========== */
@@ -561,7 +620,7 @@ Key Features:
   }
 
   .video-item {
-    flex: 0 0 85vw;
+    flex: 0 0 calc(85vw - 10px); /* Adjust for smaller padding */
     padding: 3px;
   }
 
@@ -617,6 +676,17 @@ Key Features:
     font-size: 0.8rem;
     margin-top: 3px;
   }
+
+  .video-nav-button {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .video-nav-buttons {
+    gap: 15px;
+    margin-top: 8px;
+  }
 }
 
 /* ========== ACCESSIBILITY ========== */
@@ -627,7 +697,9 @@ Key Features:
   .streaming-dropdown-button:hover,
   .streaming-dropdown-button:focus,
   .cta-button:hover,
-  .cta-button:focus {
+  .cta-button:focus,
+  .video-nav-button:hover,
+  .video-nav-button:focus {
     transform: none;
   }
   .streaming-dropdown-menu {
@@ -635,5 +707,8 @@ Key Features:
   }
   .scroll-hint {
     animation: none;
+  }
+  .video-carousel {
+    scroll-behavior: auto;
   }
 }
