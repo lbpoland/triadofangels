@@ -6,46 +6,40 @@ Location: C:\Users\lbpol\Development\triadofangels\css\music.css
 Purpose:
 Styles for the Music page, creating a clean catalog-style layout for albums and video sections with a
 responsive design that switches to a horizontal carousel on mobile devices for albums and on both desktop
-and mobile for videos. Includes mobile-only artist dropdowns, album-specific dropdowns, and video carousels.
+and mobile for videos. Includes mobile-only artist dropdowns, album-specific dropdowns, video carousels,
+and a genre filter with desktop buttons and a mobile dropdown.
 
 Key Features:
-- Album Grid: Grid layout for desktop, swipeable carousel for mobile.
-- Video Grid: Horizontal scrolling carousel for YouTube videos, full-width with auto height, on both desktop and mobile.
+- Album Grid: Grid layout for desktop with auto-re-alignment on filter, swipeable carousel for mobile.
+- Video Grid: Horizontal scrolling carousel for YouTube videos, full-width with auto height.
 - Artist Links: Buttons on desktop, dropdowns on mobile ("Stream Now" and "Buy Now").
-- Album Dropdowns: "Stream Now" and "Buy Now" dropdowns below each album, spanning image width, on both desktop and mobile.
-- Responsive Design: Adapts seamlessly to desktop, tablet, and mobile screens.
+- Album Dropdowns: "Stream Now" and "Buy Now" dropdowns below each album, spanning image width.
+- Genre Filter: Buttons on desktop, dropdown on mobile, with proper album filtering and grid re-alignment.
+- Responsive Design: Adapts to desktop, tablet, and mobile screens.
 - Accessibility: High contrast, focus states, touch-friendly targets, ARIA attributes.
 - Performance: Optimized for fast rendering and smooth scrolling.
 ================================================================================
 */
 
 /* ========== DESKTOP STYLES (Base Styles for >768px) ========== */
-/* Default state: Hidden on all screen sizes */
 .scroll-hint {
   display: none !important;
 }
 
-/*
-  Album Catalog Container
-  Purpose: Defines the main container for album sections.
-*/
 .album-catalog {
   padding: 40px 20px;
 }
 
-/*
-  Album Grid
-  Purpose: Arranges albums in a responsive grid layout for desktop.
-*/
 .album-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  justify-items: center; /* Ensure items are centered */
 }
 
-.album-grid2 {
+.album-grid2, .album-grid3 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
@@ -53,42 +47,22 @@ Key Features:
   margin: 0 auto;
 }
 
-.album-grid3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/*
-  Video Grid
-  Purpose: Container for video carousel sections, providing consistent styling and centering.
-*/
 .video-grid {
   border-radius: 15px;
   border: 2px solid rgba(241, 196, 15, 0.15);
   padding: 40px 20px;
-  overflow-x: hidden; /* Prevent horizontal scrollbar issues */
+  overflow-x: hidden;
   max-width: 1200px;
   margin: 0 auto;
-  width: 100%; /* Ensure it takes full available width */
+  width: 100%;
   box-sizing: border-box;
 }
 
-/*
-  Video Carousel Container
-  Purpose: Wraps the carousel and navigation buttons for proper positioning.
-*/
 .video-carousel-container {
   position: relative;
   width: 100%;
 }
 
-/*
-  Video Navigation Buttons Container
-  Purpose: Positions the left and right navigation buttons below the scrollbar.
-*/
 .video-nav-buttons {
   display: flex;
   justify-content: center;
@@ -96,10 +70,6 @@ Key Features:
   margin-top: 10px;
 }
 
-/*
-  Video Navigation Button
-  Purpose: Styles the left and right navigation buttons.
-*/
 .video-nav-button {
   display: flex;
   align-items: center;
@@ -118,9 +88,6 @@ Key Features:
   touch-action: manipulation;
 }
 
-/*
-  Video Navigation Button Hover/Focus
-*/
 .video-nav-button:hover,
 .video-nav-button:focus {
   background: linear-gradient(45deg, #ffeb3b, #f1c40f);
@@ -129,10 +96,6 @@ Key Features:
   outline: none;
 }
 
-/*
-  Video Carousel
-  Purpose: Creates a horizontal scrolling carousel for YouTube videos.
-*/
 .video-carousel {
   display: flex;
   overflow-x: auto;
@@ -143,7 +106,7 @@ Key Features:
   padding: 10px 0;
   scrollbar-width: thin;
   scrollbar-color: #f1c40f #111;
-  width: 100%; /* Ensure it takes full width of parent */
+  width: 100%;
 }
 
 .video-carousel::-webkit-scrollbar {
@@ -159,21 +122,13 @@ Key Features:
   border-radius: 6px;
 }
 
-/*
-  Video Item
-  Purpose: Styles individual video containers within the carousel.
-*/
 .video-item {
-  flex: 0 0 calc(100% - 40px); /* Full width minus padding of video-grid (20px each side) */
+  flex: 0 0 calc(100% - 40px);
   scroll-snap-align: center;
   padding: 10px;
   box-sizing: border-box;
 }
 
-/*
-  Video Iframe
-  Purpose: Styles YouTube iframes to be full-width with auto height (16:9 aspect ratio).
-*/
 .video-item iframe {
   width: 100%;
   height: auto;
@@ -183,40 +138,24 @@ Key Features:
   border: none;
 }
 
-/*
-  Video Iframe Focus
-  Purpose: Adds focus state for accessibility.
-*/
 .video-item iframe:focus-visible {
   outline: 3px solid #f1c40f;
   outline-offset: 2px;
 }
 
-/*
-  Scroll Hint
-  Purpose: Indicates that the carousel is scrollable.
-*/
 @keyframes pulse {
   0% { opacity: 0.3; }
   50% { opacity: 1; }
   100% { opacity: 0.3; }
 }
 
-/*
-  Album Block
-  Purpose: Styles individual album cards.
-*/
 .album-block {
   padding: 15px;
   border-radius: 8px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/*
-  Album Link
-  Purpose: Styles the clickable link wrapping the album image.
-*/
 .album-link {
   display: block;
   text-decoration: none;
@@ -230,10 +169,6 @@ Key Features:
   transform: scale(1.05);
 }
 
-/*
-  Album Image
-  Purpose: Styles the album cover image.
-*/
 .album-block img {
   width: 100%;
   height: 200px;
@@ -241,20 +176,12 @@ Key Features:
   border-radius: 8px;
 }
 
-/*
-  Album Title
-  Purpose: Styles the album title above the image.
-*/
 .album-block h4 {
   margin: 0 0 10px;
   font-size: 1.2rem;
   color: #f5f5f5;
 }
 
-/*
-  Artist Links Container (Desktop)
-  Purpose: Styles the container for artist streaming buttons on desktop.
-*/
 .artist-links .cta-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -262,10 +189,6 @@ Key Features:
   gap: 15px;
 }
 
-/*
-  Artist Streaming Button (Desktop)
-  Purpose: Styles individual artist streaming buttons on desktop.
-*/
 .cta-button {
   display: inline-flex;
   align-items: center;
@@ -286,9 +209,6 @@ Key Features:
   min-height: 44px;
 }
 
-/*
-  Artist Streaming Button Hover/Focus (Desktop)
-*/
 .cta-button:hover,
 .cta-button:focus {
   background: linear-gradient(45deg, #ffeb3b, #f1c40f);
@@ -296,38 +216,22 @@ Key Features:
   box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
 }
 
-/*
-  Artist Streaming Controls Container (Desktop)
-  Purpose: Hides the mobile-specific artist dropdowns on desktop.
-*/
 .artist-links .streaming-controls {
   display: none;
 }
 
-/*
-  Album Actions Container
-  Purpose: Styles the container for album-specific "Stream Now" and "Buy Now" dropdowns.
-*/
 .album-actions {
   display: flex;
   gap: 10px;
   margin-top: 10px;
 }
 
-/*
-  Streaming Dropdown Container
-  Purpose: Wraps the dropdown button and menu for both artist and album dropdowns.
-*/
 .streaming-dropdown {
   position: relative;
   flex: 1;
   min-width: 0;
 }
 
-/*
-  Streaming Dropdown Button
-  Purpose: Styles the dropdown buttons ("Stream Now" and "Buy Now").
-*/
 .streaming-dropdown-button {
   display: inline-flex;
   align-items: center;
@@ -358,18 +262,11 @@ Key Features:
   transform: scale(1.05);
 }
 
-/*
-  Album Action Button
-  Purpose: Specific styling for album-specific dropdown buttons to ensure they span image width.
-*/
 .album-action-button {
   padding: 10px;
   font-size: 0.9rem;
 }
 
-/*
-  Streaming Dropdown Button Hover/Focus
-*/
 .streaming-dropdown-button:hover,
 .streaming-dropdown-button:focus {
   background: linear-gradient(45deg, #ffeb3b, #f1c40f);
@@ -377,10 +274,6 @@ Key Features:
   box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
 }
 
-/*
-  Streaming Dropdown Menu
-  Purpose: Styles the dropdown menu containing streaming or purchase links.
-*/
 .streaming-dropdown-menu {
   position: absolute;
   top: 100%;
@@ -403,18 +296,12 @@ Key Features:
   will-change: opacity, transform;
 }
 
-/*
-  Streaming Dropdown Menu (Open State)
-*/
 .streaming-dropdown-menu.open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/*
-  Streaming Dropdown Menu Item
-*/
 .streaming-dropdown-menu li a {
   display: block;
   padding: 12px 15px;
@@ -425,11 +312,83 @@ Key Features:
   transition: background 0.2s ease;
 }
 
-/*
-  Streaming Dropdown Menu Item Hover/Focus
-*/
 .streaming-dropdown-menu li a:hover,
 .streaming-dropdown-menu li a:focus {
+  background: #333;
+}
+
+.category-filter {
+  margin: 20px 0;
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.category-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: linear-gradient(45deg, #f1c40f, #ffeb3b);
+  color: #0a0a0a;
+  text-decoration: none;
+  border-radius: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(241, 196, 15, 0.4);
+  cursor: pointer;
+  min-height: 36px;
+  touch-action: manipulation;
+}
+
+.category-button:hover,
+.category-button:focus {
+  background: linear-gradient(45deg, #ffeb3b, #f1c40f);
+  box-shadow: 0 4px 12px rgba(241, 196, 15, 0.3);
+  outline: none;
+}
+
+.category-button.active {
+  background: linear-gradient(45deg, #ffeb3b, #f1c40f);
+  box-shadow: 0 4px 12px rgba(241, 196, 15, 0.3);
+  border: 2px solid #ffffff;
+}
+
+.album-block.hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+}
+
+.category-dropdown {
+  display: none;
+  margin: 10px auto;
+  max-width: 200px;
+}
+
+.category-option {
+  display: block;
+  padding: 12px 15px;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 0.2s ease;
+}
+
+.category-option:hover,
+.category-option:focus {
   background: #333;
 }
 
@@ -472,7 +431,7 @@ Key Features:
   }
 
   .video-item {
-    flex: 0 0 calc(90vw - 20px); /* Adjust for padding */
+    flex: 0 0 calc(90vw - 20px);
     scroll-snap-align: center;
     padding: 5px;
   }
@@ -481,15 +440,15 @@ Key Features:
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
-  
+
   .scroll-hint {
     display: block !important;
-    animation: pulse 1.8s infinite ease-in-out;  
+    animation: pulse 1.8s infinite ease-in-out;
     text-align: center;
     color: #f1c40f;
     font-size: 0.9rem;
     margin-top: 5px;
-  } 
+  }
 
   .album-block {
     flex: 0 0 90vw;
@@ -585,6 +544,35 @@ Key Features:
     height: 35px;
     font-size: 1rem;
   }
+
+  .category-filter {
+    display: none;
+  }
+
+  .category-dropdown {
+    display: block;
+  }
+
+  .category-dropdown .streaming-dropdown-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    min-width: 120px;
+    min-height: 30px;
+    max-width: 130px;
+    max-height: 40px;
+  }
+
+  .category-dropdown .streaming-dropdown-menu {
+    min-width: 120px;
+    max-width: 90vw;
+    max-height: 330px;
+    overflow-y: auto;
+  }
+
+  .category-option {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+  }
 }
 
 /* ========== SMALLER MOBILE DEVICES (<=480px) ========== */
@@ -620,7 +608,7 @@ Key Features:
   }
 
   .video-item {
-    flex: 0 0 calc(85vw - 10px); /* Adjust for smaller padding */
+    flex: 0 0 calc(85vw - 10px);
     padding: 3px;
   }
 
@@ -687,6 +675,23 @@ Key Features:
     gap: 15px;
     margin-top: 8px;
   }
+
+  .category-dropdown .streaming-dropdown-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    min-width: 100px;
+    min-height: 40px;
+  }
+
+  .category-dropdown .streaming-dropdown-menu {
+    min-width: 100px;
+    max-width: 85vw;
+  }
+
+  .category-option {
+    padding: 8px 10px;
+    font-size: 0.7rem;
+  }
 }
 
 /* ========== ACCESSIBILITY ========== */
@@ -699,7 +704,9 @@ Key Features:
   .cta-button:hover,
   .cta-button:focus,
   .video-nav-button:hover,
-  .video-nav-button:focus {
+  .video-nav-button:focus,
+  .category-button:hover,
+  .category-button:focus {
     transform: none;
   }
   .streaming-dropdown-menu {
@@ -711,4 +718,12 @@ Key Features:
   .video-carousel {
     scroll-behavior: auto;
   }
+  .album-block.hidden {
+    transition: none;
+  }
+}
+
+/* completely remove filtered-out albums from flow */
+.album-grid .album-block.hidden {
+  display: none !important;
 }
