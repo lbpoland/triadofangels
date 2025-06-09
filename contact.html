@@ -36,13 +36,10 @@
 
   <!-- Icons -->
   <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" sizes="any">
-  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp">
-  <link rel="dns-prefetch" href="https://www.gstatic.com">
-  <link rel="preconnect" href="https://firestore.googleapis.com">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
 
   <!-- Fonts & Styles -->
   <link rel="stylesheet" href="/css/style.css?v=7">
-  <link rel="stylesheet" href="/css/chatbot.css?v=7">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
 
   <!-- Schema: Organization -->
@@ -139,13 +136,6 @@
         <li><a href="/publishing.html">Publishing</a></li>
         <li><a href="/digital-store.html">Digital Store</a></li>
         <li><a href="/contact.html" aria-current="page">Contact</a></li>
-        <li id="auth-nav-item">
-          <div id="global-auth-ui" role="region" aria-live="polite">
-            <span id="global-user-name" aria-label="Current user">Guest</span>
-            <button id="global-login-btn" aria-label="Sign in with Google">Sign In</button>
-            <button id="global-logout-btn" aria-label="Sign out" style="display: none;">Logout</button>
-          </div>
-        </li>
       </ul>
     </nav>
   </header>
@@ -243,24 +233,6 @@
     </div>
   </footer>
 
-  <div id="toa-chatbot" role="region" aria-label="Triad of Angels Helpdesk">
-    <button id="chatbot-icon" title="Need help? Chat with us!" aria-label="Toggle chatbot window" aria-controls="chatbot-window">
-      <img src="/assets/images/chatbot.webp" alt="Triad of Angels Chatbot Icon" width="56" height="56" loading="lazy">
-    </button>
-    <div id="chatbot-window" class="hidden" role="dialog" aria-labelledby="chatbot-header">
-      <div id="chatbot-header">
-        <strong>Triad of Angels Helpdesk</strong>
-        <button id="chatbot-close-button" aria-label="Close chatbot window">❌</button>
-      </div>
-      <div id="chatbot-body" role="log" aria-live="polite"></div>
-      <div id="chatbot-input">
-        <input type="text" id="user-input" placeholder="Ask me anything..." aria-label="Chat input">
-        <button id="chatbot-send-button" aria-label="Send message">Send</button>
-        <button id="chatbot-reset-button" aria-label="Reset conversation">Reset Chat</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Scripts -->
   <div id="global-error-toast" role="alert" aria-live="assertive"></div>
 
@@ -274,12 +246,6 @@
         toggleButton.setAttribute('aria-expanded', isExpanded);
       });
     }
-  </script>
-  <script src="/js/chatbot.js?v=7" defer fetchpriority="high"></script>
-  <script src="/js/chatbot-persist.js?v=7" defer></script>
-  <script type="module">
-    import './js/firebase-init.js?v=7';
-    import './js/auth.js?v=7';
   </script>
 </body>
 </html>

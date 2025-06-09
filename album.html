@@ -29,11 +29,8 @@
   <meta name="twitter:image" content="/assets/images/og-banner.webp">
   <link rel="canonical" href="https://www.triadofangels.com">
   <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" sizes="any">
-  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp">
-  <link rel="dns-prefetch" href="https://www.gstatic.com">
-  <link rel="preconnect" href="https://firestore.googleapis.com">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="/css/style.css?v=7">
-  <link rel="stylesheet" href="/css/chatbot.css?v=7">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
   <script type="application/ld+json">
   {
@@ -418,16 +415,16 @@
       text-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
     }
 
-    .music-player iframe {
-      width: 100%;
-      max-width: auto;
-      max-width: auto;
-      height: 1000px;
-      border: none;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      background: rgba(0, 0, 0, 0.9);
-    }
+.music-player iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px; /* Reduced height */
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.9);
+}
 
     .music-player p {
       font-size: 1.4rem;
@@ -758,13 +755,6 @@
         <li><a href="/publishing.html">Publishing</a></li>
         <li><a href="/digital-store.html">Digital Store</a></li>
         <li><a href="/contact.html">Contact</a></li>
-        <li id="auth-nav-item">
-          <div id="global-auth-ui" role="region" aria-live="polite">
-            <span id="global-user-name" aria-label="Current user">Guest</span>
-            <button id="global-login-btn" aria-label="Sign in with Google">Sign In</button>
-            <button id="global-logout-btn" aria-label="Sign out" style="display: none;">Logout</button>
-          </div>
-        </li>
       </ul>
     </nav>
   </header>
@@ -805,16 +795,6 @@
         <h2>Listen Now</h2>
         <div id="music-player-embed"></div>
       </section>
-
-      <!-- Comments Section -->
-      <section class="comments-section" aria-label="Album comments">
-        <h2>Comments</h2>
-        <div class="comment-form">
-          <textarea id="comment-input" placeholder="Write your comment here..." aria-label="Comment input" disabled></textarea>
-          <button id="submit-comment" disabled>Post Comment</button>
-        </div>
-        <div class="comment-list" id="comment-list"></div>
-      </section>
     </main>
   </div>
 
@@ -852,30 +832,8 @@
       </a>
     </div>
   </footer>
-
-  <div id="toa-chatbot" role="region" aria-label="Triad of Angels Helpdesk">
-    <button id="chatbot-icon" title="Need help? Chat with us!" aria-label="Toggle chatbot window" aria-controls="chatbot-window">
-      <img src="/assets/images/chatbot.webp" alt="Triad of Angels Chatbot Icon" width="56" height="56" loading="lazy">
-    </button>
-    <div id="chatbot-window" class="hidden" role="dialog" aria-labelledby="chatbot-header">
-      <div id="chatbot-header">
-        <strong>Triad of Angels Helpdesk</strong>
-        <button id="chatbot-close-button" aria-label="Close chatbot window">❌</button>
-      </div>
-      <div id="chatbot-body" role="log" aria-live="polite"></div>
-      <div id="chatbot-input">
-        <input type="text" id="user-input" placeholder="Ask me anything..." aria-label="Chat input">
-        <button id="chatbot-send-button" aria-label="Send message">Send</button>
-        <button id="chatbot-reset-button" aria-label="Reset conversation">Reset Chat</button>
-      </div>
-    </div>
-  </div>
   <script type="module">
-    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-    import { auth, db } from './js/firebase-init.js';
-    import './js/auth.js';
-
+  
     // Album data
     const albums = [
       {
@@ -1205,381 +1163,21 @@
       }
     });
 
-    function displayError(title, subtitle) {
-      console.error('Displaying error:', title, subtitle);
-      document.getElementById('album-title').innerHTML = title;
-      document.getElementById('album-subtitle').innerHTML = subtitle;
-      document.getElementById('album-background').style.display = 'none';
-      document.querySelector('.album-details').style.display = 'none';
-      document.querySelector('.streaming-links').style.display = 'none';
-      document.querySelector('.music-player').style.display = 'none';
-      // Keep comments section visible
-      const main = document.querySelector('.album-main');
-      const errorContainer = document.createElement('section');
-      errorContainer.className = 'error-section';
-      errorContainer.innerHTML = `
-        <h2>${title}</h2>
-        <p>${subtitle}</p>
-      `;
-      main.prepend(errorContainer);
-    }
-
-    // === Comments Section Logic ===
-    const sanitizeInput = (text) => {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML
-        .replace(/&/g, '&')
-        .replace(/</g, '<')
-        .replace(/>/g, '>')
-        .replace(/"/g, '"')
-        .replace(/'/g, '');
-    };
-
-    function showErrorToast(message) {
-      const toast = document.getElementById('global-error-toast');
-      if (toast) {
-        toast.textContent = message;
-        toast.style.display = 'block';
-        setTimeout(() => {
-          toast.style.display = 'none';
-        }, 3000);
-      } else {
-        console.warn('Error toast element not found. Check ID: global-error-toast');
-      }
-    }
-
-    class RateLimiter {
-      constructor(limit = 5, windowMs = 600000) { // 5 actions per 10 minutes
-        this.limit = limit;
-        this.windowMs = windowMs;
-        this.requests = JSON.parse(sessionStorage.getItem(`commentRateLimit_${this.getUserId() || 'anonymous'}`)) || [];
-      }
-
-      getUserId() {
-        const cachedAuth = sessionStorage.getItem('authState');
-        if (cachedAuth) {
-          try {
-            const user = JSON.parse(cachedAuth);
-            return user.uid;
-          } catch (e) {
-            console.warn('Invalid cached auth state:', e);
-          }
-        }
-        return null;
-      }
-
-      canPerformAction() {
-        const now = Date.now();
-        this.requests = this.requests.filter(timestamp => now - timestamp < this.windowMs);
-        if (this.requests.length >= this.limit) return false;
-        this.requests.push(now);
-        sessionStorage.setItem(`commentRateLimit_${this.getUserId() || 'anonymous'}`, JSON.stringify(this.requests));
-        return true;
-      }
-
-      getRemainingTime() {
-        const now = Date.now();
-        const oldestRequest = this.requests[0] || now;
-        return Math.max(0, this.windowMs - (now - oldestRequest));
-      }
-    }
-
-    class CommentsManager {
-      constructor(albumId) {
-        if (!db || !auth) {
-          throw new Error('Firebase not initialized');
-        }
-        this.albumId = albumId;
-        this.rateLimiter = new RateLimiter();
-        this.commentList = document.getElementById('comment-list');
-        this.commentInput = document.getElementById('comment-input');
-        this.submitButton = document.getElementById('submit-comment');
-
-        if (!this.commentList) {
-          console.error('Comment list element not found. Check ID: comment-list');
-          return;
-        }
-        if (!this.commentInput) {
-          console.error('Comment input element not found. Check ID: comment-input');
-          return;
-        }
-        if (!this.submitButton) {
-          console.error('Submit button not found. Check ID: submit-comment');
-          return;
-        }
-
-        this.setupEventListeners();
-        this.updateUI(null, null);
-        this.renderComments();
-      }
-
-      setupEventListeners() {
-        this.submitButton.addEventListener('click', () => this.postComment());
-        this.commentList.addEventListener('click', (e) => this.handleCommentAction(e));
-
-        onAuthStateChanged(auth, async (user) => {
-          let userData = null;
-          if (user) {
-            try {
-              const userDoc = await getDoc(doc(db, 'users', user.uid));
-              userData = userDoc.exists() ? userDoc.data() : {};
-            } catch (error) {
-              console.error('Error fetching user data:', error);
-              userData = { username: user.displayName || user.email || 'User' };
-            }
-          }
-          console.log('Auth state changed:', user ? `Logged in as ${userData?.username || user?.displayName || user?.email}` : 'No user');
-          this.updateUI(user, userData);
-          this.renderComments();
-        });
-      }
-
-      updateUI(user, userData) {
-        if (user) {
-          this.commentInput.disabled = false;
-          this.submitButton.disabled = false;
-        } else {
-          this.commentInput.disabled = true;
-          this.submitButton.disabled = true;
-        }
-      }
-
-      async postComment() {
-        const content = this.commentInput.value.trim();
-        if (!content) {
-          showErrorToast('Please enter a comment.');
-          return;
-        }
-
-        if (!auth.currentUser) {
-          showErrorToast('Please sign in to post a comment.');
-          const loginBtn = document.getElementById('global-login-btn');
-          if (loginBtn) loginBtn.click();
-          return;
-        }
-
-        if (!this.rateLimiter.canPerformAction()) {
-          const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
-          showErrorToast(`Please wait ${waitTime} seconds before posting another comment.`);
-          return;
-        }
-
-        try {
-          const userDoc = await getDoc(doc(db, 'users', auth.currentUser.uid));
-          const userData = userDoc.exists() ? userDoc.data() : {};
-          const comment = {
-            uid: auth.currentUser.uid,
-            username: userData.username || auth.currentUser.displayName || auth.currentUser.email || 'User',
-            content: sanitizeInput(content),
-            timestamp: new Date().toISOString(),
-            likes: 0,
-            dislikes: 0,
-            likedBy: [],
-            dislikedBy: []
-          };
-
-          await addDoc(collection(db, `albums/${this.albumId}/comments`), comment);
-          console.log('Comment posted successfully:', comment);
-          this.commentInput.value = '';
-          this.renderComments();
-        } catch (error) {
-          console.error('Error posting comment:', error);
-          showErrorToast('Failed to post comment. Please check your network or try again.');
-        }
-      }
-
-      async deleteComment(commentId) {
-        if (!auth.currentUser) {
-          showErrorToast('Please sign in to delete comments.');
-          const loginBtn = document.getElementById('global-login-btn');
-          if (loginBtn) loginBtn.click();
-          return;
-        }
-
-        if (!this.rateLimiter.canPerformAction()) {
-          const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
-          showErrorToast(`Please wait ${waitTime} seconds before deleting another comment.`);
-          return;
-        }
-
-        try {
-          const commentRef = doc(db, `albums/${this.albumId}/comments`, commentId);
-          await deleteDoc(commentRef);
-          console.log('Comment deleted successfully:', commentId);
-          this.renderComments();
-        } catch (error) {
-          console.error('Error deleting comment:', error);
-          showErrorToast('Failed to delete comment. Please try again.');
-        }
-      }
-
-      async handleCommentAction(e) {
-        const target = e.target;
-        if (!target.classList.contains('action-btn')) return;
-
-        const commentId = target.dataset.commentId;
-        const action = target.dataset.action;
-
-        if (!auth.currentUser) {
-          showErrorToast(`Please sign in to ${action.replace('-', ' ')} comments.`);
-          const loginBtn = document.getElementById('global-login-btn');
-          if (loginBtn) loginBtn.click();
-          return;
-        }
-
-        try {
-          const commentRef = doc(db, `albums/${this.albumId}/comments`, commentId);
-          const commentDoc = await getDoc(commentRef);
-          if (!commentDoc.exists()) {
-            console.warn('Comment not found:', commentId);
-            return;
-          }
-          let comment = commentDoc.data();
-
-          if (action === 'like') {
-            if (!this.rateLimiter.canPerformAction()) {
-              const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
-              showErrorToast(`Please wait ${waitTime} seconds before liking another comment.`);
-              return;
-            }
-            const userId = auth.currentUser.uid;
-            if (comment.likedBy.includes(userId)) {
-              comment.likedBy = comment.likedBy.filter(u => u !== userId);
-              comment.likes--;
-            } else {
-              comment.likedBy.push(userId);
-              comment.likes++;
-              if (comment.dislikedBy.includes(userId)) {
-                comment.dislikedBy = comment.dislikedBy.filter(u => u !== userId);
-                comment.dislikes--;
-              }
-            }
-            await updateDoc(commentRef, {
-              likes: comment.likes,
-              likedBy: comment.likedBy,
-              dislikes: comment.dislikes,
-              dislikedBy: comment.dislikedBy
-            });
-            console.log('Like updated:', commentId, comment.likes);
-          } else if (action === 'dislike' && auth.currentUser.email === 'triadofangels@gmail.com') {
-            if (!this.rateLimiter.canPerformAction()) {
-              const waitTime = Math.ceil(this.rateLimiter.getRemainingTime() / 1000);
-              showErrorToast(`Please wait ${waitTime} seconds before disliking another comment.`);
-              return;
-            }
-            const userId = auth.currentUser.uid;
-            if (comment.dislikedBy.includes(userId)) {
-              comment.dislikedBy = comment.dislikedBy.filter(u => u !== userId);
-              comment.dislikes--;
-            } else {
-              comment.dislikedBy.push(userId);
-              comment.dislikes++;
-              if (comment.likedBy.includes(userId)) {
-                comment.likedBy = comment.likedBy.filter(u => u !== userId);
-                comment.likes--;
-              }
-            }
-            await updateDoc(commentRef, {
-              likes: comment.likes,
-              likedBy: comment.likedBy,
-              dislikes: comment.dislikes,
-              dislikedBy: comment.dislikedBy
-            });
-            console.log('Dislike updated:', commentId, comment.dislikes);
-          } else if (action === 'delete-user' && comment.uid === auth.currentUser.uid) {
-            await this.deleteComment(commentId);
-          } else if (action === 'delete-admin' && auth.currentUser.email === 'triadofangels@gmail.com') {
-            await this.deleteComment(commentId);
-          }
-
-          this.renderComments();
-        } catch (error) {
-          console.error(`Error performing ${action} action:`, error);
-          showErrorToast(`Failed to ${action.replace('-', ' ')} comment. Please try again.`);
-        }
-      }
-
-      async renderComments() {
-        this.commentList.innerHTML = '';
-        try {
-          console.log('Fetching comments for album:', this.albumId);
-          const q = query(collection(db, `albums/${this.albumId}/comments`), orderBy('timestamp', 'desc'));
-          const querySnapshot = await getDocs(q);
-          console.log('Comments retrieved:', querySnapshot.size);
-          if (querySnapshot.empty) {
-            this.commentList.innerHTML = '<p>No comments yet. Be the first to comment!</p>';
-            return;
-          }
-          querySnapshot.forEach((doc) => {
-            const comment = doc.data();
-            const commentDiv = document.createElement('div');
-            commentDiv.className = 'comment';
-
-            const header = document.createElement('div');
-            header.className = 'comment-header';
-            header.innerHTML = `
-              <span>${comment.username}</span>
-              <span class="timestamp">${
-                comment.timestamp
-                  ? typeof comment.timestamp.toDate === 'function'
-                    ? comment.timestamp.toDate().toLocaleString()
-                    : new Date(comment.timestamp).toLocaleString()
-                  : 'Invalid timestamp'
-              }</span>
-            `;
-
-            const content = document.createElement('div');
-            content.className = 'comment-content';
-            content.textContent = comment.content;
-
-            const actions = document.createElement('div');
-            const isAdmin = auth.currentUser && auth.currentUser.email === 'triadofangels@gmail.com';
-            const isAuthor = auth.currentUser && comment.uid === auth.currentUser.uid;
-            actions.className = `comment-actions ${isAdmin ? 'admin-view' : ''} ${isAuthor ? 'user-view' : ''}`;
-            actions.innerHTML = `
-              <button class="action-btn" data-comment-id="${doc.id}" data-action="like" ${!auth.currentUser ? 'disabled' : ''}>
-                👍
-              </button>
-              <span>${comment.likes || 0}</span>
-              <button class="action-btn admin-only" data-comment-id="${doc.id}" data-action="dislike" ${!isAdmin ? 'disabled' : ''}>
-                👎
-              </button>
-              <span class="admin-only">${comment.dislikes || 0}</span>
-              ${isAuthor ? `<button class="action-btn delete-btn user-only" data-comment-id="${doc.id}" data-action="delete-user" title="Delete your comment">🗑️</button>` : ''}
-              ${isAdmin ? `<button class="action-btn delete-btn admin-delete-btn admin-only" data-comment-id="${doc.id}" data-action="delete-admin" title="Admin delete comment">🗑️ Admin</button>` : ''}
-            `;
-
-            commentDiv.appendChild(header);
-            commentDiv.appendChild(content);
-            commentDiv.appendChild(actions);
-            this.commentList.appendChild(commentDiv);
-          });
-        } catch (error) {
-          console.error('Error rendering comments:', error);
-          this.commentList.innerHTML = '<p>Failed to load comments. Please try again later.</p>';
-        }
-      }
-    }
-
-    function initializeComments(albumId) {
-      try {
-        const commentsManager = new CommentsManager(albumId);
-        commentsManager.renderComments();
-      } catch (error) {
-        console.error('Error initializing comments:', error);
-        showErrorToast('Failed to initialize comments. Please try again later.');
-      }
-    }
-
-    // Ensure Firebase is loaded before initializing comments
-    window.addEventListener('load', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const albumId = urlParams.get('id');
-      if (albumId) {
-        initializeComments(albumId);
-      }
-    });
+function displayError(title, subtitle) {
+  document.getElementById('album-title').innerHTML = title;
+  document.getElementById('album-subtitle').innerHTML = subtitle;
+  document.getElementById('album-background').style.display = 'none';
+  document.querySelector('.album-details').style.display = 'none';
+  document.querySelector('.streaming-links').style.display = 'none';
+  document.querySelector('.music-player').style.display = 'none';
+  // Remove comments section reference
+  const main = document.querySelector('.album-main');
+  const errorContainer = document.createElement('section');
+  errorContainer.className = 'error-section';
+  errorContainer.innerHTML = `<h2>${title}</h2><p>${subtitle}</p>`;
+  main.innerHTML = ''; // Clear all content
+  main.appendChild(errorContainer);
+}
   </script>
   <script>
     // Smooth scrolling for anchor links
@@ -1606,9 +1204,5 @@
       });
     }
   </script>
-  <script src="/js/chatbot.js"></script>
-  <script src="/js/chatbot-persist.js"></script>
-  <script src="/js/firebase-init.js"></script>
-  <script src="/js/auth.js"></script>
 </body>
 </html>
