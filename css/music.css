@@ -1,26 +1,3 @@
-/*
-================================================================================
-File: music.css
-Location: C:\Users\lbpol\Development\triadofangels\css\music.css
---------------------------------------------------------------------------------
-Purpose:
-Styles for the Music page, creating a clean catalog-style layout for albums and video sections with a
-responsive design that switches to a horizontal carousel on mobile devices for albums and on both desktop
-and mobile for videos. Includes mobile-only artist dropdowns, album-specific dropdowns, video carousels,
-and a genre filter with desktop buttons and a mobile dropdown.
-
-Key Features:
-- Album Grid: Grid layout for desktop with auto-re-alignment on filter, swipeable carousel for mobile.
-- Video Grid: Horizontal scrolling carousel for YouTube videos, full-width with auto height.
-- Artist Links: Buttons on desktop, dropdowns on mobile ("Stream Now" and "Buy Now").
-- Album Dropdowns: "Stream Now" and "Buy Now" dropdowns below each album, spanning image width.
-- Genre Filter: Buttons on desktop, dropdown on mobile, with proper album filtering and grid re-alignment.
-- Responsive Design: Adapts to desktop, tablet, and mobile screens.
-- Accessibility: High contrast, focus states, touch-friendly targets, ARIA attributes.
-- Performance: Optimized for fast rendering and smooth scrolling.
-================================================================================
-*/
-
 /* ========== DESKTOP STYLES (Base Styles for >768px) ========== */
 .scroll-hint {
   display: none !important;

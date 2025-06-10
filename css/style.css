@@ -1,29 +1,3 @@
-/*
-========================================================
-Triad of Angels - Main Stylesheet (Optimized & Enhanced)
---------------------------------------------------------
-• Reset & Base
-• Navigation (with Integrated Login UI, Mobile Header with Left Menu Toggle and Right Auth UI)
-• Hero Section (Sticky Scrolling Video)
-• Sections (Featured, About, Quick Links)
-• Footer
-• Responsive Enhancements (Mobile-First)
-• Accessibility & Performance Tweaks
-• Username Modal (Updated with Cancel Button)
-• Error Toast (Enhanced for Visibility)
-• Comment Section (Mobile-Optimized)
-• Mobile Navigation (Full-Width Header with Menu Toggle Left, Auth UI Right)
-• Video Carousel (Added for Featured Videos on index.html)
-
-Last Updated: 2025-05-27
-- Added video carousel styles for Featured Videos section on index.html
-- Maintained all existing styles unchanged
-- Ensured responsive and accessible design for video carousel
-- Optimized for mobile-first design and touch interaction
-========================================================
-*/
-
-/* Reset + Base Styles */
 *,
 *::before,
 *::after {
