@@ -335,7 +335,6 @@
         <li><a href="/index.html" aria-current="page">Home</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/music.html">Music</a></li>
-        <li><a href="/visual.html">Visual</a></li>
         <li><a href="/games.html">Games</a></li>
         <li><a href="/apps.html">Apps</a></li>
         <li><a href="/merch.html">Merch</a></li>
@@ -360,23 +359,25 @@
     </div>
   </section>
 
-    <section class="album-catalog" aria-labelledby="new-albums-title">
-      <h2 id="new-albums-title">🎵 Albums Coming Soon! 🎵</h2>
-      <h2 id="new-albums-title">**Available for pre-purchase**</h2>
-      <div class="divider2"></div>	  
-      <div class="album-grid" role="list">
-        <article class="album-block" role="listitem">
-          <a href="/album.html?id=american-firestorm-songs-of-freedom" class="album-link" aria-label="American Firestorm Songs of Freedom by ToA Studios">
-            <h3>American Firestorm: Songs of Freedom</h3>
-            <img src="/assets/images/albums/songsoffreedom-album.webp" alt="American Firestorm: Songs of Freedom album cover" loading="lazy">
-            <p>ToA Studios | 20th June 2025</p>
-          </a>
-          <a href="https://music.apple.com/au/album/american-firestorm-songs-of-freedom/1813521823" target="_blank" rel="noopener" class="cta-button" aria-label="Pre-order American Firestorm: Songs of Freedom on iTunes">iTunes</a>
-          <a href="https://amazon.com/music/player/albums/B0F83KXNQ4?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_I8SeZV0K68n1EH2ekoKfDP153" target="_blank" rel="noopener" class="cta-button" aria-label="Pre-order American Firestorm: Songs of Freedom on Amazon">Amazon</a>		  
-        </article>
+<section class="video-grid" style="padding: 40px 20px;">
+  <h2 style="text-align: center;">Welcome to Triad of Angels | ToA Studios</h2>
+  <div class="divider2"></div>
+  <div class="video-carousel-container">
+      <div class="video-item">
+<iframe
+  src="https://www.youtube-nocookie.com/embed/qDmNqU9TijU?rel=0"
+  title="Featured Video 1"
+  loading="lazy"
+  width="560"
+  height="315"
+  frameborder="0"
+  allow="autoplay; encrypted-media; picture-in-picture"
+  referrerpolicy="origin"
+  allowfullscreen>
+</iframe>
       </div>
-    </section>
-
+  </div>
+</section>
     <section class="about-preview" aria-labelledby="about-preview-title">
       <h2 id="about-preview-title">About Triad of Angels</h2>
       <p>Triad of Angels, powered by ToA Studios, is a creative force blending cinematic pop, heavy metal, country music, games, and technology. Rooted in hope, strength, and innovation, we craft experiences that inspire and ignite.</p>
@@ -420,68 +421,15 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Load YouTube videos on click
-      document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
-        thumbnail.addEventListener('click', () => {
-          const iframe = document.createElement('iframe');
-          iframe.src = thumbnail.dataset.src;
-          iframe.title = thumbnail.dataset.title;
-          iframe.width = "560";
-          iframe.height = "315";
-          iframe.frameBorder = "0";
-          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-          iframe.referrerpolicy = "strict-origin-when-cross-origin";
-          iframe.allowFullscreen = true;
-          thumbnail.parentElement.replaceChild(iframe, thumbnail);
-        });
-      });
-
-      // Video navigation
-      const videoNavButtons = document.querySelectorAll('.video-nav-button');
-      videoNavButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const carouselId = button.getAttribute('data-carousel');
-          const carousel = document.getElementById(carouselId);
-          const videoItems = carousel.querySelectorAll('.video-item');
-          const scrollAmount = videoItems[0].offsetWidth + 20;
-
-          if (button.classList.contains('video-nav-left')) {
-            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-          } else if (button.classList.contains('video-nav-right')) {
-            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-          }
-        });
-
-        button.addEventListener('touchstart', (e) => {
-          e.preventDefault();
-          const carouselId = button.getAttribute('data-carousel');
-          const carousel = document.getElementById(carouselId);
-          const videoItems = carousel.querySelectorAll('.video-item');
-          const scrollAmount = videoItems[0].offsetWidth + 20;
-
-          if (button.classList.contains('video-nav-left')) {
-            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-          } else if (button.classList.contains('video-nav-right')) {
-            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-          }
-        }, { passive: false });
-      });
-
-      // Mobile menu toggle
-      const toggleButton = document.getElementById('mobile-menu-toggle');
-      const navMenu = document.getElementById('main-nav');
-      if (toggleButton && navMenu) {
-        toggleButton.addEventListener('click', () => {
-          const isExpanded = navMenu.classList.toggle('show');
-          toggleButton.setAttribute('aria-expanded', isExpanded);
-        });
-      }
-    });
-  </script>
-
-  <script>
     document.documentElement.style.scrollBehavior = 'smooth';
+    const toggleButton = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('main-nav');
+    if (toggleButton && navMenu) {
+      toggleButton.addEventListener('click', () => {
+        const isExpanded = navMenu.classList.toggle('show');
+        toggleButton.setAttribute('aria-expanded', isExpanded);
+      });
+    }
   </script>
 </body>
 </html>
