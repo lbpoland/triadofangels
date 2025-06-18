@@ -185,15 +185,32 @@ header nav ul li a:focus {
     justify-content: center;
 }
 
-.background-video {
+.hero-background-alt {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    z-index: -2;
     pointer-events: none;
+    background: linear-gradient(160deg, #0b0c2a 0%, #081744 50%, #010a1e 100%); /* You can modify this */
+}
+
+.picture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .hero-banner::after {
@@ -218,9 +235,22 @@ header nav ul li a:focus {
     font-family: 'Orbitron', sans-serif;
     font-size: 3rem;
     color: #f1c40f;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(241, 196, 15, 0.5);
+    text-shadow:
+        0 0 5px rgba(241, 196, 15, 0.4),
+        0 0 15px rgba(241, 196, 15, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.2),
+        0 0 60px rgba(14, 176, 255, 0.1); /* soft cosmic aura */
     margin: 0;
 }
+
+h1, h2, h3 {
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.1),
+        0 0 8px rgba(241, 196, 15, 0.3),
+        0 0 12px rgba(241, 196, 15, 0.6);
+}
+
+
 
 .hero-content p {
     font-size: 1.5rem;
@@ -831,8 +861,8 @@ video {
 
 /* Video Carousel Styles */
 .video-grid {
-  border-radius: 15px;
-  border: 2px solid rgba(241, 196, 15, 0.15);
+
+
   padding: 40px 20px;
   overflow-x: hidden;
   max-width: 1200px;
@@ -1025,15 +1055,11 @@ video {
         justify-content: center;
     }
 
-    .background-video {
-        position: fixed;
-        top: 0;
-        left: 0;
+    .picture img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        z-index: -1;
-        pointer-events: none;
+        object-position: center;
     }
 
     .hero-content h1 {
@@ -1234,15 +1260,11 @@ video {
         justify-content: center;
     }
 
-    .background-video {
-        position: fixed;
-        top: 0;
-        left: 0;
+    .picture img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        z-index: -1;
-        pointer-events: none;
+        object-position: center;
     }
 
     .hero-content h1 {
@@ -1454,3 +1476,4 @@ video {
         color: LinkText;
     }
 }
+

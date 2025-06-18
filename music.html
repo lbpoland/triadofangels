@@ -90,13 +90,8 @@
     </nav>
   </header>
 
-  <section class="hero-banner">
-    <video autoplay muted loop playsinline class="background-video" aria-hidden="true">
-      <source src="assets/videos/hero-banner-480p.mp4" type="video/mp4" media="(max-width: 480px)">
-      <source src="assets/videos/hero-banner-720p.mp4" type="video/mp4" media="(max-width: 768px)">
-      <source src="assets/videos/hero-banner-1080p.mp4" type="video/mp4">
-      <img src="assets/images/hero-banner.webp" alt="Fallback image: cosmic banner" loading="lazy">
-    </video>
+  <section class="hero-banner" aria-label="Music hero page section">
+<div class="hero-background-alt"></div>
     <div class="hero-content" style="background: none; box-shadow: none;">
       <h1>Triad of Angels - Music Collection</h1>
       <p>Soundtracks of strength, spirit, and innovation</p>
@@ -144,7 +139,7 @@
     </section>
 
     <section class="album-catalog" style="padding: 40px 20px;">
-      <h2 style="text-align: center;">🎶 Triad of Angels Albums 🎶</h2>
+      <h2 style="text-align: center;">Triad of Angels Albums</h2>
       <div class="divider2"></div>	  
       <div class="artist-links" style="text-align: center; margin: 10px 0 20px;">
       <div class="album-grid">
@@ -237,12 +232,44 @@
           </a>
           <h4>Celestia: The Light Within</h4>
         </article>
+		
+        </article>
+        <article class="album-block">
+          <div class="album-actions">
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="celestia-the-light-within-streaming-menu">Stream Now</button>
+              <ul class="streaming-dropdown-menu" id="celestia-the-light-within-streaming-menu">
+                <li><a href="https://open.spotify.com/album/567eYko6C0VuGXKq4myvIC?si=pvGKdX-UQAa9q-XOwvpqkQ" target="_blank" rel="noopener" aria-label="Stream Celestia: The Light Within on Spotify">Spotify</a></li>
+                <li><a href="https://music.apple.com/us/artist/triad-of-angels/1811109753" target="_blank" rel="noopener" aria-label="Stream Celestia: The Light Within on Apple Music">Apple Music</a></li>
+                <li><a href="https://music.amazon.com/albums/B0F9PZSYFS?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_jSnNBcS95MzjpfHhuMMAq6Y21" target="_blank" rel="noopener" aria-label="Stream Celestia: The Light Within on Amazon Music">Amazon Music</a></li>
+                <li><a href="https://tidal.com/browse/artist/57875008?u" target="_blank" rel="noopener" aria-label="Stream Celestia: The Light Within on Tidal">Tidal</a></li>				
+                <li><a href="https://www.iheart.com/artist/triad-of-angels-46655903/albums/ascend-327002587/" target="_blank" rel="noopener" aria-label="Stream Celestia: The Light Within on iHeartRadio">iHeartRadio</a></li>
+                <li><a href="https://www.boomplay.com/albums/111117350?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Celestia: The Light Within on Boomplay">Boomplay</a></li>
+                <li><a href="https://dzr.page.link/1Bk54PWgSNZrxW6B9" target="_blank" rel="noopener" aria-label="Stream Celestia: The Light Within on Deezer">Deezer</a></li>
+                <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_kj2xaQyIOlhLxcXxpBy4nzhUXhrWaUlic&si=UGXcIqtMu7Xwypm0" target="_blank" rel="noopener" aria-label="Stream Celestia: The Light Within on YouTube Music">YouTube Music</a></li>
+              </ul>
+            </div>
+            <div class="streaming-dropdown">
+              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="celestia-the-light-within-buy-menu">Buy Now</button>
+              <ul class="streaming-dropdown-menu" id="celestia-the-light-within-buy-menu">
+                <li><a href="https://music.apple.com/us/album/ascend/1812603057" target="_blank" rel="noopener" aria-label="Purchase Celestia: The Light Within on iTunes">iTunes</a></li>
+                <li><a href="https://amazon.com/music/player/albums/B0F9PZSYFS?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_vzBmS4ZUWHQPiNh5cDtiduRcg" target="_blank" rel="noopener" aria-label="Purchase Celestia: The Light Within on Amazon">Amazon</a></li>
+              </ul>			  
+            </div>
+          </div>
+          <br>     
+          <a href="album.html?id=divine-echoes" class="album-link" aria-label="Divine Echoes by Triad of Angels">
+            <img src="assets/images/albums/divine-echoes-album.webp" alt="Album cover for Divine Echoes by Triad of Angels" loading="lazy" />
+          </a>
+          <h4>Divine Echoes</h4>
+        </article>
+		
       </div>
       <div class="scroll-hint">← Scroll albums →</div>
     </section>
 
 <section class="video-grid" style="padding: 40px 20px;">
-  <h2 style="text-align: center;">🎥🎞️ Triad of Angels Featured Videos 🎞️🎥</h2>
+  <h2 style="text-align: center;">Triad of Angels Featured Videos</h2>
   <div class="divider2"></div>
   <div class="video-carousel-container">
     <div class="video-carousel" id="triad-videos">
@@ -284,33 +311,7 @@
   referrerpolicy="origin"
   allowfullscreen>
 </iframe>			
-      </div>		  
-      <div class="video-item">
-<iframe
-  src="https://www.youtube-nocookie.com/embed/FQs331KG-qU?rel=0"
-  title="Triad of Angels Music Video 4"
-  loading="lazy"
-  width="560"
-  height="315"
-  frameborder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  referrerpolicy="origin"
-  allowfullscreen>
-</iframe>		
-      </div>		  
-      <div class="video-item">
-<iframe
-  src="https://www.youtube-nocookie.com/embed/hYDEY_DTLgg?rel=0"
-  title="Triad of Angels Music Video 5"
-  loading="lazy"
-  width="560"
-  height="315"
-  frameborder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  referrerpolicy="origin"
-  allowfullscreen>
-</iframe>		
-      </div>	
+      </div>		  	
     </div>
     <div class="video-nav-buttons">
       <button class="video-nav-button video-nav-left" aria-label="Scroll to previous video" data-carousel="triad-videos">
@@ -321,7 +322,7 @@
       </button>
     </div>
   </div>
-  <div class="scroll-hint">← Scroll videos →</div>
+  <div class="scroll-hint">←    Scroll videos    →</div>
 </section>
 
     <section class="album-catalog" style="padding: 40px 20px;">
@@ -366,7 +367,7 @@
     </section>
 
 <section id="toa-studios-albums" class="album-catalog" style="padding: 40px 20px;">
-  <h2 style="text-align: center;">🎶 ToA Studios Albums 🎶</h2>
+  <h2 style="text-align: center;">ToA Studios Albums</h2>
   <div class="divider2"></div>
   <div class="category-filter" style="text-align: center; margin: 20px 0;">
     <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 10px;">Filter by Genre</h3>
@@ -382,7 +383,8 @@
       <button class="category-button" data-category="rap" aria-label="Show Rap albums">Rap 🎤</button>
       <button class="category-button" data-category="rnb" aria-label="Show RnB albums">RnB 🎶</button>
       <button class="category-button" data-category="dance" aria-label="Show Dance albums">Dance 💃</button>
-      <button class="category-button" data-category="funk" aria-label="Show Funk albums">Funk 🕺</button>	  
+      <button class="category-button" data-category="funk" aria-label="Show Funk albums">Funk 🕺</button>
+      <button class="category-button" data-category="EDM" aria-label="Show EDM albums">EDM 🎧</button>	  
     </div>
     <div class="category-dropdown">
       <button class="streaming-dropdown-button" aria-expanded="false" aria-controls="toa-category-menu">Categories</button>
@@ -398,7 +400,8 @@
         <li><a href="#" class="category-option" data-category="rap" aria-label="Show Rap albums">Rap 🎤</a></li>
         <li><a href="#" class="category-option" data-category="rnb" aria-label="Show RnB albums">RnB 🎶</a></li>
         <li><a href="#" class="category-option" data-category="dance" aria-label="Show Dance albums">Dance 💃</a></li>
-        <li><a href="#" class="category-option" data-category="funk" aria-label="Show Funk albums">Funk 🕺</a></li>		
+        <li><a href="#" class="category-option" data-category="funk" aria-label="Show Funk albums">Funk 🕺</a></li>	
+        <li><a href="#" class="category-option" data-category="EDM" aria-label="Show EDM albums">EDM 🎧</a></li>		
       </ul>
     </div>
   </div>
@@ -577,7 +580,7 @@
       </a>
       <h4>Serpent's Veil</h4>
     </article>
-    <article class="album-block" data-category="dance">
+    <article class="album-block" data-category="EDM dance">
       <div class="album-actions">
         <div class="streaming-dropdown">
           <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="constellation-frequency-streaming-menu">Stream Now</button>
@@ -606,7 +609,7 @@
       </a>
       <h4>Constellation Frequency: Volume 1</h4>
     </article>
-    <article class="album-block" data-category="dance">
+    <article class="album-block" data-category="EDM dance">
       <div class="album-actions">
         <div class="streaming-dropdown">
           <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="constellation-frequency2-streaming-menu">Stream Now</button>
@@ -634,13 +637,74 @@
         <img src="assets/images/albums/constellation-frequency2-album.webp" alt="Album cover for Constellation Frequency: Volume 2 by ToA Studios" loading="lazy" />
       </a>
       <h4>Constellation Frequency: Volume 2</h4>
-    </article>		
+    </article>
+
+    <article class="album-block" data-category="EDM dance">
+      <div class="album-actions">
+        <div class="streaming-dropdown">
+          <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="enchantra-streaming-menu">Stream Now</button>
+          <ul class="streaming-dropdown-menu" id="enchantra-streaming-menu">
+            <li><a href="https://open.spotify.com/album/1HSO7heOxXFkgACt4RHHfh?si=7R0XwiP0STqY5cWwmqx74Q" target="_blank" rel="noopener" aria-label="Stream Enchantra on Spotify">Spotify</a></li>
+            <li><a href="https://music.apple.com/us/album/enchantra/1819973546" target="_blank" rel="noopener" aria-label="Stream Enchantra on Apple Music">Apple Music</a></li>
+            <li><a href="https://music.amazon.com/albums/B0FCM2XYZN?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_yaJ7LLXM72eVOakgWpYCpdIED" target="_blank" rel="noopener" aria-label="Stream Enchantra on Amazon Music">Amazon Music</a></li>
+            <li><a href="https://tidal.com/browse/album/441181484" target="_blank" rel="noopener" aria-label="Stream Enchantra on Tidal">Tidal</a></li>			
+            <li><a href="https://www.iheart.com/artist/toa-studios-46720429/albums/enchantra-333085151/" target="_blank" rel="noopener" aria-label="Stream Enchantra on iHeartRadio">iHeartRadio</a></li>
+            <li><a href="https://www.boomplay.com/albums/111952695?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Enchantra on Boomplay">Boomplay</a></li>
+            <li><a href="https://dzr.page.link/KCj1uz2ugade8nt76" target="_blank" rel="noopener" aria-label="Stream Enchantra on Deezer">Deezer</a></li>
+            <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_neLPAVxfVTwJWm4gMAyEWLxDdLmDq_Zjo&si=AxV8ZQq55t7MMQ9E" target="_blank" rel="noopener" aria-label="Stream Enchantra on YouTube Music">YouTube Music</a></li>
+          </ul>
+        </div>
+        <div class="streaming-dropdown">
+          <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="enchantra-buy-menu">Buy Now</button>
+          <ul class="streaming-dropdown-menu" id="enchantra-buy-menu">
+            <li><a href="https://music.apple.com/us/album/enchantra/1819973546" target="_blank" rel="noopener" aria-label="Purchase Enchantra on iTunes">iTunes</a></li>
+            <li><a href="https://music.amazon.com/albums/B0FCM2XYZN?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_yaJ7LLXM72eVOakgWpYCpdIED" target="_blank" rel="noopener" aria-label="Purchase Enchantra on Amazon">Amazon</a></li>
+          </ul>		  
+        </div>
+      </div>
+      <br>
+      <a href="album.html?id=enchantra" class="album-link" aria-label="Enchantra by ToA Studios">
+        <img src="assets/images/albums/enchantra-album.webp" alt="Album cover for Enchantra by ToA Studios" loading="lazy" />
+      </a>
+      <h4>Enchantra</h4>
+    </article>
+	
+    <article class="album-block" data-category="EDM dance">
+      <div class="album-actions">
+        <div class="streaming-dropdown">
+          <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="enchantra2-streaming-menu">Stream Now</button>
+          <ul class="streaming-dropdown-menu" id="enchantra2-streaming-menu">
+            <li><a href="https://open.spotify.com/album/1LUSiMi00kAFbldh7a5UsR?si=aZKuLnz8Qr6qTnS5vaBi2g" target="_blank" rel="noopener" aria-label="Stream Enchantra Volume 2 on Spotify">Spotify</a></li>
+            <li><a href="https://music.apple.com/us/album/enchantra-volume-2/1821240118" target="_blank" rel="noopener" aria-label="Stream Enchantra Volume 2 on Apple Music">Apple Music</a></li>
+            <li><a href="https://music.amazon.com/albums/B0FDH2HJ5B?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_T47v11XvHq3EhYnBIPlvZrvdy" target="_blank" rel="noopener" aria-label="Stream Enchantra Volume 2 on Amazon Music">Amazon Music</a></li>
+            <li><a href="https://tidal.com/browse/album/442694823" target="_blank" rel="noopener" aria-label="Stream Enchantra Volume 2 on Tidal">Tidal</a></li>			
+            <li><a href="https://www.iheart.com/artist/toa-studios-46720429/albums/enchantra-volume-2-334390944/" target="_blank" rel="noopener" aria-label="Stream Enchantra Volume 2 on iHeartRadio">iHeartRadio</a></li>
+            <li><a href="https://www.boomplay.com/albums/112296842?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream Enchantra Volume 2 on Boomplay">Boomplay</a></li>
+            <li><a href="https://dzr.page.link/ja3paiWZQVQu5uxL7" target="_blank" rel="noopener" aria-label="Stream Enchantra Volume 2 on Deezer">Deezer</a></li>
+            <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_kWws7VcUIzPwNC-dC4UvF82s82YoAxV3U&si=M3nOM0kuFxlj1GRz" target="_blank" rel="noopener" aria-label="Stream Enchantra Volume 2 on YouTube Music">YouTube Music</a></li>
+          </ul>
+        </div>
+        <div class="streaming-dropdown">
+          <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="enchantra2-buy-menu">Buy Now</button>
+          <ul class="streaming-dropdown-menu" id="enchantra2-buy-menu">
+            <li><a href="https://music.apple.com/us/album/enchantra-volume-2/1821240118" target="_blank" rel="noopener" aria-label="Purchase Enchantra Volume 2 on iTunes">iTunes</a></li>
+            <li><a href="https://music.amazon.com/albums/B0FDH2HJ5B?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_T47v11XvHq3EhYnBIPlvZrvdy" target="_blank" rel="noopener" aria-label="Purchase Enchantra Volume 2 on Amazon">Amazon</a></li>
+          </ul>		  
+        </div>
+      </div>
+      <br>
+      <a href="album.html?id=enchantra2" class="album-link" aria-label="Enchantra Volume 2 by ToA Studios">
+        <img src="assets/images/albums/enchantra2-album.webp" alt="Album cover for Enchantra Volume 2 by ToA Studios" loading="lazy" />
+      </a>
+      <h4>Enchantra Volume 2</h4>
+    </article>	
+	
   </div>
-  <div class="scroll-hint">← Scroll albums →</div>
+  <div class="scroll-hint">←    Scroll albums    →</div>
 </section>
 
 <section class="video-grid" style="padding: 40px 20px;">
-  <h2 style="text-align: center;">🎥🎞️ ToA Studios Featured Videos 🎞️🎥</h2>
+  <h2 style="text-align: center;">ToA Studios Featured Videos</h2>
   <div class="divider2"></div>
   <div class="video-carousel-container">
     <div class="video-carousel" id="toa-videos">
@@ -708,84 +772,6 @@
   referrerpolicy="origin"
   allowfullscreen>
 </iframe>			
-      </div>
-      <div class="video-item">
-<iframe
-  src="https://www.youtube-nocookie.com/embed/mumQK-e8gak?rel=0"
-  title="ToA Studios Music Video 6"
-  loading="lazy"
-  width="560"
-  height="315"
-  frameborder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  referrerpolicy="origin"
-  allowfullscreen>
-</iframe>		
-      </div>
-      <div class="video-item">
-<iframe
-  src="https://www.youtube-nocookie.com/embed/PtR2LNAO-S8?rel=0"
-  title="ToA Studios Music Video 7"
-  loading="lazy"
-  width="560"
-  height="315"
-  frameborder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  referrerpolicy="origin"
-  allowfullscreen>
-</iframe>		
-      </div>	
-      <div class="video-item">
-<iframe
-  src="https://www.youtube-nocookie.com/embed/qYu9KHafSuA?rel=0"
-  title="ToA Studios Music Video 8"
-  loading="lazy"
-  width="560"
-  height="315"
-  frameborder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  referrerpolicy="origin"
-  allowfullscreen>
-</iframe>		
-      </div>	
-      <div class="video-item">
-<iframe
-  src="https://www.youtube-nocookie.com/embed/GMlJ43US8r4?rel=0"
-  title="ToA Studios Music Video 9"
-  loading="lazy"
-  width="560"
-  height="315"
-  frameborder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  referrerpolicy="origin"
-  allowfullscreen>
-</iframe>			
-      </div>			
-      <div class="video-item">
-<iframe
-  src="https://www.youtube-nocookie.com/embed/jR6dCc1_Ia8?rel=0"
-  title="ToA Studios Music Video 10"
-  loading="lazy"
-  width="560"
-  height="315"
-  frameborder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  referrerpolicy="origin"
-  allowfullscreen>
-</iframe>			
-      </div>	
-      <div class="video-item">
-<iframe
-  src="https://www.youtube-nocookie.com/embed/78fgBE8NOvY?rel=0"
-  title="ToA Studios Music Video 11"
-  loading="lazy"
-  width="560"
-  height="315"
-  frameborder="0"
-  allow="autoplay; encrypted-media; picture-in-picture"
-  referrerpolicy="origin"
-  allowfullscreen>
-</iframe>		
       </div>	  
     </div>
     <div class="video-nav-buttons">
@@ -801,7 +787,7 @@
 </section>
 
     <section class="album-catalog" style="padding: 40px 20px;">
-      <h2 style="text-align: center;">🎶 Albums Coming Soon! 🎶</h2>
+      <h2 style="text-align: center;">Albums Coming Soon!</h2>
       <div class="divider2"></div>	  
       <div style="text-align: center; margin: 10px 0 20px;"></div>
       <div class="album-grid">  
@@ -823,7 +809,7 @@
           <h4>20th of June, 2025</h4>
         </article>
       </div>
-      <div class="scroll-hint">← Scroll albums →</div>
+      <div class="scroll-hint">←    Scroll albums    →</div>
     </section>
   </main>
 
