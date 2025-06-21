@@ -1,0 +1,630 @@
+<!-- track.html -->
+<!-- This is the main template for individual track pages on www.triadofangels.com. It dynamically displays details for a specific track, including lyrics, streaming links, and additional content, using the same design as album.html (same CSS, background, header/footer). The page is fully optimized for SEO, accessibility, and user engagement. -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
+<head>
+  <!-- Meta Tags: Define character encoding, viewport for responsiveness, and SEO metadata -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <!-- Description: Unique for each track, includes track title, album, artist, and keywords for SEO -->
+  <meta name="description" content="">
+  <!-- Keywords: Include track-specific, album, artist, and genre terms for search engine indexing -->
+  <meta name="keywords" content="">
+  <meta name="author" content="Triad of Angels & ToA Studios">
+  <!-- Robots: Allow indexing and following for maximum crawlability -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Open Graph: Optimize for social media sharing (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="Album cover for track">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Triad of Angels">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card: Optimize for Twitter/X sharing -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@triadofangels">
+  <meta name="twitter:creator" content="@triadofangels">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+  <!-- Canonical URL: Prevent duplicate content issues -->
+  <link rel="canonical" href="">
+  <!-- Favicon and Apple Touch Icon: Consistent branding across devices -->
+  <link rel="icon" type="image/webp" href="/assets/images/favicon.webp" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <!-- CSS: Reuse album.css and style.css for consistent design with album.html -->
+  <link rel="stylesheet" href="/css/track.css?v=7">
+  <link rel="stylesheet" href="/css/album.css?v=7">
+  <link rel="stylesheet" href="/css/style.css?v=7">
+  <!-- Fonts: Load Google Fonts asynchronously for performance -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
+  <!-- Title: Dynamically updated with track and artist name -->
+  <title id="dynamic-title">Track Details | Triad of Angels & ToA Studios</title>
+
+  <!-- Hreflang: Support international SEO for different English-speaking regions -->
+  <link rel="alternate" href="https://www.triadofangels.com/track.html?id={track.id}&album={album.id}" hreflang="en-US" />
+  <link rel="alternate" href="https://www.triadofangels.com/au/track.html?id={track.id}&album={album.id}" hreflang="en-AU" />
+  <link rel="alternate" href="https://www.triadofangels.com/uk/track.html?id={track.id}&album={album.id}" hreflang="en-GB" />
+  <link rel="alternate" href="https://www.triadofangels.com/track.html?id={track.id}&album={album.id}" hreflang="x-default" />
+
+  <!-- Schema.org: Structured data for MusicRecording and BreadcrumbList to enhance rich snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicRecording",
+    "name": "{track.title}",
+    "byArtist": {
+      "@type": "MusicGroup",
+      "name": "{album.artist}"
+    },
+    "inAlbum": {
+      "@type": "MusicAlbum",
+      "name": "{album.title}",
+      "url": "https://www.triadofangels.com/album.html?id={album.id}"
+    },
+    "genre": "{album.genre}",
+    "url": "https://www.triadofangels.com/track.html?id={track.id}&album={album.id}",
+    "image": "{album.cover}",
+    "datePublished": "{album.year}",
+    "duration": "{track.duration || ''}",
+    "description": "Listen to {track.title} from {album.title} by {album.artist}, a {album.genre} track. Explore lyrics, streaming links, and more.",
+    "sameAs": [
+      "{album.links.spotify || ''}",
+      "{album.links.appleMusic || ''}",
+      "{album.links.amazonMusic || ''}",
+      "{album.links.tidal || ''}",
+      "{album.links.iHeartRadio || ''}",
+      "{album.links.boomplay || ''}",
+      "{album.links.deezer || ''}",
+      "{album.links.youTubeMusic || ''}",
+      "{album.links.iTunes || ''}"
+    ].filter(link => link !== ''),
+    "offers": {
+      "@type": "Offer",
+      "price": "1.29",
+      "priceCurrency": "USD",
+      "url": "https://www.triadofangels.com/store/{album.id}/{track.id}",
+      "availability": "https://schema.org/InStock"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://www.triadofangels.com/track.html?id={track.id}&album={album.id}",
+    "name": "{track.title} | Lyrics & Details | {album.artist}",
+    "description": "Explore {track.title} from {album.title} by {album.artist}, a {album.genre} track. View lyrics, stream now, and discover more.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://www.triadofangels.com",
+      "name": "Triad of Angels"
+    },
+    "datePublished": "2025-06-18",
+    "lastReviewed": "2025-06-18",
+    "inLanguage": "en-US",
+    "potentialAction": {
+      "@type": "ReadAction",
+      "target": "https://www.triadofangels.com/track.html?id={track.id}&album={album.id}"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.TriadOfAngels.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Music",
+        "item": "https://www.TriadOfAngels.com/music.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{album.title}",
+        "item": "https://www.TriadOfAngels.com/album.html?id={album.id}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "{track.title}",
+        "item": "https://www.TriadOfAngels.com/track.html?id={track.id}&album={album.id}"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Triad of Angels",
+    "alternateName": "ToA Studios",
+    "url": "https://www.TriadOfAngels.com",
+    "logo": "/assets/images/logo.webp",
+    "sameAs": [
+      "https://www.tiktok.com/@triadofangels",
+      "https://www.instagram.com/triadofangels/",
+      "https://www.youtube.com/@triadofangels",
+      "https://www.facebook.com/triadofangels",
+      "https://x.com/triadofangels"
+    ],
+    "description": "Triad of Angels, powered by ToA Studios, is a creative force delivering music across genres like cinematic pop, heavy metal, country, trance, EDM, dance, funk, rap, hip-hop, and more, along with games, apps, and visuals.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@triadofangels.com",
+      "contactType": "Customer Support"
+    },
+    "foundingDate": "2024",
+    "founder": {
+      "@type": "Person",
+      "name": "Samantha, Jessica, and Sonya"
+    }
+  }
+  </script>
+</head>
+
+<body class="album-page">
+  <!-- Album Background: Uses the same album cover as album.html for visual consistency -->
+  <!-- Edit: Ensure album.cover path is correct in the albums array in data.js -->
+  <img id="album-background" class="album-background" alt="Blurred album cover background" loading="lazy" />
+
+  <!-- Header: Identical to album.html for consistent navigation -->
+  <header role="banner">
+    <nav role="navigation" aria-label="Main site navigation">
+      <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="menu-icon">☰</span>
+        <span class="menu-label">Menu</span>
+      </button>
+      <ul id="main-nav" role="list">
+        <li><a href="/index.html" aria-current="page">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/music.html">Music</a></li>
+        <li><a href="/games.html">Games</a></li>
+        <li><a href="/apps.html">Apps</a></li>
+        <li><a href="/merch.html">Merch</a></li>
+        <li><a href="/publishing.html">Publishing</a></li>
+        <li><a href="/digital-store.html">Digital Store</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="album-container">
+    <!-- Track Hero Section: Displays track title and subtitle, styled like album-hero in album.html -->
+    <!-- Edit: No changes needed here; JavaScript dynamically updates content -->
+    <section class="track-hero" aria-label="Track hero section">
+      <div class="track-hero-content">
+        <h1 id="track-title">Loading...</h1>
+        <p id="track-subtitle">From the album by Triad of Angels & ToA Studios</p>
+      </div>
+    </section>
+
+    <main class="track-main">
+      <!-- Track Details: Displays track information, album cover, and links to the album page -->
+      <!-- Edit: Add track-specific data (e.g., duration, story) to the albums array -->
+      <section class="track-details" aria-label="Track details">
+        <div class="album-cover">
+          <img id="album-cover" alt="Album cover" loading="lazy" />
+        </div>
+        <div class="track-info">
+          <h2 id="track-info-title">Loading...</h2>
+          <p id="track-artist"><strong>Artist:</strong> Loading...</p>
+          <p id="track-album"><strong>Album:</strong> <a href="#">Loading...</a></p>
+          <p id="track-genre"><strong>Genre:</strong> Loading...</p>
+          <p id="track-duration"><strong>Duration:</strong> Loading...</p>
+          <p id="track-story"><strong>Song Story:</strong> Loading...</p>
+        </div>
+      </section>
+
+<!-- ToA Studios Music Player: Custom player for the specific track -->
+<section class="to-a-player" aria-label="ToA Studios Music Player">
+  <div class="player-container">
+    <div id="yt-player-container" class="yt-player-frame">
+      <iframe id="yt-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen width="100%" height="80" style="border-radius: 12px; background-color: #1a1a1a;"></iframe>
+    </div>
+  </div>
+</section>
+
+      <!-- Lyrics Section: Displays the song's lyrics in a formatted, readable way -->
+      <!-- Edit: Add lyrics to the albums array under lyrics[trackId].text -->
+      <section class="track-lyrics" aria-label="Song lyrics">
+        <h2>Lyrics</h2>
+        <div id="track-lyrics">Loading lyrics...</div>
+      </section>
+
+      <!-- Streaming Links: Displays links to stream or purchase the track -->
+      <!-- Edit: Add track-specific streaming links to albums array under lyrics[trackId].links if available -->
+      <!-- Streaming Links -->
+      <section class="streaming-links" aria-label="Streaming and purchase links">
+        <h2>Stream or Purchase</h2>
+        <div id="link-tabs" class="link-tabs"></div>
+      </section>
+
+      <!-- Music Video: Embeds a video for the track if available -->
+      <!-- Edit: Add video embed URLs to albums array under lyrics[trackId].video -->
+      <section class="music-video" aria-label="Music video">
+        <h2>Watch the Video</h2>
+        <div id="music-video-embed"></div>
+      </section>
+
+      <!-- Behind-the-Scenes: Provides additional content like producer notes or studio photos -->
+      <!-- Edit: Add behind-the-scenes content to albums array under lyrics[trackId].behindTheScenes -->
+      <section class="behind-the-scenes" aria-label="Behind the scenes content">
+        <h2>Behind the Scenes</h2>
+        <div id="behind-the-scenes-content">Loading behind-the-scenes content...</div>
+      </section>
+
+      <!-- Related Tracks: Suggests other tracks from the same album to keep users engaged -->
+      <!-- Edit: No changes needed; JavaScript automatically populates based on album.tracks -->
+      <section class="related-tracks" aria-label="Related tracks">
+        <h2>More Tracks from This Album</h2>
+        <ul id="related-tracks-list" role="list"></ul>
+      </section>
+
+      <!-- Social Sharing: Allows users to share the track on social media -->
+      <!-- Edit: Update share URLs if you want to customize the share text -->
+      <section class="social-share" aria-label="Share this track">
+        <h2>Share This Track</h2>
+        <br>
+		<div class="social-share-links">
+          <a href="#" id="share-x" target="_blank" rel="noopener" aria-label="Share on X">
+            <img src="/assets/icons/x-icon.webp" alt="X logo" width="24" height="24" loading="lazy">
+            <span>Share on X (Twitter)</span>
+          </a>
+		  </div>
+		  <br>
+        <div class="social-share-links">		  
+          <a href="#" id="share-facebook" target="_blank" rel="noopener" aria-label="Share on Facebook">
+            <img src="/assets/icons/facebook-icon.webp" alt="Facebook logo" width="24" height="24" loading="lazy">
+            <span>Share on Facebook</span>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer: Identical to album.html for consistent branding and navigation -->
+  <footer role="contentinfo" aria-label="Site footer">
+    <p>© 2025 Triad of Angels & ToA Studios. All rights reserved.</p>
+    <nav aria-label="Footer navigation">
+      <ul>
+        <li><a href="/index.html" aria-current="page">Home</a></li>
+        <li><a href="/terms.html">Terms & Conditions</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="divider"></div>
+    <div class="social-links" aria-label="Social media links">
+      <a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="Follow Triad of Angels on TikTok">
+        <img src="/assets/icons/tiktok-icon.webp" alt="TikTok logo" width="24" height="24" loading="lazy">
+        <span>TikTok</span>
+      </a>
+      <a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Follow Triad of Angels on Instagram">
+        <img src="/assets/icons/instagram-icon.webp" alt="Instagram logo" width="24" height="24" loading="lazy">
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.youtube.com/@triadofangels" target="_blank" rel="noopener" aria-label="Subscribe to Triad of Angels on YouTube">
+        <img src="/assets/icons/youtube-icon.webp" alt="YouTube logo" width="24" height="24" loading="lazy">
+        <span>YouTube</span>
+      </a>
+      <a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Like Triad of Angels on Facebook">
+        <img src="/assets/icons/facebook-icon.webp" alt="Facebook logo" width="24" height="24" loading="lazy">
+        <span>Facebook</span>
+      </a>
+      <a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="Follow Triad of Angels on X">
+        <img src="/assets/icons/x-icon.webp" alt="X logo" width="24" height="24" loading="lazy">
+        <span>X</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- JavaScript: Handles dynamic content loading, error handling, and interactivity -->
+  <!-- Edit: Update the albums array in data.js with track-specific data (lyrics, duration, video, etc.) -->
+<script type="module">
+  // Import albums data
+  import { albums } from './js/data.js';
+
+  // Function to sanitize track IDs
+  function sanitizeTrackId(str) {
+    return str
+      .toLowerCase()
+      .replace(/:/g, '') // Remove colons
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .trim();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    try {
+      // Extract track and album IDs from URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const trackId = urlParams.get('id');
+      const albumId = urlParams.get('album');
+      if (!trackId || !albumId) throw new Error('Missing track or album ID in URL.');
+
+      // Find the album
+      const album = albums.find(a => a.id === albumId);
+      if (!album) throw new Error(`Album with ID "${albumId}" not found.`);
+
+      // Sanitize the trackId from URL
+      const sanitizedTrackId = sanitizeTrackId(decodeURIComponent(trackId));
+
+      // Debug: Log available tracks and their sanitized IDs
+      console.log('Available tracks:', album.tracks.map(t => ({
+        original: t,
+        sanitized: sanitizeTrackId(t)
+      })));
+      console.log('Looking for sanitized trackId:', sanitizedTrackId);
+
+      // Find the track by sanitizing both track title and trackId
+      const track = album.tracks.find(t => sanitizeTrackId(t) === sanitizedTrackId);
+      if (!track) throw new Error(`Track with ID "${trackId}" (sanitized: "${sanitizedTrackId}") not found.`);
+
+      // Track-specific data using sanitized trackId
+      const trackData = album.lyrics[sanitizedTrackId];
+      if (!trackData) throw new Error(`Track data for ID "${sanitizedTrackId}" not found in lyrics.`);
+
+      const duration = trackData.duration || '';
+      const lyricsFile = trackData.file || null;
+      const story = trackData.story || 'No song story available.';
+      const videoEmbed = trackData.video || null;
+      const behindTheScenes = trackData.behindTheScenes || 'No behind-the-scenes content available.';
+      const musicPlayerId = trackData.musicPlayerId || null;
+      const trackLinks = trackData.links || album.links;
+
+      // Update Meta Tags for SEO
+      document.getElementById('dynamic-title').textContent = `${track} | Lyrics & Details | ${album.artist}`;
+      document.querySelector('meta[name="description"]').setAttribute('content', `Explore ${track} from ${album.title} by ${album.artist}, a ${album.genre} track. View lyrics, stream now, and discover more.`);
+      document.querySelector('meta[name="keywords"]').setAttribute('content', `${track}, ${album.title}, ${album.artist}, lyrics, ${album.genre}, Triad of Angels, ToA Studios, music, country, ballad`);
+      document.querySelector('meta[property="og:title"]').setAttribute('content', `${track} | Lyrics & Details | ${album.artist}`);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', `Discover ${track} from ${album.title} by ${album.artist}. View lyrics, stream the track, and explore more.`);
+      document.querySelector('meta[property="og:image"]').setAttribute('content', album.cover);
+      document.querySelector('meta[property="og:url"]').setAttribute('content', `https://www.triadofangels.com/track.html?id=${encodeURIComponent(sanitizedTrackId)}&album=${albumId}`);
+      document.querySelector('meta[name="twitter:title"]').setAttribute('content', `${track} | Lyrics & Details | ${album.artist}`);
+      document.querySelector('meta[name="twitter:description"]').setAttribute('content', `Check out ${track} from ${album.title} by ${album.artist}. Lyrics and streaming available now.`);
+      document.querySelector('meta[name="twitter:image"]').setAttribute('content', album.cover);
+      document.querySelector('link[rel="canonical"]').setAttribute('href', `https://www.triadofangels.com/track.html?id=${encodeURIComponent(sanitizedTrackId)}&album=${albumId}`);
+
+      // Update Album Background and Cover
+      const backgroundImg = document.getElementById('album-background');
+      backgroundImg.src = album.cover;
+      backgroundImg.alt = `${album.title} album cover background`;
+      backgroundImg.onerror = () => {
+        console.error(`Failed to load background image: ${album.cover}`);
+        backgroundImg.src = '/assets/images/placeholder-background.webp';
+      };
+      const coverImg = document.getElementById('album-cover');
+      coverImg.src = album.cover;
+      coverImg.alt = `${album.title} album cover`;
+      coverImg.onerror = () => {
+        console.error(`Failed to load album cover: ${album.cover}`);
+        coverImg.src = '/assets/images/placeholder-album.webp';
+      };
+
+      // Update Track Details
+      document.getElementById('track-title').textContent = track;
+      document.getElementById('track-subtitle').textContent = `From ${album.title} by ${album.artist}`;
+      document.getElementById('track-info-title').textContent = track;
+      document.getElementById('track-artist').innerHTML = `<strong>Artist:</strong> ${album.artist}`;
+      document.getElementById('track-album').innerHTML = `<strong>Album:</strong> <a href="/album.html?id=${albumId}" aria-label="View ${album.title} album">${album.title}</a>`;
+      document.getElementById('track-genre').innerHTML = `<strong>Genre:</strong> ${album.genre}`;
+      document.getElementById('track-duration').innerHTML = `<strong>Duration:</strong> ${duration.replace('PT', '').replace('M', ':').replace('S', '')}`;
+      document.getElementById('track-story').innerHTML = `<strong>Song Story:</strong> ${story}`;
+
+      // Load and Update Lyrics from File
+      const lyricsElement = document.getElementById('track-lyrics');
+      if (lyricsFile) {
+        fetch(lyricsFile)
+          .then(response => {
+            if (!response.ok) throw new Error(`Failed to load lyrics file: ${lyricsFile}`);
+            return response.text();
+          })
+          .then(lyrics => {
+            lyricsElement.innerHTML = lyrics;
+          })
+          .catch(error => {
+            console.error('Error fetching lyrics:', error.message);
+            lyricsElement.innerHTML = 'Lyrics unavailable. Please try again later.';
+          });
+      } else {
+        lyricsElement.innerHTML = 'No lyrics available for this track.';
+      }
+
+      // Update Streaming Links
+      const linkTabs = document.getElementById('link-tabs');
+      const platforms = [
+        { name: 'Spotify', key: 'spotify' },
+        { name: 'Apple Music', key: 'appleMusic' },
+        { name: 'Amazon Music', key: 'amazonMusic' },
+        { name: 'Tidal', key: 'tidal' },
+        { name: 'iHeartRadio', key: 'iHeartRadio' },
+        { name: 'Boomplay', key: 'boomplay' },
+        { name: 'Deezer', key: 'deezer' },
+        { name: 'YouTube Music', key: 'youTubeMusic' },
+        { name: 'iTunes', key: 'iTunes' }
+      ];
+      const validLinks = platforms.filter(p => trackLinks[p.key] && trackLinks[p.key] !== '');
+      if (validLinks.length > 0) {
+        validLinks.forEach(p => {
+          const a = document.createElement('a');
+          a.href = trackLinks[p.key];
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.className = 'link-tab';
+          a.setAttribute('aria-label', `Stream ${track} on ${p.name}`);
+          a.textContent = p.name;
+          linkTabs.appendChild(a);
+        });
+      } else {
+        linkTabs.innerHTML = '<p>No streaming links available for this track.</p>';
+      }
+
+      // Update Music Video
+      const musicVideoEmbed = document.getElementById('music-video-embed');
+      if (videoEmbed) {
+        const iframe = document.createElement('iframe');
+        iframe.src = videoEmbed;
+        iframe.width = '100%';
+        iframe.height = '315';
+        iframe.frameBorder = '0';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.setAttribute('aria-label', `Music video for ${track}`);
+        musicVideoEmbed.appendChild(iframe);
+      } else {
+        musicVideoEmbed.innerHTML = '<p>No music video available for this track.</p>';
+      }
+
+      // Update Behind-the-Scenes
+      document.getElementById('behind-the-scenes-content').innerHTML = behindTheScenes;
+
+      // Update Related Tracks
+      const relatedTracksList = document.getElementById('related-tracks-list');
+      const otherTracks = album.tracks.filter(t => t !== track);
+      if (otherTracks.length > 0) {
+        otherTracks.forEach(t => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="/track.html?id=${encodeURIComponent(sanitizeTrackId(t))}&album=${albumId}" aria-label="View ${t}">${t}</a>`;
+          relatedTracksList.appendChild(li);
+        });
+      } else {
+        relatedTracksList.innerHTML = '<p>No other tracks available for this album.</p>';
+      }
+
+      // Update Social Sharing Links
+      const trackUrl = encodeURIComponent(`https://www.triadofangels.com/track.html?id=${sanitizedTrackId}&album=${albumId}`);
+      const shareText = encodeURIComponent(`Check out ${track} from ${album.title} by ${album.artist} on Triad of Angels!`);
+      const shareX = document.getElementById('share-x');
+      const shareFacebook = document.getElementById('share-facebook');
+
+      if (shareX) {
+        shareX.href = `https://x.com/intent/tweet?url=${trackUrl}&text=${shareText}&via=triadofangels`;
+        shareX.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.open(shareX.href, 'shareWindow', 'width=550,height=420');
+          console.log('X Share URL:', shareX.href);
+          console.log('Intended Share:', {
+            url: `https://www.triadofangels.com/track.html?id=${sanitizedTrackId}&album=${albumId}`,
+            text: `Check out ${track} from ${album.title} by ${album.artist} on Triad of Angels!`,
+            image: album.cover
+          });
+        });
+      }
+      if (shareFacebook) {
+        shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${trackUrl}`;
+        shareFacebook.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.open(shareFacebook.href, 'shareWindow', 'width=600,height=400');
+          console.log('Facebook Share URL:', shareFacebook.href);
+          console.log('Intended Share:', {
+            url: `https://www.triadofangels.com/track.html?id=${sanitizedTrackId}&album=${albumId}`,
+            title: `${track} | Lyrics & Details | ${album.artist}`,
+            description: `Discover ${track} from ${album.title} by ${album.artist}. View lyrics, stream the track, and explore more.`,
+            image: album.cover
+          });
+        });
+      }
+
+      // Update Schema.org JSON-LD
+      const schemaScript = document.createElement('script');
+      schemaScript.type = 'application/ld+json';
+      schemaScript.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "MusicRecording",
+        "name": track,
+        "byArtist": {
+          "@type": "MusicGroup",
+          "name": album.artist
+        },
+        "inAlbum": {
+          "@type": "MusicAlbum",
+          "name": album.title,
+          "url": `https://www.triadofangels.com/album.html?id=${albumId}`
+        },
+        "genre": album.genre,
+        "url": `https://www.triadofangels.com/track.html?id=${sanitizedTrackId}&album=${albumId}`,
+        "image": album.cover,
+        "datePublished": album.year,
+        "duration": duration,
+        "description": `Listen to ${track} from ${album.title} by ${album.artist}, a ${album.genre} track. Explore lyrics, streaming links, and more.`,
+        "sameAs": Object.values(trackLinks).filter(link => link !== ''),
+        "offers": {
+          "@type": "Offer",
+          "price": "1.29",
+          "priceCurrency": "USD",
+          "url": `https://www.triadofangels.com/store/${albumId}/${sanitizedTrackId}`,
+          "availability": "https://schema.org/InStock"
+        }
+      }, null, 2);
+      document.head.appendChild(schemaScript);
+
+      // Initialize Boomplay Player
+      const musicPlayerEmbed = document.getElementById('yt-player');
+      if (musicPlayerId && musicPlayerId !== '') {
+        const iframe = document.createElement('iframe');
+        iframe.src = musicPlayerId;
+        iframe.width = '100%';
+        iframe.height = '80';
+        iframe.frameBorder = '0';
+        musicPlayerEmbed.parentNode.replaceChild(iframe, musicPlayerEmbed);
+      } else {
+        document.querySelector('.to-a-player').innerHTML = '<p>No music player available for this track.</p>';
+      }
+
+    } catch (error) {
+      console.error('Error loading track data:', error.message);
+      document.getElementById('track-title').textContent = 'Error Loading Track';
+      document.getElementById('track-subtitle').innerHTML = `We couldn’t load this track. Please try again later or <a href="/music.html" aria-label="Go to Music page">go back to the Music page</a>. Error: ${error.message}`;
+      document.getElementById('album-background').style.display = 'none';
+      document.querySelector('.track-details').style.display = 'none';
+      document.querySelector('.to-a-player').style.display = 'none';
+      document.querySelector('.track-lyrics').style.display = 'none';
+      document.querySelector('.streaming-links').style.display = 'none';
+      document.querySelector('.music-video').style.display = 'none';
+      document.querySelector('.behind-the-scenes').style.display = 'none';
+      document.querySelector('.related-tracks').style.display = 'none';
+      document.querySelector('.social-share').style.display = 'none';
+      const main = document.querySelector('.track-main');
+      const errorContainer = document.createElement('section');
+      errorContainer.className = 'error-section';
+      errorContainer.innerHTML = `<h2>Error Loading Track</h2><p>We couldn’t load this track. Please try again later or <a href="/music.html" aria-label="Go to Music page">go back to the Music page</a>.</p>`;
+      main.innerHTML = '';
+      main.appendChild(errorContainer);
+    }
+  });
+</script>
+<script>
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+<script>
+  // Mobile menu toggle
+  document.documentElement.style.scrollBehavior = 'smooth';
+  const toggleButton = document.getElementById('mobile-menu-toggle');
+  const navMenu = document.getElementById('main-nav');
+  if (toggleButton && navMenu) {
+    toggleButton.addEventListener('click', () => {
+      const isExpanded = navMenu.classList.toggle('show');
+      toggleButton.setAttribute('aria-expanded', isExpanded);
+    });
+  }
+</script>
+</body>
+</html>

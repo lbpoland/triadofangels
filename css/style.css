@@ -177,7 +177,7 @@ header nav ul li a:focus {
 /* HERO SECTION - Sticky Scrolling Background Video */
 .hero-banner {
     position: relative;
-    min-height: 80vh;
+    min-height: 60vh;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -196,7 +196,7 @@ header nav ul li a:focus {
     background: linear-gradient(160deg, #0b0c2a 0%, #081744 50%, #010a1e 100%); /* You can modify this */
 }
 
-.picture {
+.picture {	
     position: fixed;
     top: 0;
     left: 0;
@@ -204,6 +204,7 @@ header nav ul li a:focus {
     height: 100%;
     z-index: -2;
     pointer-events: none;
+    filter: blur(1.7px);	
 }
 
 .picture img {
@@ -229,6 +230,7 @@ header nav ul li a:focus {
     max-width: 90%;
     background: none;
     box-shadow: none;
+
 }
 
 .hero-content h1 {
@@ -241,6 +243,7 @@ header nav ul li a:focus {
         0 0 30px rgba(255, 255, 255, 0.2),
         0 0 60px rgba(14, 176, 255, 0.1); /* soft cosmic aura */
     margin: 0;
+
 }
 
 h1, h2, h3 {
@@ -497,6 +500,9 @@ body.terms-page section p,
 body.digital-store-page section h1,
 body.digital-store-page section h2,
 body.digital-store-page section p,
+body.track-page section h1,
+body.track-page section h2,
+body.track-page section p,
 body.album-page section h1,
 body.album-page section h2,
 body.album-page section p {
@@ -1045,7 +1051,7 @@ video {
         min-height: 32px; /* Touch-friendly height */
     }
 
-    .hero-banner {
+    .hero-banner {	
         position: relative;
         min-height: 80vh;
         width: 100%;

@@ -76,7 +76,9 @@
   </header>
 
   <section class="hero-banner" aria-label="Music hero page section">
-<div class="hero-background-alt"></div>
+<div class="picture">
+      <img src="assets/images/hero-banner.webp" alt="Fallback image: cosmic banner" loading="lazy">
+</div>
     <div class="hero-content" style="background: none; box-shadow: none;">
       <h1>Triad of Angels - Music Collection</h1>
       <p>Soundtracks of strength, spirit, and innovation</p>
@@ -358,7 +360,7 @@
     <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 10px;">Filter by Genre</h3>
     <div class="category-buttons">
       <button class="category-button active" data-category="all" aria-label="Show all ToA Studios albums">All 🎵</button>
-      <button class="category-button" data-category="cinematic-pop" aria-label="Show Cinematic Pop albums">Pop 🎹</button>
+      <button class="category-button" data-category="pop" aria-label="Show Cinematic Pop albums">Pop 🎹</button>
       <button class="category-button" data-category="rock" aria-label="Show Rock albums">Rock 🎸</button>
       <button class="category-button" data-category="metal" aria-label="Show Metal albums">Metal 🤘</button>
       <button class="category-button" data-category="country" aria-label="Show Country albums">Country 🤠</button>
@@ -375,7 +377,7 @@
       <button class="streaming-dropdown-button" aria-expanded="false" aria-controls="toa-category-menu">Categories</button>
       <ul class="streaming-dropdown-menu" id="toa-category-menu">
         <li><a href="#" class="category-option" data-category="all" aria-label="Show all ToA Studios albums">All 🎵</a></li>
-        <li><a href="#" class="category-option" data-category="cinematic-pop" aria-label="Show Cinematic Pop albums">Pop 🎹</a></li>
+        <li><a href="#" class="category-option" data-category="pop" aria-label="Show Cinematic Pop albums">Pop 🎹</a></li>
         <li><a href="#" class="category-option" data-category="rock" aria-label="Show Rock albums">Rock 🎸</a></li>
         <li><a href="#" class="category-option" data-category="metal" aria-label="Show Metal albums">Metal 🤘</a></li>
         <li><a href="#" class="category-option" data-category="country" aria-label="Show Country albums">Country 🤠</a></li>
@@ -391,7 +393,37 @@
     </div>
   </div>
   <div class="album-grid">
-  
+ 
+    <article class="album-block" data-category="country rock pop funk">
+      <div class="album-actions">
+        <div class="streaming-dropdown">
+          <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="songs-of-freedom-streaming-menu">Stream Now</button>
+          <ul class="streaming-dropdown-menu" id="songs-of-freedom-streaming-menu">
+            <li><a href="https://open.spotify.com/album/7FyaJxkI1n7XEtIwZ1qbUM?si=VRS1vaxfSL2g2BMjdSP82g" target="_blank" rel="noopener" aria-label="Stream American Firestorm: Songs of Freedom on Spotify">Spotify</a></li>
+            <li><a href="https://music.apple.com/us/album/american-firestorm-songs-of-freedom/1813521823" target="_blank" rel="noopener" aria-label="Stream American Firestorm: Songs of Freedom on Apple Music">Apple Music</a></li>
+            <li><a href="https://music.amazon.com/albums/B0F83KXNQ4?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_2dlc129hNpebgf1KTPqDkiefb" target="_blank" rel="noopener" aria-label="Stream American Firestorm: Songs of Freedom on Amazon Music">Amazon Music</a></li>
+            <li><a href="https://tidal.com/browse/album/434901251" target="_blank" rel="noopener" aria-label="Stream American Firestorm: Songs of Freedom on Tidal">Tidal</a></li>			
+            <li><a href="https://www.iheart.com/artist/toa-studios-46720429/albums/american-firestorm-songs-of-freedom-327816364/" target="_blank" rel="noopener" aria-label="Stream American Firestorm: Songs of Freedom on iHeartRadio">iHeartRadio</a></li>
+            <li><a href="https://www.boomplay.com/albums/110448870?from=search&srModel=COPYLINK&srList=WEB" target="_blank" rel="noopener" aria-label="Stream American Firestorm: Songs of Freedom on Boomplay">Boomplay</a></li>
+            <li><a href="https://link.deezer.com/s/30g6AciBQvfYR2yAg90lH" target="_blank" rel="noopener" aria-label="Stream American Firestorm: Songs of Freedom on Deezer">Deezer</a></li>
+            <li><a href="https://youtu.be/Tm-GC35AWD8?si=eLHg867DG7SatC_m" target="_blank" rel="noopener" aria-label="Stream American Firestorm: Songs of Freedom on YouTube Music">YouTube Music</a></li>
+          </ul>
+        </div>
+        <div class="streaming-dropdown">
+          <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="enchantra-buy-menu">Buy Now</button>
+          <ul class="streaming-dropdown-menu" id="enchantra-buy-menu">
+            <li><a href="https://music.apple.com/au/album/american-firestorm-songs-of-freedom/1813521823" target="_blank" rel="noopener" aria-label="Purchase American Firestorm: Songs of Freedom on iTunes">iTunes</a></li>
+            <li><a href="https://amazon.com/music/player/albums/B0F83KXNQ4?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_D7S3dL4K018TOKHrtKpFvRZYI" target="_blank" rel="noopener" aria-label="Purchase American Firestorm: Songs of Freedom on Amazon">Amazon</a></li>
+          </ul>		  
+        </div>
+      </div>
+      <br>
+      <a href="album.html?id=american-firestorm-songs-of-freedom" class="album-link" aria-label="Enchantra by ToA Studios">
+        <img src="assets/images/albums/songsoffreedom-album.webp" alt="Album cover for American Firestorm: Songs of Freedom by ToA Studios" loading="lazy" />
+      </a>
+      <h4>American Firestorm: Songs of Freedom</h4>
+    </article>
+ 
     <article class="album-block" data-category="EDM dance">
       <div class="album-actions">
         <div class="streaming-dropdown">
@@ -450,7 +482,38 @@
         <img src="assets/images/albums/enchantra2-album.webp" alt="Album cover for Enchantra Volume 2 by ToA Studios" loading="lazy" />
       </a>
       <h4>Enchantra Volume 2</h4>
-    </article>	  
+    </article>
+
+    <article class="album-block" data-category="EDM dance">
+      <div class="album-actions">
+        <div class="streaming-dropdown">
+          <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="angelicresonance-streaming-menu">Stream Now</button>
+          <ul class="streaming-dropdown-menu" id="angelicresonance-streaming-menu">
+            <li><a href="" target="_blank" rel="noopener" aria-label="Stream Angelic Resonance on Spotify">Spotify</a></li>
+            <li><a href="" target="_blank" rel="noopener" aria-label="Stream Angelic Resonance on Apple Music">Apple Music</a></li>
+            <li><a href="" target="_blank" rel="noopener" aria-label="Stream Angelic Resonance on Amazon Music">Amazon Music</a></li>
+            <li><a href="" target="_blank" rel="noopener" aria-label="Stream Angelic Resonance on Tidal">Tidal</a></li>			
+            <li><a href="" target="_blank" rel="noopener" aria-label="Stream Angelic Resonance on iHeartRadio">iHeartRadio</a></li>
+            <li><a href="" target="_blank" rel="noopener" aria-label="Stream Angelic Resonance on Boomplay">Boomplay</a></li>
+            <li><a href="" target="_blank" rel="noopener" aria-label="Stream Angelic Resonance on Deezer">Deezer</a></li>
+            <li><a href="" target="_blank" rel="noopener" aria-label="Stream Angelic Resonance on YouTube Music">YouTube Music</a></li>
+          </ul>
+        </div>
+        <div class="streaming-dropdown">
+          <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="angelicresonancea-buy-menu">Buy Now</button>
+          <ul class="streaming-dropdown-menu" id="angelicresonance-buy-menu">
+            <li><a href="" target="_blank" rel="noopener" aria-label="Purchase Angelic Resonance on iTunes">iTunes</a></li>
+            <li><a href="" target="_blank" rel="noopener" aria-label="Purchase Angelic Resonance on Amazon">Amazon</a></li>
+          </ul>		  
+        </div>
+      </div>
+      <br>
+      <a href="album.html?id=angelicresonance" class="album-link" aria-label="Angelic Resonance by ToA Studios">
+        <img src="assets/images/albums/angelicresonance-album.webp" alt="Album cover for Angelic Resonance by ToA Studios" loading="lazy" />
+      </a>
+      <h4>Angelic Resonance</h4>
+    </article>
+	
     <article class="album-block" data-category="EDM dance">
       <div class="album-actions">
         <div class="streaming-dropdown">
@@ -816,23 +879,6 @@
       <div class="divider2"></div>	  
       <div style="text-align: center; margin: 10px 0 20px;"></div>
       <div class="album-grid">  
-        <article class="album-block">
-          <div class="album-actions">
-            <div class="streaming-dropdown">
-              <button class="streaming-dropdown-button album-action-button" aria-expanded="false" aria-controls="songs-of-freedom-buy-menu">Buy Now</button>
-              <ul class="streaming-dropdown-menu" id="songs-of-freedom-buy-menu">
-                <li><a href="https://music.apple.com/au/album/american-firestorm-songs-of-freedom/1813521823" target="_blank" rel="noopener" aria-label="Purchase American Firestorm: Songs of Freedom on iTunes">iTunes</a></li>
-                <li><a href="https://amazon.com/music/player/albums/B0F83KXNQ4?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_D7S3dL4K018TOKHrtKpFvRZYI" target="_blank" rel="noopener" aria-label="Purchase American Firestorm: Songs of Freedom on Amazon">Amazon</a></li>
-              </ul>			  
-            </div>
-          </div>
-          <br>
-          <a href="album.html?id=american-firestorm-songs-of-freedom" class="album-link" aria-label="American Firestorm: Songs of Freedom by ToA Studios">
-            <img src="assets/images/albums/songsoffreedom-album.webp" alt="Album cover for American Firestorm: Songs of Freedom by ToA Studios" loading="lazy" />
-          </a>
-          <h4>American Firestorm: Songs of Freedom</h4>
-          <h4>20th of June, 2025</h4>
-        </article>
       </div>
       <div class="scroll-hint">←    Scroll albums    →</div>
     </section>

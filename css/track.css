@@ -1,0 +1,380 @@
+/* === GLOBAL LAYOUT === */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: transparent;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.3), rgba(0,0,0,0)),
+              linear-gradient(to right, rgba(241,196,15,0.08), rgba(0,0,0,0.5), rgba(241,196,15,0.08));
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* === HERO SECTION === */
+.track-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh; /* Adjusted to scale better on mobile */
+  padding: 0 40px;
+  position: relative;
+}
+
+.track-hero-content {
+  z-index: 2;
+  max-width: 1200px;
+  padding: 50px;
+  background: rgba(15,15,15,0.6);
+  border-radius: 35px;
+  box-shadow: 0 0 80px rgba(241,196,15,0.1), inset 0 0 25px rgba(241,196,15,0.05);
+  border: 2px solid rgba(241,196,15,0.15);
+  backdrop-filter: blur(20px);
+}
+
+.track-hero-content h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #f1c40f, #ffeb3b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(241,196,15,0.6), 0 0 60px rgba(241,196,15,0.4);
+  animation: glow 5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 30px rgba(241,196,15,0.6), 0 0 60px rgba(241,196,15,0.4); }
+  100% { text-shadow: 0 0 40px rgba(241,196,15,0.8), 0 0 80px rgba(241,196,15,0.6); }
+}
+
+.track-hero-content p {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #e8e8e8;
+  font-style: italic;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* === BACKGROUND IMAGE === */
+#album-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: blur(5px);
+}
+
+/* === MAIN STRUCTURE === */
+.track-container {
+  position: relative;
+  min-height: 100vh;
+  color: #f5f5f5;
+  z-index: 0;
+}
+
+.track-main {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 120px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* === TRACK DETAILS & COVER === */
+.track-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+  padding: 70px;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 40px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), inset 0 0 35px rgba(241, 196, 15, 0.02);
+  border: 2px solid rgba(241, 196, 15, 0.1);
+  margin-bottom: 70px;
+}
+
+.album-cover {
+  flex: 1;
+  text-align: center;
+}
+.album-cover img {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 35px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+  border: 3px solid rgba(241, 196, 15, 0.2);
+  transition: transform 0.8s ease;
+}
+.album-cover img:hover {
+  transform: scale(1.02);
+}
+
+/* === INFO PANEL === */
+.track-info {
+  flex: 2;
+}
+.track-info h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #f1c40f;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
+}
+.track-info p {
+  font-size: 1.4rem;
+  color: #dbdbdb;
+  font-weight: 300;
+  line-height: 2;
+}
+#track-story {
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #e8e8e8;
+  background: rgba(241, 196, 15, 0.02);
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 30px;
+  border-left: 5px solid #f1c40f;
+}
+
+/* === UNIVERSAL BLOCK STYLES === */
+.track-lyrics, .streaming-links, .to-a-player, .music-video,
+.behind-the-scenes, .related-tracks, .social-share {
+  text-align: center;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 40px;
+  padding: 70px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), inset 0 0 35px rgba(241, 196, 15, 0.02);
+  border: 2px solid rgba(241, 196, 15, 0.1);
+  margin-bottom: 70px;
+}
+.track-lyrics h2,
+.streaming-links h2,
+.to-a-player h2,
+.music-video h2,
+.behind-the-scenes h2,
+.related-tracks h2,
+.social-share h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #f1c40f;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+/* === PLAYER IFRAME === */
+.to-a-player iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 400px; /* Match the HTML iframe height for Boomplay embed */
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.music-video iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 315px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* === LYRICS SECTION === */
+#track-lyrics {
+  font-size: 1.4rem;
+  color: #dbdbdb;
+  white-space: pre-wrap;
+  line-height: 2;
+  font-weight: 300;
+}
+
+/* === STREAMING LINKS === */
+.link-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.link-tab {
+  padding: 10px 28px;
+  background: linear-gradient(45deg, #f1c40f, #ffeb3b);
+  color: #0a0a0a;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(241, 196, 15, 0.2);
+  border: 1px solid rgba(241, 196, 15, 0.4);
+}
+.link-tab:hover {
+  transform: scale(1.05);
+}
+
+/* === RELATED TRACKS === */
+#related-tracks-list {
+  list-style: none;
+  padding: 0;
+}
+#related-tracks-list li {
+  margin: 20px 0;
+}
+#related-tracks-list a {
+  font-size: 1.4rem;
+  color: #f1c40f;
+  text-decoration: none;
+}
+#related-tracks-list a:hover {
+  text-decoration: underline;
+}
+
+/* === SOCIAL SHARING === */
+.social-share-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.social-share-links a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #f1c40f;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+.social-share-links a:hover {
+  color: #ffeb3b;
+}
+.social-share-links img {
+  width: 24px;
+  height: 24px;
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 1024px) {
+  .track-hero { min-height: 80vh; }
+  .track-main { padding: 80px 30px; }
+  .track-details { padding: 50px; gap: 50px; }
+  .album-cover img { max-width: 500px; }
+  .track-info h2 { font-size: 3rem; }
+  .track-info p { font-size: 1.3rem; }
+  .track-lyrics, .streaming-links, .to-a-player, .music-video,
+  .behind-the-scenes, .related-tracks, .social-share { padding: 50px; }
+  .track-lyrics h2,
+  .streaming-links h2,
+  .to-a-player h2,
+  .music-video h2,
+  .behind-the-scenes h2,
+  .related-tracks h2,
+  .social-share h2 { font-size: 3rem; }
+}
+
+@media (max-width: 768px) {
+  .track-hero {
+    min-height: 60vh;
+    padding: 0 15px;
+  }
+  .track-hero-content {
+    padding: 30px;
+    border-radius: 25px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .track-hero-content h1 { font-size: 3.5rem; }
+  .track-hero-content p { font-size: 1.5rem; }
+  .track-main { padding: 40px 15px; }
+  .track-details {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 30px;
+  }
+  .album-cover { flex: none; width: 100%; }
+  .album-cover img { max-width: 100%; width: 100%; }
+  .track-info { flex: none; width: 100%; }
+  .track-info h2 { font-size: 2.5rem; letter-spacing: 3px; }
+  .track-info p { font-size: 1.2rem; }
+  #track-story { font-size: 1.3rem; padding: 20px; }
+  .track-lyrics, .streaming-links, .to-a-player, .music-video,
+  .behind-the-scenes, .related-tracks, .social-share {
+    padding: 30px 15px;
+  }
+  .track-lyrics h2,
+  .streaming-links h2,
+  .to-a-player h2,
+  .music-video h2,
+  .behind-the-scenes h2,
+  .related-tracks h2,
+  .social-share h2 {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+  }
+  .link-tabs { flex-direction: column; align-items: center; gap: 10px; padding: 10px 0; }
+  .link-tab { width: 90%; padding: 12px 0; font-size: 0.9rem; border-radius: 20px; text-align: center; }
+  .to-a-player iframe { height: 270px; } /* Adjusted for smaller screens */
+  .music-video iframe { height: 270px; }
+}
+
+@media (max-width: 480px) {
+  .track-hero {
+    min-height: 50vh;
+    padding: 0 10px;
+  }
+  .track-hero-content {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .track-hero-content h1 { font-size: 1.6rem; letter-spacing: 3px; }
+  .track-hero-content p { font-size: 1rem; }
+  .track-main { padding: 30px 10px; }
+  .track-details { padding: 20px; gap: 20px; }
+  .album-cover img { max-width: 100%; }
+  .track-info h2 { font-size: 2rem; letter-spacing: 2px; }
+  .track-info p { font-size: 1.1rem; }
+  #track-story { font-size: 1.2rem; padding: 15px; }
+  .track-lyrics, .streaming-links, .to-a-player, .music-video,
+  .behind-the-scenes, .related-tracks, .social-share {
+    padding: 20px 10px;
+  }
+  .track-lyrics h2,
+  .streaming-links h2,
+  .to-a-player h2,
+  .music-video h2,
+  .behind-the-scenes h2,
+  .related-tracks h2,
+  .social-share h2 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  .link-tab { width: 95%; padding: 10px 0; font-size: 0.85rem; border-radius: 18px; }
+  .to-a-player iframe { height: 270px; } /* Adjusted for smaller screens */
+  .music-video iframe { height: 270px; }
+}
+
+/* === ACCESSIBILITY === */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
