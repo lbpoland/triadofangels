@@ -1,96 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <!-- Static Pages -->
   <url>
     <loc>https://www.triadofangels.com/index.html</loc>
-    <lastmod>2025-06-20</lastmod>
+    <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.triadofangels.com/assets/images/hero-banner.webp</image:loc>
-      <image:title>Triad of Angels Hero Banner</image:title>
+      <image:title>Triad of Angels Home Banner</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://www.triadofangels.com/about.html</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/album.html</loc>
-    <lastmod>2025-06-20</lastmod>
+    <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/apps.html</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/contact.html</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/digital-store.html</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/games.html</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/merch.html</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.triadofangels.com/music.html</loc>
-    <lastmod>2025-06-21</lastmod>
+    <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/og-music-banner.webp</image:loc>
+      <image:title>Triad of Angels Music Banner</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/privacy.html</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://www.triadofangels.com/games.html</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/apps.html</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/merch.html</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.triadofangels.com/publishing.html</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/digital-store.html</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/contact.html</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.triadofangels.com/terms.html</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/track.html</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://www.triadofangels.com/privacy.html</loc>
+    <lastmod>2025-06-22</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
   </url>
-  <!-- Album Pages -->
+
+  <!-- Triad of Angels Albums -->
   <url>
     <loc>https://www.triadofangels.com/album.html?id=wings-of-fire</loc>
     <lastmod>2025-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.triadofangels.com/assets/images/albums/wingsoffire-album.webp</image:loc>
       <image:title>Wings of Fire Album Cover</image:title>
@@ -100,7 +92,7 @@
     <loc>https://www.triadofangels.com/album.html?id=ascend</loc>
     <lastmod>2025-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
       <image:title>Ascend Album Cover</image:title>
@@ -110,7 +102,7 @@
     <loc>https://www.triadofangels.com/album.html?id=celestia-the-light-within</loc>
     <lastmod>2025-05-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
       <image:title>Celestia: The Light Within Album Cover</image:title>
@@ -120,97 +112,39 @@
     <loc>https://www.triadofangels.com/album.html?id=divine-echoes</loc>
     <lastmod>2025-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
     <image:image>
-      <image:loc>https://www.triadofangels.com/assets/images/albums/divine-echoes-album.webp</image:loc>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
       <image:title>Divine Echoes Album Cover</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/album.html?id=probed-and-confused</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
-      <image:title>Probed and Confused Album Cover</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/album.html?id=echoes-on-the-dirt-road</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
-      <image:title>Echoes on the Dirt Road Album Cover</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/album.html?id=phoenix-rising</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
-      <image:title>Phoenix Rising Album Cover</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/album.html?id=the-quiet-war</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
-      <image:title>The Quiet War Album Cover</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/album.html?id=reality-exe</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
-      <image:title>Reality.exe Album Cover</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/album.html?id=serpents-veil</loc>
-    <lastmod>2025-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
-      <image:title>Serpent's Veil Album Cover</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.triadofangels.com/album.html?id=constellation-frequency</loc>
+    <loc>https://www.triadofangels.com/album.html?id=angelicresonance</loc>
     <lastmod>2025-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
     <image:image>
-      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
-      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
     </image:image>
   </url>
+
+  <!-- ToA Studios Albums -->
   <url>
-    <loc>https://www.triadofangels.com/album.html?id=constellation-frequency2</loc>
-    <lastmod>2025-06-09</lastmod>
+    <loc>https://www.triadofangels.com/album.html?id=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
     <image:image>
-      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
-      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://www.triadofangels.com/album.html?id=enchantra</loc>
     <lastmod>2025-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
       <image:title>Enchantra Album Cover</image:title>
@@ -220,74 +154,2364 @@
     <loc>https://www.triadofangels.com/album.html?id=enchantra2</loc>
     <lastmod>2025-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
       <image:title>Enchantra Volume 2 Album Cover</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/album.html?id=angelicresonance</loc>
+    <loc>https://www.triadofangels.com/album.html?id=constellation-frequency</loc>
     <lastmod>2025-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/album.html?id=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/album.html?id=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/album.html?id=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/album.html?id=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/album.html?id=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/album.html?id=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/album.html?id=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Wings of Fire -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=awakening-the-triad&album=wings-of-fire</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/wingsoffire-album.webp</image:loc>
+      <image:title>Wings of Fire Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=wings-of-fire&album=wings-of-fire</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/wingsoffire-album.webp</image:loc>
+      <image:title>Wings of Fire Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=we-are-the-triad&album=wings-of-fire</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/wingsoffire-album.webp</image:loc>
+      <image:title>Wings of Fire Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=starlight-wounds&album=wings-of-fire</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/wingsoffire-album.webp</image:loc>
+      <image:title>Wings of Fire Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=ascension-hearts&album=wings-of-fire</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/wingsoffire-album.webp</image:loc>
+      <image:title>Wings of Fire Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=halo-in-the-storm&album=wings-of-fire</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/wingsoffire-album.webp</image:loc>
+      <image:title>Wings of Fire Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Ascend -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=ascend&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=fireproof&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=we-are-light&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=echoes-of-hope&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=rising-tide&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=hold-the-sky&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=home-to-my-heart&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=unseen-wings&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=breathe&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=into-the-light&album=ascend</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/ascend-album.webp</image:loc>
+      <image:title>Ascend Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Celestia: The Light Within -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=aurora-rising&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=wings-of-grace&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=echoes-of-eternity&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=elysian-groove&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=sacred-ground&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=soulkeeper&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=cosmic-boots&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=celestial-dance&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=harmony-s-call&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=mirror-of-the-soul&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=hearts-made-of-fire&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=halo-burn&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=through-the-flame-i-am&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=celestia-the-light-within&album=celestia-the-light-within</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Celestia: The Light Within Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Divine Echoes -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=genesis-of-light&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=name-above-fire&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-wilderness-speaks&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=cry-of-the-watchmen&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=messiah&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=every-grave-shall-open&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=tongues-of-fire&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=we-do-not-bow&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=veil-torn&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=altars-in-the-ashes&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=healed-in-the-flames&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=crowned-with-light&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-table-is-set&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=thrones-will-fall&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=let-the-earth-respond&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-city-descends&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=amen-the-sound-that-never-ends&album=divine-echoes</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/celestia-the-light-within-album.webp</image:loc>
+      <image:title>Divine Echoes Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Angelic Resonance -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=angelic-entrance-intro&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
       <image:title>Angelic Resonance Album Cover</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/album.html?id=american-firestorm-songs-of-freedom</loc>
+    <loc>https://www.triadofangels.com/track.html?id=gates-of-the-eternal-sky&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=radiant-throne&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=angel-frequency&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=sky-cathedral&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=trinitas&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=aether-wings&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=empyrean-signal&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=skyveil&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=mirrors-of-light&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=wingspan&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=heavens-eternal&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=thronefire&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=breath-of-the-spirit&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=covenant-aurora&album=angelicresonance</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/angelicresonance-album.webp</image:loc>
+      <image:title>Angelic Resonance Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Probed & Confused -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=probed-and-confused&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=strings-attached&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=vatican-vaults&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=digital-gulag&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=lizard-congress&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=project-blue-beam&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=saturns-frequency-cage&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=hidden-cities-underground&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=bloodline-rituals&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-great-goodbye&album=probed-and-confused</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/probedandconfused-album.webp</image:loc>
+      <image:title>Probed & Confused Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Echoes on the Dirt Road -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=start-somewhere&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=mud-on-my-boots-stars-in-my-eyes&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=rust-and-roses&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=friday-nights-and-broken-lights&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=boot-scoot-and-spin&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=gasoline-dreams&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=anchor-and-flame&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-last-call-i-never-made&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=whiskey-moon&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=letters-to-the-wind&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=dust-and-daisies&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=echoes-on-the-dirt-road&album=echoes-on-the-dirt-road</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/echoesonthedirtroad-album.webp</image:loc>
+      <image:title>Echoes on the Dirt Road Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Phoenix Rising -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=ashes-and-alibis&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=snakebite-heart&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=bulletproof-veins&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=jungle-of-mirrors&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=neon-rain&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=wolfskin&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=heaven-s-burning&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=venom-and-velvet&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=phoenix-rising&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=final-breath&album=phoenix-rising</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/phoenixrising-album.webp</image:loc>
+      <image:title>Phoenix Rising Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for The Quiet War -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=houseguest&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=basement-tape&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=cracking&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-quiet-war&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=wire-and-shadow&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=cold-muzzle&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=ghosts-in-the-circuit&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=barbed-horizon&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=iron-and-ink&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-last-broadcast&album=the-quiet-war</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/thequietwar-album.webp</image:loc>
+      <image:title>The Quiet War Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Reality.exe -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=system-boot&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=glitch-in-the-code&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=neon-veins&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=firewall-heart&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=quantum-dust&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=shadow-algorithm&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=ghost-protocol&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=pixelated-soul&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=crash-the-matrix&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=reality-exe&album=reality-exe</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/reality-exe-album.webp</image:loc>
+      <image:title>Reality.exe Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Serpent's Veil -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=coiled-whisper&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=fang-and-fable&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=venom-psalm&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=scales-of-sin&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=slither-and-smoke&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=serpents-veil&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=eden-s-curse&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=coil-of-the-crown&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=hiss-of-the-holy&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-forked-path&album=serpents-veil</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/serpentsveil-album.webp</image:loc>
+      <image:title>Serpent's Veil Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks and Lyrics for American Firestorm: Songs of Freedom -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=light-up-the-weekend&album=american-firestorm-songs-of-freedom</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
       <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
     </image:image>
   </url>
-  <!-- Track Pages (Sample for Wings of Fire and Light Up the Weekend) -->
   <url>
-    <loc>https://www.triadofangels.com/track.html?album=wings-of-fire&track=awakening-the-triad</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://www.triadofangels.com/lyrics.html?id=light-up-the-weekend&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/track.html?album=wings-of-fire&track=wings-of-fire</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://www.triadofangels.com/track.html?id=red-white-and-country-strong&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/track.html?album=wings-of-fire&track=we-are-the-triad</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://www.triadofangels.com/lyrics.html?id=red-white-and-country-strong&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/track.html?album=wings-of-fire&track=starlight-wounds</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://www.triadofangels.com/track.html?id=born-to-ride-free&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/track.html?album=wings-of-fire&track=ascension-hearts</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://www.triadofangels.com/lyrics.html?id=born-to-ride-free&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/track.html?album=wings-of-fire&track=halo-in-the-storm</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://www.triadofangels.com/track.html?id=stars-across-the-water&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://www.triadofangels.com/track.html?album=american-firestorm-songs-of-freedom&track=light-up-the-weekend</loc>
-    <lastmod>2025-06-21</lastmod>
+    <loc>https://www.triadofangels.com/lyrics.html?id=stars-across-the-water&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
   </url>
-  <!-- Add remaining 152 track URLs here -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=where-the-brave-still-stand&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=where-the-brave-still-stand&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=where-we-belong-tonight&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=where-we-belong-tonight&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=fireworks-and-freedom&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=fireworks-and-freedom&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=born-for-the-red-white-and-blue&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=born-for-the-red-white-and-blue&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=raise-that-flag&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=raise-that-flag&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=living-free-in-america&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=living-free-in-america&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=home-beneath-the-stars&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=home-beneath-the-stars&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=american-firelight&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=american-firelight&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=run-the-red-white-and-blue&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=run-the-red-white-and-blue&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=land-that-i-love&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics.html?id=land-that-i-love&album=american-firestorm-songs-of-freedom</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Enchantra -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=dawn-signal-intro&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=crystalline-descent&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=rise-of-the-obsidian-pulse&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=temple-of-pulsefire&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=ash-and-embers&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=citadel&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=neon-glyph-surge&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=aurora-drift&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=core-implosion-protocol&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=streamlight-override&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=turbo-transmission&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=neon-relic&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=sunspike-horizon&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=speedlight-rituals&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=final-pulse-of-the-dawnbreaker&album=enchantra</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra-album.webp</image:loc>
+      <image:title>Enchantra Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Enchantra Volume 2 -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-celestial-vein-awakens-intro&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=solar-gate-invocation&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=celestial-gateway&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=temple-of-auroras&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=seraphim-circuit-eclipse&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=starglyph-transmission&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=the-frequency-oracle&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=godspeakers-of-the-void&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=sirens-of-harmonic-collapse&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=pulse-of-the-infinite-shore&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=echoes-of-the-aetherwind&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=beneath-the-stardust-horizon&album=enchantra2</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/enchantra2-album.webp</image:loc>
+      <image:title>Enchantra Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Constellation Frequency: Volume 1 -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=ascend-through-light&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=epoch-of-frequency&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=hearts-under-gravity&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=cosmic-drift&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=pulse-of-the-skyline&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=velvet-voltage&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=mirage-engine&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=cosmic-tranquility&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=neural-ascension&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=into-the-spiral-light&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=transcendence-drive&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=celestian-override&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=ascension-spiral&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=goddess-in-the-grid&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=astral-vanguard&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=wings-of-resonance&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=journeys-end&album=constellation-frequency</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 1 Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Tracks for Constellation Frequency: Volume 2 -->
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=ignition-sequence-dj-jessica-uplink-intro&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=celestial-spine-recalibration&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=time-distortion&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=sonic-bloom-shakuhachi-ascension&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=glass-lions-in-the-fog&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=rain-signal-through-neon-ruins&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=dust-and-code-temple-of-algorithms&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=bass-communion-london-of-the-light&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=enchanted-forest&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=oasis-frequency-path-of-the-oud&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=sands-of-aether&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=valhallan-circuit-surge&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=journey-back&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/track.html?id=starlight-memory-the-final-descent&album=constellation-frequency2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/constellation-frequency2-album.webp</image:loc>
+      <image:title>Constellation Frequency: Volume 2 Album Cover</image:title>
+    </image:image>
+  </url>
+
+  <!-- Lyrics Pages for American Firestorm: Songs of Freedom -->
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/light-up-the-weekend.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/born-for-the-red-white-and-blue.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/born-to-ride-free.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/fireworks-and-freedom.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/home-beneath-the-stars.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/land-that-i-love.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>  
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/american-firelight.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>  
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/living-free-in-america.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/raise-that-flag.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>  
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/red-white-and-country-strong.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>  
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/run-the-red-white-and-blue.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>  
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/stars-across-the-water.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/where-the-brave-still-stand.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>  
+  <url>
+    <loc>https://www.triadofangels.com/lyrics/where-we-belong-tonight.txt</loc>
+    <lastmod>2025-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://www.triadofangels.com/assets/images/albums/songsoffreedom-album.webp</image:loc>
+      <image:title>American Firestorm: Songs of Freedom Album Cover</image:title>
+    </image:image>
+  </url>  
 </urlset>
