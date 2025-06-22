@@ -312,10 +312,11 @@
       </a>
     </div>
   </footer>
+
 <script type="module">
-  // Import albums data from data.js
-  // Edit: Ensure the path to data.js matches your project structure (e.g., './js/data.js' if in a subdirectory)
+  // Import albums data and sanitizeTrackId
   import { albums } from './js/data.js';
+  import { sanitizeTrackId } from './js/utils.js';
 
   // Function to populate the page with album data
   document.addEventListener('DOMContentLoaded', () => {
@@ -363,7 +364,7 @@
           ? album.tracks
               .map(
                 (track) =>
-                  `<a href="/track.html?id=${track.toLowerCase().replace(/ /g, '-')}&album=${album.id}" aria-label="View details for ${track}">${track}</a>`
+                  `<a href="/track.html?id=${encodeURIComponent(sanitizeTrackId(track))}&album=${album.id}" aria-label="View details for ${track}">${track}</a>`
               )
               .join(', ')
           : 'Track list unavailable'
@@ -461,13 +462,13 @@
               "url": `https://www.triadofangels.com/album.html?id=${album.id}`
             },
             "genre": album.genre,
-            "url": `https://www.triadofangels.com/track.html?id=${track.toLowerCase().replace(/ /g, '-')}&album=${album.id}`,
+            "url": `https://www.triadofangels.com/track.html?id=${encodeURIComponent(sanitizeTrackId(track))}&album=${album.id}`,
             "duration": "PT4M30S",
             "offers": {
               "@type": "Offer",
               "price": "1.29",
               "priceCurrency": "USD",
-              "url": `https://www.triadofangels.com/store/${album.id}/${track.toLowerCase().replace(/ /g, '-')}`,
+              "url": `https://www.triadofangels.com/store/${album.id}/${encodeURIComponent(sanitizeTrackId(track))}`,
               "availability": "https://schema.org/InStock"
             }
           })) || [],
@@ -534,6 +535,7 @@
     }
   });
 </script>
+
 <script>
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

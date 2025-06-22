@@ -30,7 +30,7 @@ export const albums = [
       iTunes: "https://music.apple.com/us/album/wings-of-fire-ep/1812163266"
     },
     boomplayEmbed: "https://www.boomplay.com/embed/110140275/COL",
-    artistInfo: "This is the first (among many) Albums from the Female Group *Triad of Angels* releasing their EP Album. This Album has cinematic pop sounds, melodies, beautiful soul touching sounds that blends powerful vocals with orchestral elements. *Wings of Fire* showcases their signature style, weaving themes of hope, strength, and fiery passion.",	
+    artistInfo: "This is the first among many Albums from the Female Group *Triad of Angels* releasing their EP Album. This Album has cinematic pop sounds, melodies, beautiful soul touching sounds that blends powerful vocals with orchestral elements. *Wings of Fire* showcases their signature style, weaving themes of hope, strength, and fiery passion.",	
   lyrics: {
     "awakening-the-triad": {
       file: "", // Add lyrics later
@@ -233,8 +233,8 @@ export const albums = [
     "Mirror of the Soul",
     "Hearts Made of Fire",
     "Halo Burn",
-    "Through the Flame (I Am)",
-    "Celestia (The Light Within)"
+    "Through the Flame I Am",
+    "Celestia The Light Within"
   ],
     links: {
       spotify: "https://open.spotify.com/album/567eYko6C0VuGXKq4myvIC?si=pvGKdX-UQAa9q-XOwvpqkQ",
@@ -358,7 +358,7 @@ export const albums = [
       links: {}, // Add links later
       musicPlayerId: null
     },
-    "through-the-flame-(i-am)": {
+    "through-the-flame-i-am": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -367,7 +367,7 @@ export const albums = [
       links: {}, // Add links later
       musicPlayerId: null
     },
-    "celestia-(the-light-within)": {
+    "celestia-the-light-within": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -402,7 +402,7 @@ export const albums = [
       "Thrones Will Fall",
       "Let the Earth Respond",
       "The City Descends",
-      "Amen (The Sound That Never Ends)"
+      "Amen The Sound That Never Ends"
     ],
     links: {
       spotify: "https://open.spotify.com/album/6upK6sWZbjr02iv4HO57cq?si=6V_hUAHZQ3u4QRbeN6t7rg",
@@ -571,7 +571,7 @@ export const albums = [
       links: {}, // Add links later
       musicPlayerId: null
     },
-    "amen-(the-sound-that-never-ends)": {
+    "amen-the-sound-that-never-ends": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -597,7 +597,7 @@ export const albums = [
     "Digital Gulag",
     "Lizard Congress",
     "Project Blue Beam",
-    "Saturn’s Frequency Cage",
+    "Saturns Frequency Cage",
     "Hidden Cities Underground",
     "Bloodline Rituals",
     "The Great Goodbye"
@@ -613,7 +613,7 @@ export const albums = [
       iTunes: "https://music.apple.com/us/album/probed-confused/1812599708"
     },
     boomplayEmbed: "https://www.boomplay.com/embed/110242229/COL",
-    artistInfo: "ToA Studios explores the unknown with *Probed & Confused*, an electronic journey from the view of an Alien that has landed on Earth touching base on all the *conspiracies* among us. This is a hip-hop/rap focus story from start to end (Goodbye) with cosmic confusion and extraterrestrial vibes. Satirical fun.",	
+    artistInfo: "ToA Studios explores the unknown with *Probed & Confused*, an electronic journey from the view of an Alien that has landed on Earth touching base on all the *conspiracies* among us. This is a hip-hop/rap focus story from start to end Goodbye with cosmic confusion and extraterrestrial vibes. Satirical fun.",	
   lyrics: {
     "probed-and-confused": {
       file: "", // Add lyrics later
@@ -669,7 +669,7 @@ export const albums = [
       links: {}, // Add links later
       musicPlayerId: null
     },
-    "saturn’s-frequency-cage": {
+    "saturns-frequency-cage": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -707,19 +707,19 @@ export const albums = [
       }
     }
   },
-  {
-    id: "echoes-on-the-dirt-road",
-    title: "Echoes on the Dirt Road",
-    artist: "ToA Studios",
-    genre: "Country, Ballad, Boot Scootin', Alternative",
-    year: "May, 2025",
-    cover: "assets/images/albums/echoesonthedirtroad-album.webp",
+{
+  id: "echoes-on-the-dirt-road",
+  title: "Echoes on the Dirt Road",
+  artist: "ToA Studios",
+  genre: "Country, Ballad, Boot Scootin', Alternative",
+  year: "May, 2025",
+  cover: "assets/images/albums/echoesonthedirtroad-album.webp",
   tracks: [
     "Start Somewhere",
     "Mud on My Boots, Stars in My Eyes",
     "Rust & Roses",
     "Friday Nights & Broken Lights",
-    "Boots, Scoot & Spin",
+    "Boot, Scoot & Spin",
     "Gasoline Dreams",
     "Anchor and Flame",
     "The Last Call I Never Made",
@@ -728,129 +728,129 @@ export const albums = [
     "Dust and Daisies",
     "Echoes on the Dirt Road"
   ],
-    links: {
-      spotify: "https://open.spotify.com/album/0y1rCdAJggJMoFvX1FFKDe?si=Vo8Gj9uXSku2-6WzY6HgQg",
-      appleMusic: "https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626",
-      amazonMusic: "https://music.amazon.com/albums/B0F7H6LXVZ?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_iqGT0j3cMSEGDIQiC59dy6977",
-      iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/echoes-on-the-dirt-road-327006297/",
-      boomplay: "https://www.boomplay.com/albums/110238994?from=search&srModel=COPYLINK&srList=WEB",
-      deezer: "https://dzr.page.link/g2169XseSm3paGi38",
-      youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mL9FznTyx_-6nKq_rm767o73cjLlUCl_g&si=oprCNIO-vF3nwcuH",
-      iTunes: "https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626"
-    },
-    boomplayEmbed: "https://www.boomplay.com/embed/110238994/COL",
-    artistInfo: "ToA Studios presents *Echoes on the Dirt Road*, a heartfelt country album capturing the soul of rural life with hauntingly beautiful melodies. Featuring a viral Boot, Scoot & Spin song for those Line Dancers and Boot Scooters among us!",	
+  links: {
+    spotify: "https://open.spotify.com/album/0y1rCdAJggJMoFvX1FFKDe?si=Vo8Gj9uXSku2-6WzY6HgQg",
+    appleMusic: "https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626",
+    amazonMusic: "https://music.amazon.com/albums/B0F7H6LXVZ?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_iqGT0j3cMSEGDIQiC59dy6977",
+    iHeartRadio: "https://www.iheart.com/artist/toa-studios-46720429/albums/echoes-on-the-dirt-road-327006297/",
+    boomplay: "https://www.boomplay.com/albums/110238994?from=search&srModel=COPYLINK&srList=WEB",
+    deezer: "https://dzr.page.link/g2169XseSm3paGi38",
+    youTubeMusic: "https://music.youtube.com/playlist?list=OLAK5uy_mL9FznTyx_-6nKq_rm767o73cjLlUCl_g&si=oprCNIO-vF3nwcuH",
+    iTunes: "https://music.apple.com/us/album/echoes-on-the-dirt-road/1812611626"
+  },
+  boomplayEmbed: "https://www.boomplay.com/embed/110238994/COL",
+  artistInfo: "ToA Studios presents *Echoes on the Dirt Road*, a heartfelt country album capturing the soul of rural life with hauntingly beautiful melodies. Featuring a viral Boot, Scoot & Spin song for those Line Dancers and Boot Scooters among us!",
   lyrics: {
     "start-somewhere": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "mud-on-my-boots-stars-in-my-eyes": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "rust-and-roses": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "friday-nights-and-broken-lights": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
-    "boots-scoot-and-spin": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+    "boot-scoot-and-spin": { // Corrected key
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "gasoline-dreams": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "anchor-and-flame": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "the-last-call-i-never-made": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "whiskey-moon": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "letters-to-the-wind": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "dust-and-daisies": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
     },
     "echoes-on-the-dirt-road": {
-      file: "", // Add lyrics later
-      duration: "", // Add duration later
-      story: "", // Add story later
+      file: "",
+      duration: "",
+      story: "",
       video: null,
-      behindTheScenes: "", // Add behind-the-scenes later
-      links: {}, // Add links later
+      behindTheScenes: "",
+      links: {},
       musicPlayerId: null
-      }
     }
-  },
+  }
+},
   {
     id: "phoenix-rising",
     title: "Phoenix Rising",
@@ -1147,7 +1147,7 @@ export const albums = [
     boomplayEmbed: "https://www.boomplay.com/embed/110303684/COL",
     artistInfo: "ToA Studios reboots reality with *Reality.exe*, a satirical comedy roast fest whilst pointing out the reality of the World and Society as we know it. Hip-hop and rap focus album that glitches through the fabric of existence with pulsating beats.",
   lyrics: {
-    "oops...-i-thinked-again": {
+    "oops-i-thinked-again": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -1637,7 +1637,7 @@ export const albums = [
       "Glass Lions in the Fog",
       "Rain Signal Through Neon Ruins",
       "Dust and Code: Temple of Algorithms",
-      "Bass Communion (London of the Light)",
+      "Bass Communion London of the Light",
       "Enchanted Forest",
       "Oasis Frequency: Path of the Oud",
       "Sands of Aether",
@@ -1659,7 +1659,7 @@ export const albums = [
     boomplayEmbed: "https://www.boomplay.com/embed/111624648/COL",
     artistInfo: "ToA Studios Featuring DJ Jessica releases their new sequel trance EDM dance album - Constellation Frequency: Volume 2 - Hard hitting, Deep feeling, Trance mixed with Acid Trance & Pystrance.",
   lyrics: {
-    "ignition-sequence-dj-jessica-uplink-(intro)": {
+    "ignition-sequence-dj-jessica-uplink-intro": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -1722,7 +1722,7 @@ export const albums = [
       links: {}, // Add links later
       musicPlayerId: null
     },
-    "bass-communion-(london-of-the-light)": {
+    "bass-communion-london-of-the-light": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -1825,7 +1825,7 @@ export const albums = [
     boomplayEmbed: "https://www.boomplay.com/embed/111952695/COL",
     artistInfo: "ENCHANTRA is more than an album — it’s a living, breathing ancient-future rave odyssey. From the first whisper of tribal breath to the final dawnrise bassline, DJ Jessica crafts a mythic soundworld where sacred cultures, high-tech rave gear, and human fire converge in a single ritual.",
   lyrics: {
-    "dawn-signal-(intro)": {
+    "dawn-signal-intro": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -1997,7 +1997,7 @@ export const albums = [
     boomplayEmbed: "https://www.boomplay.com/embed/112296842/COL",
     artistInfo: "ENCHANTRA Volume 2 continues the ancient-future rave odyssey by ToA Studios and DJ Jessica. This sequel dives deeper into mythic soundscapes, blending sacred rhythms with cutting-edge trance and psytrance beats for an immersive dance experience.",
   lyrics: {
-    "the-celestial-vein-awakens-(intro)": {
+    "the-celestial-vein-awakens-intro": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -2145,7 +2145,7 @@ export const albums = [
     boomplayEmbed: "https://www.boomplay.com/embed/112152508/COL",
     artistInfo: "ANGELIC RESONANCE by Triad of Angels is a celestial journey through cinematic pop and soul-stirring ballads. Samantha, Jessica, and Sonya weave their voices into a tapestry of divine melodies, exploring themes of spiritual awakening and eternal harmony.",
   lyrics: {
-    "angelic-entrance-(intro)": {
+    "angelic-entrance-intro": {
       file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
@@ -2329,7 +2329,7 @@ export const albums = [
       musicPlayerId: "https://www.boomplay.com/embed/205986194/MUSIC?colType=5&colID=110448870"
     },
     "red-white-and-country-strong": {
-      file: "", // Add lyrics later
+      file: "/lyrics/red-white-and-country-strong.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2338,7 +2338,7 @@ export const albums = [
       musicPlayerId: null
     },
     "born-to-ride-free": {
-      file: "", // Add lyrics later
+      file: "/lyrics/born-to-ride-free.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2347,7 +2347,7 @@ export const albums = [
       musicPlayerId: null
     },
     "stars-across-the-water": {
-      file: "", // Add lyrics later
+      file: "/lyrics/stars-across-the-water.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2356,7 +2356,7 @@ export const albums = [
       musicPlayerId: null
     },
     "where-the-brave-still-stand": {
-      file: "", // Add lyrics later
+      file: "/lyrics/where-the-brave-still-stand.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2365,7 +2365,7 @@ export const albums = [
       musicPlayerId: null
     },
     "where-we-belong-tonight": {
-      file: "", // Add lyrics later
+      file: "/lyrics/where-we-belong-tonight.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2374,7 +2374,7 @@ export const albums = [
       musicPlayerId: null
     },
     "fireworks-and-freedom": {
-      file: "", // Add lyrics later
+      file: "/lyrics/fireworks-and-freedom.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2383,7 +2383,7 @@ export const albums = [
       musicPlayerId: null
     },
     "born-for-the-red-white-and-blue": {
-      file: "", // Add lyrics later
+      file: "/lyrics/born-for-the-red-white-and-blue.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2392,7 +2392,7 @@ export const albums = [
       musicPlayerId: null
     },
     "raise-that-flag": {
-      file: "", // Add lyrics later
+      file: "/lyrics/raise-that-flag.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2401,7 +2401,7 @@ export const albums = [
       musicPlayerId: null
     },
     "living-free-in-america": {
-      file: "", // Add lyrics later
+      file: "/lyrics/living-free-in-america.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2410,7 +2410,7 @@ export const albums = [
       musicPlayerId: null
     },
     "home-beneath-the-stars": {
-      file: "", // Add lyrics later
+      file: "/lyrics/home-beneath-the-stars.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2419,7 +2419,7 @@ export const albums = [
       musicPlayerId: null
     },
     "american-firelight": {
-      file: "", // Add lyrics later
+      file: "/lyrics/american-firelight.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2428,7 +2428,7 @@ export const albums = [
       musicPlayerId: null
     },
     "run-the-red-white-and-blue": {
-      file: "", // Add lyrics later
+      file: "/lyrics/run-the-red-white-and-blue.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2437,7 +2437,7 @@ export const albums = [
       musicPlayerId: null
     },
     "land-that-i-love": {
-      file: "", // Add lyrics later
+      file: "/lyrics/land-that-i-love.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,

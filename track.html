@@ -331,45 +331,41 @@
   <!-- JavaScript: Handles dynamic content loading, error handling, and interactivity -->
   <!-- Edit: Update the albums array in data.js with track-specific data (lyrics, duration, video, etc.) -->
 <script type="module">
-  // Import albums data
+  // Import albums data and sanitizeTrackId
   import { albums } from './js/data.js';
-
-  // Function to sanitize track IDs
-  function sanitizeTrackId(str) {
-    return str
-      .toLowerCase()
-      .replace(/:/g, '') // Remove colons
-      .replace(/\s+/g, '-') // Replace spaces with hyphens
-      .trim();
-  }
+  import { sanitizeTrackId } from './js/utils.js';
 
   document.addEventListener('DOMContentLoaded', () => {
     try {
       // Extract track and album IDs from URL query parameters
       const urlParams = new URLSearchParams(window.location.search);
-      const trackId = urlParams.get('id');
+      let trackId = urlParams.get('id');
       const albumId = urlParams.get('album');
       if (!trackId || !albumId) throw new Error('Missing track or album ID in URL.');
+
+      // Decode and sanitize trackId
+      trackId = decodeURIComponent(trackId.trim()); // Decode URL-encoded characters
+      const sanitizedTrackId = sanitizeTrackId(trackId);
+
+      // Debug: Log raw and processed trackId
+      console.log('Raw trackId from URL:', trackId);
+      console.log('Sanitized trackId:', sanitizedTrackId);
 
       // Find the album
       const album = albums.find(a => a.id === albumId);
       if (!album) throw new Error(`Album with ID "${albumId}" not found.`);
 
-      // Sanitize the trackId from URL
-      const sanitizedTrackId = sanitizeTrackId(decodeURIComponent(trackId));
-
-      // Debug: Log available tracks and their sanitized IDs
+      // Debug: Log available tracks
       console.log('Available tracks:', album.tracks.map(t => ({
         original: t,
         sanitized: sanitizeTrackId(t)
       })));
-      console.log('Looking for sanitized trackId:', sanitizedTrackId);
 
-      // Find the track by sanitizing both track title and trackId
+      // Find the track
       const track = album.tracks.find(t => sanitizeTrackId(t) === sanitizedTrackId);
-      if (!track) throw new Error(`Track with ID "${trackId}" (sanitized: "${sanitizedTrackId}") not found.`);
+      if (!track) throw new Error(`Track with ID "${trackId}" (sanitized: "${sanitizedTrackId}") not found in album "${album.title}".`);
 
-      // Track-specific data using sanitized trackId
+      // Track-specific data
       const trackData = album.lyrics[sanitizedTrackId];
       if (!trackData) throw new Error(`Track data for ID "${sanitizedTrackId}" not found in lyrics.`);
 
@@ -550,7 +546,7 @@
           "url": `https://www.triadofangels.com/album.html?id=${albumId}`
         },
         "genre": album.genre,
-        "url": `https://www.triadofangels.com/track.html?id=${sanitizedTrackId}&album=${albumId}`,
+        "url": `https://www.triadofangels.com/track.html?id=${encodeURIComponent(sanitizedTrackId)}&album=${albumId}`,
         "image": album.cover,
         "datePublished": album.year,
         "duration": duration,
@@ -560,7 +556,7 @@
           "@type": "Offer",
           "price": "1.29",
           "priceCurrency": "USD",
-          "url": `https://www.triadofangels.com/store/${albumId}/${sanitizedTrackId}`,
+          "url": `https://www.triadofangels.com/store/${albumId}/${encodeURIComponent(sanitizedTrackId)}`,
           "availability": "https://schema.org/InStock"
         }
       }, null, 2);
@@ -595,12 +591,13 @@
       const main = document.querySelector('.track-main');
       const errorContainer = document.createElement('section');
       errorContainer.className = 'error-section';
-      errorContainer.innerHTML = `<h2>Error Loading Track</h2><p>We couldn’t load this track. Please try again later or <a href="/music.html" aria-label="Go to Music page">go back to the Music page</a>.</p>`;
+      errorContainer.innerHTML = `<h2>Error Loading Track</h2><p>We couldn’t load this track. Please try again later or <a href="/music.html" aria-label="Go to Music page">go back to the Music page</a>. Error: ${error.message}</p>`;
       main.innerHTML = '';
       main.appendChild(errorContainer);
     }
   });
 </script>
+
 <script>
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
