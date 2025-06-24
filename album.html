@@ -245,12 +245,13 @@
   <!-- Album Background -->
   <img id="album-background" class="album-background" alt="Blurred album cover background" loading="lazy" />
   <header role="banner">
-    <nav role="navigation" aria-label="Main site navigation">
-      <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span class="menu-icon">☰</span>
-        <span class="menu-label">Menu</span>
-      </button>
-      <ul id="main-nav" role="list">
+  <nav role="navigation" aria-label="Main site navigation">
+    <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="menu-icon">☰</span>
+      <span class="menu-label">Menu</span>
+    </button>
+    <span class="mobile-welcome">Welcome</span>
+    <ul id="main-nav" role="list">
         <li><a href="/index.html" aria-current="page">Home</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/music.html">Music</a></li>
@@ -575,8 +576,7 @@
   });
 </script>
 <script>
-  // Mobile menu toggle
-  document.documentElement.style.scrollBehavior = 'smooth';
+  // Menu toggle as before
   const toggleButton = document.getElementById('mobile-menu-toggle');
   const navMenu = document.getElementById('main-nav');
   if (toggleButton && navMenu) {
@@ -584,7 +584,19 @@
       const isExpanded = navMenu.classList.toggle('show');
       toggleButton.setAttribute('aria-expanded', isExpanded);
     });
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+      if (
+        navMenu.classList.contains('show') &&
+        !navMenu.contains(e.target) &&
+        e.target !== toggleButton &&
+        !toggleButton.contains(e.target)
+      ) {
+        navMenu.classList.remove('show');
+        toggleButton.setAttribute('aria-expanded', false);
+      }
+    });
   }
-</script>
+</script>  
 </body>
 </html>

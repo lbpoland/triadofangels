@@ -82,12 +82,13 @@
 
 <body class="music-page">
   <header role="banner">
-    <nav role="navigation" aria-label="Main site navigation">
-      <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span class="menu-icon">☰</span>
-        <span class="menu-label">Menu</span>
-      </button>
-      <ul id="main-nav" role="list">
+  <nav role="navigation" aria-label="Main site navigation">
+    <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="menu-icon">☰</span>
+      <span class="menu-label">Menu</span>
+    </button>
+    <span class="mobile-welcome">Welcome</span>
+    <ul id="main-nav" role="list">
         <li><a href="/index.html">Home</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/music.html" aria-current="page">Music</a></li>
@@ -106,7 +107,7 @@
       <img src="assets/images/hero-banner.webp" alt="Fallback image: cosmic banner" loading="lazy">
 </div>
     <div class="hero-content" style="background: none; box-shadow: none;">
-      <h1>Triad of Angels - Music Collection</h1>
+      <h1>Triad of Angels & ToA Studios - Music Collection</h1>
       <p>Soundtracks of strength, spirit, and innovation</p>
     </div>
   </section>
@@ -155,7 +156,7 @@
       <h2 style="text-align: center;">Triad of Angels Albums</h2>
       <div class="divider2"></div>	  
       <div class="artist-links" style="text-align: center; margin: 10px 0 20px;">
-      <div class="album-grid">
+      <div class="album-grid" id="triad-albums">
         <article class="album-block">
           <div class="album-actions">
             <div class="streaming-dropdown">
@@ -278,46 +279,56 @@
         </article>
 		
       </div>
-      <div class="scroll-hint">← Scroll albums →</div>
+    <div class="album-nav-buttons">
+      <button class="album-nav-button album-nav-left" aria-label="Scroll to previous Album" data-carousel="triad-albums">
+	  &#171;
+      </button>
+      <button class="album-nav-button album-nav-right" aria-label="Scroll to next Album" data-carousel="triad-albums">
+	  &#187;
+      </button>
+    </div>	
+	<br>
+      <div class="scroll-hint">Scroll albums</div>
     </section>
 
-<section class="video-grid" style="padding: 40px 20px;">
+<section class="music-video-grid" style="padding: 40px 20px;">
   <h2 style="text-align: center;">Triad of Angels Featured Videos</h2>
   <div class="divider2"></div>
-  <div class="video-carousel-container">
-    <div class="video-carousel" id="triad-videos">
-      <div class="video-item">  
+  <div class="music-video-carousel-container">
+    <div class="music-video-carousel" id="triad-videos">
+      <div class="music-video-item">  
 <lite-youtube 
   videoid="64r8p1gxqN0" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
   title="Triad of Angels Music Video 1"
 ></lite-youtube>	  	  	
       </div>	
-      <div class="video-item">
+      <div class="music-video-item">
 <lite-youtube 
   videoid="oup9ZeIdroU" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
-  title="Triad of Angels Music Video 1"
+  title="Triad of Angels Music Video 2"
 ></lite-youtube>	  		
       </div>		  
-      <div class="video-item">
+      <div class="music-video-item">
 <lite-youtube 
   videoid="FjSmSfnk54Q" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
-  title="Triad of Angels Music Video 1"
+  title="Triad of Angels Music Video 3"
 ></lite-youtube>	  		
       </div>		  	
     </div>
-    <div class="video-nav-buttons">
-      <button class="video-nav-button video-nav-left" aria-label="Scroll to previous video" data-carousel="triad-videos">
-        ←
+    <div class="music-video-nav-buttons">
+      <button class="music-video-nav-button music-video-nav-left" aria-label="Scroll to previous music-video" data-carousel="triad-videos">
+	  &#171;
       </button>
-      <button class="video-nav-button video-nav-right" aria-label="Scroll to next video" data-carousel="triad-videos">
-        →
-      </button>
+      <button class="music-video-nav-button music-video-nav-right" aria-label="Scroll to next video" data-carousel="triad-videos">
+	  &#187;
+      </button>	  
     </div>
   </div>
-  <div class="scroll-hint">←    Scroll videos    →</div>
+  <br>
+  <div class="scroll-hint">Scroll videos</div>
 </section>
 
     <section class="album-catalog" style="padding: 40px 20px;">
@@ -400,7 +411,7 @@
       </ul>
     </div>
   </div>
-  <div class="album-grid">
+  <div class="album-grid" id="toa-albums">
  
     <article class="album-block" data-category="country rock pop funk">
       <div class="album-actions">
@@ -757,81 +768,91 @@
     </article>	
 	
   </div>
-  <div class="scroll-hint">←    Scroll albums    →</div>
+    <div class="album-nav-buttons">
+      <button class="album-nav-button album-nav-left" aria-label="Scroll to previous Album" data-carousel="toa-albums">
+	  &#171;
+      </button>
+      <button class="album-nav-button album-nav-right" aria-label="Scroll to next Album" data-carousel="toa-albums">
+	  &#187;
+      </button>
+    </div>
+  <br>
+  <div class="scroll-hint">Scroll Albums</div>
 </section>
 
-<section class="video-grid" style="padding: 40px 20px;">
+<section class="music-video-grid" style="padding: 40px 20px;">
   <h2 style="text-align: center;">ToA Studios Featured Videos</h2>
   <div class="divider2"></div>
-  <div class="video-carousel-container">
-    <div class="video-carousel" id="toa-videos">
-      <div class="video-item">
+  <div class="music-video-carousel-container">
+    <div class="music-video-carousel" id="toa-videos">
+      <div class="music-video-item">
 <lite-youtube 
   videoid="89wTov27-Cc" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
   title="ToA Studios Music Video 1"
 ></lite-youtube>		  	
       </div>
-      <div class="video-item">
+      <div class="music-video-item">
 <lite-youtube 
   videoid="Cd8tJ5LRB2Q" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
-  title="ToA Studios Music Video 1"
+  title="ToA Studios Music Video 2"
 ></lite-youtube>		  	
       </div>
-      <div class="video-item">	 
+      <div class="music-video-item">	 
 <lite-youtube 
   videoid="r4cb47XX8ps" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
-  title="ToA Studios Music Video 1"
+  title="ToA Studios Music Video 3"
 ></lite-youtube>		  
       </div>	  	
-      <div class="video-item">
+      <div class="music-video-item">
 <lite-youtube 
   videoid="XAk4YuA1M2U" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
-  title="ToA Studios Music Video 1"
+  title="ToA Studios Music Video 4"
 ></lite-youtube>		  
       </div>
-      <div class="video-item">
+      <div class="music-video-item">
 <lite-youtube 
   videoid="nV0s3jKfsSU" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
-  title="ToA Studios Music Video 1"
+  title="ToA Studios Music Video 5"
 ></lite-youtube>	  		
       </div>	  
-      <div class="video-item">
+      <div class="music-video-item">
 <lite-youtube 
   videoid="VP7tck0nk1w" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
-  title="ToA Studios Music Video 1"
+  title="ToA Studios Music Video 6"
 ></lite-youtube>	  	
       </div>	  
-      <div class="video-item">
+      <div class="music-video-item">
 <lite-youtube 
   videoid="fBGF-Q-sX9A" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
-  title="ToA Studios Music Video 1"
+  title="ToA Studios Music Video 7"
 ></lite-youtube>		  	
       </div>
-      <div class="video-item">
+      <div class="music-video-item">
 <lite-youtube 
   videoid="CcboABjo5SY" 
   style="width:100%;max-width:560px;height:auto;aspect-ratio:16/9;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);margin:0 auto;display:block;"
-  title="ToA Studios Music Video 1"
+  title="ToA Studios Music Video 8"
 ></lite-youtube>	  		
       </div>	  
     </div>
-    <div class="video-nav-buttons">
-      <button class="video-nav-button video-nav-left" aria-label="Scroll to previous video" data-carousel="toa-videos">
-        ←
+  </div>	
+    <div class="music-video-nav-buttons">
+      <button class="music-video-nav-button music-video-nav-left" aria-label="Scroll to previous video" data-carousel="toa-videos">
+	  &#171;
       </button>
-      <button class="video-nav-button video-nav-right" aria-label="Scroll to next video" data-carousel="toa-videos">
-        →
+      <button class="music-video-nav-button music-video-nav-right" aria-label="Scroll to next video" data-carousel="toa-videos">
+	  &#187;
       </button>
     </div>
-  </div>
-  <div class="scroll-hint">← Scroll videos →</div>
+  <br>
+  <div class="scroll-hint">Scroll videos</div>
 </section>
 
     <section class="album-catalog" style="padding: 40px 20px;">
@@ -840,7 +861,7 @@
       <div style="text-align: center; margin: 10px 0 20px;"></div>
       <div class="album-grid">  
       </div>
-      <div class="scroll-hint">←    Scroll albums    →</div>
+      <div class="scroll-hint">Scroll albums</div>
     </section>
   </main>
 
@@ -946,17 +967,27 @@ const toaAlbumBlocks = document.querySelectorAll('#toa-studios-albums .album-gri
       }, { passive: false });
     });
 
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    if (mobileMenuToggle) {
-      mobileMenuToggle.addEventListener('click', () => {
-        console.log('Toggling mobile menu');
-        document.getElementById('main-nav').classList.toggle('show');
-      });
-    } else {
-      console.warn('Mobile menu toggle not found');
-    }
-
+  // Menu toggle as before
+  const toggleButton = document.getElementById('mobile-menu-toggle');
+  const navMenu = document.getElementById('main-nav');
+  if (toggleButton && navMenu) {
+    toggleButton.addEventListener('click', () => {
+      const isExpanded = navMenu.classList.toggle('show');
+      toggleButton.setAttribute('aria-expanded', isExpanded);
+    });
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+      if (
+        navMenu.classList.contains('show') &&
+        !navMenu.contains(e.target) &&
+        e.target !== toggleButton &&
+        !toggleButton.contains(e.target)
+      ) {
+        navMenu.classList.remove('show');
+        toggleButton.setAttribute('aria-expanded', false);
+      }
+    });
+  }
     // Streaming Dropdowns
     const buttons = document.querySelectorAll('.streaming-dropdown-button');
     if (!buttons.length) {
@@ -1028,19 +1059,19 @@ const toaAlbumBlocks = document.querySelectorAll('#toa-studios-albums .album-gri
   <!-- New JavaScript for Video Carousel Navigation -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const videoNavButtons = document.querySelectorAll('.video-nav-button');
+      const musicvideoNavButtons = document.querySelectorAll('.music-video-nav-button');
 
-      videoNavButtons.forEach(button => {
+      musicvideoNavButtons.forEach(button => {
         button.addEventListener('click', () => {
           const carouselId = button.getAttribute('data-carousel');
           const carousel = document.getElementById(carouselId);
-          const videoItems = carousel.querySelectorAll('.video-item');
-          const scrollAmount = videoItems[0].offsetWidth + 20; // Width of video item + gap
+          const musicvideoItems = carousel.querySelectorAll('.music-video-item');
+          const scrollAmount = musicvideoItems[0].offsetWidth + 20; // Width of video item + gap
 
-          if (button.classList.contains('video-nav-left')) {
+          if (button.classList.contains('music-video-nav-left')) {
             // Scroll left
             carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-          } else if (button.classList.contains('video-nav-right')) {
+          } else if (button.classList.contains('music-video-nav-right')) {
             // Scroll right
             carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
           }
@@ -1051,17 +1082,34 @@ const toaAlbumBlocks = document.querySelectorAll('#toa-studios-albums .album-gri
           e.preventDefault(); // Prevent default touch behavior
           const carouselId = button.getAttribute('data-carousel');
           const carousel = document.getElementById(carouselId);
-          const videoItems = carousel.querySelectorAll('.video-item');
-          const scrollAmount = videoItems[0].offsetWidth + 20; // Width of video item + gap
+          const musicvideoItems = carousel.querySelectorAll('.music-video-item');
+          const scrollAmount = musicvideoItems[0].offsetWidth + 20; // Width of video item + gap
 
-          if (button.classList.contains('video-nav-left')) {
+          if (button.classList.contains('music-video-nav-left')) {
             carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-          } else if (button.classList.contains('video-nav-right')) {
+          } else if (button.classList.contains('music-video-nav-right')) {
             carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
           }
         }, { passive: false });
       });
     });
   </script>
+<script>
+document.querySelectorAll('.album-nav-button').forEach(button => {
+  button.addEventListener('click', function() {
+    const grid = document.getElementById(this.dataset.carousel);
+    if (!grid) return;
+    const block = grid.querySelector('.album-block');
+    const blockWidth = block ? block.offsetWidth : 320;
+    const scrollAmount = blockWidth + 10; // Adjust gap if needed
+    if (this.classList.contains('album-nav-left')) {
+      grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+      grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+  
 </body>
 </html>

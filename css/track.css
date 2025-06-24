@@ -322,6 +322,11 @@ body::before {
   .behind-the-scenes, .related-tracks, .social-share {
     padding: 30px 15px;
   }
+
+#track-lyrics {
+  font-size: 0.9rem;
+}
+  
   .track-lyrics h2,
   .streaming-links h2,
   .to-a-player h2,
