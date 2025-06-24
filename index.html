@@ -2,18 +2,18 @@
 <html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy"
-    content="
-      default-src 'self';
-      script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.gstatic.com;
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-      font-src 'self' https://fonts.gstatic.com;
-      img-src 'self' data: https://img.youtube.com https://i.ytimg.com https://www.boomplay.com;
-      frame-src https://www.youtube.com https://www.boomplay.com;
-      connect-src 'self';
-      object-src 'none';
-      base-uri 'self';
-    ">
+<meta http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.gstatic.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https://img.youtube.com https://i.ytimg.com https://www.boomplay.com;
+    frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.boomplay.com;
+    connect-src 'self';
+    object-src 'none';
+    base-uri 'self';
+  ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Triad of Angels | ToA Studios Official Website | Cinematic, Faith, All-Genre Digital Creators</title>
   <meta name="description" content="Triad of Angels & ToA Studios – Official site for the new wave of all-genre, faith-powered, AI-fueled music and digital creation. From worship and gospel to pop, EDM, rock, metal, country, games, apps, videos, and digital art. Real triplet sisters, real innovation.">
@@ -64,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Triad of Angels & ToA Studios",
-    "alternateName": ["ToA Studios", "Triad of Angels Studios", "Triad of Angels"],
+    "alternateName": ["ToA Studios", "Triad of Angels Studios", "Triad of Angels", "ToA", "The Triad of Angels", "Angels", "Studios", "ToA Music", "ToA Studios Music", "Triad of Angels Music"],
     "url": "https://www.triadofangels.com",
     "logo": "/assets/images/logo.webp",
     "sameAs": [
@@ -179,8 +179,13 @@
   </header>
   <section class="hero-banner" aria-label="Homepage hero section">
     <div class="picture">
-      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" loading="lazy">
+    <div id="desktop-banner">
+      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" loading="lazy">
     </div>
+    <div id="mobile-banner">
+      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" loading="lazy">
+    </div>  
+	</div>
     <div class="hero-content">
       <h1>Triad of Angels</h1>
       <h2>ToA Studios</h2>
@@ -210,27 +215,39 @@
       </a>
       <h4>American Firestorm: Songs of Freedom</h4>
       <p>Independence Day 4th of July Soundtrack &ndash; ToA Studios</p>
-    </article>    
+	  <p>Release Year 2025</p>
+    </article>   
+	<article class="album-block">
+      <a href="/album.html?id=angelicresonance" class="album-link" aria-label="Angelic Resonance by ToA Studios">
+        <img src="/assets/images/albums/angelicresonance-album.webp" alt="Angelic Resonance album cover" loading="lazy" />
+      </a>
+      <h4>Angelic Resonance</h4>
+      <p>Vocal Uplifting Worship Gospel Trance EDM &ndash; ToA Studios</p>
+	  <p>Release Year 2025</p>
+    </article>	
 	<article class="album-block">
       <a href="/album.html?id=enchantra2" class="album-link" aria-label="Enchantra by ToA Studios">
         <img src="/assets/images/albums/enchantra2-album.webp" alt="Enchantra Volume 2 album cover" loading="lazy" />
       </a>
       <h4>Enchantra Volume 2</h4>
-      <p>Trance EDM &ndash; ToA Studios</p>
+      <p>Epic Uplifting Trance EDM &ndash; ToA Studios</p>
+	  <p>Release Year 2025</p>
     </article>
     <article class="album-block">
       <a href="/album.html?id=divine-echoes" class="album-link" aria-label="Divine Echoes by Triad of Angels">
         <img src="/assets/images/albums/divine-echoes-album.webp" alt="Divine Echoes album cover" loading="lazy" />
       </a>
       <h4>Divine Echoes</h4>
-      <p>Cinematic Concept Soundtrack &ndash; Triad of Angels</p>
+      <p>Cinematic Biblical Worship Gospel Concept Soundtrack &ndash; Triad of Angels</p>
+	  <p>Release Year 2025</p>
     </article>
     <article class="album-block">
       <a href="/album.html?id=Celetia-the-light-within" class="album-link" aria-label="Celestia: The Light Within by Triad of Angels">
         <img src="/assets/images/albums/celestia-the-light-within-album.webp" alt="Celestia: The Light Within album cover" loading="lazy" />
       </a>
       <h4>Celestia: The Light Within</h4>
-      <p>Cinematic Pop Dance &ndash; Triad of Angels</p>
+      <p>Pop Dance &ndash; Triad of Angels</p>
+	  <p>Release Year 2025</p>
     </article>
   </div>
     <div class="album-nav-buttons">
@@ -242,7 +259,6 @@
       </button>
     </div>  
 </section>
-
 
     <section class="about-preview" aria-labelledby="about-preview-title">
       <h2 id="about-preview-title">What is Triad of Angels & ToA Studios?</h2>
