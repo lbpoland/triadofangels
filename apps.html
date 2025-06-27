@@ -39,7 +39,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@triadofangels">
   <meta name="twitter:creator" content="@triadofangels">
-  <meta name="twitter:title" content="Apps & AI Tools | Triad of Angels Studios">
+  <meta name="twitter:title" content="Apps & AI Tools | Triad of Angels & ToA Studios">
   <meta name="twitter:description" content="Music tools, lyric AI, digital art bots, and creative productivity from ToA Studios. See what’s launching soon.">
   <meta name="twitter:image" content="https://www.triadofangels.com/assets/images/twitter/twitter-apps.webp">
 
@@ -214,10 +214,10 @@
   <section class="hero-banner" aria-label="Apps hero page section">
     <div class="picture">
     <div id="desktop-banner">
-      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" loading="lazy">
+      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" width="1920" height="1080" fetchpriority="high" loading="eager">
     </div>
     <div id="mobile-banner">
-      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" loading="lazy">
+      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" width="1080" height="1920" fetchpriority="high" loading="eager">
     </div>  
 	</div>
     <div class="hero-content">
@@ -236,33 +236,41 @@
     </section>
 
     <!-- CATEGORY GRID -->
-    <section style="padding: 40px 20px;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: auto;">
-        <div style="background:#222; border-radius: 8px; padding: 20px;">
+<div class="container digital-store-container">
+  <section class="products-grid">
+    <div class="products-container">
+      <div class="product-block">	
           <h3>🎵 <a href="/music.html" style="color:inherit;text-decoration:underline;">Music Tools</a></h3>
           <p>Lyric writers, beat generators, mixing engines for creators and fans.</p>
+          <strong>Coming Soon!</strong>		  
         </div>
-        <div style="background:#222; border-radius: 8px; padding: 20px;">
+      <div class="product-block">
           <h3>🧠 AI Creativity</h3>
           <p>Image, video & concept creation apps powered by generative AI and smart prompts.</p>
+          <strong>Coming Soon!</strong>		  
         </div>
-        <div style="background:#222; border-radius: 8px; padding: 20px;">
+      <div class="product-block">
           <h3>🧰 Productivity</h3>
           <p>Focus apps, trackers, creative workflow management, and planning tools.</p>
+          <strong>Coming Soon!</strong>		  
         </div>
-        <div style="background:#222; border-radius: 8px; padding: 20px;">
+      <div class="product-block">
           <h3>🎮 <a href="/games.html" style="color:inherit;text-decoration:underline;">Game Tools</a></h3>
           <p>Lore generators, asset creators, companion apps for game makers and fans.</p>
+          <strong>Coming Soon!</strong>		  
         </div>
-        <div style="background:#222; border-radius: 8px; padding: 20px;">
+      <div class="product-block">
           <h3>🌌 Experiments</h3>
           <p>AI dreams, emotion mappers, experimental digital minds from ToA Labs.</p>
+          <strong>Coming Soon!</strong>		  
         </div>
-        <div style="background:#222; border-radius: 8px; padding: 20px;">
+      <div class="product-block">
           <h3>💬 Social AI</h3>
           <p>Fanbots, interactive lore chat, personalized Q&A and AI-powered fan assistants.</p>
-        </div>
+          <strong>Coming Soon!</strong>
+        </p>
       </div>
+    </div>
     </section>
 
     <!-- FAQ SECTION (visible for users, Google loves this for rich answers) -->
@@ -329,31 +337,6 @@
       </a>
     </div>
   </footer>
-  <script>
-    document.documentElement.style.scrollBehavior = 'smooth';
-  </script>
-  <script>
-    // Menu toggle
-    const toggleButton = document.getElementById('mobile-menu-toggle');
-    const navMenu = document.getElementById('main-nav');
-    if (toggleButton && navMenu) {
-      toggleButton.addEventListener('click', () => {
-        const isExpanded = navMenu.classList.toggle('show');
-        toggleButton.setAttribute('aria-expanded', isExpanded);
-      });
-      // Click outside to close
-      document.addEventListener('click', (e) => {
-        if (
-          navMenu.classList.contains('show') &&
-          !navMenu.contains(e.target) &&
-          e.target !== toggleButton &&
-          !toggleButton.contains(e.target)
-        ) {
-          navMenu.classList.remove('show');
-          toggleButton.setAttribute('aria-expanded', false);
-        }
-      });
-    }
-  </script>
+<script src="/js/global.js"></script>
 </body>
 </html>

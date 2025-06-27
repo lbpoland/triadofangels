@@ -384,7 +384,7 @@ export const albums = [
     artist: "Triad of Angels",
     genre: "A Cinematic Soundtrack Concept Art Piece",
     year: "June, 2025",
-    cover: "assets/images/albums/celestia-the-light-within-album.webp",
+    cover: "assets/images/albums/divine-echoes-album.webp",
     tracks: [
       "Genesis of Light",
       "Name Above Fire",
@@ -419,7 +419,7 @@ export const albums = [
     artistInfo: "Divine Echoes is not just an album. It’s a cinematic concept worship experience. Told through the voices of three Angels — Samantha, Jessica, and Sonya — known together as Triad of Angels, these songs weave together scripture, prophecy, and spirit. Some are sung from the perspective and experience of Angels, others from believers walking through fire, wilderness, revelation, or glory. Each track is rich with orchestration, sound design, and sacred storytelling. This is worship as a concept soundtrack. A journey through Genesis, the Cross, the Spirit, and Revelation.",	
   lyrics: {
     "genesis-of-light": {
-      file: "", // Add lyrics later
+      file: "genesis-of-light.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -428,7 +428,7 @@ export const albums = [
       musicPlayerId: null
     },
     "name-above-fire": {
-      file: "", // Add lyrics later
+      file: "name-above-fire.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -437,7 +437,7 @@ export const albums = [
       musicPlayerId: null
     },
     "the-wilderness-speaks": {
-      file: "", // Add lyrics later
+      file: "the-wilderness-speaks.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -446,7 +446,7 @@ export const albums = [
       musicPlayerId: null
     },
     "cry-of-the-watchmen": {
-      file: "", // Add lyrics later
+      file: "cry-of-the-watchmen.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -455,7 +455,7 @@ export const albums = [
       musicPlayerId: null
     },
     "messiah": {
-      file: "", // Add lyrics later
+      file: "messiah.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -464,7 +464,7 @@ export const albums = [
       musicPlayerId: null
     },
     "every-grave-shall-open": {
-      file: "", // Add lyrics later
+      file: "every-grave-shall-open.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -473,7 +473,7 @@ export const albums = [
       musicPlayerId: null
     },
     "tongues-of-fire": {
-      file: "", // Add lyrics later
+      file: "tongues-of-fire.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -482,7 +482,7 @@ export const albums = [
       musicPlayerId: null
     },
     "the-bride-watches": {
-      file: "", // Add lyrics later
+      file: "the-bride-watches.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -491,7 +491,7 @@ export const albums = [
       musicPlayerId: null
     },
     "we-do-not-bow": {
-      file: "", // Add lyrics later
+      file: "we-do-not-bow.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -500,7 +500,7 @@ export const albums = [
       musicPlayerId: null
     },
     "veil-torn": {
-      file: "", // Add lyrics later
+      file: "veil-torn.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -509,7 +509,7 @@ export const albums = [
       musicPlayerId: null
     },
     "altars-in-the-ashes": {
-      file: "", // Add lyrics later
+      file: "altars-in-the-ashes.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -518,7 +518,7 @@ export const albums = [
       musicPlayerId: null
     },
     "healed-in-the-flames": {
-      file: "", // Add lyrics later
+      file: "healed-in-the-flames.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -527,7 +527,7 @@ export const albums = [
       musicPlayerId: null
     },
     "crowned-with-light": {
-      file: "", // Add lyrics later
+      file: "crowned-with-light.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -536,7 +536,7 @@ export const albums = [
       musicPlayerId: null
     },
     "the-table-is-set": {
-      file: "", // Add lyrics later
+      file: "the-table-is-set.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -545,7 +545,7 @@ export const albums = [
       musicPlayerId: null
     },
     "thrones-will-fall": {
-      file: "", // Add lyrics later
+      file: "thrones-will-fall.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -554,7 +554,7 @@ export const albums = [
       musicPlayerId: null
     },
     "let-the-earth-respond": {
-      file: "", // Add lyrics later
+      file: "let-the-earth-respond.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -563,7 +563,7 @@ export const albums = [
       musicPlayerId: null
     },
     "the-city-descends": {
-      file: "", // Add lyrics later
+      file: "the-city-descends.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -572,7 +572,7 @@ export const albums = [
       musicPlayerId: null
     },
     "amen-the-sound-that-never-ends": {
-      file: "", // Add lyrics later
+      file: "amen-the-sound-that-never-ends.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,

@@ -22,7 +22,7 @@
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta property="og:title" content="Publishing | Triad of Angels">
+  <meta property="og:title" content="Publishing | Triad of Angels & ToA Studios">
   <meta property="og:description" content="Explore lyric books, creative courses, and publications by Triad of Angels. Ignite your own creative fire.">
   <meta property="og:image" content="https://www.triadofangels.com/assets/images/og/og-publishing.webp">
   <meta property="og:image:alt" content="Triad of Angels creative publishing banner">
@@ -37,7 +37,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@triadofangels">
   <meta name="twitter:creator" content="@triadofangels">
-  <meta name="twitter:title" content="Publishing | Triad of Angels">
+  <meta name="twitter:title" content="Publishing | Triad of Angels & ToA Studios">
   <meta name="twitter:description" content="Publishing by Triad of Angels: explore lyric collections, creative empowerment books, and exclusive courses.">
   <meta name="twitter:image" content="https://www.triadofangels.com/assets/images/twitter/twitter-publishing.webp">
   <link rel="canonical" href="https://www.triadofangels.com/publishing.html">
@@ -135,7 +135,7 @@
   }
   </script>
 
-  <title>Publishing | Triad of Angels</title>
+  <title>Publishing | Triad of Angels & ToA Studios</title>
 </head>
 
 
@@ -163,10 +163,10 @@
   <section class="hero-banner" aria-label="Publishing hero page section">
     <div class="picture">
     <div id="desktop-banner">
-      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" loading="lazy">
+      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" width="1920" height="1080" fetchpriority="high" loading="eager">
     </div>
     <div id="mobile-banner">
-      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" loading="lazy">
+      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" width="1080" height="1920" fetchpriority="high" loading="eager">
     </div>  
 	</div>
         <div class="hero-content">
@@ -220,31 +220,6 @@
       </a>
     </div>
   </footer>
-  <script>
-    document.documentElement.style.scrollBehavior = 'smooth';
-  </script>
-<script>
-  // Menu toggle as before
-  const toggleButton = document.getElementById('mobile-menu-toggle');
-  const navMenu = document.getElementById('main-nav');
-  if (toggleButton && navMenu) {
-    toggleButton.addEventListener('click', () => {
-      const isExpanded = navMenu.classList.toggle('show');
-      toggleButton.setAttribute('aria-expanded', isExpanded);
-    });
-    // Click outside to close
-    document.addEventListener('click', (e) => {
-      if (
-        navMenu.classList.contains('show') &&
-        !navMenu.contains(e.target) &&
-        e.target !== toggleButton &&
-        !toggleButton.contains(e.target)
-      ) {
-        navMenu.classList.remove('show');
-        toggleButton.setAttribute('aria-expanded', false);
-      }
-    });
-  }
-</script>    
+<script src="/js/global.js"></script>   
 </body>
 </html>

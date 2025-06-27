@@ -149,10 +149,10 @@
   <section class="hero-banner" aria-label="About hero page section">
     <div class="picture">
     <div id="desktop-banner">
-      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" loading="lazy">
+      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" width="1920" height="1080" fetchpriority="high" loading="eager">
     </div>
     <div id="mobile-banner">
-      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" loading="lazy">
+      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" width="1080" height="1920" fetchpriority="high" loading="eager">
     </div>  
 	</div>
     <div class="hero-content">
@@ -164,10 +164,20 @@
     <section class="hero" aria-labelledby="story-title" style="text-align: center;">
       <h1 id="story-title">Our Story</h1>
       <p>
-        Triad of Angels is the new wave of digital creation—three real-life triplet sisters reimagined as a creative digital force. Their mission: **blending faith, technology, and every genre imaginable**. From worship, gospel, and Christian ballads to epic trance, dance, EDM, rock, metal, pop, country, and more, they craft authentic music and visuals powered by both heart and AI.
+        Triad of Angels is the new wave of digital creation. The Triad of Angels Female Group for music is a digital creation based on three real-life triplet sisters reimagined as a creative digital force. Their mission: **blending faith, technology, and every genre imaginable**. From worship, gospel, and Christian ballads to pop, country, and more, they craft authentic music and visuals powered by both heart and AI. The brand ToA Studios ( Triad of Angels Studios ) is the main branch that covers all things in the realm of digital content and creativity.
       </p>
       <p>
-        As <b>ToA Studios</b>, the brand explodes beyond music—branching into digital content, games, apps, AI-powered music videos, publishing, art, calendars, merchandise, and a galaxy of creative expression. Every work fuses spiritual inspiration with technical mastery, celebrating hope, strength, and innovation for a new era of fans and creators.
+        As <b>ToA Studios</b>, the brand explodes beyond music—branching into digital content, games, apps, AI-powered music videos, publishing, art, calendars, merchandise, and a galaxy of creative expression. Every work fuses spiritual inspiration with technical mastery, celebrating hope, strength, and innovation for a new era of fans and creators. The music crafted, formed and created under ToA Studios ranges from worship, gospel, and Christian ballads to epic trance with sub styles of acid trance, pystrance, hard trance, euphoric trance, vocal trance, and more, as well as dance, techno, rock, metal, pop, country, alternative, funk, jazz and so much more, especially in the realm of EDM ( Electronic Dance Music ) and all the genres and/or styles within, e.g. House, Dubstep, Drum & Base, etc.
+      </p>
+    </section>
+
+    <section class="disclaimer" aria-labelledby="AI-disclaimer-title" style="text-align: center;">
+      <h1 id="AI-disclaimer-title">Our Creative Process</h1>
+      <p>
+        At Triad of Angels | ToA Studios, we believe that music is about inspiration, connection, and creativity—no matter the tools. We use the latest AI technology as part of our process, but every song, lyric, melody, and concept is driven by our passion, imagination, and desire to uplift and inspire.
+		We know that not everyone feels the same way about AI in music. That’s okay. For us, creating, designing, writing, and bringing these visions to life is deeply creative—and we hope you feel the love, spirit, and faith that we put into every track.
+		Whilst nothing is 100% perfection, we do our best to provide the best available content in all aspects, that we can deliver, whilst still learning and adapting to the new era of digital creativity, with all the programs and editing tools, software & equipment as well as the use of AI. Always appreciate feedback from our supporters as well as those who stumble acros our work.
+		Thank you for joining us on this journey. Our mission is simple: to share hope, joy, and inspiration with anyone who wants to listen.
       </p>
     </section>
 
@@ -183,7 +193,7 @@
         <b>Ownership:</b> While using cutting-edge AI, all lyrics, song layouts, melodies, and arrangements are original and copyright belongs to Triad of Angels & ToA Studios.
       </p>
       <p>
-        <b>Genres we cover:</b> Gospel, Worship, Christian, Cinematic Pop, Rock, Metal, Heavy Metal, Ballads, Country, Jazz, Funk, Hip Hop, Rap, R&B, Dance, Trance, EDM, Drum & Bass, Dubstep, Uplifting Trance, Hard Trance, Psytrance, Techno, Alternative, Classical, and more.  
+        <b>Genres we cover:</b> Gospel, Worship, Christian, Cinematic, Pop, Rock, Metal, Heavy Metal, Ballads, Country, Jazz, Funk, Hip Hop, Rap, R&B, Dance, Trance, EDM, Drum & Bass, Dubstep, Uplifting Trance, Hard Trance, Psytrance, Techno, Alternative, Classical, and more.  
         <br>
         <b>Future:</b> We’re expanding into interactive games (web, Android, iOS), digital art, ebooks, and all digital products.
       </p>
@@ -223,7 +233,7 @@
     <section class="about-identity" style="padding: 40px 20px; max-width: 900px; margin: auto; text-align: center;" aria-labelledby="about-identity">
       <h2 id="about-identity">Who We Are</h2>
       <p>
-        <strong>Triad of Angels & ToA Studios</strong> is a one-of-a-kind creative force: three sisters, one digital vision, thousands of possibilities. From faith-based pop and cinematic soundtracks to every digital content form, we are the creators of music, art, and story that transcend genres and platforms.
+        <strong>Triad of Angels & ToA Studios</strong> is a one-of-a-kind creative force: With a digital vision, thousands of possibilities. From faith-based pop and cinematic soundtracks to every digital content form, we are the creators of music, art, and story that transcend genres and platforms.
       </p>
     </section>
 
@@ -298,35 +308,6 @@
       </a>
     </div>
   </footer>
-  <script>
-    // Accessible mobile nav
-    const toggleButton = document.getElementById('mobile-menu-toggle');
-    const navMenu = document.getElementById('main-nav');
-    if (toggleButton && navMenu) {
-      toggleButton.addEventListener('click', () => {
-        const isExpanded = navMenu.classList.toggle('show');
-        toggleButton.setAttribute('aria-expanded', isExpanded);
-      });
-      document.addEventListener('click', (e) => {
-        if (
-          navMenu.classList.contains('show') &&
-          !navMenu.contains(e.target) &&
-          e.target !== toggleButton &&
-          !toggleButton.contains(e.target)
-        ) {
-          navMenu.classList.remove('show');
-          toggleButton.setAttribute('aria-expanded', false);
-        }
-      });
-    }
-    // Keyboard accessibility for menu
-    document.addEventListener('keyup', function(e) {
-      if (e.key === "Escape" && navMenu.classList.contains('show')) {
-        navMenu.classList.remove('show');
-        toggleButton.setAttribute('aria-expanded', false);
-        toggleButton.focus();
-      }
-    });
-  </script>
+<script src="/js/global.js"></script>  
 </body>
 </html>

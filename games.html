@@ -15,7 +15,7 @@
     base-uri 'self';
   ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Games | ToA Studios – Original Browser, Mobile & PC Games Coming Soon</title>
+  <title>Games | Triad of Angels & ToA Studios – Original Browser, Mobile & PC Games Coming Soon</title>
   <meta name="description" content="ToA Studios: Future home of original browser games, mobile games (Android/iOS), and PC titles. No games released yet—follow for updates as our digital games studio grows.">
   <meta name="keywords" content="ToA Studios games, Triad of Angels Studios, browser games, mobile games, PC games, indie games, web games, Android games, iOS games, game studio, digital creators, coming soon, game development, faith-based games, creative games, entertainment, innovative games">
   <meta name="author" content="Triad of Angels & ToA Studios">
@@ -25,7 +25,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="canonical" href="https://www.triadofangels.com/games.html">
   <!-- Open Graph -->
-  <meta property="og:title" content="Games | ToA Studios – Browser, Mobile, and PC Titles Coming Soon">
+  <meta property="og:title" content="Games | Triad of Angels & ToA Studios – Browser, Mobile, and PC Titles Coming Soon">
   <meta property="og:description" content="Original browser games, mobile apps, and PC games from ToA Studios are coming soon. Follow us for launch updates and get involved early.">
   <meta property="og:image" content="/assets/images/og/og-games.webp">
   <meta property="og:image:alt" content="ToA Studios digital game studio teaser cosmic banner">
@@ -39,7 +39,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@triadofangels">
   <meta name="twitter:creator" content="@triadofangels">
-  <meta name="twitter:title" content="Games by ToA Studios | Original Digital Games Coming Soon">
+  <meta name="twitter:title" content="Games by Triad of Angels & ToA Studios | Original Digital Games Coming Soon">
   <meta name="twitter:description" content="The official future home of ToA Studios browser games, mobile games, and PC game development. No titles yet—sign up for news and early access.">
   <meta name="twitter:image" content="/assets/images/twitter/twitter-games.webp">
   <!-- Favicons -->
@@ -131,10 +131,10 @@
   <section class="hero-banner" aria-label="Games hero section">
     <div class="picture">
     <div id="desktop-banner">
-      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" loading="lazy">
+      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" width="1920" height="1080" fetchpriority="high" loading="eager">
     </div>
     <div id="mobile-banner">
-      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" loading="lazy">
+      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" width="1080" height="1920" fetchpriority="high" loading="eager">
     </div>  
 	</div>
     <div class="hero-content">
@@ -216,29 +216,6 @@
       </a>
     </div>
   </footer>
-  <script>
-    document.documentElement.style.scrollBehavior = 'smooth';
-    // Menu toggle as before
-    const toggleButton = document.getElementById('mobile-menu-toggle');
-    const navMenu = document.getElementById('main-nav');
-    if (toggleButton && navMenu) {
-      toggleButton.addEventListener('click', () => {
-        const isExpanded = navMenu.classList.toggle('show');
-        toggleButton.setAttribute('aria-expanded', isExpanded);
-      });
-      // Click outside to close
-      document.addEventListener('click', (e) => {
-        if (
-          navMenu.classList.contains('show') &&
-          !navMenu.contains(e.target) &&
-          e.target !== toggleButton &&
-          !toggleButton.contains(e.target)
-        ) {
-          navMenu.classList.remove('show');
-          toggleButton.setAttribute('aria-expanded', false);
-        }
-      });
-    }
-  </script>
+<script src="/js/global.js"></script>  
 </body>
 </html>

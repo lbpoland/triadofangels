@@ -22,7 +22,7 @@
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta property="og:title" content="Official Merch | Triad of Angels">
+  <meta property="og:title" content="Official Merch | Triad of Angels & ToA Studios">
   <meta property="og:description" content="Explore premium merch from Triad of Angels & ToA Studios — shirts, posters, hats, and rare collectibles. Wear the fire. Own the vision.">
   <meta property="og:image" content="https://www.triadofangels.com/assets/images/og/og-merch.webp">
   <meta property="og:image:alt" content="Triad of Angels Signature Logo T-Shirt">
@@ -35,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@triadofangels">
   <meta name="twitter:creator" content="@triadofangels">
-  <meta name="twitter:title" content="Official Merch | Triad of Angels">
+  <meta name="twitter:title" content="Official Merch | Triad of Angels & ToA Studios">
   <meta name="twitter:description" content="Shop exclusive Triad of Angels merch including apparel, posters, and limited drops. Join the cosmic movement.">
   <meta name="twitter:image" content="https://www.triadofangels.com/assets/images/twitter/twitter-merch.webp">
   <link rel="canonical" href="https://www.triadofangels.com/merch.html">
@@ -130,7 +130,7 @@
     }
   }
   </script>
-  <title>Official Merch | Triad of Angels - Apparel, Posters, Collectibles</title>
+  <title>Official Merch | Triad of Angels & ToA Studios - Apparel, Posters, Collectibles</title>
 </head>
 <body class="merch-page">
   <header role="banner">
@@ -156,10 +156,10 @@
   <section class="hero-banner" aria-label="Merch hero page section">
     <div class="picture">
     <div id="desktop-banner">
-      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" loading="lazy">
+      <img src="/assets/images/hero-banner.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Desktop Banner" width="1920" height="1080" fetchpriority="high" loading="eager">
     </div>
     <div id="mobile-banner">
-      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" loading="lazy">
+      <img src="/assets/images/hero-banner-mobile.webp" alt="Triad of Angels and ToA Studios cosmic creative homepage banner" alt="Mobile Banner" width="1080" height="1920" fetchpriority="high" loading="eager">
     </div>  
 	</div>
     <div class="hero-content">
@@ -175,30 +175,6 @@
     <section class="merch-grid" style="padding: 40px 20px;">
       <h2 style="text-align: center;">Featured Products</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;" role="list">
-        <div style="background: #222; padding: 20px; border-radius: 8px; text-align: center;" role="listitem">
-          <img src="assets/images/shirt1.webp" alt="Triad of Angels T-Shirt" style="width:100%; border-radius:8px; margin-bottom: 15px;" loading="lazy">
-          <h3>Signature Logo Tee</h3>
-          <p>Premium cotton shirt with the signature Triad of Angels logo. Multiple colors and sizes.</p>
-          <a href="#" target="_blank" rel="noopener">Buy Now on Shopify ??</a>
-        </div>
-        <div style="background: #222; padding: 20px; border-radius: 8px; text-align: center;" role="listitem">
-          <img src="assets/images/poster1.webp" alt="Wings of Fire Poster" style="width:100%; border-radius:8px; margin-bottom: 15px;" loading="lazy">
-          <h3>Wings of Fire Poster</h3>
-          <p>Glossy A3 print of the album cover, perfect for framing. Limited first edition run.</p>
-          <a href="#" target="_blank" rel="noopener">Buy Now on Etsy ??</a>
-        </div>
-        <div style="background: #222; padding: 20px; border-radius: 8px; text-align: center;" role="listitem">
-          <img src="assets/images/hat1.webp" alt="ToA Logo Hat" style="width:100%; border-radius:8px; margin-bottom: 15px;" loading="lazy">
-          <h3>Angel Crest Hat</h3>
-          <p>Black embroidered snapback with gold fire emblem. Ultra rare merch drop.</p>
-          <a href="#" target="_blank" rel="noopener">Order on Printful ??</a>
-        </div>
-        <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; text-align: center;" role="listitem">
-          <img src="assets/images/coming-soon.webp" alt="More Merch Coming Soon" style="width:100%; border-radius:8px; margin-bottom: 15px;" loading="lazy">
-          <h3>More Coming Soon</h3>
-          <p>New drops every season. Sign up for updates & limited edition releases.</p>
-          <a href="contact.html">Get Notified ??</a>
-        </div>
       </div>
     </section>
   </main>
@@ -236,31 +212,6 @@
       </a>
     </div>
   </footer>
-  <script>
-    document.documentElement.style.scrollBehavior = 'smooth';
-  </script>
-<script>
-  // Menu toggle as before
-  const toggleButton = document.getElementById('mobile-menu-toggle');
-  const navMenu = document.getElementById('main-nav');
-  if (toggleButton && navMenu) {
-    toggleButton.addEventListener('click', () => {
-      const isExpanded = navMenu.classList.toggle('show');
-      toggleButton.setAttribute('aria-expanded', isExpanded);
-    });
-    // Click outside to close
-    document.addEventListener('click', (e) => {
-      if (
-        navMenu.classList.contains('show') &&
-        !navMenu.contains(e.target) &&
-        e.target !== toggleButton &&
-        !toggleButton.contains(e.target)
-      ) {
-        navMenu.classList.remove('show');
-        toggleButton.setAttribute('aria-expanded', false);
-      }
-    });
-  }
-</script>    
+<script src="/js/global.js"></script>  
 </body>
 </html>
