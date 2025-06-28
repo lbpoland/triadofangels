@@ -419,7 +419,7 @@ export const albums = [
     artistInfo: "Divine Echoes is not just an album. It’s a cinematic concept worship experience. Told through the voices of three Angels — Samantha, Jessica, and Sonya — known together as Triad of Angels, these songs weave together scripture, prophecy, and spirit. Some are sung from the perspective and experience of Angels, others from believers walking through fire, wilderness, revelation, or glory. Each track is rich with orchestration, sound design, and sacred storytelling. This is worship as a concept soundtrack. A journey through Genesis, the Cross, the Spirit, and Revelation.",	
   lyrics: {
     "genesis-of-light": {
-      file: "genesis-of-light.txt", // Add lyrics later
+      file: "/lyrics/divine-echoes/genesis-of-light.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -428,7 +428,7 @@ export const albums = [
       musicPlayerId: null
     },
     "name-above-fire": {
-      file: "name-above-fire.txt", // Add lyrics later
+      file: "/lyrics/divine-echoes/name-above-fire.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -437,7 +437,7 @@ export const albums = [
       musicPlayerId: null
     },
     "the-wilderness-speaks": {
-      file: "the-wilderness-speaks.txt", // Add lyrics later
+      file: "/lyrics/divine-echoes/the-wilderness-speaks.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -446,7 +446,7 @@ export const albums = [
       musicPlayerId: null
     },
     "cry-of-the-watchmen": {
-      file: "cry-of-the-watchmen.txt", // Add lyrics later
+      file: "/lyrics/divine-echoes/cry-of-the-watchmen.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -455,7 +455,7 @@ export const albums = [
       musicPlayerId: null
     },
     "messiah": {
-      file: "messiah.txt", // Add lyrics later
+      file: "/lyrics/divine-echoes/messiah.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -464,7 +464,7 @@ export const albums = [
       musicPlayerId: null
     },
     "every-grave-shall-open": {
-      file: "every-grave-shall-open.txt", // Add lyrics later
+      file: "/lyrics/divine-echoes/every-grave-shall-open.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -473,7 +473,7 @@ export const albums = [
       musicPlayerId: null
     },
     "tongues-of-fire": {
-      file: "tongues-of-fire.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -482,7 +482,7 @@ export const albums = [
       musicPlayerId: null
     },
     "the-bride-watches": {
-      file: "the-bride-watches.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -491,7 +491,7 @@ export const albums = [
       musicPlayerId: null
     },
     "we-do-not-bow": {
-      file: "we-do-not-bow.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -500,7 +500,7 @@ export const albums = [
       musicPlayerId: null
     },
     "veil-torn": {
-      file: "veil-torn.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -509,7 +509,7 @@ export const albums = [
       musicPlayerId: null
     },
     "altars-in-the-ashes": {
-      file: "altars-in-the-ashes.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -518,7 +518,7 @@ export const albums = [
       musicPlayerId: null
     },
     "healed-in-the-flames": {
-      file: "healed-in-the-flames.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -527,7 +527,7 @@ export const albums = [
       musicPlayerId: null
     },
     "crowned-with-light": {
-      file: "crowned-with-light.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -536,7 +536,7 @@ export const albums = [
       musicPlayerId: null
     },
     "the-table-is-set": {
-      file: "the-table-is-set.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -545,7 +545,7 @@ export const albums = [
       musicPlayerId: null
     },
     "thrones-will-fall": {
-      file: "thrones-will-fall.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -554,7 +554,7 @@ export const albums = [
       musicPlayerId: null
     },
     "let-the-earth-respond": {
-      file: "let-the-earth-respond.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -563,7 +563,7 @@ export const albums = [
       musicPlayerId: null
     },
     "the-city-descends": {
-      file: "the-city-descends.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -572,7 +572,7 @@ export const albums = [
       musicPlayerId: null
     },
     "amen-the-sound-that-never-ends": {
-      file: "amen-the-sound-that-never-ends.txt", // Add lyrics later
+      file: "", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2320,7 +2320,7 @@ export const albums = [
   artistInfo: "", // Add artist info later
   lyrics: {
     "light-up-the-weekend": {
-      file: "/lyrics/light-up-the-weekend.txt",
+      file: "/lyrics/american-firestorm-songs-of-freedom/light-up-the-weekend.txt",
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2329,7 +2329,7 @@ export const albums = [
       musicPlayerId: "https://www.boomplay.com/embed/205986194/MUSIC?colType=5&colID=110448870"
     },
     "red-white-and-country-strong": {
-      file: "/lyrics/red-white-and-country-strong.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/red-white-and-country-strong.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2338,7 +2338,7 @@ export const albums = [
       musicPlayerId: null
     },
     "born-to-ride-free": {
-      file: "/lyrics/born-to-ride-free.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/born-to-ride-free.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2347,7 +2347,7 @@ export const albums = [
       musicPlayerId: null
     },
     "stars-across-the-water": {
-      file: "/lyrics/stars-across-the-water.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/stars-across-the-water.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2356,7 +2356,7 @@ export const albums = [
       musicPlayerId: null
     },
     "where-the-brave-still-stand": {
-      file: "/lyrics/where-the-brave-still-stand.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/where-the-brave-still-stand.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2365,7 +2365,7 @@ export const albums = [
       musicPlayerId: null
     },
     "where-we-belong-tonight": {
-      file: "/lyrics/where-we-belong-tonight.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/where-we-belong-tonight.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2374,7 +2374,7 @@ export const albums = [
       musicPlayerId: null
     },
     "fireworks-and-freedom": {
-      file: "/lyrics/fireworks-and-freedom.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/fireworks-and-freedom.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2383,7 +2383,7 @@ export const albums = [
       musicPlayerId: null
     },
     "born-for-the-red-white-and-blue": {
-      file: "/lyrics/born-for-the-red-white-and-blue.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/born-for-the-red-white-and-blue.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2392,7 +2392,7 @@ export const albums = [
       musicPlayerId: null
     },
     "raise-that-flag": {
-      file: "/lyrics/raise-that-flag.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/raise-that-flag.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2401,7 +2401,7 @@ export const albums = [
       musicPlayerId: null
     },
     "living-free-in-america": {
-      file: "/lyrics/living-free-in-america.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/living-free-in-america.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2410,7 +2410,7 @@ export const albums = [
       musicPlayerId: null
     },
     "home-beneath-the-stars": {
-      file: "/lyrics/home-beneath-the-stars.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/home-beneath-the-stars.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2419,7 +2419,7 @@ export const albums = [
       musicPlayerId: null
     },
     "american-firelight": {
-      file: "/lyrics/american-firelight.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/american-firelight.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2428,7 +2428,7 @@ export const albums = [
       musicPlayerId: null
     },
     "run-the-red-white-and-blue": {
-      file: "/lyrics/run-the-red-white-and-blue.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/run-the-red-white-and-blue.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,
@@ -2437,7 +2437,7 @@ export const albums = [
       musicPlayerId: null
     },
     "land-that-i-love": {
-      file: "/lyrics/land-that-i-love.txt", // Add lyrics later
+      file: "/lyrics/american-firestorm-songs-of-freedom/land-that-i-love.txt", // Add lyrics later
       duration: "", // Add duration later
       story: "", // Add story later
       video: null,

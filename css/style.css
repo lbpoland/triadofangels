@@ -411,12 +411,13 @@ body.visual-page section:not(.hero-banner),
 body.privacy-page section:not(.hero-banner),
 body.terms-page section:not(.hero-banner),
 body.digital-store-page section:not(.hero-banner) {
-    background: rgba(0, 0, 0, 0.75);
-    padding: 40px 20px;
-    border-radius: 8px;
+    background: rgba(15, 15, 15, 0.6);
+    padding: 50px;
+    border-radius: 35px;
     margin: 20px auto;
     max-width: 1200px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	border: 0 0 10px rgba(30, 144, 255, 0.5);
+    box-shadow: 0 0 80px rgba(241, 196, 15, 0.1), inset 0 0 25px rgba(241, 196, 15, 0.05);
 }
 
 body.index-page section h1,
