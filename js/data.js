@@ -2283,6 +2283,341 @@ export const albums = [
     }
   },
 {
+  id: "the-quiet-war-2",
+  title: "The Quiet War II: Faultline Testament",
+  artist: "ToA Studios",
+  genre: "Cinematic, Alternative, Orchestral, Soundtrack",
+  year: "July, 2025",
+  cover: "assets/images/albums/the-quiet-war-2-album.webp",
+  tracks: [
+    "Quiet War Overture",
+    "Firewall Baptism",
+    "Shadow Syntax",
+    "Panic Translation",
+    "Scrambled Saints",
+    "Faultline Language",
+    "Memoir in Static",
+    "Ashes & Blueprints",
+    "Blue Collar Prophecy",
+    "Never Done",
+    "Glass House (The Mirror II)",
+    "Answered / Unanswered (Call to God II)",
+    "Ghost Notes",
+    "Redemption",
+    "End of Transmission"
+  ],
+  links: {
+    spotify: "https://open.spotify.com/album/1tovOjbZuTZFytW11vky8U?si=FOAH9DTLSmGnbjuJG4qEnA",
+    appleMusic: "https://music.apple.com/us/album/american-firestorm-songs-of-freedom/1813521823", // Update if you get the direct Apple link
+    amazonMusic: "https://music.amazon.com/albums/B0FHWCMZ53?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_Z8rYHO7VvdYT3rVqqlfJOJx3a",
+    tidal: "https://tidal.com/browse/album/448590275",
+    youTubeMusic: "https://youtube.com/playlist?list=OLAK5uy_klrZ8eIXbfGwfwewgal9CiQHVNquj0aTA&si=EfzCx9-wDsMOerlk",
+    // Add other platform links if needed
+  },
+  boomplayEmbed: "", // Add Boomplay embed link if available
+  artistInfo: "THE QUIET WAR II: Faultline Testament by ToA Studios is an epic, cinematic journey through fractured realities, blending orchestral power and electronic soundscapes. A sequel in spirit, the album explores conflict, reflection, and redemption in a post-digital age.",
+  lyrics: {
+    "quiet-war-overture": {
+      file: "", // Add lyrics file path if available
+      duration: "", // Add track duration
+      story: "", // Add background story
+      video: null,
+      behindTheScenes: "", // Add behind-the-scenes details
+      links: {}, // Add links if any (lyric videos, etc.)
+      musicPlayerId: null
+    },
+    "firewall-baptism": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "shadow-syntax": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "panic-translation": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "scrambled-saints": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "faultline-language": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "memoir-in-static": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "ashes-blueprints": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "blue-collar-prophecy": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "never-done": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "glass-house-the-mirror-ii": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "answered-unanswered-call-to-god-ii": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "ghost-notes": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "redemption": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "end-of-transmission": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    }
+  }
+},
+{
+  id: "neon-ascension",
+  title: "Neon Ascension: A Trance Odyssey",
+  artist: "ToA Studios",
+  genre: "Trance, EDM, Dance, Electronic",
+  year: "July, 2025",
+  cover: "assets/images/albums/neon-ascension-album.webp",
+  tracks: [
+    "Portal Sequence (Intro)",
+    "Sonic Pilgrimage",
+    "Starlit Velocity",
+    "Crystal Synthesis",
+    "Luminous Equinox",
+    "Halcyon Surge",
+    "Echoes of Time",
+    "Distorted Travels",
+    "Temporal Drift",
+    "Mirage in Motion",
+    "Twisted Realm",
+    "Prism Resonance",
+    "Aurora in Retrograde",
+    "Terminal Arrival"
+  ],
+  links: {
+    spotify: "https://open.spotify.com/album/3iTOqNNIBE0bosXZybWIML?si=ZTA-E2QQS-W8jSe9ES-PSQ",
+    appleMusic: "https://music.apple.com/us/album/neon-ascension-a-trance-odyssey/1825533565",
+    amazonMusic: "https://music.amazon.com/albums/B0FH21Z3GT?marketplaceId=A15PK738MTQHSO&musicTerritory=AU&ref=dm_sh_c4twdA7VKcekAk2c81JS3iqU1",
+    tidal: "https://tidal.com/browse/album/446685293",
+    youTubeMusic: "https://youtube.com/playlist?list=OLAK5uy_lsVAGKpQa52rUwiKpH_eB9hvLqFAJf1vQ&si=3SuOUQK8rTGcrPUb"
+    // Add other platform links if available
+  },
+  boomplayEmbed: "", // Add Boomplay embed if available
+  artistInfo: "NEON ASCENSION: A TRANCE ODYSSEY by ToA Studios takes listeners on a vibrant electronic journey through soundscapes of light, rhythm, and transcendence. Hypnotic trance beats blend with atmospheric melodies in a story of movement and transformation.",
+  lyrics: {
+    "portal-sequence-intro": {
+      file: "", // Add lyrics file path if available
+      duration: "", // Add track duration
+      story: "", // Add track background or story
+      video: null,
+      behindTheScenes: "", // Add behind-the-scenes info if any
+      links: {}, // Add external links (lyric videos, etc.)
+      musicPlayerId: null
+    },
+    "sonic-pilgrimage": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "starlit-velocity": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "crystal-synthesis": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "luminous-equinox": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "halcyon-surge": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "echoes-of-time": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "distorted-travels": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "temporal-drift": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "mirage-in-motion": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "twisted-realm": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "prism-resonance": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "aurora-in-retrograde": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    },
+    "terminal-arrival": {
+      file: "",
+      duration: "",
+      story: "",
+      video: null,
+      behindTheScenes: "",
+      links: {},
+      musicPlayerId: null
+    }
+  }
+},
+    
+{
   id: "american-firestorm-songs-of-freedom",
   title: "American Firestorm: Songs of Freedom",
   artist: "ToA Studios",
