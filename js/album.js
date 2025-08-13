@@ -1,5 +1,7 @@
   // Import albums data and sanitizeTrackId
-  import { albums } from './data.js';
+  import { albums } from '../data/catalog.js';
+
+
   import { sanitizeTrackId } from './utils.js';
 
   // Function to populate the page with album data
