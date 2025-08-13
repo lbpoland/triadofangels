@@ -1,352 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy"
-  content="
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.gstatic.com;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' data: https://img.youtube.com https://i.ytimg.com https://www.boomplay.com;
-    frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.boomplay.com;
-    connect-src 'self';
-    object-src 'none';
-    base-uri 'self';
-  ">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <!-- Description: Unique for each track, includes track title, album, artist, and keywords for SEO -->
-  <meta name="description" content="">
-  <!-- Keywords: Include track-specific, album, artist, and genre terms for search engine indexing -->
-  <meta name="keywords" content="">
-  <meta name="author" content="Triad of Angels & ToA Studios">
-  <!-- Robots: Allow indexing and following for maximum crawlability -->
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Open Graph: Optimize for social media sharing (Facebook, LinkedIn, etc.) -->
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="Album cover for track">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:url" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Triad of Angels">
-  <meta property="og:locale" content="en_US">
-  <!-- Twitter Card: Optimize for Twitter/X sharing -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@triadofangels">
-  <meta name="twitter:creator" content="@triadofangels">
-  <meta name="twitter:title" content="">
-  <meta name="twitter:description" content="">
-  <meta name="twitter:image" content="">
-  <!-- Canonical URL: Prevent duplicate content issues -->
-  <link rel="canonical" href="">
-<!-- YouTube Lite -->  
-<script src="/js/lite-yt-embed.js" type="module"></script>
-  
-  
-<!-- 16x16 favicon -->
-<link rel="icon" type="image/webp" sizes="16x16" href="/assets/images/favicon-16x16.webp">
-<!-- 32x32 favicon -->
-<link rel="icon" type="image/webp" sizes="32x32" href="/assets/images/favicon-32x32.webp">
-<!-- 48x48 favicon -->
-<link rel="icon" type="image/webp" sizes="48x48" href="/assets/images/favicon-48x48.webp">
-<!-- Apple touch icon -->
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-  <!-- CSS: Reuse album.css and style.css for consistent design with album.html -->
-<link rel="stylesheet" href="/css/lite-yt-embed.css?v=7"> 
-<link rel="stylesheet" href="/css/track.css?v=7">
-<link rel="stylesheet" href="/css/album.css?v=7">
-<link rel="stylesheet" href="/css/style.css?v=7">
-  <!-- Fonts: Load Google Fonts asynchronously for performance -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" media="print" onload="this.media='all'">
-  <!-- Title: Dynamically updated with track and artist name -->
-  <title id="dynamic-title">Track Details | Triad of Angels & ToA Studios</title>
+  <!-- ============================================================
+       Track Detail — Triad of Angels | ToA Studios
+       Renders by URL params ?album=...&track=... from catalog.js
+       Loads lyrics if track.lyrics is a path under /lyrics/
+       ============================================================ -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Hreflang: Support international SEO for different English-speaking regions -->
-  <link rel="alternate" href="https://www.triadofangels.com/track.html?id={track.id}&album={album.id}" hreflang="en-US" />
-  <link rel="alternate" href="https://www.triadofangels.com/au/track.html?id={track.id}&album={album.id}" hreflang="en-AU" />
-  <link rel="alternate" href="https://www.triadofangels.com/uk/track.html?id={track.id}&album={album.id}" hreflang="en-GB" />
-  <link rel="alternate" href="https://www.triadofangels.com/track.html?id={track.id}&album={album.id}" hreflang="x-default" />
+  <title>Track — Triad of Angels | ToA Studios</title>
+  <meta name="description" content="Track detail with streaming links and lyrics.">
 
-  <!-- Schema.org: Structured data for MusicRecording and BreadcrumbList to enhance rich snippets -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicRecording",
-    "name": "{track.title}",
-    "byArtist": {
-      "@type": "MusicGroup",
-      "name": "{album.artist}"
-    },
-    "inAlbum": {
-      "@type": "MusicAlbum",
-      "name": "{album.title}",
-      "url": "https://www.triadofangels.com/album.html?id={album.id}"
-    },
-    "genre": "{album.genre}",
-    "url": "https://www.triadofangels.com/track.html?id={track.id}&album={album.id}",
-    "image": "{album.cover}",
-    "datePublished": "{album.year}",
-    "duration": "{track.duration || ''}",
-    "description": "Listen to {track.title} from {album.title} by {album.artist}, a {album.genre} track. Explore lyrics, streaming links, and more.",
-    "sameAs": [
-      "{album.links.spotify || ''}",
-      "{album.links.appleMusic || ''}",
-      "{album.links.amazonMusic || ''}",
-      "{album.links.tidal || ''}",
-      "{album.links.iHeartRadio || ''}",
-      "{album.links.boomplay || ''}",
-      "{album.links.deezer || ''}",
-      "{album.links.youTubeMusic || ''}",
-      "{album.links.iTunes || ''}"
-    ].filter(link => link !== ''),
-    "offers": {
-      "@type": "Offer",
-      "price": "1.29",
-      "priceCurrency": "USD",
-      "url": "https://www.triadofangels.com/store/{album.id}/{track.id}",
-      "availability": "https://schema.org/InStock"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "url": "https://www.triadofangels.com/track.html?id={track.id}&album={album.id}",
-    "name": "{track.title} | Lyrics & Details | {album.artist}",
-    "description": "Explore {track.title} from {album.title} by {album.artist}, a {album.genre} track. View lyrics, stream now, and discover more.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "url": "https://www.triadofangels.com",
-      "name": "Triad of Angels"
-    },
-    "datePublished": "2025-06-18",
-    "lastReviewed": "2025-06-18",
-    "inLanguage": "en-US",
-    "potentialAction": {
-      "@type": "ReadAction",
-      "target": "https://www.triadofangels.com/track.html?id={track.id}&album={album.id}"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.TriadOfAngels.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Music",
-        "item": "https://www.TriadOfAngels.com/music.html"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "{album.title}",
-        "item": "https://www.TriadOfAngels.com/album.html?id={album.id}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "{track.title}",
-        "item": "https://www.TriadOfAngels.com/track.html?id={track.id}&album={album.id}"
-      }
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Triad of Angels",
-    "alternateName": "ToA Studios",
-    "url": "https://www.TriadOfAngels.com",
-    "logo": "/assets/images/logo.webp",
-    "sameAs": [
-      "https://www.tiktok.com/@triadofangels",
-      "https://www.instagram.com/triadofangels/",
-      "https://www.youtube.com/@triadofangels",
-      "https://www.facebook.com/triadofangels",
-      "https://x.com/triadofangels"
-    ],
-    "description": "Triad of Angels, powered by ToA Studios, is a creative force delivering music across genres like cinematic pop, heavy metal, country, trance, EDM, dance, funk, rap, hip-hop, and more, along with games, apps, and visuals.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "contact@triadofangels.com",
-      "contactType": "Customer Support"
-    },
-    "foundingDate": "2024",
-    "founder": {
-      "@type": "Person",
-      "name": "Samantha, Jessica, and Sonya"
-    }
-  }
-  </script>
+  <link rel="canonical" href="https://www.triadofangels.com/track.html">
+  <meta name="theme-color" content="#0b0c10">
+
+  <!-- Styles -->
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+<body>
+  <div id="site-header" role="region" aria-label="Site Header"></div>
 
-<body class="album-page">
-  <!-- Album Background: Uses the same album cover as album.html for visual consistency -->
-  <!-- Edit: Ensure album.cover path is correct in the albums array in data.js -->
-  <img id="album-background" class="album-background" alt="Blurred album cover background" fetchpriority="high" loading="eager" />
-  
-  <!-- Header: Identical to album.html for consistent navigation -->
-  <header role="banner">
-  <nav role="navigation" aria-label="Main site navigation">
-    <button id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span class="menu-icon">☰</span>
-      <span class="menu-label">Menu</span>
-    </button>
-    <span class="mobile-welcome">Welcome</span>
-    <ul id="main-nav" role="list">
-        <li><a href="/index.html" aria-current="page">Home</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/music.html">Music</a></li>
-        <li><a href="/games.html">Games</a></li>
-        <li><a href="/apps.html">Apps</a></li>
-        <li><a href="/merch.html">Merch</a></li>
-        <li><a href="/publishing.html">Publishing</a></li>
-        <li><a href="/digital-store.html">Digital Store</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <main id="main" role="main">
+    <section id="track-page" class="section"></section>
+  </main>
 
-  <div class="album-container">
-    <!-- Track Hero Section: Displays track title and subtitle, styled like album-hero in album.html -->
-    <!-- Edit: No changes needed here; JavaScript dynamically updates content -->
-    <section class="track-hero" aria-label="Track hero section">
-      <div class="track-hero-content">
-        <h1 id="track-title">Loading...</h1>
-        <p id="track-subtitle">From the album by Triad of Angels & ToA Studios</p>
-      </div>
-    </section>
+  <div id="site-footer" role="region" aria-label="Site Footer"></div>
 
-    <main class="track-main">
-      <!-- Track Details: Displays track information, album cover, and links to the album page -->
-      <!-- Edit: Add track-specific data (e.g., duration, story) to the albums array -->
-      <section class="track-details" aria-label="Track details">
-        <div class="album-cover">
-          <img id="album-cover" alt="Album cover" loading="lazy" />
-        </div>
-        <div class="track-info">
-          <h2 id="track-info-title">Loading...</h2>
-          <p id="track-artist"><strong>Artist:</strong> Loading...</p>
-          <p id="track-album"><strong>Album:</strong> <a href="#">Loading...</a></p>
-          <p id="track-genre"><strong>Genre:</strong> Loading...</p>
-          <p id="track-duration"><strong>Duration:</strong> Loading...</p>
-          <p id="track-story"><strong>Song Story:</strong> Loading...</p>
-        </div>
-      </section>
-
-<!-- ToA Studios Music Player: Custom player for the specific track -->
-<section class="to-a-player" aria-label="ToA Studios Music Player">
-  <div class="player-container">
-    <div id="yt-player-container" class="yt-player-frame">
-      <iframe id="yt-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen width="100%" height="80" style="border-radius: 12px; background-color: #1a1a1a;"></iframe>
-    </div>
-  </div>
-</section>
-
-      <!-- Lyrics Section: Displays the song's lyrics in a formatted, readable way -->
-      <!-- Edit: Add lyrics to the albums array under lyrics[trackId].text -->
-      <section class="track-lyrics" aria-label="Song lyrics">
-        <h2>Lyrics</h2>
-        <div id="track-lyrics">Loading lyrics...</div>
-      </section>
-
-      <!-- Streaming Links: Displays links to stream or purchase the track -->
-      <!-- Edit: Add track-specific streaming links to albums array under lyrics[trackId].links if available -->
-      <!-- Streaming Links -->
-      <section class="streaming-links" aria-label="Streaming and purchase links">
-        <h2>Stream or Purchase</h2>
-        <div id="link-tabs" class="link-tabs"></div>
-      </section>
-
-      <!-- Music Video: Embeds a video for the track if available -->
-      <!-- Edit: Add video embed URLs to albums array under lyrics[trackId].video -->
-      <section class="music-video" aria-label="Music video">
-        <h2>Watch the Video</h2>
-        <div id="music-video-embed"></div>
-      </section>
-
-      <!-- Behind-the-Scenes: Provides additional content like producer notes or studio photos -->
-      <!-- Edit: Add behind-the-scenes content to albums array under lyrics[trackId].behindTheScenes -->
-      <section class="behind-the-scenes" aria-label="Behind the scenes content">
-        <h2>Behind the Scenes</h2>
-        <div id="behind-the-scenes-content">Loading behind-the-scenes content...</div>
-      </section>
-
-      <!-- Related Tracks: Suggests other tracks from the same album to keep users engaged -->
-      <!-- Edit: No changes needed; JavaScript automatically populates based on album.tracks -->
-      <section class="related-tracks" aria-label="Related tracks">
-        <h2>More Tracks from This Album</h2>
-        <ul id="related-tracks-list" role="list"></ul>
-      </section>
-
-      <!-- Social Sharing: Allows users to share the track on social media -->
-      <!-- Edit: Update share URLs if you want to customize the share text -->
-      <section class="social-share" aria-label="Share this track">
-        <h2>Share This Track</h2>
-        <br>
-		<div class="social-share-links">
-          <a href="#" id="share-x" target="_blank" rel="noopener" aria-label="Share on X">
-            <img src="/assets/icons/x-icon.webp" alt="X logo" width="24" height="24" loading="lazy">
-            <span>Share on X (Twitter)</span>
-          </a>
-		  </div>
-		  <br>
-        <div class="social-share-links">		  
-          <a href="#" id="share-facebook" target="_blank" rel="noopener" aria-label="Share on Facebook">
-            <img src="/assets/icons/facebook-icon.webp" alt="Facebook logo" width="24" height="24" loading="lazy">
-            <span>Share on Facebook</span>
-          </a>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <!-- Footer: Identical to album.html for consistent branding and navigation -->
-  <footer role="contentinfo" aria-label="Site footer">
-    <p>© 2025 Triad of Angels & ToA Studios. All rights reserved.</p>
-    <nav aria-label="Footer navigation">
-      <ul>
-        <li><a href="/index.html" aria-current="page">Home</a></li>
-        <li><a href="/terms.html">Terms & Conditions</a></li>
-        <li><a href="/privacy.html">Privacy Policy</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="divider"></div>
-    <div class="social-links" aria-label="Social media links">
-      <a href="https://www.tiktok.com/@triadofangels" target="_blank" rel="noopener" aria-label="Follow Triad of Angels on TikTok">
-        <img src="/assets/icons/tiktok-icon.webp" alt="TikTok logo" width="24" height="24" loading="lazy">
-        <span>TikTok</span>
-      </a>
-      <a href="https://www.instagram.com/triadofangels/" target="_blank" rel="noopener" aria-label="Follow Triad of Angels on Instagram">
-        <img src="/assets/icons/instagram-icon.webp" alt="Instagram logo" width="24" height="24" loading="lazy">
-        <span>Instagram</span>
-      </a>
-      <a href="https://www.youtube.com/@triadofangels" target="_blank" rel="noopener" aria-label="Subscribe to Triad of Angels on YouTube">
-        <img src="/assets/icons/youtube-icon.webp" alt="YouTube logo" width="24" height="24" loading="lazy">
-        <span>YouTube</span>
-      </a>
-      <a href="https://www.facebook.com/triadofangels" target="_blank" rel="noopener" aria-label="Like Triad of Angels on Facebook">
-        <img src="/assets/icons/facebook-icon.webp" alt="Facebook logo" width="24" height="24" loading="lazy">
-        <span>Facebook</span>
-      </a>
-      <a href="https://x.com/triadofangels" target="_blank" rel="noopener" aria-label="Follow Triad of Angels on X">
-        <img src="/assets/icons/x-icon.webp" alt="X logo" width="24" height="24" loading="lazy">
-        <span>X</span>
-      </a>
-    </div>
-  </footer>
-<script type="module" src="/js/track.js"></script>
-<script src="/js/global.js"></script>   
+  <script src="/js/data/catalog.js"></script>
+  <script src="/js/render.js"></script>
+  <script src="/js/components/header.js"></script>
+  <script src="/js/components/footer.js"></script>
+  <script src="/js/site.js"></script>
 </body>
 </html>
