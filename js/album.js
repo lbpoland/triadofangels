@@ -29,6 +29,7 @@
       backgroundImg.onerror = () => {
         console.error(`Failed to load background image: ${album.cover}`);
         backgroundImg.src = 'assets/images/placeholder-background.webp';
+ 
       };
       document.getElementById('album-title').textContent = album.title;
       document.getElementById('album-subtitle').textContent = `A ${album.genre} Masterpiece by ${album.artist}`;
@@ -60,12 +61,12 @@
       // Update Streaming Links
       const linkTabs = document.getElementById('link-tabs');
       const platforms = [
+       
         { name: 'Spotify', key: 'spotify' },
         { name: 'Apple Music', key: 'appleMusic' },
         { name: 'Amazon Music', key: 'amazonMusic' },
         { name: 'Tidal', key: 'tidal' },
         { name: 'iHeartRadio', key: 'iHeartRadio' },
-        { name: 'Boomplay', key: 'boomplay' },
         { name: 'Deezer', key: 'deezer' },
         { name: 'YouTube Music', key: 'youTubeMusic' },
         { name: 'iTunes', key: 'iTunes' }
