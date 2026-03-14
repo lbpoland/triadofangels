@@ -1,0 +1,153 @@
+/* css/streaming.css — Streaming hub (Triad of Angels + ToA Studios)
+   Responsive authority:
+   - Desktop: 3 columns
+   - Tablet:  2 columns
+   - Mobile:  1 column
+   Note: main.page already provides max-width + padding. This file avoids double constraints.
+*/
+
+.streaming-page .page-hero.streaming-hero {
+  padding: 44px 0 18px;
+}
+
+.streaming-page .page-hero__inner {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Wave O: Quick Listen gateway panel */
+.streaming-page .streaming-gateway {
+  margin: 10px 0 0;
+}
+
+.streaming-page .streaming-gateway .gateway-head {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.streaming-page .streaming-gateway .gateway-head h2 {
+  margin: 0 0 6px;
+}
+
+.streaming-page .streaming-gateway .gateway-head p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.streaming-page .gateway-divider {
+  height: 1px;
+  background: var(--stroke);
+  margin: 14px 0 12px;
+}
+
+.streaming-page .album-jump {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  margin-top: 10px;
+}
+
+.streaming-page .album-jump label {
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+.streaming-page .album-jump select {
+  width: min(740px, 100%);
+  min-height: 44px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  color: var(--text);
+}
+
+.streaming-page .album-jump select:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+
+.streaming-page .stream-note {
+  margin: 0;
+  padding: 0 0 30px;
+  text-align: center;
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   Wave AP — Streaming Finder + Verified Link Copy Actions
+   Purpose:
+   - “Find a platform” search and scope filters above the Verified Links grid
+   - Copy buttons on each verified link (progressive enhancement)
+   ========================================================= */
+
+.streaming-page .stream-finder {
+  margin: 18px 0 10px;
+}
+
+.streaming-page .stream-finder .gateway-head {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.streaming-page .stream-finder .finder-form {
+  width: min(100%, 860px);
+}
+
+.streaming-page .stream-finder .finder-input {
+  border-radius: 999px;
+}
+
+.streaming-page .stream-finder .stream-scope {
+  margin-top: 10px;
+}
+
+.streaming-page .stream-finder .finder-summary {
+  width: min(100%, 940px);
+}
+
+
+
+@media (min-width: 1601px) {
+  .streaming-page .page-hero.streaming-hero {
+    padding-top: 52px;
+  }
+
+  .streaming-page .stream-finder,
+  .streaming-page .verified-links {
+    max-width: min(1180px, 74vw);
+    margin-inline: auto;
+  }
+
+  .streaming-page .stream-finder .finder-form {
+    width: min(100%, 940px);
+  }
+
+  .streaming-page .stream-finder .finder-summary {
+    width: min(100%, 980px);
+  }
+
+  .streaming-page .stream-finder .finder-controls {
+    gap: 14px;
+  }
+
+  .streaming-page .stream-note {
+    max-width: min(980px, 66vw);
+    margin-inline: auto;
+  }
+}
+
+
+/* Wave V10-37 — Streaming profile + confidence clusters */
+#streaming-profiles .support-strip,
+#streaming-confidence .support-strip {
+  margin-top: 18px;
+}
+
+.streaming-page #streaming-profiles .support-grid,
+.streaming-page #streaming-confidence .support-grid {
+  align-items: stretch;
+}

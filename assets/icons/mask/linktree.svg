@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Linktree glyph-only mask (transparent background). Use with CSS mask for theme-safe rendering. -->
+  <g fill="#fff" stroke="#fff" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="256" y1="112" x2="256" y2="368" />
+    <line x1="256" y1="215" x2="143" y2="256" />
+    <line x1="256" y1="215" x2="368" y2="256" />
+    <circle cx="256" cy="112" r="35" stroke="none" />
+    <circle cx="256" cy="215" r="35" stroke="none" />
+    <circle cx="256" cy="368" r="35" stroke="none" />
+    <circle cx="143" cy="256" r="35" stroke="none" />
+    <circle cx="368" cy="256" r="35" stroke="none" />
+  </g>
+</svg>

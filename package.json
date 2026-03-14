@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "scripts": {
+    "toa:sync-layout": "node tools/toa-layout-sync.mjs --sync --write",
+    "toa:qa": "node tools/toa-qa.mjs",
+    "toa:normalize-head": "node tools/toa-head-normalize.mjs --write",
+    "toa:refresh": "node tools/toa-refresh.mjs",
+    "toa:refresh:with-head-normalize": "node tools/toa-refresh.mjs --normalize-head",
+    "toa:lhci:desktop": "lhci autorun --config=.lighthouserc.desktop.json",
+    "toa:lhci:mobile": "lhci autorun --config=.lighthouserc.mobile.json",
+    "toa:lighthouse": "npm run toa:lhci:desktop && npm run toa:lhci:mobile",
+    "toa:release": "node tools/toa-release-pack.mjs",
+    "toa:release:zip": "node tools/toa-release-pack.mjs --zip",
+    "toa:release:check": "node tools/toa-release-check.mjs --dir dist",
+    "toa:lighthouse:desktop": "npm run toa:lhci:desktop",
+    "toa:lighthouse:mobile": "npm run toa:lhci:mobile",
+    "toa:js-syntax": "node tools/toa-js-syntax-audit.mjs"
+  }
+}

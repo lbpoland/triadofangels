@@ -1,0 +1,317 @@
+/* css/track.css — Track detail page (Wave AF)
+   Goals:
+   - Elite track layout across all devices (mobile → TV)
+   - CSP-safe ambience (NO runtime inline style attributes required)
+   - Performance gates: low-perf + reduced transparency + forced colors parity
+   - Stable typography hierarchy + section rhythm
+*/
+
+.track-page {
+  position: relative;
+  min-height: 100%;
+  isolation: isolate;
+
+  /* Ambience tuning tokens (can be overridden per-theme / per-tier) */
+  --track-bg-blur: 10px;
+  --track-bg-opacity: 0.34;
+  --track-bg-scale: 1.06;
+}
+
+html[data-perf="low"] .track-page {
+  --track-bg-blur: 0px;
+  --track-bg-opacity: 0.16;
+  --track-bg-scale: 1.00;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .track-page {
+    --track-bg-blur: 0px;
+    --track-bg-opacity: 0.18;
+    --track-bg-scale: 1.00;
+  }
+}
+
+@media (forced-colors: active) {
+  .track-page {
+    --track-bg-opacity: 0;
+  }
+}
+
+/* =========================================================
+   STACKING + Z-INDEX GOVERNANCE (CRITICAL)
+
+   Why this matters:
+   - Track pages use a fixed full-viewport ambience layer (.track-bg) to create
+     a premium “album cover world” effect.
+   - The ambience must sit BEHIND all real UI.
+   - BUT the global header MUST remain `position: fixed` (from css/style.css)
+     with its high z-index so that:
+       - the Nav Hub overlay can cover sticky page UI (JumpNav / LinkTools)
+       - the theme menu can open above in-page components
+       - keyboard focus + click-out behavior remains reliable
+
+   Past bug (fixed here):
+   - A previous rule included `.track-page .site-header { position: relative; z-index: 1; }`.
+   - That downgraded the header into the page flow and collapsed its stacking order.
+   - Result: menus appeared “behind” sticky bars and page tools on album/track pages.
+
+   Contract:
+   - We ONLY lift main + footer above ambience.
+   - We DO NOT touch the header’s `position` here.
+   ========================================================= */
+
+/* Ensure main content + footer stack above ambience (the header is governed globally). */
+.track-page main,
+.track-page footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Disable global ToA background layer on track pages */
+body.track-page::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Full-page cover ambience (image element, no inline style attrs) */
+.track-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.track-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(var(--track-bg-scale));
+  filter: blur(var(--track-bg-blur)) saturate(1.10) brightness(1.02) contrast(1.02);
+  opacity: var(--track-bg-opacity);
+}
+
+.track-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(var(--accent-rgb), 0.14), transparent 52%),
+    radial-gradient(circle at 76% 26%, rgba(var(--focus-rgb), 0.10), transparent 56%),
+    linear-gradient(180deg, rgba(var(--bg-rgb), 0.30) 0%, rgba(var(--bg-rgb), 0.92) 100%);
+}
+
+/* Breadcrumbs
+   Shared foundation lives in css/style.css.
+   Track pages only keep page-local nuance here.
+*/
+/* Track hero */
+/* ---------------------------------------------------------------------
+   TOA:TRACK-HERO-NORMALIZATION (ALL TIERS)
+   Why:
+   - Track pages were using the album/track artwork as a full hero background.
+   - This makes the title block feel like it “inherits” the cover image as padding/background,
+     which diverges from the rest of the site’s premium glass-card language.
+   Desired:
+   - Keep the global ambience layer (track-bg) for atmosphere.
+   - Keep the cover tile on the left.
+   - Make the hero itself a clean, readable glass panel consistent with index.
+   --------------------------------------------------------------------- */
+
+.track-hero__bg{ display:none; }
+.track-hero--detail::before{ content:none; }
+
+.track-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.track-hero__bg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: var(--hero-banner-object-position, 50% 30%);
+  transform: scale(1.035);
+  filter: saturate(1.06) contrast(1.10);
+}
+
+.track-hero--detail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 700px at 50% 22%, rgba(0,0,0,0.12), rgba(0,0,0,0.64) 70%),
+    linear-gradient(180deg, rgba(11,12,16,0.10), rgba(11,12,16,0.74));
+}
+
+/* Track links + share row shells live in css/style.css.
+   Track page keeps only page-local placement and section choreography here. */
+
+/* Sections */
+.track-section {
+  margin-top: 22px;
+}
+
+/* Lyrics */
+.lyrics-wrap {
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  padding: 14px 14px;
+}
+
+.lyrics-wrap pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* Notes */
+.note-wrap {
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  padding: 14px 14px;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* Video */
+.video-wrap {
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  padding: 14px;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 14px;
+}
+
+.video-wrap iframe.audio-embed {
+  aspect-ratio: auto;
+  height: 90px;
+}
+
+/* More tracks */
+.more-tracks {
+  display: grid;
+  gap: 10px;
+}
+
+.more-track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.more-track:hover {
+  border-color: rgba(var(--accent-rgb), 0.55);
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+.more-track__meta {
+  display: grid;
+  gap: 4px;
+}
+
+.more-track__meta strong { font-weight: 800; }
+
+.more-track__sub {
+  opacity: 0.82;
+  font-size: 12px;
+}
+
+/* Mobile tiers */
+/* TV tier polish (distance readability) */
+@media (min-width: 1401px) {
+  .track-section {
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 1601px) {
+  .track-hero__inner {
+    grid-template-columns: minmax(0, 340px) minmax(0, 1.1fr);
+  }
+
+  .track-copy,
+  .track-prose,
+  .track-grid {
+    max-width: 1320px;
+  }
+
+  .lyrics-wrap pre { font-size: 15px; }
+}
+
+
+/* Wave V10-39 — track detail continuity surfaces */
+#track-snapshot,
+#track-routes {
+  margin-top: 22px;
+}
+
+.track-page #track-snapshot .detail-glance,
+.track-page #track-routes .detail-glance {
+  margin-top: 12px;
+}
+
+.track-page #track-snapshot .detail-glance__title,
+.track-page #track-routes .detail-glance__title {
+  max-width: 21ch;
+}
+
+.track-page #track-snapshot .detail-glance__actions .btn,
+.track-page #track-routes .detail-glance__actions .btn {
+  min-width: max-content;
+}
+
+@media (max-width: 768px) {
+  .track-page #track-snapshot .detail-glance__actions,
+  .track-page #track-routes .detail-glance__actions {
+    flex-direction: column;
+  }
+
+  .track-page #track-snapshot .detail-glance__actions .btn,
+  .track-page #track-routes .detail-glance__actions .btn {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   Wave V10-40 — track detail context + follow-through rhythm
+   ========================================================= */
+#track-context,
+#track-follow {
+  margin-block: clamp(16px, 2.8vw, 30px);
+}
+
+#track-context .section-header__title,
+#track-follow .section-header__title {
+  max-width: 18ch;
+}
+
+@media (max-width: 768px) {
+  #track-follow .detail-glance__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

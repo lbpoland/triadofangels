@@ -1,0 +1,374 @@
+/* TOA COMING SOON SURFACE (Feature-gated hubs)
+   Purpose:
+   - Provide page-local cinematic art direction for shared launch surfaces used by Apps / Games / Store
+   - Structural shell, grids, cards, and CTA rhythm now live in css/style.css
+   Constraints:
+   - No layout or CTA contract duplication here
+   - Keep theme/perf accessibility overrides aligned with shared shell ownership
+*/
+
+/* subtle cinematic sheen (token-compatible via scrim variables) */
+.coming-soon-surface::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(var(--scrim-rgb, 0,0,0), 0.10), transparent 60%),
+    radial-gradient(900px 500px at 100% 30%, rgba(var(--scrim-rgb, 0,0,0), 0.08), transparent 65%);
+  mix-blend-mode: normal;
+}
+
+html[data-theme="toa"] .coming-soon-surface::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("/assets/images/placeholder-background.webp");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  filter: saturate(1.05) contrast(1.04);
+  mix-blend-mode: overlay;
+}
+
+@media (forced-colors: active){
+  html[data-theme="toa"] .coming-soon-surface::after{
+    content: none !important;
+    display: none !important;
+  }
+}
+
+html[data-perf="low"] .coming-soon-surface::before,
+html[data-perf="low"] .coming-soon-surface::after{
+  content: none !important;
+  display: none !important;
+}
+
+@media (prefers-reduced-transparency: reduce){
+  .coming-soon-surface::before,
+  .coming-soon-surface::after{
+    content: none !important;
+    display: none !important;
+  }
+}
+
+html[data-theme="contrast"] .coming-soon-surface::before,
+html[data-theme="contrast"] .coming-soon-surface::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================================================
+   Wave V10-16 — launch-surface art-direction + wide-tier polish
+   - keeps Apps / Games / Store cinematic without re-owning the shared shell
+   ========================================================= */
+@media (min-width: 1101px) {
+  .coming-soon-surface::before {
+    background:
+      radial-gradient(1350px 680px at 18% 0%, rgba(var(--scrim-rgb, 0,0,0), 0.11), transparent 60%),
+      radial-gradient(980px 560px at 100% 28%, rgba(var(--scrim-rgb, 0,0,0), 0.09), transparent 65%);
+  }
+}
+
+@media (min-width: 1601px) {
+  html[data-theme="toa"] .coming-soon-surface::after {
+    opacity: 0.24;
+  }
+}
+
+
+/* Wave V10-37 — gated hubs now include richer route and standards clusters */
+#apps-lanes .support-strip,
+#apps-standards .support-strip,
+#games-pillars .support-strip,
+#games-standards .support-strip,
+#store-lanes .support-strip,
+#store-readiness .support-strip {
+  margin-top: 18px;
+}
+
+.apps-page .support-grid--lanes,
+.games-page .support-grid--lanes,
+.digital-store-page .support-grid--lanes {
+  align-items: stretch;
+}
+
+
+/* Wave MW-AG — shared staged-live pillar surfaces */
+.page-intro--stage.coming-soon-surface{
+  isolation: isolate;
+}
+.page-intro--stage.coming-soon-surface::before,
+.page-intro--stage.coming-soon-surface::after{
+  inset: 0;
+}
+.stage-status .support-strip,
+.stage-grid .support-grid,
+.support-strip--stage{
+  max-width: 1100px;
+  margin-inline: auto;
+}
+.stage-status .support-strip{
+  padding: clamp(22px, 3vw, 34px);
+}
+.stage-grid .section-header{
+  margin-bottom: clamp(16px, 2.2vw, 24px);
+}
+.stage-grid--future .support-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+}
+html[data-theme="light"] .stage-grid--future .support-card{
+  background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.01));
+}
+
+
+/* Wave MW-MX — staged pillar polish */
+.page-intro--stage .page-intro__actions{ flex-wrap: wrap; }
+.stage-status .support-strip{ max-width: 920px; }
+.support-strip--stage{ max-width: 920px; }
+
+/* Wave MW-ALL — bespoke staged hero differentiation */
+html[data-theme="toa"] .stage-hero--apps::after,
+html[data-theme="dark"] .stage-hero--apps::after{
+  background-image:
+    radial-gradient(900px 440px at 12% 18%, rgba(62, 123, 255, 0.26), transparent 62%),
+    radial-gradient(840px 420px at 88% 26%, rgba(148, 82, 255, 0.22), transparent 64%),
+    linear-gradient(135deg, rgba(10,14,30,.82), rgba(14,10,26,.68));
+  opacity: .92;
+  mix-blend-mode: screen;
+}
+html[data-theme="toa"] .stage-hero--games::after,
+html[data-theme="dark"] .stage-hero--games::after{
+  background-image:
+    radial-gradient(980px 460px at 20% 18%, rgba(38, 208, 138, 0.22), transparent 60%),
+    radial-gradient(920px 430px at 84% 30%, rgba(57, 118, 255, 0.18), transparent 62%),
+    linear-gradient(135deg, rgba(9,18,17,.82), rgba(8,12,22,.72));
+  opacity: .94;
+  mix-blend-mode: screen;
+}
+html[data-theme="toa"] .stage-hero--digital::after,
+html[data-theme="dark"] .stage-hero--digital::after{
+  background-image:
+    radial-gradient(940px 450px at 16% 20%, rgba(208, 167, 58, 0.24), transparent 58%),
+    radial-gradient(880px 420px at 86% 28%, rgba(255, 132, 74, 0.16), transparent 62%),
+    linear-gradient(135deg, rgba(22,14,8,.82), rgba(18,10,8,.72));
+  opacity: .94;
+  mix-blend-mode: screen;
+}
+html[data-theme="toa"] .stage-hero--merch::after,
+html[data-theme="dark"] .stage-hero--merch::after{
+  background-image:
+    radial-gradient(940px 450px at 14% 18%, rgba(255, 84, 133, 0.18), transparent 60%),
+    radial-gradient(860px 420px at 84% 24%, rgba(208, 167, 58, 0.18), transparent 62%),
+    linear-gradient(135deg, rgba(24,10,16,.82), rgba(18,12,10,.72));
+  opacity: .94;
+  mix-blend-mode: screen;
+}
+html[data-theme="light"] .stage-hero--apps::after,
+html[data-theme="light"] .stage-hero--games::after,
+html[data-theme="light"] .stage-hero--digital::after,
+html[data-theme="light"] .stage-hero--merch::after{
+  opacity: .34;
+  mix-blend-mode: multiply;
+}
+
+
+/* Wave MW-VCP — final staged art-direction polish */
+.stage-grid--routes .support-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+}
+html[data-theme="light"] .stage-grid--routes .support-card{
+  background: linear-gradient(180deg, rgba(0,0,0,.022), rgba(0,0,0,.01));
+}
+.stage-status .support-strip,
+.support-strip--stage{
+  border-color: color-mix(in oklab, var(--line) 68%, rgba(var(--accent-rgb), 0.14));
+}
+.stage-hero--apps .page-title,
+.stage-hero--games .page-title,
+.stage-hero--digital .page-title,
+.stage-hero--merch .page-title{
+  max-width: 12ch;
+}
+.stage-hero--apps .page-lead,
+.stage-hero--games .page-lead,
+.stage-hero--digital .page-lead,
+.stage-hero--merch .page-lead{
+  max-width: 54ch;
+  margin-inline: auto;
+}
+@media (max-width: 768px){
+  .stage-grid .section-header{ margin-bottom: 16px; }
+  .stage-status .support-strip{ padding: 20px; }
+}
+
+/* === MW-AY staged route finish pass === */
+.stage-status-grid .support-card,
+.stage-grid .support-card,
+.support-strip--stage {
+  border-color: rgba(255, 215, 0, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012)),
+    rgba(9, 12, 18, 0.54);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+}
+
+.stage-status-grid .support-card:hover,
+.stage-grid .support-card:hover,
+.stage-status-grid .support-card:focus-within,
+.stage-grid .support-card:focus-within {
+  border-color: rgba(255, 215, 0, 0.22);
+}
+
+.stage-grid .section-header__lead,
+.stage-status .support-card__body {
+  max-width: 58ch;
+  margin-inline: auto;
+}
+
+html[data-theme="light"] .stage-status-grid .support-card,
+html[data-theme="light"] .stage-grid .support-card,
+html[data-theme="light"] .support-strip--stage {
+  border-color: rgba(102, 82, 18, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,243,229,0.94)),
+    #fffdf6;
+  box-shadow: 0 12px 30px rgba(59, 45, 12, 0.08);
+}
+
+@media (max-width: 820px) {
+  .stage-status-grid,
+  .stage-grid .support-grid--hub-routes,
+  .stage-grid .support-grid--routes {
+    gap: 14px;
+  }
+}
+
+
+/* === Wave MW-AZ — staged route finish-state polish === */
+.stage-status-grid .support-card,
+.stage-grid .support-card,
+.support-strip--stage{
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-status-grid .support-card::before,
+.stage-grid .support-card::before,
+.support-strip--stage::before{
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.32), transparent);
+  pointer-events: none;
+}
+
+.stage-grid .support-card__actions .cta-button{
+  min-height: 44px;
+}
+
+.stage-grid .support-card__body,
+.stage-status-grid .support-card__body{
+  text-wrap: pretty;
+}
+
+@media (max-width: 820px){
+  .stage-grid .support-card__actions .cta-button{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* === Wave MW-BA — staged shell composure + device polish === */
+.stage-status-grid .support-card,
+.stage-grid .support-card,
+.support-strip--stage{
+  border-radius: 20px;
+}
+
+.stage-status-grid .support-card__body,
+.stage-grid .support-card__body,
+.stage-status .support-card__body{
+  max-width: 60ch;
+}
+
+.stage-grid .support-card__title,
+.stage-status-grid .support-card__title{
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px){
+  .stage-status-grid .support-card,
+  .stage-grid .support-card,
+  .support-strip--stage{
+    border-radius: 18px;
+  }
+}
+
+
+/* === Wave MW-BB — screenshot-led staged-page tightening === */
+@media (max-width: 640px){
+  .stage-status .support-strip,
+  .support-strip--stage{
+    padding: 18px;
+  }
+
+  .stage-status-grid .support-card,
+  .stage-grid .support-card{
+    padding: 16px;
+  }
+
+  .stage-grid .section-header__lead,
+  .stage-status .support-card__body,
+  .support-strip--stage .support-card__body{
+    max-width: 48ch;
+  }
+}
+
+
+/* =========================================================
+   MW-BD — staged pillar final recapture polish
+   ========================================================= */
+.page-intro--stage .page-kicker,
+.page-intro--stage .page-title,
+.page-intro--stage .page-lead,
+.stage-grid .section-header,
+.stage-status .support-strip,
+.support-strip--stage{
+  text-align: center;
+}
+
+.page-intro--stage .page-intro__actions,
+.stage-grid .support-grid,
+.stage-status-grid{
+  justify-content: center;
+}
+
+.page-intro--stage .page-title,
+.stage-grid .section-header__title{
+  margin-inline: auto;
+}
+
+.stage-grid .support-card,
+.stage-status-grid .support-card{
+  min-width: 0;
+}
+
+@media (max-width: 700px){
+  .page-intro--stage .page-intro__actions > *{
+    flex: 1 1 100%;
+  }
+
+  .page-intro--stage .page-title{
+    max-width: 14ch;
+  }
+
+  .stage-grid .section-header__lead,
+  .support-strip--stage .support-card__body,
+  .stage-status .support-card__body{
+    overflow-wrap: anywhere;
+  }
+}

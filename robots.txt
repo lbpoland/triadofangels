@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+Disallow: /album.html
+Disallow: /track.html
+Disallow: /book.html
+Sitemap: https://www.triadofangels.com/sitemap.xml

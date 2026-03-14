@@ -1,0 +1,379 @@
+/* ToA Games — shared runtime shell
+   - Depends on global tokens from /css/style.css
+   - No inline styles, no external assets, no third-party dependencies
+*/
+
+body.game-runtime {
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(var(--accent-rgb), 0.14), transparent 50%),
+    radial-gradient(900px 500px at 85% 20%, rgba(255, 255, 255, 0.06), transparent 55%),
+    var(--bg);
+  min-height: 100dvh;
+}
+
+.game-header {
+  position: sticky;
+  top: 0;
+  z-index: 7000;
+  background: linear-gradient(120deg, var(--surface) 75%, rgba(var(--accent-rgb), 0.18) 125%);
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.18);
+  box-shadow: var(--shadow-1);
+  padding: calc(10px + env(safe-area-inset-top)) 14px 10px;
+}
+
+.game-header .bar {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.game-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.game-brand img {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.18), 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.game-brand .text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.game-brand .title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.game-brand .sub {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.game-header .spacer {
+  margin-left: auto;
+}
+
+.game-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+  text-decoration: none;
+}
+
+.game-pill:hover,
+.game-pill:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.game-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.game-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.game-btn:hover,
+.game-btn:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.game-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 14px calc(24px + env(safe-area-inset-bottom));
+  display: grid;
+  gap: 16px;
+}
+
+.game-card {
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: var(--glass);
+  border-radius: 18px;
+  box-shadow: var(--shadow-1);
+  padding: 16px;
+}
+
+.game-card h1, .game-card h2, .game-card h3 {
+  margin-top: 0;
+}
+
+.game-stage {
+  display: grid;
+  gap: 12px;
+}
+
+.game-canvas-wrap {
+  border-radius: 18px;
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+  overflow: hidden;
+  background: #07070a;
+  box-shadow: var(--shadow-deep);
+}
+
+#game-canvas {
+  display: block;
+  width: 100%;
+  height: min(70dvh, 620px);
+  max-height: 70dvh;
+  outline: none;
+}
+
+.game-kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95rem;
+}
+
+.game-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+  background: rgba(10,10,14,0.85);
+  color: var(--text);
+  box-shadow: var(--shadow-deep);
+  z-index: 8000;
+  max-width: min(92vw, 560px);
+}
+
+.game-toast[hidden] { display: none; }
+
+.game-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0,0,0,0.62);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.game-overlay[hidden] { display: none; }
+
+.game-dialog {
+  width: min(720px, 96vw);
+  border-radius: 18px;
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+  background: var(--surface);
+  box-shadow: var(--shadow-deep);
+  padding: 16px;
+}
+
+.game-dialog .row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.game-dialog .row > * { flex: 1 1 auto; }
+
+.game-dialog label {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: rgba(255,255,255,0.04);
+}
+
+.game-dialog input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.game-hr {
+  height: 1px;
+  background: rgba(var(--accent-rgb), 0.18);
+  border: 0;
+  margin: 14px 0;
+}
+
+body[data-game-contrast="true"] {
+  --glass: #0b0c10;
+  --glass-strong: #0b0c10;
+  --stroke: rgba(255,255,255,0.35);
+}
+
+@media (max-width: 860px) {
+  #game-canvas { height: min(62dvh, 520px); }
+}
+
+
+/* ---------- Wave H: Input bindings UI (shared) ---------- */
+.input-bindings {
+  display: grid;
+  gap: 10px;
+}
+
+.bind-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.3fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.bind-row .bind-action {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.bind-row .bind-keys {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.bind-row .bind-btn {
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.bind-row .bind-btn:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.bind-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.bind-status {
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+/* ---------- Wave I: Save Slots (details UI) ---------- */
+.save-slots {
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 12px;
+}
+
+.save-slots > summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 10px 8px;
+  border-radius: 12px;
+}
+
+.save-slots > summary::-webkit-details-marker { display: none; }
+
+.save-slots[open] > summary {
+  outline: 3px solid rgba(var(--accent-rgb), 0.22);
+  outline-offset: 3px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.save-slots__inner {
+  padding: 10px 4px 4px;
+  display: grid;
+  gap: 10px;
+}
+
+.save-slots__grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.save-slots label {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.save-slots select,
+.save-slots input[type="text"] {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 10px 12px;
+}
+
+.save-slots select:focus-visible,
+.save-slots input[type="text"]:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.save-slots__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.save-slots__actions .game-btn {
+  flex: 1 1 160px;
+}
+
+@media (min-width: 740px) {
+  .save-slots__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

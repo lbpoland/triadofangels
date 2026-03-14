@@ -1,0 +1,258 @@
+/* css/book.css — Book detail page (dynamic)
+   - Uses global primitives from css/style.css
+   - Shared structural shell now lives in css/style.css
+   - This file owns book-page ambience, art direction, and related-volumes polish
+*/
+
+.book-page {
+  position: relative;
+}
+
+/* ---------- Wave AG — Book ambience (CSP-safe, low-perf gated) ---------- */
+.book-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+
+  /* Base ambience layers (token-native; no hard-coded colors) */
+  opacity: var(--book-bg-opacity, 0.30);
+  background:
+    radial-gradient(circle at 25% 20%, rgba(var(--accent-rgb), 0.18), rgba(var(--bg-rgb), 0.05) 45%),
+    radial-gradient(circle at 70% 40%, rgba(var(--focus-rgb), 0.10), rgba(var(--bg-rgb), 0.10) 55%),
+    radial-gradient(circle at 40% 80%, rgba(var(--accent-rgb), 0.08), rgba(var(--bg-rgb), 0.10) 60%),
+    linear-gradient(180deg, rgba(var(--bg-rgb), 0.25), rgba(var(--bg-rgb), 0.65));
+}
+
+.book-bg__img {
+  position: absolute;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
+  object-fit: cover;
+  opacity: var(--book-bg-img-opacity, 0.18);
+  transform: translateZ(0) scale(var(--book-bg-scale, 1.12));
+  filter: blur(var(--book-bg-blur, 22px)) saturate(var(--book-bg-sat, 1.18));
+}
+
+html[data-perf="low"] .book-bg__img {
+  opacity: 0.12;
+  filter: none;
+  transform: translateZ(0) scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-bg__img { transform: translateZ(0) scale(1.02); }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .book-bg { opacity: 0.18; }
+  .book-bg__img { opacity: 0.10; filter: none; }
+}
+
+@media (forced-colors: active) {
+  .book-bg { display: none; }
+}
+
+/* Shared structural book-detail shell lives in css/style.css.
+   Keep only book-page-local ambience + cover art direction here. */
+.book-hero__bg {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.book-hero__bg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: var(--hero-banner-object-position, 50% 30%);
+  transform: scale(1.035);
+  filter: saturate(1.06) contrast(1.08);
+}
+
+.book-hero--detail::before {
+  content: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 700px at 50% 22%, rgba(0,0,0,0.12), rgba(0,0,0,0.64) 70%),
+    linear-gradient(180deg, rgba(11,12,16,0.10), rgba(11,12,16,0.74));
+}
+
+/* ---------- Wave R: Cover polish (premium framing, theme-safe) ---------- */
+.book-hero__cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--cover-overlay-gradient);
+  mix-blend-mode: var(--cover-overlay-blend);
+}
+
+/* Wave S: book template empty state */
+.book-empty {
+  max-width: 1100px;
+  margin: 18px auto 0;
+  padding: 0 14px;
+}
+
+/* -----------------------------
+   Related volumes grid (book pages)
+   ----------------------------- */
+.series-grid__head {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 10px;
+}
+
+.series-grid__kicker {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.series-grid__title {
+  font-size: clamp(18px, 2.1vw, 22px);
+  margin: 0;
+}
+
+.series-grid__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 14px;
+}
+
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.series-grid__item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.series-grid__item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(208, 167, 58, 0.32);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.series-grid__item:focus-visible {
+  outline: 2px solid rgba(208, 167, 58, 0.85);
+  outline-offset: 3px;
+}
+
+.series-grid__item.is-current {
+  border-color: rgba(208, 167, 58, 0.55);
+  background: rgba(208, 167, 58, 0.08);
+}
+
+.series-grid__img {
+  width: 72px;
+  height: 110px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.series-grid__meta {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.series-grid__vol {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.series-grid__name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 920px) {
+  .series-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .series-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Large-tier polish (Wave V10-10) ---------- */
+
+@media (min-width: 1601px) {
+  .series-grid {
+    gap: 16px;
+  }
+
+  .series-grid__item {
+    grid-template-columns: 82px 1fr;
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .series-grid__img {
+    width: 82px;
+    height: 124px;
+  }
+
+  .series-grid__name {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+}
+
+/* =========================================================
+   Mobile Small hardening (320–359)
+   - Prevent store actions from wrapping into awkward double rows
+   - Keep region selector tappable and legible
+   ========================================================= */
+
+/* ---------- Detail-page utility continuity (Wave V10-19) ---------- */
+@media (min-width: 1401px) {
+  .series-grid {
+    gap: 14px;
+  }
+
+  .book-section {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 359px) {
+  .book-actions {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,45 @@
+# ==================================================
+# Triad of Angels | ToA Studios — Repo Hygiene
+# Keep the GitHub Pages publish surface clean and public-ready.
+# ==================================================
+
+# Local QA / generated reports
+reports/
+playwright-report/
+.lighthouseci/
+lighthouseci/
+lighthouse/
+manifest.json
+
+# Local bundles / handoff artifacts
+*.zip
+TOA_*SUMMARY*.md
+TOA_*AUDIT*.md
+TOA_*PATCH*.zip
+TOA_*CLOSURE*.zip
+TOA_*REFINEMENT*.zip
+TOA_*HOTFIX*.zip
+TOA_*CONSOLIDATED*.zip
+TOA_*RECOVERY*.zip
+
+# Node / Python local artifacts
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Local-only workflow helpers and authoring sources
+.toa_bundleignore
+toa_snapshot.py
+toa_refresh.py
+tools/
+docs/
+templates/
+_archive/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "Triad of Angels | ToA Studios",
+  "short_name": "Triad of Angels",
+  "description": "Triad of Angels & ToA Studios music, publishing, games, apps, and digital creations.",
+  "lang": "en-AU",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "browser"],
+  "background_color": "#0b0c10",
+  "theme_color": "#0b0c10",
+  "icons": [
+    {
+      "src": "/assets/favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-02-26T04:56:00Z",
+  "publisher": "Triad of Angels & ToA Studios",
+  "catalog": {
+    "name": "ToA Games Arcade",
+    "url": "https://www.triadofangels.com/games/",
+    "policy": {
+      "noFakeReleases": true,
+      "rule": "Only list playable builds that exist in the repo at the referenced path."
+    }
+  },
+  "items": [
+    {
+      "id": "foundation-demo",
+      "title": "Foundation Demo",
+      "subtitle": "Platform Systems Preview",
+      "status": "live",
+      "type": "demo",
+      "path": "/games/foundation-demo/",
+      "description": "Playable platform preview proving the game shell, accessibility toggles, input bindings, Save Slots + Autosave, and export/import.",
+      "tags": ["platform", "demo", "accessibility", "saves", "autosave", "input"],
+      "updatedAt": "2026-02-26"
+    },
+    {
+      "id": "save-slots-lab",
+      "title": "Save Slots Lab",
+      "subtitle": "Persistence UX Validation",
+      "status": "live",
+      "type": "demo",
+      "path": "/games/save-slots-lab/",
+      "description": "Playable lab build validating Save Slots + Autosave behavior. Collect shards, save into Slot 1/2/3, switch slots, and verify state restores cleanly.",
+      "tags": ["platform", "lab", "saves", "autosave", "accessibility"],
+      "updatedAt": "2026-02-26"
+    }
+  ]
+}

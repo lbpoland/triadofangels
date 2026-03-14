@@ -1,0 +1,81 @@
+/* TOA GAMES MODULE (Studio + Arcade)
+   Scope: /games.html and /games/* hub pages
+   Ownership split:
+   - css/style.css = shared .hub-grid / .hub-card shell + shared finder controls
+   - css/games.css = games-only sequencing, card art direction tokens, filter/status rhythm
+   Constraints:
+   - Static GitHub Pages only
+   - Token-driven (theme safe)
+   - Low-perf + reduced-transparency parity
+*/
+
+.games-hub {
+  --hub-card-bg: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.035));
+  --hub-card-stroke: rgba(var(--accent-rgb), 0.18);
+  --hub-card-shadow: var(--shadow-soft, 0 18px 60px rgba(0,0,0,0.25));
+}
+
+.games-hub .hub-card {
+  background: var(--hub-card-bg);
+  border-color: var(--hub-card-stroke);
+  box-shadow: var(--hub-card-shadow);
+}
+
+.games-hub .hub-card__title {
+  max-width: 18ch;
+}
+
+.games-hub .hub-card__desc {
+  max-width: 58ch;
+}
+
+.games-hub [data-games-filter] {
+  max-width: min(100%, 880px);
+}
+
+.games-hub [data-games-filter] .finder-summary {
+  margin-top: 12px;
+}
+
+.games-hub [data-games-filter] .finder-summary__routes {
+  justify-content: flex-end;
+}
+
+html[data-perf="low"] .games-hub .hub-card {
+  box-shadow: none;
+}
+
+@media (max-width: 480px) {
+  .games-hub [data-games-filter] .finder-summary .finder-hint {
+    display: none;
+  }
+
+  .games-hub [data-games-filter] .finder-summary__routes {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1100px) {
+  .games-hub [data-games-filter] {
+    max-width: min(100%, 960px);
+  }
+
+  .games-hub [data-games-filter] .finder-summary {
+    max-width: min(100%, 1000px);
+  }
+}
+
+@media (min-width: 1601px) {
+  .games-hub .hub-card {
+    padding: 24px;
+  }
+
+  .games-hub .hub-card__kicker {
+    font-size: 0.92rem;
+  }
+
+  .games-hub [data-games-filter] {
+    max-width: min(100%, 1020px);
+  }
+}
+

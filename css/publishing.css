@@ -1,0 +1,453 @@
+/* css/publishing.css — Publishing library page */
+
+.library-toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.library-search input[type="search"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke-2);
+  background: var(--panel-3);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.library-search input::placeholder {
+  color: var(--text-muted);
+}
+
+.library-sort select {
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke-2);
+  background: var(--panel-3);
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Chips */
+#library-chips {
+  margin-top: 18px;
+  padding: 0;
+}
+
+.chip-group {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.chip-group__label {
+  margin: 0;
+}
+
+.library {
+  margin-top: 22px;
+  padding: 0;
+}
+
+/* Shared narrative discovery grid/card foundations now live in css/style.css:
+   .book-grid
+   .book-card*
+   Keep css/publishing.css focused on library-toolbar sequencing, publishing-only card nuance, and page-local coupling. */
+
+.library-howto {
+  margin-top: 22px;
+  padding: 0;
+}
+
+.howto-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+code {
+  background: var(--panel);
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+/* ---------- Stable empty state + CLS hardening ---------- */
+/* Shared results-empty shell now lives in css/style.css.
+   Publishing keeps only library-specific coupling and layout nuance here. */
+
+.library-shelves:empty {
+  display: none;
+}
+
+@media (min-width: 1401px) {
+  .library-block {
+    margin-top: 26px;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+}
+
+
+/* ---------- Wave R: Publishing library public-facing "About" section ---------- */
+.library-about .notice {
+  background: var(--glass);
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.library-about .howto-list {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: var(--text);
+}
+
+.library-about .howto-list li {
+  margin: 8px 0;
+  color: var(--text-muted);
+}
+
+.library-about .cta-button {
+  margin-top: 10px;
+}
+
+
+
+/* Wave S: reserved status pill */
+.pill.pill--reserved {
+  border-color: rgba(var(--accent-rgb), 0.45);
+  background: rgba(var(--accent-rgb), 0.10);
+  color: var(--accent);
+}
+
+
+
+/* =========================================================
+   Wave AG — Publishing Governance Deep Polish
+   - Toolbar now supports Search + Sort + Reset
+   - Library blocks adopt Section Header row rhythm
+   - Shelves scroller gains chip-row focus-follow parity
+   ========================================================= */
+
+.library-block {
+  margin-top: 22px;
+}
+
+.library-block .section-header {
+  margin-bottom: var(--space-4);
+}
+
+.library-reset {
+  display: grid;
+  justify-items: end;
+}
+
+@media (max-width: 768px) {
+  .library-reset {
+    justify-items: start;
+  }
+}
+
+
+/* Shared systems now owned by css/style.css:
+   - .region-store*
+   - .series-rail
+   - .series-card*
+   Publishing CSS keeps only page-local library sequencing and coupling.
+*/
+
+@media (min-width: 1201px) {
+  .library-toolbar {
+    grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.9fr) auto;
+    align-items: end;
+  }
+
+  .library-block .section-header {
+    margin-bottom: var(--space-6);
+  }
+}
+
+@media (min-width: 1601px) {
+  .library-toolbar {
+    gap: 20px;
+  }
+
+  .library-block .section-header {
+    margin-bottom: calc(var(--space-6) + 6px);
+  }
+}
+
+/* Shelf title as hub link */
+.shelf__title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.shelf__title-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.shelf__title-link:focus-visible {
+  outline: 2px solid rgba(208, 167, 58, 0.85);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+
+/* Start Here (Publishing onboarding) */
+.start-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+@media (max-width: 920px) {
+  .start-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+  .start-grid { grid-template-columns: 1fr; }
+}
+
+.start-card {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  text-decoration: none;
+  color: inherit;
+}
+
+.start-card:hover {
+  border-color: rgba(208, 167, 58, 0.32);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.start-card:focus-visible {
+  outline: 2px solid rgba(208, 167, 58, 0.85);
+  outline-offset: 3px;
+}
+
+.start-card__img {
+  width: 92px;
+  height: 140px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.start-card__meta {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.start-card__kicker {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.start-card__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.start-card__desc {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+
+
+
+.publishing-finder__summary {
+  width: min(100%, 1040px);
+}
+
+.publishing-finder__summary .finder-status {
+  text-align: left;
+}
+
+@media (max-width: 720px) {
+  .publishing-finder__summary .finder-status {
+    text-align: center;
+  }
+}
+
+
+/* Wave V10-37 — Publishing reading-path upgrades */
+#reading-paths .support-strip,
+#publishing-standards .support-strip {
+  margin-top: 18px;
+}
+
+.publishing-page #reading-paths .support-card__body,
+.publishing-page #publishing-standards .support-card__body {
+  max-width: 34ch;
+}
+
+
+/* =========================================================
+   Pre-push polish — publishing shelves and library cards
+   Keep cover art strong without letting shared auto-fit rules
+   balloon the shelves at awkward widths.
+   ========================================================= */
+.library-shelves .book-grid,
+#library-grid.book-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 248px));
+  justify-content: center;
+  gap: clamp(16px, 1.7vw, 24px);
+  padding-top: 18px;
+}
+
+.library-shelves .book-card,
+#library-grid.book-grid .book-card {
+  width: min(100%, 248px);
+  justify-self: center;
+}
+
+.library-shelves .book-card__cover,
+#library-grid.book-grid .book-card__cover {
+  aspect-ratio: 2 / 3;
+}
+
+.library-shelves .book-card__body,
+#library-grid.book-grid .book-card__body {
+  padding: 14px 14px 18px;
+}
+
+.library-shelves .book-card__title,
+#library-grid.book-grid .book-card__title {
+  font-size: 17px;
+}
+
+.library-shelves .book-card__actions,
+#library-grid.book-grid .book-card__actions {
+  margin-top: auto;
+}
+
+@media (min-width: 1025px) {
+  .library-shelves .book-grid {
+    grid-template-columns: repeat(3, minmax(0, 248px));
+  }
+
+  #library-grid.book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 248px));
+  }
+}
+
+@media (max-width: 768px) {
+  .library-shelves .book-grid,
+  #library-grid.book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .library-shelves .book-card,
+  #library-grid.book-grid .book-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .library-shelves .book-grid,
+  #library-grid.book-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+/* =========================================================
+   Final visual/system unification — publishing shelves
+   Tighten cover scale, card widths, and shelf rhythm.
+   ========================================================= */
+.library-shelves .section-header__desc,
+#library-grid + .results-empty .section-header__desc {
+  max-width: 58ch;
+}
+
+.library-shelves .book-grid,
+#library-grid.book-grid {
+  justify-content: center;
+  gap: clamp(16px, 1.8vw, 24px);
+}
+
+.library-shelves .book-card,
+#library-grid.book-grid .book-card {
+  width: min(100%, 232px);
+  max-width: 232px;
+}
+
+.library-shelves .book-card__cover,
+#library-grid.book-grid .book-card__cover {
+  aspect-ratio: 5 / 7;
+}
+
+.library-shelves .book-card__cover-img,
+#library-grid.book-grid .book-card__cover-img {
+  object-position: center top;
+}
+
+.library-shelves .book-card__body,
+#library-grid.book-grid .book-card__body {
+  gap: 8px;
+}
+
+.library-shelves .book-card__title,
+#library-grid.book-grid .book-card__title {
+  font-size: 16px;
+}
+
+.library-shelves .book-card__subtitle,
+#library-grid.book-grid .book-card__subtitle {
+  min-height: 2.8em;
+}
+
+@media (min-width: 1025px) {
+  .library-shelves .book-grid {
+    grid-template-columns: repeat(3, minmax(0, 232px));
+  }
+
+  #library-grid.book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(216px, 232px));
+  }
+}
+
+@media (max-width: 768px) {
+  .library-shelves .book-grid,
+  #library-grid.book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .library-shelves .book-card,
+  #library-grid.book-grid .book-card {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .library-shelves .book-grid,
+  #library-grid.book-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

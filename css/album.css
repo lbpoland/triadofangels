@@ -1,0 +1,318 @@
+/* css/album.css — Album detail pages (album.html + /music/albums/*)
+   Goals:
+   - Album cover ambience (premium, controlled, perf-gated)
+   - Deterministic spacing + typography governance
+   - Track list + tools (search/filter) with accessible structure
+   Constraints:
+   - No inline styles
+   - Keep global CSP intact
+*/
+
+/* =========================================================
+   BACKDROP / AMBIENCE
+   ========================================================= */
+
+.album-page { position: relative; min-height: 100%; }
+
+/* Album cover ambience uses a real image element inside #album-background-image (no inline style attrs). */
+:root {
+  --album-bg-blur: 6px;
+  --album-bg-opacity: 0.42;
+  --album-bg-scale: 1.06;
+}
+
+/* Disable the global ToA banner layer on album pages */
+body.album-page::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================================================
+   STACKING + Z-INDEX GOVERNANCE (CRITICAL)
+
+   Why this matters:
+   - Album pages use a fixed full-viewport ambience layer (.album-bg) driven by the
+     album cover image (premium “cover world” effect).
+   - The ambience must sit behind all UI.
+   - The global header must remain `position: fixed` + high z-index (css/style.css)
+     so all overlays (Nav Hub, theme menu) can correctly sit above sticky page tools.
+
+   Past bug (fixed here):
+   - A previous rule included `.album-page .site-header { position: relative; z-index: 1; }`.
+   - That downgraded the header into the normal page flow and caused menus to appear
+     “behind” sticky components on album pages.
+
+   Contract:
+   - Lift ONLY main + footer above ambience.
+   - Do NOT change header positioning here.
+   ========================================================= */
+
+.album-page main,
+.album-page footer {
+  position: relative;
+  z-index: 1;
+}
+
+.album-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.album-bg__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(var(--album-bg-scale));
+  filter: blur(var(--album-bg-blur)) saturate(1.10) brightness(1.02) contrast(1.02);
+  opacity: var(--album-bg-opacity);
+}
+
+.album-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(var(--accent-rgb), 0.14), transparent 52%),
+    radial-gradient(circle at 76% 28%, rgba(var(--focus-rgb), 0.10), transparent 56%),
+    linear-gradient(180deg, rgba(var(--bg-rgb), 0.30) 0%, rgba(var(--bg-rgb), 0.92) 100%);
+}
+
+/* Low perf tier: reduce blur + opacity (keeps ambience without the cost) */
+html[data-perf="low"] {
+  --album-bg-blur: 2px;
+  --album-bg-opacity: 0.28;
+  --album-bg-scale: 1.02;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root { --album-bg-opacity: 0.18; }
+  .album-bg__img { filter: blur(1px) brightness(1.00) contrast(1.00); }
+}
+
+@media (forced-colors: active) {
+  .album-bg { display: none; }
+}
+
+
+/* =========================================================
+   BREADCRUMBS
+   Shared foundation lives in css/style.css.
+   Album pages only keep page-local nuance here.
+   ========================================================= */
+
+
+/* =========================================================
+   ALBUM HERO
+   ========================================================= */
+
+/* ---------------------------------------------------------------------
+   TOA:ALBUM-HERO-NORMALIZATION (DESKTOP/LAPTOP + ALL TIERS)
+   Why:
+   - The album/track pages previously used the album cover as a *full hero background*.
+   - That makes the H1/H2 “feel” different to the rest of the site and can read as
+     “the entire padding/background is the cover image”.
+   - Desired behavior (matches index + other pillars):
+       * The page uses the global cosmic/ToA ambience (plus optional subtle album ambience layer).
+       * The hero itself is a premium glass panel/card.
+       * The album cover remains a *cover tile* on the left, not a page-wide background.
+   What we do:
+   - Disable the hero background image layer (.album-hero__bg) and the banner darken overlay.
+   - Keep the hero as a clean glass surface so typography + actions match the rest of the site.
+   --------------------------------------------------------------------- */
+
+.album-hero__bg{ display:none; }
+.album-hero--detail::before{ content:none; }
+
+.album-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.album-hero__bg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: var(--hero-banner-object-position, 50% 30%);
+  transform: scale(1.035);
+  filter: saturate(1.06) contrast(1.08);
+}
+
+.album-hero--detail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 700px at 50% 22%, rgba(0,0,0,0.10), rgba(0,0,0,0.62) 70%),
+    linear-gradient(180deg, rgba(11,12,16,0.08), rgba(11,12,16,0.72));
+}
+
+/* Listen panel inside album hero (consistent with other pillars) */
+.album-page .listen-panel {
+  margin-top: 10px;
+}
+
+.album-page .listen-panel .link-tabs { margin-top: 0; }
+
+
+/* =========================================================
+   STREAMING LINKS (link-tabs)
+   - Shared base lives in css/style.css
+   - Album page keeps the mobile scroller behavior here
+   ========================================================= */
+
+
+/* =========================================================
+   ALBUM ACTIONS
+   ========================================================= */
+
+
+/* =========================================================
+   TRACKS SECTION
+   ========================================================= */
+
+.album-section { margin-top: 18px; }
+
+.album-track-tools {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.album-track-tools__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.album-track-search {
+  flex: 1 1 320px;
+  min-width: 220px;
+}
+
+.album-track-search input[type="search"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke-2);
+  background: var(--panel-3);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.album-track-meta {
+  margin: 0;
+  opacity: 0.84;
+  font-weight: 650;
+}
+
+/* Track list */
+.track-list {
+  display: grid;
+  gap: 10px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .track-row { grid-template-columns: 44px 1fr; }
+  .track-row__badges { justify-content: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .album-hero { border-radius: 16px; }
+}
+
+@media (min-width: 1401px) {
+  .album-page .album-section {
+    margin-top: 22px;
+  }
+
+  .album-track-tools {
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1601px) {
+  .album-hero__inner {
+    grid-template-columns: minmax(0, 380px) minmax(0, 1.18fr);
+  }
+
+  .album-copy,
+  .tracklist,
+  .related-grid {
+    max-width: 1340px;
+  }
+
+  .album-track-tools {
+    gap: 16px;
+  }
+}
+
+
+/* Wave V10-39 — album detail continuity surfaces */
+#album-snapshot,
+#album-routes {
+  margin-top: 22px;
+}
+
+.album-page #album-snapshot .detail-glance,
+.album-page #album-routes .detail-glance {
+  margin-top: 12px;
+}
+
+.album-page #album-snapshot .detail-glance__title,
+.album-page #album-routes .detail-glance__title {
+  max-width: 20ch;
+}
+
+.album-page #album-snapshot .detail-glance__actions .btn,
+.album-page #album-routes .detail-glance__actions .btn {
+  min-width: max-content;
+}
+
+@media (max-width: 768px) {
+  .album-page #album-snapshot .detail-glance__actions,
+  .album-page #album-routes .detail-glance__actions {
+    flex-direction: column;
+  }
+
+  .album-page #album-snapshot .detail-glance__actions .btn,
+  .album-page #album-routes .detail-glance__actions .btn {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   Wave V10-40 — album detail signals + track-map rhythm
+   ========================================================= */
+#album-signals,
+#album-track-map {
+  margin-block: clamp(16px, 2.8vw, 30px);
+}
+
+#album-signals .section-header__title,
+#album-track-map .section-header__title {
+  max-width: 18ch;
+}
+
+@media (max-width: 768px) {
+  #album-track-map .detail-glance__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
