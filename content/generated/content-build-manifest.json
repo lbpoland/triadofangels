@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "generatedAt": "2026-03-16T20:58:23.033Z",
   "builder": "tools/toa-content-build.mjs",
   "sources": [
     {
@@ -112,17 +112,17 @@
     },
     {
       "file": "content/generated/search-runtime-contract.json",
-      "sha256": "204dbf1d45d3064ee5afbf47a495eef955853cf631b9f32a66da827692ff7ae7",
+      "sha256": "6d0ce0a6cf74daa05eb1ae7a55a8d66e98f19e8983c0e8cd949e6e3347cce7d4",
       "bytes": 419378
     },
     {
       "file": "content/generated/catalog.consumer-adoption.json",
-      "sha256": "5e36eceefbb007e4faaa94d9d6538cae34c3917952d1b7079d1e2d3970b3bd2c",
+      "sha256": "011656928f1c3b457af7dc11f0e3c5453546deca41117e84224879e81d52612d",
       "bytes": 227938
     },
     {
       "file": "content/generated/catalog.route-validation.json",
-      "sha256": "d1679dbfb9117e996d81bf4b6098f6ad025793a49d804309a8402b06c0cfeb11",
+      "sha256": "a2ea3d88b5e59ee63c3c982f820b810387e25336c5199f61726ef4638e20e0e1",
       "bytes": 135739
     },
     {
@@ -147,97 +147,97 @@
     },
     {
       "file": "content/generated/music-library.snapshot.json",
-      "sha256": "bd1358b62dd4fe88d4c01ccfbc4baa5163ab16ac44da7785a79181eab4b30a6a",
+      "sha256": "7446f71fad6b5c20c57b80ae1d206ad435b5728bafc35be25119bb0ce8075ea1",
       "bytes": 99629
     },
     {
       "file": "content/generated/publishing-library.snapshot.json",
-      "sha256": "ed6f07dac44b7585dad08714ceec5ea47ab995513431845e94a0d8c724f42c9a",
+      "sha256": "3556b2de7358347d9b3e4689195fdfa34de7d9a5d6415084d14ef577bfe19fe2",
       "bytes": 4611
     },
     {
       "file": "content/generated/catalog.index.json",
-      "sha256": "72ccfab0a202abafcd993349e7b17683286430becea53e1e6993416527166478",
+      "sha256": "c8028314a3c470372f260df9174c32882e3ab1f7b08de24b305b9cbdc26e63ff",
       "bytes": 2768
     },
     {
       "file": "content/generated/music-library.entities.json",
-      "sha256": "984a2a5fc628454925aeae656dd05f54239271b1d188e51516be63b655782fc3",
+      "sha256": "c5d4c727aef293abbced34056a60f85be4aeaf59eec9bdac0b41dca3367e65aa",
       "bytes": 261509
     },
     {
       "file": "content/generated/music-library.relations.json",
-      "sha256": "c90f68af76d8f6a5687a819cff6388f93c7b0fef4f0de704cba46960ad478ea6",
+      "sha256": "692459376eae85c69869bfbd944c13fb115a909897935e1e420692b4231f1973",
       "bytes": 61796
     },
     {
       "file": "content/generated/publishing-library.entities.json",
-      "sha256": "8b6a91bc945e259f7c66adca6de9f081900aed4a493b872900e78a23672b2286",
+      "sha256": "61676d509492fa0295aeff236e161a2352911b01b4a74b554d68c8ce9533e5cd",
       "bytes": 2577
     },
     {
       "file": "content/generated/publishing-library.relations.json",
-      "sha256": "a4d287b4876a4e72231ef56c69821091ab7021b471427befcbc48e65848d8c21",
+      "sha256": "5c7d90dfa4100814832d404c44fef13d28949751390c5590dbeca70115e87309",
       "bytes": 1400
     },
     {
       "file": "content/generated/catalog.route-ownership.json",
-      "sha256": "d43449ac7f2333684cd04c725254bae4a7e81f38f3c0d3e00cbfb081d538105c",
+      "sha256": "6be1961924455d014c398a059e1195eb7f7586eac8e237f7c3daae2fce332b9a",
       "bytes": 451211
     },
     {
       "file": "content/generated/source-collections.index.json",
-      "sha256": "0f8b9cc8278ed3a50e9bfba12d2aaf82e9ad10f65c86ae598c909d92e8ea2b1d",
+      "sha256": "7a008be2395b31377a7c7e315f113ddd97fd85c5a47d19c560ee85dad7bb44a5",
       "bytes": 3482
     },
     {
       "file": "content/generated/source-collection-readiness.json",
-      "sha256": "f3570af6449419af61ce4e766baa71f17606b0c28c729fb4143fd804fff15274",
+      "sha256": "4b2e06c166a7db1b4d49a61bb8f6f55eb507010c9bd3d317f5ef6a7acc06c696",
       "bytes": 1331
     },
     {
       "file": "content/generated/source-collection-build-inputs.json",
-      "sha256": "a6920d3fe6f4ca839a158c238a578616cface2e9f00677c979c6c927e7075a76",
+      "sha256": "7215f718d339767972dea8106ac2787a5d6071b933afd25237ba348a8aec085d",
       "bytes": 3290
     },
     {
       "file": "content/generated/source-authority.index.json",
-      "sha256": "2434e36ee7f4dc3d07a4129626cf682070d094044aaa792e6de2f402c0d8f81c",
+      "sha256": "279f600d7619c2dec41587af910ea975322fe22acd160207a96180b7fd4b49a0",
       "bytes": 3834
     },
     {
       "file": "content/generated/source-collection-entry-manifests.json",
-      "sha256": "532d7a81424d8830f2611e156d49cdededd979a72edbd6a8ca3e5a8e94d657fd",
+      "sha256": "91c09c88afe47f0bb591521c0814a225412ed490ead489b953fa9b0d6479559f",
       "bytes": 1267
     },
     {
       "file": "content/generated/catalog.controller-contracts.json",
-      "sha256": "76f81b305bee9679ecc1ed76850de635b4f8464f7028e9a548a6ff77161e5eef",
+      "sha256": "2f326dd17cc7127ada694c40e8ff06b8865eb18a7ddf6330852c0d1a22af836f",
       "bytes": 300646
     },
     {
       "file": "content/generated/content-authority-report.json",
-      "sha256": "fd3668b4e7cf9fa0425d77e2d3ce4e8c0bda9387078ce21a7017dfe9e8be0a3b",
+      "sha256": "b746b523be668880cb236b514f0d434326ad762d97c0e435d4b945a0e9d0d56b",
       "bytes": 421926
     },
     {
       "file": "content/generated/source-collection-consumption.json",
-      "sha256": "223444cf753c70fafae6a00a5c2156143e3aa6a937f37e4bbb5cba0450b49367",
+      "sha256": "8ae8d66239743916712d98b884bb1c1cbffcdeaff9b0ecb24456e1f12055d318",
       "bytes": 2151
     },
     {
       "file": "content/generated/source-collection-entry-consumption.json",
-      "sha256": "919694c422386918cbf0527d777044ddc3b068131649fbc949211af9d65e97a1",
+      "sha256": "2f9e97129aea38b63bdd56bfa9dd74343a2d99246a6ae62c21ed151a6a0a0aca",
       "bytes": 15099
     },
     {
       "file": "content/generated/source-collection-authority-readiness.json",
-      "sha256": "b3010dcf6cc842ebfbb73063a33de8a49b661775ead66da83f6034f5c28c6146",
+      "sha256": "23cbd625cc5f08e04f89b58f786618406b6d37e1f60afcbaa81a394e2730e603",
       "bytes": 5528
     },
     {
       "file": "reports/closeout/architecture-elevation-closeout-summary.json",
-      "sha256": "b07fb815530995d1d51b2ea965f6915d246af814074204f2f3f390b84de888ec",
+      "sha256": "8ba3a7d79ccf087947c80fd9e933e5d407a8bb3b2abea7f7fc8209a6db703500",
       "bytes": 8054
     }
   ]

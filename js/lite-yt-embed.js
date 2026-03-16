@@ -211,14 +211,21 @@ class LiteYTEmbed extends HTMLElement {
      * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md for more details
      */
     setupPosterImage() {
-        const posterCandidates = [
-            this.getAttribute('poster') || '',
-            `https://i.ytimg.com/vi_webp/${this.videoId}/maxresdefault.webp`,
-            `https://i.ytimg.com/vi_webp/${this.videoId}/sddefault.webp`,
-            `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`,
-            `https://img.youtube.com/vi/${this.videoId}/hqdefault.jpg`,
-            `https://img.youtube.com/vi/${this.videoId}/mqdefault.jpg`
-        ].filter(Boolean);
+        const explicitPoster = this.getAttribute('poster') || '';
+        const posterCandidates = explicitPoster
+            ? [
+                explicitPoster,
+                `https://i.ytimg.com/vi_webp/${this.videoId}/sddefault.webp`,
+                `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`,
+                `https://img.youtube.com/vi/${this.videoId}/mqdefault.jpg`
+            ].filter(Boolean)
+            : [
+                `https://i.ytimg.com/vi_webp/${this.videoId}/maxresdefault.webp`,
+                `https://i.ytimg.com/vi_webp/${this.videoId}/sddefault.webp`,
+                `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`,
+                `https://img.youtube.com/vi/${this.videoId}/hqdefault.jpg`,
+                `https://img.youtube.com/vi/${this.videoId}/mqdefault.jpg`
+            ].filter(Boolean);
 
         if (!this.style.backgroundImage && posterCandidates.length) {
             this.style.backgroundImage = `url("${posterCandidates[0]}")`;

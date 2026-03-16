@@ -67,6 +67,15 @@
   gap: 10px;
   margin-top: 14px;
   justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.connect-tile__icon-item{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .connect-tile__cta{
@@ -2551,6 +2560,15 @@ html[data-theme="light"] .terms-page .policy-nav__link {
   gap: 10px;
   margin-top: 14px;
   justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.connect-tile__icon-item{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .connect-tile__cta{
