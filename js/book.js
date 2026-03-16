@@ -1,10 +1,11 @@
 // js/book.js — Book detail page controller (ESM)
-// - Supports canonical folder routes and legacy query templates.
-// - Renders book meta + store actions + formats from js/publishing-data.js.
+// - Supports canonical folder routes and legacy query templates while preferring generated resolver ownership.
+// - Renders book meta + store actions from generated-controller ownership plus publishing page helpers.
 // - Updates head/meta and injects JSON-LD (runtime) for correctness.
 
-import * as PubData from './publishing-data.js?v=5';
+import { resolveBookControllerRecord } from './publishing-catalog-resolvers.js';
 import { getBookId, bookCanonicalAbs, bookCanonicalPath } from './routes.js';
+import { amazonUrlFor, detectAmazonRegion } from './publishing-page-helpers.js';
 import {
   $,
   clear,
@@ -20,13 +21,6 @@ import {
 } from './music-ui.js';
 
 const DEFAULT_COVER = '/assets/images/publishing/default-book-cover.webp';
-
-function pickBooks(mod) {
-  if (Array.isArray(mod?.books)) return mod.books;
-  if (Array.isArray(mod?.default?.books)) return mod.default.books;
-  if (Array.isArray(mod?.BOOKS)) return mod.BOOKS;
-  return [];
-}
 
 function asString(v) {
   return typeof v === 'string' ? v.trim() : '';
@@ -91,38 +85,6 @@ function hydrateBookShareRow(title, canonAbs) {
   applyShareHref(fb, `https://www.facebook.com/sharer/sharer.php?u=${encUrl}`);
   applyShareHref(li, `https://www.linkedin.com/sharing/share-offsite/?url=${encUrl}`);
   applyShareHref(em, `mailto:?subject=${encText}&body=${encUrl}`);
-}
-
-function detectAmazonRegion(availableKeys) {
-  const keys = new Set((availableKeys || []).map((k) => String(k || '').trim().toUpperCase()).filter(Boolean));
-  if (!keys.size) return 'US';
-
-  const lang = (() => { try { return String(navigator.language || navigator.userLanguage || '').trim(); } catch { return ''; } })();
-  const upper = lang.toUpperCase();
-  const tz = (() => { try { return String(Intl.DateTimeFormat().resolvedOptions().timeZone || '').trim(); } catch { return ''; } })();
-
-  const candidates = [];
-  const m = /-([A-Z]{2})\b/.exec(upper);
-  if (m && m[1]) candidates.push(m[1]);
-
-  if (/AUSTRALIA|SYDNEY|MELBOURNE|BRISBANE|PERTH/i.test(tz)) candidates.push('AU');
-  if (/EUROPE\/LONDON/i.test(tz)) candidates.push('UK');
-  if (/EUROPE\/BERLIN/i.test(tz)) candidates.push('DE');
-  if (/EUROPE\/PARIS/i.test(tz)) candidates.push('FR');
-  if (/EUROPE\/MADRID/i.test(tz)) candidates.push('ES');
-  if (/EUROPE\/ROME/i.test(tz)) candidates.push('IT');
-  if (/AMERICA\/TORONTO/i.test(tz)) candidates.push('CA');
-  if (/ASIA\/TOKYO/i.test(tz)) candidates.push('JP');
-  if (/ASIA\/KOLKATA/i.test(tz)) candidates.push('IN');
-
-  for (const c of candidates) {
-    if (keys.has(c)) return c;
-  }
-
-  if (keys.has('AU')) return 'AU';
-  if (keys.has('US')) return 'US';
-
-  return Array.from(keys).sort((a, b) => a.localeCompare(b))[0];
 }
 
 function ensureSitePath(pathOrUrl) {
@@ -265,7 +227,7 @@ function formatCards(formats) {
 }
 
 
-function updateHead(book, canonAbs, coverAbs) {
+function updateHead(book, canonAbs, coverAbs, context = null) {
   const titleText = asString(book?.title) || 'Book';
   const title = `${titleText} — Publishing | Triad of Angels & ToA Studios`;
 
@@ -313,8 +275,8 @@ function updateHead(book, canonAbs, coverAbs) {
   const genre = normalizeGenres(book?.genres);
   if (genre.length) ld.genre = genre;
 
-  const sagaObj = PubData.getSagaById(asString(book?.sagaId));
-  const seriesObj = PubData.getSeriesById(asString(book?.seriesId));
+  const sagaObj = context?.saga || null;
+  const seriesObj = context?.series || null;
   const series = asString(seriesObj?.title);
   const sagaTitle = asString(sagaObj?.title);
   const number = typeof book?.numberInSeries === 'number' ? book.numberInSeries : null;
@@ -329,10 +291,10 @@ function updateHead(book, canonAbs, coverAbs) {
   injectJsonLd(ld);
 }
 
-function renderBook(book, bookId) {
+function renderBook(book, bookId, context = null) {
   const title = asString(book?.title) || bookId;
-  const sagaObj = PubData.getSagaById(asString(book?.sagaId));
-  const seriesObj = PubData.getSeriesById(asString(book?.seriesId));
+  const sagaObj = context?.saga || null;
+  const seriesObj = context?.series || null;
   const series = asString(seriesObj?.title);
   const sagaTitle = asString(sagaObj?.title);
   const status = asString(book?.status);
@@ -340,7 +302,7 @@ function renderBook(book, bookId) {
   const logline = asString(book?.logline);
   const blurb = asString(book?.description) || asString(book?.blurb);
   const volumeNo = Number.isFinite(book?.seriesNumber) ? book.seriesNumber : (Number.isFinite(book?.numberInSeries) ? book.numberInSeries : null);
-  const seriesVolumes = seriesObj ? (PubData.getBooksForSeries(seriesObj.id) || []) : [];
+  const seriesVolumes = Array.isArray(context?.seriesBooks) ? context.seriesBooks : [];
 
   const coverPath = ensureSitePath(book?.covers?.portrait || book?.cover || '') || DEFAULT_COVER;
   const coverAbs = absolutizeMaybe(coverPath) || '';
@@ -374,10 +336,16 @@ function renderBook(book, bookId) {
   safeText($('book-blurb'), blurb);
 
   const cover = $('book-cover');
+  const usingDefaultCover = !coverPath || coverPath === DEFAULT_COVER;
   if (cover) {
     cover.setAttribute('src', coverPath);
-    cover.setAttribute('alt', `${title} cover`);
+    cover.setAttribute('alt', usingDefaultCover ? `${title} placeholder cover` : `${title} cover`);
+    cover.toggleAttribute('data-fallback-cover', usingDefaultCover);
   }
+  try {
+    const coverFrame = document.querySelector('.book-hero__cover');
+    if (coverFrame) coverFrame.classList.toggle('is-fallback-cover', usingDefaultCover);
+  } catch {}
 
   const bgImg = document.getElementById('book-bg-img');
   if (bgImg) {
@@ -509,7 +477,7 @@ function renderBook(book, bookId) {
 
     const seriesId = asString(book?.seriesId);
     const sagaId = asString(book?.sagaId);
-    const vols = seriesId ? (PubData.getBooksForSeries(seriesId) || []) : [];
+    const vols = seriesId ? (Array.isArray(context?.seriesBooks) ? context.seriesBooks : []) : [];
     const hasVols = Array.isArray(vols) && vols.length > 0;
 
     const header = el('div', { class: 'series-grid__head' }, [
@@ -518,8 +486,8 @@ function renderBook(book, bookId) {
     ]);
 
     const ctas = el('div', { class: 'series-grid__ctas' });
-    const seriesObj2 = seriesId ? PubData.getSeriesById(seriesId) : null;
-    const sagaObj2 = sagaId ? PubData.getSagaById(sagaId) : null;
+    const seriesObj2 = seriesId ? (context?.series || null) : null;
+    const sagaObj2 = sagaId ? (context?.saga || null) : null;
 
     if (seriesObj2?.canonicalPath) {
       ctas.appendChild(el('a', { class: 'btn btn--ghost btn--sm', href: seriesObj2.canonicalPath }, ['Open series hub']));
@@ -649,10 +617,8 @@ function main() {
         : bookCanonicalAbs(bookId))
     : `${SITE_ORIGIN}${window.location.pathname}`;
 
-  const books = pickBooks(PubData);
-  const book = bookId
-    ? (books.find((b) => asString(b?.id) === bookId) || books.find((b) => asString(b?.slug) === bookId) || null)
-    : null;
+  const context = bookId ? resolveBookControllerRecord(bookId) : null;
+  const book = context?.book || null;
 
   // Render page (truthful empty state if missing)
   if (!bookId) {
@@ -665,8 +631,8 @@ function main() {
     // Still inject valid JSON-LD so runtime checks and crawlers get a valid document.
     updateHead({ title: bookId, description: `This publishing URL is reserved for ${bookId}.` }, canonAbs, '');
   } else {
-    const { coverAbs } = renderBook(book, bookId);
-    updateHead(book, canonAbs, coverAbs);
+    const { coverAbs, title } = renderBook(book, bookId, context);
+    updateHead(book, canonAbs, coverAbs, context);
   hydrateBookShareRow(title, canonAbs);
   wireCopyLinkButton(canonAbs);
 

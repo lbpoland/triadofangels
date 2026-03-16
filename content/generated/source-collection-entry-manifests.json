@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "manifests": {
+    "music": [
+      {
+        "file": "content/source/music/albums/entries.manifest.json",
+        "sha256": "659cd44938b9226837cda092a975f94a047c0c855e1e0f8b2414ecdf3fda6657",
+        "entriesDeclared": 0
+      },
+      {
+        "file": "content/source/music/tracks/entries.manifest.json",
+        "sha256": "b7e2ffa69b4fffb5011dbbe1f6504478bcc18ab92503534f184accb9f8497233",
+        "entriesDeclared": 0
+      }
+    ],
+    "publishing": [
+      {
+        "file": "content/source/publishing/sagas/entries.manifest.json",
+        "sha256": "6b06256d9866e16f4d686069d358f3011839fcdd2750b960e69b5813e357459f",
+        "entriesDeclared": 0
+      },
+      {
+        "file": "content/source/publishing/series/entries.manifest.json",
+        "sha256": "f1fad95f8d265733468251fe3a42a4f9bf07575d059db78f14d4ae9dc5730c2c",
+        "entriesDeclared": 0
+      },
+      {
+        "file": "content/source/publishing/books/entries.manifest.json",
+        "sha256": "b8596b812e4ecc10fa181438011d229f9617861b413359f88b46ed97e3ec878e",
+        "entriesDeclared": 0
+      }
+    ]
+  },
+  "nextSafeTarget": "Use per-collection entry manifests as governed intent declarations before any authoritative collection split."
+}

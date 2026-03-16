@@ -1,0 +1,1240 @@
+/* =========================================================
+   Homepage layer — extracted from music.css during architecture refactor
+   Purpose: keep homepage-only rail, continuity, and carousel behavior out of the general music family sheet.
+   The pre-refactor source is preserved in ARCHIVE_VAULT/original_css/music.css.
+   ========================================================= */
+
+
+/* Wave V10-39 — homepage continuity ownership */
+.index-page .hero-signal-row {
+  max-width: 1120px;
+}
+
+.index-page .hero-signal__value {
+  max-width: 20ch;
+}
+
+@media (max-width: 768px) {
+  .index-page .hero-signal-row {
+    margin-top: 16px;
+  }
+}
+
+/* Wave V22 — homepage hero/signal ownership */
+body.index-page .page-hero {
+  margin-top: calc(-1 * (var(--header-h) + var(--safe-top)));
+  padding-top: calc(var(--header-h) + var(--safe-top));
+}
+
+.index-page #platform-signals .support-card--feature {
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.16), color-mix(in srgb, var(--panel) 90%, rgba(var(--accent-rgb), 0.08)));
+}
+
+/* =========================================================
+   HOME — FEATURED ALBUMS CAROUSEL (mobile-first)
+   ========================================================= */
+
+
+/* Architecture elevation 28 — featured albums rail final home ownership
+   Baseline featured-albums carousel structure is homepage-only and should not remain in broader core owners. */
+.index-page .featured-albums-carousel {
+    position: relative;
+}
+
+.index-page .featured-albums-carousel .album-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(min(78vw, 320px), 1fr);
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 6px 14px;
+    scroll-padding-inline: 6px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable;
+}
+
+.index-page .featured-albums-carousel .album-block {
+    scroll-snap-align: start;
+    border-radius: 16px;
+    border: 1px solid var(--stroke-2);
+    background: var(--panel);
+    padding: 12px;
+    box-shadow: var(--shadow-1);
+    min-width: 220px;
+}
+
+.index-page .featured-albums-carousel .album-block img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+}
+
+.index-page .featured-albums-carousel .album-block h3,
+.index-page .featured-albums-carousel .album-block h4,
+.index-page .featured-albums-carousel .album-block .album-block__title {
+    margin-top: 12px;
+    font-family: var(--font-body);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: var(--text);
+}
+
+.index-page .featured-albums-carousel .album-block p {
+    margin-top: 6px;
+    color: var(--text-muted);
+}
+
+@media (min-width: 769px) {
+    .index-page .featured-albums-carousel .album-track {
+        grid-auto-columns: minmax(300px, 340px);
+        gap: 18px;
+        padding: 14px 6px 18px;
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
+    }
+
+    .index-page .featured-albums-carousel .carousel-nav-buttons--overlay {
+        position: absolute;
+        inset: 0;
+        margin-top: 0;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 10px;
+        pointer-events: none;
+    }
+
+    .index-page .featured-albums-carousel .carousel-nav-buttons--overlay .carousel-nav-button {
+        pointer-events: auto;
+    }
+}
+
+@media (hover:hover) and (pointer:fine) {
+    .index-page .featured-albums-carousel:hover .carousel-nav-buttons--overlay,
+    .index-page .featured-albums-carousel:focus-within .carousel-nav-buttons--overlay {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: none;
+    }
+}
+
+
+.index-page .featured-albums-carousel .album-nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 14px 0 0;
+}
+
+/* Pass 33 — homepage-only featured-albums base button ownership
+   .album-nav-button only exists on the homepage featured-albums surface, so
+   its base control styling should not remain in the broader shared components owner. */
+.index-page .featured-albums-carousel .album-nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--control-border);
+  background: var(--control-bg);
+  color: var(--control-text);
+  box-shadow: var(--control-shadow);
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+  touch-action: manipulation;
+}
+
+.index-page .featured-albums-carousel .album-nav-button:hover,
+.index-page .featured-albums-carousel .album-nav-button:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 3px;
+  background: var(--control-bg-hover);
+  border-color: var(--control-border-hover);
+  box-shadow: var(--control-shadow);
+  transform: translateY(-1px);
+}
+
+.index-page .featured-albums-carousel .album-nav-button[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.index-page .featured-albums-carousel .album-nav-button > span[aria-hidden] {
+  font-size: 18px;
+  line-height: 1;
+  display: block;
+  transform: translateY(-1px);
+}
+
+
+body.priority-surface .index-page .featured-albums-carousel .album-nav-button {
+  border-color: var(--priority-control-border);
+  border-radius: var(--priority-control-radius);
+  background: var(--priority-control-surface);
+  box-shadow: none;
+}
+
+body.priority-surface .index-page .featured-albums-carousel .album-nav-button:hover,
+body.priority-surface .index-page .featured-albums-carousel .album-nav-button:focus-visible {
+  border-color: var(--priority-control-border-strong);
+  box-shadow: var(--priority-control-shadow);
+}
+
+html[data-theme="light"] body.priority-surface .index-page .featured-albums-carousel .album-nav-button {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.55), 0 10px 24px rgba(10,12,18,0.06), 0 1px 4px rgba(10,12,18,0.05);
+}
+
+.index-page .featured-albums-carousel .album-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 18px 0 8px;
+  margin: 0;
+  max-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--accent-rgb), 0.6) var(--panel);
+}
+
+.index-page .featured-albums-carousel .album-track::-webkit-scrollbar { height: 8px; }
+
+.index-page .featured-albums-carousel .album-track::-webkit-scrollbar-track {
+  background: var(--panel);
+  border-radius: 999px;
+}
+
+.index-page .featured-albums-carousel .album-track::-webkit-scrollbar-thumb {
+  background: rgba(var(--accent-rgb), 0.55);
+  border-radius: 999px;
+}
+
+.index-page .featured-albums-carousel .album-track:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 6px;
+}
+
+.index-page .featured-albums-carousel .album-block {
+  flex: 0 0 auto;
+  width: clamp(240px, 78vw, 320px);
+  scroll-snap-align: start;
+}
+/* =========================================================
+   Final visual/system unification — homepage rails
+   Make album/video rails use one stable layout and control model.
+   ========================================================= */
+.index-page .featured-albums-carousel > .album-nav-buttons:empty {
+  display: none !important;
+}
+
+.index-page .featured-albums-carousel,
+.index-page .index-video-carousel-container {
+  position: relative;
+}
+
+.index-page .featured-albums-carousel .album-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(236px, 24vw, 292px);
+  gap: clamp(14px, 1.5vw, 20px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 12px clamp(12px, 2vw, 18px) 18px;
+  scroll-padding-inline: clamp(12px, 2vw, 18px);
+  scroll-snap-type: x mandatory;
+}
+
+.index-page .featured-albums-carousel .album-block {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 0;
+  overflow: hidden;
+}
+
+.index-page .featured-albums-carousel .album-block p {
+  margin: 6px 0 0;
+}
+
+.index-page .index-video-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(300px, 42vw, 480px);
+  gap: clamp(16px, 1.6vw, 22px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 12px clamp(12px, 2vw, 18px) 18px;
+  scroll-padding-inline: clamp(12px, 2vw, 18px);
+  scroll-snap-type: x mandatory;
+}
+
+.index-page .index-video-item {
+  width: min(100%, 480px);
+  min-width: 0;
+  padding: 0;
+}
+
+.index-page .carousel-nav-buttons--overlay {
+  position: absolute;
+  inset-inline: 0;
+  inset-block: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: clamp(6px, 1.5vw, 18px);
+  margin: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.index-page .carousel-nav-buttons--overlay .carousel-nav-button,
+.index-page .carousel-nav-buttons--overlay .album-nav-button,
+.index-page .carousel-nav-buttons--overlay .index-video-nav-button {
+  pointer-events: auto;
+}
+
+.index-page .carousel-nav-buttons--overlay .carousel-nav-button,
+.index-page .carousel-nav-buttons--overlay .album-nav-button,
+.index-page .carousel-nav-buttons--overlay .index-video-nav-button {
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  box-shadow: var(--control-shadow);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+@media (min-width: 769px) {
+  .index-page .featured-albums-carousel .carousel-nav-buttons--overlay,
+  .index-page .index-video-carousel-container .carousel-nav-buttons--overlay {
+    inset-inline: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-page .featured-albums-carousel .album-track {
+    grid-auto-columns: minmax(min(74vw, 258px), 1fr);
+    padding-inline: 12px;
+    scroll-padding-inline: 12px;
+  }
+
+  .index-page .index-video-carousel {
+    grid-auto-columns: minmax(min(86vw, 360px), 1fr);
+    padding-inline: 12px;
+    scroll-padding-inline: 12px;
+  }
+
+  .index-page .carousel-nav-buttons--overlay {
+    position: static;
+    justify-content: center;
+    padding-inline: 0;
+    margin-top: 14px;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   Homepage ownership hardening — moved from 60-release-polish.css
+   Keeps homepage rail/item polish out of the generic release layer.
+   ========================================================= */
+
+.index-page .index-video-item {
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--panel) 88%, rgba(var(--accent-rgb), 0.08));
+  border: 1px solid rgba(var(--accent-rgb), 0.14);
+  box-shadow: var(--shadow-soft);
+}
+
+.index-page .index-video-item .yt-embed,
+.index-page .index-video-item lite-youtube {
+  max-width: none;
+}
+
+html[data-theme="light"] .index-page .index-video-item {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,244,236,0.98));
+  border-color: rgba(117,92,44,0.12);
+  box-shadow: 0 16px 36px rgba(70,52,14,0.08);
+}
+
+html[data-theme="light"] .index-page #home-signature .feature-spotlight__summary,
+html[data-theme="light"] .index-page .section-header__desc,
+html[data-theme="light"] .index-page .support-card__body {
+  color: color-mix(in srgb, var(--text) 74%, transparent);
+}
+
+/* =========================================================
+   Homepage desktop album-track sizing ownership
+   Moved out of the navigation shell layer during architecture elevation 03.
+   ========================================================= */
+.index-page .featured-albums-carousel .album-track{
+  scroll-padding-inline: 0;
+}
+
+@media (min-width: 1025px){
+  .index-page .featured-albums-carousel .album-track{
+    grid-auto-columns: clamp(272px, 22vw, 320px);
+    overflow-x: auto;
+    padding-inline: clamp(16px, 2vw, 22px);
+    scroll-padding-inline: clamp(16px, 2vw, 22px);
+  }
+}
+
+/* =========================================================
+   Homepage album rail stability — Firefox desktop / laptop repair
+   Keep the homepage album rail in a readable fixed-card carousel state after
+   dynamic hydration so cards do not collapse into tiny overlapping columns.
+   ========================================================= */
+.index-page .featured-albums-carousel .album-info{
+  min-width: 0;
+}
+
+.index-page .featured-albums-carousel .album-title,
+.index-page .featured-albums-carousel .album-meta,
+.index-page .featured-albums-carousel .album-block__title{
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 1025px){
+  .index-page .featured-albums-carousel .album-nav-buttons.carousel-nav-buttons--overlay{
+    inset-inline: clamp(2px, 1vw, 12px);
+  }
+}
+
+/* =========================================================
+   Architecture elevation 04 — homepage stage-card ownership
+   Move homepage route-guide / continuity card composition out of the shell layer.
+   ========================================================= */
+
+.index-page #home-signature .feature-spotlight__actions,
+.index-page #contact-invite .section-header__actions,
+.index-page #home-route-guide .support-card__actions,
+.index-page #home-journey-map .support-card__actions,
+.index-page #home-decision-matrix .route-stage-card__actions,
+.index-page #home-route-pairs .route-stage-card__actions{
+  justify-content: center;
+}
+
+.index-page #home-signature .feature-spotlight__copy{
+  justify-items: center;
+  text-align: center;
+}
+
+.index-page #home-signature .feature-spotlight__list{
+  text-align: left;
+  margin-inline: auto;
+  max-width: 42rem;
+}
+
+.index-page #home-signature .feature-spotlight__title,
+.index-page #home-decision-matrix .section-header__title,
+.index-page #home-route-pairs .section-header__title{
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.index-page #home-contact-title,
+.index-page #home-journey-map-title,
+.index-page #home-route-guide-title,
+.index-page #home-decision-matrix-title,
+.index-page #home-route-pairs-title,
+.index-page #home-platform-map-title{
+  margin-inline: auto;
+  max-width: 16ch;
+}
+
+.index-page :is(#home-route-guide, #home-platform-map, #home-journey-map) .support-card,
+.index-page :is(#home-decision-matrix, #home-route-pairs) .route-stage-card{
+  text-align: center;
+  align-items: center;
+}
+
+.index-page :is(#home-route-guide, #home-platform-map, #home-journey-map) .support-card__body,
+.index-page :is(#home-decision-matrix, #home-route-pairs) .route-stage-card__body{
+  max-width: 34ch;
+  margin-inline: auto;
+}
+
+.index-page :is(#home-route-guide, #home-platform-map, #home-journey-map) .support-card__title,
+.index-page :is(#home-decision-matrix, #home-route-pairs) .route-stage-card__title{
+  max-width: 14ch;
+  margin-inline: auto;
+}
+
+.index-page :is(#home-route-guide, #home-platform-map, #home-journey-map) .support-card__actions,
+.index-page :is(#home-decision-matrix, #home-route-pairs) .route-stage-card__actions{
+  justify-content: center;
+}
+
+.index-page #home-contact-title + .section-header__lead,
+.index-page #home-journey-map .support-card__body,
+.index-page #home-route-guide .support-card__body,
+.index-page #home-platform-map .support-card__title,
+.index-page #home-decision-matrix .route-stage-card__body,
+.index-page #home-route-pairs .route-stage-card__body{
+  margin-inline: auto;
+}
+
+@media (max-width: 700px){
+  .index-page #home-signature .feature-spotlight__list,
+  .index-page :is(#home-route-guide, #home-platform-map, #home-journey-map) .support-card__body,
+  .index-page :is(#home-decision-matrix, #home-route-pairs) .route-stage-card__body{
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================
+   Homepage utility/control ownership hardening — elevation 05
+   Keeps homepage-specific utility surfaces out of the shared shell layer.
+   ========================================================= */
+
+.index-page .page-utility__jump-link,
+.index-page .page-utility__pill,
+.index-page .hero-signal,
+.index-page #home-signature .feature-spotlight,
+.index-page #home-flow-map .route-stage-card {
+  border-color: var(--trinity-chip-border);
+  box-shadow: var(--trinity-chip-shadow);
+}
+
+.index-page .page-utility__jump-link,
+.index-page .page-utility__pill {
+  background: var(--trinity-chip-bg);
+}
+
+.index-page .page-utility__right { justify-content: flex-end; }
+.index-page .connect-tiles--compact { padding-top: clamp(18px, 2.4vw, 26px); }
+.index-page .connect-tiles--compact .connect-tiles__grid { gap: clamp(12px, 2vw, 18px); }
+.index-page .connect-tiles--compact .section-header { margin-bottom: clamp(12px, 2vw, 18px); }
+.index-page #contact-invite { padding-top: clamp(18px, 2.6vw, 28px); }
+
+
+/* =========================================================
+   Architecture elevation 07 — homepage signature ownership
+   Move stable #home-signature composition out of the shell layer.
+   ========================================================= */
+
+.index-page #home-signature{
+  padding-top: clamp(14px, 2vw, 22px);
+}
+
+.index-page #home-signature .feature-spotlight--signature{
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: clamp(18px, 2.6vw, 28px);
+  align-items: center;
+  padding: clamp(20px, 2.4vw, 28px);
+}
+
+.index-page #home-signature .feature-spotlight__media img{
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.index-page #home-signature .feature-spotlight__copy{
+  gap: 10px;
+}
+
+.index-page #home-signature .feature-spotlight__title{
+  max-width: 11ch;
+  font-size: clamp(2rem, 3.2vw, 3.05rem);
+}
+
+.index-page #home-signature .feature-spotlight__release,
+.index-page #home-signature .feature-spotlight__summary{
+  max-width: 62ch;
+}
+
+.feature-spotlight__list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.feature-spotlight__list li{
+  margin: 0;
+  color: var(--text);
+  opacity: 0.92;
+}
+
+.feature-spotlight__list li::before{
+  content: "•";
+  color: var(--accent);
+  margin-right: 0.55rem;
+}
+
+.index-page #home-signature .feature-spotlight__actions{
+  margin-top: 6px;
+}
+
+.index-page #home-signature .feature-spotlight__actions .cta-button{
+  min-width: 0;
+}
+
+@media (max-width: 1100px){
+  .index-page #home-signature .feature-spotlight--signature{
+    grid-template-columns: 1fr;
+  }
+
+  .index-page #home-signature .feature-spotlight__media{
+    max-width: 360px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .index-page #home-signature .feature-spotlight__title{
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px){
+  .index-page #home-signature .feature-spotlight__actions .cta-button{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Architecture elevation 08 — homepage anchor offset ownership */
+.index-page #home-signature,
+.index-page #home-flow-map {
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+/* Architecture elevation 17 — homepage Now Live deck ownership moved from core/40-site-systems.css */
+/* ---------- Home Live Deck (premium cards) ---------- */
+.home-live-deck {
+  margin-top: var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  align-items: stretch;
+}
+
+/* Wave AQ: Now Live deck filters (Home) */
+.home-live-tools {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.home-live-tools .chip-row {
+  margin: 0;
+  justify-content: center;
+}
+
+.home-live-meta {
+  margin: 0;
+  min-height: 1.2em;
+  text-align: center;
+}
+
+/* Real live deck element */
+.home-live-carousel {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  min-height: clamp(420px, 46vw, 560px);
+  align-content: start;
+  align-items: start;
+  justify-content: stretch;
+  grid-auto-rows: max-content;
+}
+
+/* Hidden cards must collapse properly */
+.home-live-carousel .deck-card[hidden] {
+  display: none !important;
+}
+
+/* Cards keep natural height and never stretch to fill the section */
+.home-live-carousel .deck-card {
+  width: 100%;
+  min-height: clamp(188px, 16vw, 236px);
+  height: auto;
+  align-self: start;
+}
+
+/* Card shell */
+.deck-card {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: var(--space-3);
+  align-items: start;
+  padding: var(--space-4);
+  border-radius: 18px;
+  border: 1px solid rgba(var(--accent-rgb), 0.20);
+  background: var(--glass);
+  box-shadow: var(--shadow-1);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+.deck-card:hover,
+.deck-card:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  box-shadow: var(--shadow-deep);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-card:hover,
+  .deck-card:focus-visible {
+    transform: none;
+  }
+}
+
+.deck-card__icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+  background: rgba(var(--accent-rgb), 0.10);
+  color: var(--accent);
+  font-size: 20px;
+  box-shadow: var(--shadow-badge);
+}
+
+
+/* =========================================================
+   Utility surface ownership — moved from navigation shell in architecture elevation 06
+   Base utility-bar and light-theme utility-control styling live here.
+   Shell-open/overlay/reflow state rules remain in 50-navigation-shell.css.
+   ========================================================= */
+
+/* =====================================================================
+   Elite Home Utility Bar (Wave MAX)
+   ===================================================================== */
+
+.page-utility{
+  --page-utility-control-border: rgba(208,167,58,0.34);
+  --page-utility-control-bg: rgba(208,167,58,0.12);
+  --page-utility-control-bg-hover: rgba(208,167,58,0.16);
+  --page-utility-control-ink: inherit;
+  --page-utility-control-shadow: none;
+  position: sticky;
+  top: calc(var(--header-h, 72px) + 10px);
+  z-index: 30;
+  margin-top: 12px;
+}
+
+.page-utility__inner{
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(12, 13, 16, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 12px;
+}
+
+.page-utility__search{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.page-utility__input{
+  flex: 1;
+  min-width: 0;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+}
+
+.page-utility__input:focus{
+  outline: none;
+  border-color: rgba(208,167,58,0.35);
+}
+
+.page-utility__btn{
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--page-utility-control-border);
+  background: var(--page-utility-control-bg);
+  color: var(--page-utility-control-ink);
+  box-shadow: var(--page-utility-control-shadow);
+  cursor:pointer;
+  font-weight: 700;
+}
+
+.page-utility__btn:hover{
+  background: var(--page-utility-control-bg-hover);
+}
+
+.page-utility__right{
+  margin-top: 10px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.page-utility__tools{ display:flex; gap: 8px; align-items:center; }
+
+.page-utility__pill{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--page-utility-control-border);
+  background: var(--page-utility-control-bg);
+  color: var(--page-utility-control-ink);
+  box-shadow: var(--page-utility-control-shadow);
+  cursor:pointer;
+}
+
+.page-utility__pill:hover{ border-color: rgba(208,167,58,0.28); background: var(--page-utility-control-bg-hover); }
+.page-utility__pill:focus-visible{ outline:2px solid rgba(208,167,58,0.85); outline-offset:3px; }
+
+.page-utility__panel{
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+  display:grid;
+  gap: 8px;
+}
+
+.page-utility__jump-link{ text-decoration:none; padding: 8px 10px; border-radius: 12px; border: 1px solid var(--page-utility-control-border); background: var(--page-utility-control-bg); color: var(--page-utility-control-ink); box-shadow: var(--page-utility-control-shadow); }
+.page-utility__jump-link:hover{ border-color: rgba(208,167,58,0.26); background: var(--page-utility-control-bg-hover); }
+.page-utility__jump-link:focus-visible{ outline:2px solid rgba(208,167,58,0.85); outline-offset:3px; }
+
+.page-utility__hint{
+  margin: 10px 0 0 0;
+  opacity: 0.75;
+  font-size: 13px;
+}
+
+@media (min-width: 900px){
+  .page-utility__inner{ display:grid; grid-template-columns: 1fr auto; align-items:center; gap: 12px; }
+  .page-utility__right{ margin-top: 0; justify-content: flex-end; }
+  .page-utility__hint{ grid-column: 1 / -1; }
+}
+
+@media (max-width: 480px){
+  .page-utility{ top: calc(var(--header-h, 72px) + 6px); }
+  .page-utility__btn{ padding: 11px 12px; }
+  .page-utility__pill-txt{ display:none; }
+}
+
+.page-utility__pill,
+.page-utility__jump-link{
+  min-height: 42px;
+  font-weight: 800;
+}
+
+html[data-theme="light"] .page-utility{
+  --page-utility-control-border: rgba(117,92,44,0.16);
+  --page-utility-control-bg: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,242,233,0.98));
+  --page-utility-control-bg-hover: linear-gradient(180deg, rgba(255,255,255,0.998), rgba(249,244,235,0.995));
+  --page-utility-control-ink: rgba(18,18,22,0.92);
+  --page-utility-control-shadow: 0 8px 20px rgba(70,52,14,0.08);
+}
+
+html[data-theme="light"] .page-utility__inner{
+  border-color: rgba(117,92,44,0.14);
+  background: linear-gradient(180deg, rgba(255,252,247,0.97), rgba(248,244,236,0.96));
+  box-shadow: 0 16px 38px rgba(70,52,14,0.10);
+}
+
+html[data-theme="light"] .page-utility__input{
+  border-color: rgba(117,92,44,0.16);
+  background: rgba(255,255,255,0.88);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
+}
+
+html[data-theme="light"] .page-utility__btn:hover,
+html[data-theme="light"] .page-utility__pill:hover,
+html[data-theme="light"] .page-utility__jump-link:hover,
+html[data-theme="light"] .page-utility__btn:focus-visible,
+html[data-theme="light"] .page-utility__pill:focus-visible,
+html[data-theme="light"] .page-utility__jump-link:focus-visible{
+  border-color: rgba(var(--accent-rgb),0.32);
+  box-shadow: 0 12px 28px rgba(70,52,14,0.12);
+}
+
+html[data-theme="light"] .page-utility__panel{
+  border-color: rgba(117,92,44,0.12);
+  background: rgba(255,255,255,0.70);
+}
+
+/* ---------- Wave R: Icon-badge image support (pillar + deck icons) ---------- */
+.pillar-card__icon img,
+.deck-card__icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: drop-shadow(0 10px 18px rgba(var(--ink-rgb), var(--shadow-badge-alpha)));
+}
+
+@media (max-width: 480px) {
+  .pillar-card__icon img,
+  .deck-card__icon img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.deck-card__body {
+  display: grid;
+  gap: 6px;
+}
+
+.deck-card__title {
+  font-family: var(--font-display);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: var(--menu-size);
+  color: var(--accent);
+}
+
+.deck-card__desc {
+  color: var(--text-muted);
+  line-height: var(--line-base);
+  font-size: 0.98rem;
+}
+
+.deck-card__cta {
+  align-self: center;
+  justify-self: end;
+  color: var(--accent);
+  font-weight: 800;
+  opacity: 0.95;
+  padding-left: 10px;
+}
+
+/* Tablet+ base grid */
+@media (min-width: 481px) {
+  .home-live-deck {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .deck-card {
+    grid-template-columns: 44px 1fr;
+  }
+
+  .deck-card__cta {
+    display: none;
+  }
+}
+
+/* Desktop base grid */
+@media (min-width: 1025px) {
+  .home-live-deck {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Premium filtered-state layout control on the REAL deck */
+@media (min-width: 769px) {
+  /* 1 visible card */
+  .home-live-carousel.is-single {
+    grid-template-columns: minmax(320px, 420px);
+    max-width: 420px;
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  /* 2 visible cards */
+  .home-live-carousel.is-double {
+    grid-template-columns: repeat(2, minmax(320px, 420px));
+    max-width: 860px;
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  /* 3+ visible cards */
+  .home-live-carousel:not(.is-single):not(.is-double) {
+    max-width: none;
+    justify-content: stretch;
+    margin-inline: 0;
+  }
+}
+
+/* Pass 41: homepage-only home-live carousel scroll-padding ownership */
+body.priority-surface .index-page .home-live-carousel {
+  scroll-padding-inline: clamp(12px, 3vw, 24px);
+}
+
+/* Mobile keeps horizontal scroller behavior */
+@media (max-width: 768px) {
+  .home-live-carousel {
+    display: flex;
+    gap: var(--space-3);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    min-height: 0;
+    max-width: none;
+    margin-inline: 0;
+    align-items: stretch;
+  }
+
+  .home-live-carousel::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .home-live-carousel::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent-rgb), 0.18);
+    border-radius: 999px;
+  }
+
+  .home-live-carousel .deck-card {
+    min-width: min(86vw, 440px);
+    min-height: clamp(180px, 52vw, 240px);
+    width: auto;
+    height: auto;
+    scroll-snap-align: start;
+  }
+
+  .home-live-carousel.is-single,
+  .home-live-carousel.is-double {
+    max-width: none;
+    margin-inline: 0;
+  }
+}
+
+
+
+/* =====================================================================
+   Architecture elevation 18 note:
+   Home-only Now Live / Pillars desktop nav-button visibility now lives here.
+   Shared overlay carousel chrome remains in css/core/50-navigation-shell.css.
+   ===================================================================== */
+
+/* Now Live + Pillars: hide nav arrows on desktop unless explicitly needed.
+   Trackpad/shift-wheel swipe works; on touch the buttons appear. */
+@media (hover:hover) and (pointer:fine) and (min-width: 980px){
+  .index-page .home-live-nav-buttons,
+  .index-page .pillar-nav-buttons{ display:none !important; }
+}
+
+/* Home-only hover/focus reveal for the Now Live deck controls. */
+@media (hover:hover) and (pointer:fine){
+  .index-page .home-live-carousel:hover + .home-live-nav-buttons,
+  .index-page .home-live-carousel:focus-within + .home-live-nav-buttons{
+    opacity:1;
+    transform: translateY(0);
+    pointer-events:none;
+  }
+}
+
+
+/* =====================================================================
+   Architecture elevation 19 note:
+   Home-only trust / decision / route-pair route-stage ownership now lives here.
+   Shared cross-page route-stage presentation remains in css/core/50-navigation-shell.css.
+   ===================================================================== */
+
+.index-page :is(#home-trust-routes, #home-decision-matrix, #home-route-pairs) .route-stage-card{
+  border-color: var(--trinity-control-border);
+  box-shadow: var(--trinity-control-shadow);
+}
+
+.index-page :is(#home-trust-routes, #home-decision-matrix, #home-route-pairs){
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+@media (max-width: 768px){
+  .index-page #home-route-pairs .route-stage-grid,
+  .index-page #home-route-pairs.route-stage-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .index-page :is(#home-trust-routes, #home-decision-matrix, #home-route-pairs) .route-stage-card__actions{
+    flex-direction: column;
+  }
+
+  .index-page :is(#home-trust-routes, #home-decision-matrix, #home-route-pairs) .route-stage-card__actions .cta-button{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (forced-colors: active){
+  .index-page :is(#home-trust-routes, #home-decision-matrix, #home-route-pairs) .route-stage-card{
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+    box-shadow: none;
+  }
+}
+
+
+/* =====================================================================
+   Architecture elevation 20 note:
+   Remaining homepage-only continuity/signature route support styles now live here.
+   Shared support-card / feature-spotlight systems still stay in css/core/50-navigation-shell.css.
+   ===================================================================== */
+
+.index-page #home-continuity .support-card{
+  border-color: var(--trinity-panel-border);
+  box-shadow: var(--trinity-panel-shadow);
+}
+
+.index-page #home-continuity .support-card--feature{
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 82%, var(--trinity-panel-highlight)), color-mix(in srgb, var(--panel) 94%, rgba(255,255,255,0.02)));
+}
+
+.index-page #home-signature .feature-spotlight__meta{
+  gap: 8px;
+}
+
+.index-page :is(#index-home-decision-matrix, #home-trust-routes, #home-decision-matrix, #home-route-pairs){
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+/* =========================================================
+   Architecture elevation 21 — homepage continuity split ownership
+   The continuity-map layout is homepage-only and should not remain in the shared shell layer.
+   ========================================================= */
+.index-page .continuity-map{ display: grid; gap: var(--space-4); }
+.index-page .continuity-map__primary,
+.index-page .continuity-map__secondary{ min-width: 0; }
+
+@media (min-width: 980px){
+  .index-page .continuity-map{ grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); align-items: start; }
+  .index-page .continuity-map__secondary .route-stage-grid{ grid-template-columns: 1fr; }
+}
+
+
+/* Architecture elevation 23 — homepage carousel arrow ownership
+   The Now Live left-arrow orientation belongs to the homepage owner, not the shared shell layer. */
+.index-page .home-live-nav-left::before{
+  transform: rotate(180deg);
+}
+
+
+/* Pass 29 — reclaim remaining featured-albums shell/core holdouts */
+body.priority-surface .index-page .featured-albums-carousel .album-track {
+  scroll-padding-inline: clamp(12px, 3vw, 24px);
+}
+
+body.priority-surface .index-page .featured-albums-carousel .album-nav-button {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* Pass 31 — homepage-only featured-albums control sizing ownership
+   Album nav buttons only exist on the homepage featured-albums surface, so their
+   touch-target sizing should not remain in the broader shell owner. */
+@media (pointer: coarse) {
+  body.priority-surface .index-page .featured-albums-carousel .album-nav-button {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+body.priority-surface .index-page .featured-albums-carousel .album-nav-button {
+  min-height: 48px;
+}
+
+/* Pass 34 — featured-albums focus-visible ownership
+   Homepage-only album nav buttons no longer rely on the broader shared focus-visible selector. */
+.index-page .featured-albums-carousel .album-nav-button:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* Pass 35 — featured-albums active-state and icon emphasis ownership
+   These interactions only exist on the homepage featured-albums controls and should not rely
+   on broader shared button states. */
+.index-page .featured-albums-carousel .album-nav-button:active {
+  transform: translateY(0);
+}
+
+.index-page .featured-albums-carousel .album-nav-button:hover > span[aria-hidden],
+.index-page .featured-albums-carousel .album-nav-button:focus-visible > span[aria-hidden] {
+  opacity: 1;
+}
+
+/* Pass 38 — homepage page-utility forced-colors ownership
+   These jump-link/pill affordances only appear on the homepage utility rail and
+   should not remain in the broader shell forced-colors fallback block. */
+@media (forced-colors: active) {
+  .index-page .page-utility__jump-link,
+  .index-page .page-utility__pill {
+    background: Canvas;
+    border-color: CanvasText;
+    box-shadow: none;
+    color: CanvasText;
+  }
+}
+
+
+/* Pass 43 — screenshot-driven homepage signature fit + premium display polish
+   The supplied 16-inch laptop captures showed the signature deck feeling slightly tall
+   and the CTA row wrapping late. This tightens the composition and upgrades Light theme depth. */
+.index-page #home-signature .feature-spotlight--signature{
+  grid-template-columns: minmax(0, 284px) minmax(0, 1fr);
+  gap: clamp(16px, 2.2vw, 24px);
+  padding: clamp(18px, 2.2vw, 24px);
+}
+
+.index-page #home-signature .feature-spotlight__copy{
+  gap: 8px;
+}
+
+.index-page #home-signature .feature-spotlight__list{
+  gap: 6px;
+  max-width: 39rem;
+}
+
+.index-page #home-signature .feature-spotlight__actions{
+  width: min(100%, 820px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.index-page #home-signature .feature-spotlight__actions .cta-button{
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 920px){
+  .index-page #home-signature .feature-spotlight__actions{
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+html[data-theme="light"] .index-page #home-signature .feature-spotlight--signature{
+  background:
+    radial-gradient(900px 360px at 20% 12%, rgba(var(--accent-rgb), 0.10), rgba(var(--accent-rgb), 0.00) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,248,251,0.98));
+  border-color: rgba(116, 86, 24, 0.16);
+  box-shadow: 0 20px 48px rgba(72, 54, 18, 0.10);
+}
+
+html[data-theme="light"] .index-page #home-signature .feature-spotlight__release,
+html[data-theme="light"] .index-page #home-signature .feature-spotlight__note,
+html[data-theme="light"] .index-page #home-signature .feature-spotlight__list li{
+  color: color-mix(in srgb, var(--text) 82%, transparent);
+}

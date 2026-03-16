@@ -226,19 +226,23 @@ code {
   align-items: center;
   padding: 14px;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--stroke-1);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  box-shadow: var(--shadow-soft);
   text-decoration: none;
   color: inherit;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
 }
 
 .start-card:hover {
-  border-color: rgba(208, 167, 58, 0.32);
-  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+  border-color: rgba(var(--accent-rgb), 0.34);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel-2) 84%, rgba(var(--accent-rgb), 0.10)), color-mix(in srgb, var(--panel) 90%, rgba(var(--accent-rgb), 0.05)));
+  box-shadow: var(--shadow-deep);
 }
 
 .start-card:focus-visible {
-  outline: 2px solid rgba(208, 167, 58, 0.85);
+  outline: var(--focus-outline);
   outline-offset: 3px;
 }
 
@@ -247,7 +251,8 @@ code {
   height: 140px;
   border-radius: 12px;
   object-fit: cover;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--panel-2);
+  box-shadow: var(--shadow-1);
 }
 
 .start-card__meta {
@@ -260,7 +265,7 @@ code {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.74);
+  color: var(--text-muted);
 }
 
 .start-card__title {
@@ -273,7 +278,7 @@ code {
 .start-card__desc {
   margin: 0;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--text-muted);
 }
 
 
@@ -449,5 +454,114 @@ code {
   .library-shelves .book-grid,
   #library-grid.book-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+/* =========================================================
+   PASS 2 — publishing shelf composition sign-off
+   - keep discovery cards tighter and prevent cover/body imbalance
+   ========================================================= */
+.start-grid {
+  align-items: stretch;
+}
+
+.start-card {
+  min-height: 168px;
+}
+
+@media (max-width: 640px) {
+  .start-card {
+    grid-template-columns: 84px 1fr;
+    gap: 12px;
+    min-height: 152px;
+  }
+
+  .start-card__img {
+    width: 84px;
+    height: 126px;
+  }
+}
+
+.library-shelves .book-card,
+#library-grid.book-grid .book-card {
+  grid-template-rows: auto 1fr;
+}
+
+.library-shelves .book-card__body,
+#library-grid.book-grid .book-card__body {
+  align-content: start;
+}
+
+
+/* =========================================================
+   PASS 4 — screenshot-driven publishing browse polish
+   - lock shelf card width so covers cannot balloon inside horizontal rows
+   - keep shelf actions and start cards balanced across desktop/light/mobile captures
+   ========================================================= */
+.library-shelves .shelf__header{
+  align-items: flex-start;
+}
+
+.library-shelves .shelf__actions{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.library-shelves .shelf__subtitle{
+  max-width: 64ch;
+}
+
+.library-shelves .shelf__row{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 184px;
+  gap: 14px;
+  align-items: start;
+}
+
+.library-shelves .shelf__item{
+  width: 184px;
+}
+
+.library-shelves .shelf-card{
+  width: 100%;
+  min-height: 100%;
+}
+
+.start-card{
+  min-height: 176px;
+  align-items: start;
+}
+
+.start-card__img{
+  aspect-ratio: 2 / 3;
+  object-position: center top;
+}
+
+@media (max-width: 768px){
+  .library-shelves .shelf__header{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .library-shelves .shelf__actions{
+    justify-content: flex-start;
+  }
+
+  .library-shelves .shelf__row{
+    grid-auto-columns: 168px;
+  }
+
+  .library-shelves .shelf__item{
+    width: 168px;
+  }
+}
+
+@media (max-width: 520px){
+  .start-card{
+    min-height: 162px;
   }
 }

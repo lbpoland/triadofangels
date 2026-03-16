@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "sources": {
+    "music": {
+      "authoritative": "content/source/music-library.authoritative.json",
+      "entities": "content/generated/music-library.entities.json",
+      "collectionsManifest": "content/source/music-library.collections.manifest.json",
+      "collectionInputManifest": "content/source/music/collection-inputs.manifest.json",
+      "sourceCollectionsIndex": "content/generated/source-collections.index.json",
+      "sourceCollectionReadiness": "content/generated/source-collection-readiness.json",
+      "sourceCollectionBuildInputs": "content/generated/source-collection-build-inputs.json",
+      "sourceCollectionConsumption": "content/generated/source-collection-consumption.json",
+      "sourceCollectionEntryConsumption": "content/generated/source-collection-entry-consumption.json",
+      "sourceCollectionEntryManifests": "content/generated/source-collection-entry-manifests.json",
+      "sourceCollectionAuthorityReadiness": "content/generated/source-collection-authority-readiness.json",
+      "entryManifestFiles": [
+        "content/source/music/albums/entries.manifest.json",
+        "content/source/music/tracks/entries.manifest.json"
+      ],
+      "runtimeBridge": "js/data.js",
+      "runtimeSearchData": "js/generated/site-search.data.js",
+      "runtimeSearchContract": "content/generated/search-runtime-contract.json",
+      "searchRuntimeHelper": "js/search-runtime-helpers.js",
+      "runtimeSearchHelper": "js/search-runtime-helpers.js",
+      "runtimeGenerated": "js/generated/music-library.data.js",
+      "runtimeLookup": "js/generated/music-library.lookup.js",
+      "controllerResolvers": "js/music-catalog-resolvers.js",
+      "controllerContracts": "content/generated/catalog.controller-contracts.json",
+      "authorityReport": "content/generated/content-authority-report.json"
+    },
+    "publishing": {
+      "authoritative": "content/source/publishing-library.authoritative.json",
+      "entities": "content/generated/publishing-library.entities.json",
+      "collectionsManifest": "content/source/publishing-library.collections.manifest.json",
+      "collectionInputManifest": "content/source/publishing/collection-inputs.manifest.json",
+      "sourceCollectionsIndex": "content/generated/source-collections.index.json",
+      "sourceCollectionReadiness": "content/generated/source-collection-readiness.json",
+      "sourceCollectionBuildInputs": "content/generated/source-collection-build-inputs.json",
+      "sourceCollectionConsumption": "content/generated/source-collection-consumption.json",
+      "sourceCollectionEntryConsumption": "content/generated/source-collection-entry-consumption.json",
+      "sourceCollectionEntryManifests": "content/generated/source-collection-entry-manifests.json",
+      "sourceCollectionAuthorityReadiness": "content/generated/source-collection-authority-readiness.json",
+      "entryManifestFiles": [
+        "content/source/publishing/sagas/entries.manifest.json",
+        "content/source/publishing/series/entries.manifest.json",
+        "content/source/publishing/books/entries.manifest.json"
+      ],
+      "runtimeBridge": "js/publishing-data.js",
+      "runtimeSearchData": "js/generated/site-search.data.js",
+      "runtimeSearchContract": "content/generated/search-runtime-contract.json",
+      "searchRuntimeHelper": "js/search-runtime-helpers.js",
+      "runtimeSearchHelper": "js/search-runtime-helpers.js",
+      "runtimeGenerated": "js/generated/publishing-library.data.js",
+      "runtimeLookup": "js/generated/publishing-library.lookup.js",
+      "controllerResolvers": "js/publishing-catalog-resolvers.js",
+      "controllerContracts": "content/generated/catalog.controller-contracts.json",
+      "authorityReport": "content/generated/content-authority-report.json"
+    }
+  }
+}

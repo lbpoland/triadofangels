@@ -1,0 +1,1814 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "sourceFiles": [
+    "content/source/music-library.authoritative.json",
+    "js/routes.js"
+  ],
+  "albumIds": [
+    "wings-of-fire",
+    "ascend",
+    "celestia-the-light-within",
+    "divine-echoes",
+    "probed-and-confused",
+    "echoes-on-the-dirt-road",
+    "phoenix-rising",
+    "the-quiet-war",
+    "reality-exe",
+    "serpents-veil",
+    "constellation-frequency",
+    "constellation-frequency2",
+    "enchantra",
+    "enchantra2",
+    "angelicresonance",
+    "the-quiet-war-2",
+    "neon-ascension",
+    "american-firestorm-songs-of-freedom"
+  ],
+  "albumPositionIndex": {
+    "wings-of-fire": 0,
+    "ascend": 1,
+    "celestia-the-light-within": 2,
+    "divine-echoes": 3,
+    "probed-and-confused": 4,
+    "echoes-on-the-dirt-road": 5,
+    "phoenix-rising": 6,
+    "the-quiet-war": 7,
+    "reality-exe": 8,
+    "serpents-veil": 9,
+    "constellation-frequency": 10,
+    "constellation-frequency2": 11,
+    "enchantra": 12,
+    "enchantra2": 13,
+    "angelicresonance": 14,
+    "the-quiet-war-2": 15,
+    "neon-ascension": 16,
+    "american-firestorm-songs-of-freedom": 17
+  },
+  "albumPathIndex": {
+    "/music/albums/wings-of-fire/": "wings-of-fire",
+    "/music/albums/ascend/": "ascend",
+    "/music/albums/celestia-the-light-within/": "celestia-the-light-within",
+    "/music/albums/divine-echoes/": "divine-echoes",
+    "/music/albums/probed-and-confused/": "probed-and-confused",
+    "/music/albums/echoes-on-the-dirt-road/": "echoes-on-the-dirt-road",
+    "/music/albums/phoenix-rising/": "phoenix-rising",
+    "/music/albums/the-quiet-war/": "the-quiet-war",
+    "/music/albums/reality-exe/": "reality-exe",
+    "/music/albums/serpents-veil/": "serpents-veil",
+    "/music/albums/constellation-frequency/": "constellation-frequency",
+    "/music/albums/constellation-frequency2/": "constellation-frequency2",
+    "/music/albums/enchantra/": "enchantra",
+    "/music/albums/enchantra2/": "enchantra2",
+    "/music/albums/angelicresonance/": "angelicresonance",
+    "/music/albums/the-quiet-war-2/": "the-quiet-war-2",
+    "/music/albums/neon-ascension/": "neon-ascension",
+    "/music/albums/american-firestorm-songs-of-freedom/": "american-firestorm-songs-of-freedom"
+  },
+  "trackIdsByAlbum": {
+    "wings-of-fire": [
+      "awakening-the-triad",
+      "wings-of-fire",
+      "we-are-the-triad",
+      "starlight-wounds",
+      "ascension-hearts",
+      "halo-in-the-storm"
+    ],
+    "ascend": [
+      "ascend",
+      "fireproof",
+      "we-are-light",
+      "echoes-of-hope",
+      "rising-tide",
+      "hold-the-sky",
+      "home-to-my-heart",
+      "unseen-wings",
+      "breathe",
+      "into-the-light"
+    ],
+    "celestia-the-light-within": [
+      "aurora-rising",
+      "wings-of-grace",
+      "echoes-of-eternity",
+      "elysian-groove",
+      "sacred-ground",
+      "soulkeeper",
+      "cosmic-boots",
+      "celestial-dance",
+      "harmonys-call",
+      "mirror-of-the-soul",
+      "hearts-made-of-fire",
+      "halo-burn",
+      "through-the-flame-i-am",
+      "celestia-the-light-within"
+    ],
+    "divine-echoes": [
+      "genesis-of-light",
+      "name-above-fire",
+      "the-wilderness-speaks",
+      "cry-of-the-watchmen",
+      "messiah",
+      "every-grave-shall-open",
+      "tongues-of-fire",
+      "we-do-not-bow",
+      "veil-torn",
+      "altars-in-the-ashes",
+      "healed-in-the-flames",
+      "crowned-with-light",
+      "the-table-is-set",
+      "thrones-will-fall",
+      "let-the-earth-respond",
+      "the-city-descends",
+      "amen-the-sound-that-never-ends"
+    ],
+    "probed-and-confused": [
+      "probed-and-confused",
+      "strings-attached",
+      "vatican-vaults",
+      "digital-gulag",
+      "lizard-congress",
+      "project-blue-beam",
+      "saturns-frequency-cage",
+      "hidden-cities-underground",
+      "bloodline-rituals",
+      "the-great-goodbye"
+    ],
+    "echoes-on-the-dirt-road": [
+      "start-somewhere",
+      "mud-on-my-boots-stars-in-my-eyes",
+      "rust-and-roses",
+      "friday-nights-and-broken-lights",
+      "boot-scoot-and-spin",
+      "gasoline-dreams",
+      "anchor-and-flame",
+      "the-last-call-i-never-made",
+      "whiskey-moon",
+      "letters-to-the-wind",
+      "dust-and-daisies",
+      "echoes-on-the-dirt-road"
+    ],
+    "phoenix-rising": [
+      "ashes-and-alibis",
+      "snakebite-heart",
+      "bulletproof-veins",
+      "jungle-of-mirrors",
+      "neon-rain",
+      "wolfskin",
+      "heavens-burning",
+      "venom-and-velvet",
+      "phoenix-rising",
+      "final-breath"
+    ],
+    "the-quiet-war": [
+      "houseguest",
+      "basement-tape",
+      "cracking",
+      "check-engine",
+      "the-mirror",
+      "call-to-god",
+      "burnt-wires",
+      "nothing-fancy",
+      "speed-dial",
+      "shatterproof",
+      "the-quiet-war"
+    ],
+    "reality-exe": [
+      "oops-i-thinked-again",
+      "screenagers",
+      "ghost-code",
+      "clownfile-exe",
+      "i-miss-reality",
+      "vortex",
+      "monarch",
+      "puppet-show",
+      "system-message-001001",
+      "who-voted-for-this",
+      "president-roast-session",
+      "float-tank-freakout",
+      "just-roast-it",
+      "bar-fight-champion",
+      "beast-mode-offline",
+      "offline-mode"
+    ],
+    "serpents-veil": [
+      "ascend-the-abyss",
+      "refraction",
+      "shapeshifter",
+      "ethereal-machines",
+      "mirrors-and-dust",
+      "vortex",
+      "serpents-veil",
+      "silent-collapse",
+      "chaos-code",
+      "veins-of-fire",
+      "phoenix-circuit"
+    ],
+    "constellation-frequency": [
+      "ascend-through-light",
+      "epoch-of-frequency",
+      "hearts-under-gravity",
+      "cosmic-drift",
+      "pulse-of-the-skyline",
+      "velvet-voltage",
+      "mirage-engine",
+      "cosmic-tranquility",
+      "neural-ascension",
+      "into-the-spiral-light",
+      "transcendence-drive",
+      "celestian-override",
+      "ascension-spiral",
+      "goddess-in-the-grid",
+      "astral-vanguard",
+      "wings-of-resonance",
+      "journeys-end"
+    ],
+    "constellation-frequency2": [
+      "ignition-sequence-dj-jessica-uplink-intro",
+      "celestial-spine-recalibration",
+      "time-distortion",
+      "sonic-bloom-shakuhachi-ascension",
+      "glass-lions-in-the-fog",
+      "rain-signal-through-neon-ruins",
+      "dust-and-code-temple-of-algorithms",
+      "bass-communion-london-of-the-light",
+      "enchanted-forest",
+      "oasis-frequency-path-of-the-oud",
+      "sands-of-aether",
+      "valhallan-circuit-surge",
+      "journey-back",
+      "starlight-memory-the-final-descent"
+    ],
+    "enchantra": [
+      "dawn-signal-intro",
+      "crystalline-descent",
+      "rise-of-the-obsidian-pulse",
+      "temple-of-pulsefire",
+      "ash-and-embers",
+      "citadel",
+      "neon-glyph-surge",
+      "aurora-drift",
+      "core-implosion-protocol",
+      "streamlight-override",
+      "turbo-transmission",
+      "neon-relic",
+      "sunspike-horizon",
+      "speedlight-rituals",
+      "final-pulse-of-the-dawnbreaker"
+    ],
+    "enchantra2": [
+      "the-celestial-vein-awakens-intro",
+      "solar-gate-invocation",
+      "celestial-gateway",
+      "temple-of-auroras",
+      "seraphim-circuit-eclipse",
+      "starglyph-transmission",
+      "the-frequency-oracle",
+      "godspeakers-of-the-void",
+      "sirens-of-harmonic-collapse",
+      "pulse-of-the-infinite-shore",
+      "echoes-of-the-aetherwind",
+      "beneath-the-stardust-horizon"
+    ],
+    "angelicresonance": [
+      "angelic-entrance-intro",
+      "gates-of-the-eternal-sky",
+      "radiant-throne",
+      "angel-frequency",
+      "sky-cathedral",
+      "trinitas",
+      "aether-wings",
+      "empyrean-signal",
+      "skyveil",
+      "mirrors-of-light",
+      "wingspan",
+      "heavens-eternal",
+      "thronefire",
+      "breath-of-the-spirit",
+      "covenant-aurora"
+    ],
+    "the-quiet-war-2": [
+      "quiet-war-overture",
+      "firewall-baptism",
+      "shadow-syntax",
+      "panic-translation",
+      "scrambled-saints",
+      "faultline-language",
+      "memoir-in-static",
+      "ashes-and-blueprints",
+      "blue-collar-prophecy",
+      "never-done",
+      "glass-house-the-mirror-ii",
+      "answered-unanswered-call-to-god-ii",
+      "ghost-notes",
+      "redemption",
+      "end-of-transmission"
+    ],
+    "neon-ascension": [
+      "portal-sequence-intro",
+      "sonic-pilgrimage",
+      "starlit-velocity",
+      "crystal-synthesis",
+      "luminous-equinox",
+      "halcyon-surge",
+      "echoes-of-time",
+      "distorted-travels",
+      "temporal-drift",
+      "mirage-in-motion",
+      "twisted-realm",
+      "prism-resonance",
+      "aurora-in-retrograde",
+      "terminal-arrival"
+    ],
+    "american-firestorm-songs-of-freedom": [
+      "light-up-the-weekend",
+      "red-white-and-country-strong",
+      "born-to-ride-free",
+      "stars-across-the-water",
+      "where-the-brave-still-stand",
+      "where-we-belong-tonight",
+      "fireworks-and-freedom",
+      "born-for-the-red-white-and-blue",
+      "raise-that-flag",
+      "living-free-in-america",
+      "home-beneath-the-stars",
+      "american-firelight",
+      "run-the-red-white-and-blue",
+      "land-that-i-love"
+    ]
+  },
+  "trackPositionIndexByAlbum": {
+    "wings-of-fire": {
+      "awakening-the-triad": 0,
+      "wings-of-fire": 1,
+      "we-are-the-triad": 2,
+      "starlight-wounds": 3,
+      "ascension-hearts": 4,
+      "halo-in-the-storm": 5
+    },
+    "ascend": {
+      "ascend": 0,
+      "fireproof": 1,
+      "we-are-light": 2,
+      "echoes-of-hope": 3,
+      "rising-tide": 4,
+      "hold-the-sky": 5,
+      "home-to-my-heart": 6,
+      "unseen-wings": 7,
+      "breathe": 8,
+      "into-the-light": 9
+    },
+    "celestia-the-light-within": {
+      "aurora-rising": 0,
+      "wings-of-grace": 1,
+      "echoes-of-eternity": 2,
+      "elysian-groove": 3,
+      "sacred-ground": 4,
+      "soulkeeper": 5,
+      "cosmic-boots": 6,
+      "celestial-dance": 7,
+      "harmonys-call": 8,
+      "mirror-of-the-soul": 9,
+      "hearts-made-of-fire": 10,
+      "halo-burn": 11,
+      "through-the-flame-i-am": 12,
+      "celestia-the-light-within": 13
+    },
+    "divine-echoes": {
+      "genesis-of-light": 0,
+      "name-above-fire": 1,
+      "the-wilderness-speaks": 2,
+      "cry-of-the-watchmen": 3,
+      "messiah": 4,
+      "every-grave-shall-open": 5,
+      "tongues-of-fire": 6,
+      "we-do-not-bow": 7,
+      "veil-torn": 8,
+      "altars-in-the-ashes": 9,
+      "healed-in-the-flames": 10,
+      "crowned-with-light": 11,
+      "the-table-is-set": 12,
+      "thrones-will-fall": 13,
+      "let-the-earth-respond": 14,
+      "the-city-descends": 15,
+      "amen-the-sound-that-never-ends": 16
+    },
+    "probed-and-confused": {
+      "probed-and-confused": 0,
+      "strings-attached": 1,
+      "vatican-vaults": 2,
+      "digital-gulag": 3,
+      "lizard-congress": 4,
+      "project-blue-beam": 5,
+      "saturns-frequency-cage": 6,
+      "hidden-cities-underground": 7,
+      "bloodline-rituals": 8,
+      "the-great-goodbye": 9
+    },
+    "echoes-on-the-dirt-road": {
+      "start-somewhere": 0,
+      "mud-on-my-boots-stars-in-my-eyes": 1,
+      "rust-and-roses": 2,
+      "friday-nights-and-broken-lights": 3,
+      "boot-scoot-and-spin": 4,
+      "gasoline-dreams": 5,
+      "anchor-and-flame": 6,
+      "the-last-call-i-never-made": 7,
+      "whiskey-moon": 8,
+      "letters-to-the-wind": 9,
+      "dust-and-daisies": 10,
+      "echoes-on-the-dirt-road": 11
+    },
+    "phoenix-rising": {
+      "ashes-and-alibis": 0,
+      "snakebite-heart": 1,
+      "bulletproof-veins": 2,
+      "jungle-of-mirrors": 3,
+      "neon-rain": 4,
+      "wolfskin": 5,
+      "heavens-burning": 6,
+      "venom-and-velvet": 7,
+      "phoenix-rising": 8,
+      "final-breath": 9
+    },
+    "the-quiet-war": {
+      "houseguest": 0,
+      "basement-tape": 1,
+      "cracking": 2,
+      "check-engine": 3,
+      "the-mirror": 4,
+      "call-to-god": 5,
+      "burnt-wires": 6,
+      "nothing-fancy": 7,
+      "speed-dial": 8,
+      "shatterproof": 9,
+      "the-quiet-war": 10
+    },
+    "reality-exe": {
+      "oops-i-thinked-again": 0,
+      "screenagers": 1,
+      "ghost-code": 2,
+      "clownfile-exe": 3,
+      "i-miss-reality": 4,
+      "vortex": 5,
+      "monarch": 6,
+      "puppet-show": 7,
+      "system-message-001001": 8,
+      "who-voted-for-this": 9,
+      "president-roast-session": 10,
+      "float-tank-freakout": 11,
+      "just-roast-it": 12,
+      "bar-fight-champion": 13,
+      "beast-mode-offline": 14,
+      "offline-mode": 15
+    },
+    "serpents-veil": {
+      "ascend-the-abyss": 0,
+      "refraction": 1,
+      "shapeshifter": 2,
+      "ethereal-machines": 3,
+      "mirrors-and-dust": 4,
+      "vortex": 5,
+      "serpents-veil": 6,
+      "silent-collapse": 7,
+      "chaos-code": 8,
+      "veins-of-fire": 9,
+      "phoenix-circuit": 10
+    },
+    "constellation-frequency": {
+      "ascend-through-light": 0,
+      "epoch-of-frequency": 1,
+      "hearts-under-gravity": 2,
+      "cosmic-drift": 3,
+      "pulse-of-the-skyline": 4,
+      "velvet-voltage": 5,
+      "mirage-engine": 6,
+      "cosmic-tranquility": 7,
+      "neural-ascension": 8,
+      "into-the-spiral-light": 9,
+      "transcendence-drive": 10,
+      "celestian-override": 11,
+      "ascension-spiral": 12,
+      "goddess-in-the-grid": 13,
+      "astral-vanguard": 14,
+      "wings-of-resonance": 15,
+      "journeys-end": 16
+    },
+    "constellation-frequency2": {
+      "ignition-sequence-dj-jessica-uplink-intro": 0,
+      "celestial-spine-recalibration": 1,
+      "time-distortion": 2,
+      "sonic-bloom-shakuhachi-ascension": 3,
+      "glass-lions-in-the-fog": 4,
+      "rain-signal-through-neon-ruins": 5,
+      "dust-and-code-temple-of-algorithms": 6,
+      "bass-communion-london-of-the-light": 7,
+      "enchanted-forest": 8,
+      "oasis-frequency-path-of-the-oud": 9,
+      "sands-of-aether": 10,
+      "valhallan-circuit-surge": 11,
+      "journey-back": 12,
+      "starlight-memory-the-final-descent": 13
+    },
+    "enchantra": {
+      "dawn-signal-intro": 0,
+      "crystalline-descent": 1,
+      "rise-of-the-obsidian-pulse": 2,
+      "temple-of-pulsefire": 3,
+      "ash-and-embers": 4,
+      "citadel": 5,
+      "neon-glyph-surge": 6,
+      "aurora-drift": 7,
+      "core-implosion-protocol": 8,
+      "streamlight-override": 9,
+      "turbo-transmission": 10,
+      "neon-relic": 11,
+      "sunspike-horizon": 12,
+      "speedlight-rituals": 13,
+      "final-pulse-of-the-dawnbreaker": 14
+    },
+    "enchantra2": {
+      "the-celestial-vein-awakens-intro": 0,
+      "solar-gate-invocation": 1,
+      "celestial-gateway": 2,
+      "temple-of-auroras": 3,
+      "seraphim-circuit-eclipse": 4,
+      "starglyph-transmission": 5,
+      "the-frequency-oracle": 6,
+      "godspeakers-of-the-void": 7,
+      "sirens-of-harmonic-collapse": 8,
+      "pulse-of-the-infinite-shore": 9,
+      "echoes-of-the-aetherwind": 10,
+      "beneath-the-stardust-horizon": 11
+    },
+    "angelicresonance": {
+      "angelic-entrance-intro": 0,
+      "gates-of-the-eternal-sky": 1,
+      "radiant-throne": 2,
+      "angel-frequency": 3,
+      "sky-cathedral": 4,
+      "trinitas": 5,
+      "aether-wings": 6,
+      "empyrean-signal": 7,
+      "skyveil": 8,
+      "mirrors-of-light": 9,
+      "wingspan": 10,
+      "heavens-eternal": 11,
+      "thronefire": 12,
+      "breath-of-the-spirit": 13,
+      "covenant-aurora": 14
+    },
+    "the-quiet-war-2": {
+      "quiet-war-overture": 0,
+      "firewall-baptism": 1,
+      "shadow-syntax": 2,
+      "panic-translation": 3,
+      "scrambled-saints": 4,
+      "faultline-language": 5,
+      "memoir-in-static": 6,
+      "ashes-and-blueprints": 7,
+      "blue-collar-prophecy": 8,
+      "never-done": 9,
+      "glass-house-the-mirror-ii": 10,
+      "answered-unanswered-call-to-god-ii": 11,
+      "ghost-notes": 12,
+      "redemption": 13,
+      "end-of-transmission": 14
+    },
+    "neon-ascension": {
+      "portal-sequence-intro": 0,
+      "sonic-pilgrimage": 1,
+      "starlit-velocity": 2,
+      "crystal-synthesis": 3,
+      "luminous-equinox": 4,
+      "halcyon-surge": 5,
+      "echoes-of-time": 6,
+      "distorted-travels": 7,
+      "temporal-drift": 8,
+      "mirage-in-motion": 9,
+      "twisted-realm": 10,
+      "prism-resonance": 11,
+      "aurora-in-retrograde": 12,
+      "terminal-arrival": 13
+    },
+    "american-firestorm-songs-of-freedom": {
+      "light-up-the-weekend": 0,
+      "red-white-and-country-strong": 1,
+      "born-to-ride-free": 2,
+      "stars-across-the-water": 3,
+      "where-the-brave-still-stand": 4,
+      "where-we-belong-tonight": 5,
+      "fireworks-and-freedom": 6,
+      "born-for-the-red-white-and-blue": 7,
+      "raise-that-flag": 8,
+      "living-free-in-america": 9,
+      "home-beneath-the-stars": 10,
+      "american-firelight": 11,
+      "run-the-red-white-and-blue": 12,
+      "land-that-i-love": 13
+    }
+  },
+  "trackTitleIndexByAlbum": {
+    "wings-of-fire": {
+      "awakening-the-triad": "Awakening the Triad",
+      "wings-of-fire": "Wings of Fire",
+      "we-are-the-triad": "We are the Triad",
+      "starlight-wounds": "Starlight Wounds",
+      "ascension-hearts": "Ascension Hearts",
+      "halo-in-the-storm": "Halo in the Storm"
+    },
+    "ascend": {
+      "ascend": "Ascend",
+      "fireproof": "Fireproof",
+      "we-are-light": "We Are Light",
+      "echoes-of-hope": "Echoes of Hope",
+      "rising-tide": "Rising Tide",
+      "hold-the-sky": "Hold the Sky",
+      "home-to-my-heart": "Home to My Heart",
+      "unseen-wings": "Unseen Wings",
+      "breathe": "Breathe",
+      "into-the-light": "Into the Light"
+    },
+    "celestia-the-light-within": {
+      "aurora-rising": "Aurora Rising",
+      "wings-of-grace": "Wings of Grace",
+      "echoes-of-eternity": "Echoes of Eternity",
+      "elysian-groove": "Elysian Groove",
+      "sacred-ground": "Sacred Ground",
+      "soulkeeper": "Soulkeeper",
+      "cosmic-boots": "Cosmic Boots",
+      "celestial-dance": "Celestial Dance",
+      "harmonys-call": "Harmony’s Call",
+      "mirror-of-the-soul": "Mirror of the Soul",
+      "hearts-made-of-fire": "Hearts Made of Fire",
+      "halo-burn": "Halo Burn",
+      "through-the-flame-i-am": "Through the Flame I Am",
+      "celestia-the-light-within": "Celestia The Light Within"
+    },
+    "divine-echoes": {
+      "genesis-of-light": "Genesis of Light",
+      "name-above-fire": "Name Above Fire",
+      "the-wilderness-speaks": "The Wilderness Speaks",
+      "cry-of-the-watchmen": "Cry of the Watchmen",
+      "messiah": "Messiah",
+      "every-grave-shall-open": "Every Grave Shall Open",
+      "tongues-of-fire": "Tongues of Fire",
+      "we-do-not-bow": "We Do Not Bow",
+      "veil-torn": "Veil Torn",
+      "altars-in-the-ashes": "Altars in the Ashes",
+      "healed-in-the-flames": "Healed in the Flames",
+      "crowned-with-light": "Crowned with Light",
+      "the-table-is-set": "The Table is Set",
+      "thrones-will-fall": "Thrones Will Fall",
+      "let-the-earth-respond": "Let the Earth Respond",
+      "the-city-descends": "The City Descends",
+      "amen-the-sound-that-never-ends": "Amen The Sound That Never Ends"
+    },
+    "probed-and-confused": {
+      "probed-and-confused": "Probed & Confused",
+      "strings-attached": "Strings Attached",
+      "vatican-vaults": "Vatican Vaults",
+      "digital-gulag": "Digital Gulag",
+      "lizard-congress": "Lizard Congress",
+      "project-blue-beam": "Project Blue Beam",
+      "saturns-frequency-cage": "Saturns Frequency Cage",
+      "hidden-cities-underground": "Hidden Cities Underground",
+      "bloodline-rituals": "Bloodline Rituals",
+      "the-great-goodbye": "The Great Goodbye"
+    },
+    "echoes-on-the-dirt-road": {
+      "start-somewhere": "Start Somewhere",
+      "mud-on-my-boots-stars-in-my-eyes": "Mud on My Boots, Stars in My Eyes",
+      "rust-and-roses": "Rust & Roses",
+      "friday-nights-and-broken-lights": "Friday Nights & Broken Lights",
+      "boot-scoot-and-spin": "Boot, Scoot & Spin",
+      "gasoline-dreams": "Gasoline Dreams",
+      "anchor-and-flame": "Anchor and Flame",
+      "the-last-call-i-never-made": "The Last Call I Never Made",
+      "whiskey-moon": "Whiskey Moon",
+      "letters-to-the-wind": "Letters to the Wind",
+      "dust-and-daisies": "Dust and Daisies",
+      "echoes-on-the-dirt-road": "Echoes on the Dirt Road"
+    },
+    "phoenix-rising": {
+      "ashes-and-alibis": "Ashes and Alibis",
+      "snakebite-heart": "Snakebite Heart",
+      "bulletproof-veins": "Bulletproof Veins",
+      "jungle-of-mirrors": "Jungle of Mirrors",
+      "neon-rain": "Neon Rain",
+      "wolfskin": "Wolfskin",
+      "heavens-burning": "Heaven’s Burning",
+      "venom-and-velvet": "Venom & Velvet",
+      "phoenix-rising": "Phoenix Rising",
+      "final-breath": "Final Breath"
+    },
+    "the-quiet-war": {
+      "houseguest": "Houseguest",
+      "basement-tape": "Basement Tape",
+      "cracking": "Cracking",
+      "check-engine": "Check Engine",
+      "the-mirror": "The Mirror",
+      "call-to-god": "Call to God",
+      "burnt-wires": "Burnt Wires",
+      "nothing-fancy": "Nothing Fancy",
+      "speed-dial": "Speed Dial",
+      "shatterproof": "Shatterproof",
+      "the-quiet-war": "The Quiet War"
+    },
+    "reality-exe": {
+      "oops-i-thinked-again": "Oops... I Thinked Again",
+      "screenagers": "Screenagers",
+      "ghost-code": "Ghost Code",
+      "clownfile-exe": "CLoWnFiLe.exe",
+      "i-miss-reality": "I Miss Reality",
+      "vortex": "Vortex",
+      "monarch": "Monarch",
+      "puppet-show": "Puppet Show",
+      "system-message-001001": "System Message_001001",
+      "who-voted-for-this": "Who Voted for This?!",
+      "president-roast-session": "President Roast Session",
+      "float-tank-freakout": "Float Tank Freakout",
+      "just-roast-it": "Just Roast It",
+      "bar-fight-champion": "Bar Fight Champion",
+      "beast-mode-offline": "Beast Mode Offline",
+      "offline-mode": "Offline Mode"
+    },
+    "serpents-veil": {
+      "ascend-the-abyss": "Ascend the Abyss",
+      "refraction": "Refraction",
+      "shapeshifter": "Shapeshifter",
+      "ethereal-machines": "Ethereal Machines",
+      "mirrors-and-dust": "Mirrors & Dust",
+      "vortex": "Vortex",
+      "serpents-veil": "Serpent’s Veil",
+      "silent-collapse": "Silent Collapse",
+      "chaos-code": "Chaos Code",
+      "veins-of-fire": "Veins of Fire",
+      "phoenix-circuit": "Phoenix Circuit"
+    },
+    "constellation-frequency": {
+      "ascend-through-light": "Ascend Through Light",
+      "epoch-of-frequency": "Epoch of Frequency",
+      "hearts-under-gravity": "Hearts Under Gravity",
+      "cosmic-drift": "Cosmic Drift",
+      "pulse-of-the-skyline": "Pulse of the Skyline",
+      "velvet-voltage": "Velvet Voltage",
+      "mirage-engine": "Mirage Engine",
+      "cosmic-tranquility": "Cosmic Tranquility",
+      "neural-ascension": "Neural Ascension",
+      "into-the-spiral-light": "Into the Spiral Light",
+      "transcendence-drive": "Transcendence Drive",
+      "celestian-override": "Celestian Override",
+      "ascension-spiral": "Ascension Spiral",
+      "goddess-in-the-grid": "Goddess in the Grid",
+      "astral-vanguard": "Astral Vanguard",
+      "wings-of-resonance": "Wings of Resonance",
+      "journeys-end": "Journey's End"
+    },
+    "constellation-frequency2": {
+      "ignition-sequence-dj-jessica-uplink-intro": "Ignition Sequence DJ Jessica Uplink (Intro)",
+      "celestial-spine-recalibration": "Celestial Spine Recalibration",
+      "time-distortion": "Time Distortion",
+      "sonic-bloom-shakuhachi-ascension": "Sonic Bloom: Shakuhachi Ascension",
+      "glass-lions-in-the-fog": "Glass Lions in the Fog",
+      "rain-signal-through-neon-ruins": "Rain Signal Through Neon Ruins",
+      "dust-and-code-temple-of-algorithms": "Dust and Code: Temple of Algorithms",
+      "bass-communion-london-of-the-light": "Bass Communion London of the Light",
+      "enchanted-forest": "Enchanted Forest",
+      "oasis-frequency-path-of-the-oud": "Oasis Frequency: Path of the Oud",
+      "sands-of-aether": "Sands of Aether",
+      "valhallan-circuit-surge": "Valhallan Circuit Surge",
+      "journey-back": "Journey Back",
+      "starlight-memory-the-final-descent": "Starlight Memory: The Final Descent"
+    },
+    "enchantra": {
+      "dawn-signal-intro": "Dawn Signal (Intro)",
+      "crystalline-descent": "Crystalline Descent",
+      "rise-of-the-obsidian-pulse": "Rise of the Obsidian Pulse",
+      "temple-of-pulsefire": "Temple of Pulsefire",
+      "ash-and-embers": "Ash and Embers",
+      "citadel": "Citadel",
+      "neon-glyph-surge": "Neon Glyph Surge",
+      "aurora-drift": "Aurora Drift",
+      "core-implosion-protocol": "Core Implosion Protocol",
+      "streamlight-override": "Streamlight Override",
+      "turbo-transmission": "Turbo Transmission",
+      "neon-relic": "Neon Relic",
+      "sunspike-horizon": "Sunspike Horizon",
+      "speedlight-rituals": "Speedlight Rituals",
+      "final-pulse-of-the-dawnbreaker": "Final Pulse of the Dawnbreaker"
+    },
+    "enchantra2": {
+      "the-celestial-vein-awakens-intro": "The Celestial Vein Awakens (Intro)",
+      "solar-gate-invocation": "Solar Gate Invocation",
+      "celestial-gateway": "Celestial Gateway",
+      "temple-of-auroras": "Temple of Auroras",
+      "seraphim-circuit-eclipse": "Seraphim Circuit Eclipse",
+      "starglyph-transmission": "Starglyph Transmission",
+      "the-frequency-oracle": "The Frequency Oracle",
+      "godspeakers-of-the-void": "Godspeakers of the Void",
+      "sirens-of-harmonic-collapse": "Sirens of Harmonic Collapse",
+      "pulse-of-the-infinite-shore": "Pulse of the infinite Shore",
+      "echoes-of-the-aetherwind": "Echoes of the Aetherwind",
+      "beneath-the-stardust-horizon": "Beneath the Stardust Horizon"
+    },
+    "angelicresonance": {
+      "angelic-entrance-intro": "Angelic Entrance (Intro)",
+      "gates-of-the-eternal-sky": "Gates of the Eternal Sky",
+      "radiant-throne": "Radiant Throne",
+      "angel-frequency": "Angel Frequency",
+      "sky-cathedral": "Sky Cathedral",
+      "trinitas": "Trinitas",
+      "aether-wings": "Aether Wings",
+      "empyrean-signal": "Empyrean Signal",
+      "skyveil": "Skyveil",
+      "mirrors-of-light": "Mirrors of Light",
+      "wingspan": "Wingspan",
+      "heavens-eternal": "Heavens Eternal",
+      "thronefire": "Thronefire",
+      "breath-of-the-spirit": "Breath of the Spirit",
+      "covenant-aurora": "Covenant Aurora"
+    },
+    "the-quiet-war-2": {
+      "quiet-war-overture": "Quiet War Overture",
+      "firewall-baptism": "Firewall Baptism",
+      "shadow-syntax": "Shadow Syntax",
+      "panic-translation": "Panic Translation",
+      "scrambled-saints": "Scrambled Saints",
+      "faultline-language": "Faultline Language",
+      "memoir-in-static": "Memoir in Static",
+      "ashes-and-blueprints": "Ashes & Blueprints",
+      "blue-collar-prophecy": "Blue Collar Prophecy",
+      "never-done": "Never Done",
+      "glass-house-the-mirror-ii": "Glass House (The Mirror II)",
+      "answered-unanswered-call-to-god-ii": "Answered / Unanswered (Call to God II)",
+      "ghost-notes": "Ghost Notes",
+      "redemption": "Redemption",
+      "end-of-transmission": "End of Transmission"
+    },
+    "neon-ascension": {
+      "portal-sequence-intro": "Portal Sequence (Intro)",
+      "sonic-pilgrimage": "Sonic Pilgrimage",
+      "starlit-velocity": "Starlit Velocity",
+      "crystal-synthesis": "Crystal Synthesis",
+      "luminous-equinox": "Luminous Equinox",
+      "halcyon-surge": "Halcyon Surge",
+      "echoes-of-time": "Echoes of Time",
+      "distorted-travels": "Distorted Travels",
+      "temporal-drift": "Temporal Drift",
+      "mirage-in-motion": "Mirage in Motion",
+      "twisted-realm": "Twisted Realm",
+      "prism-resonance": "Prism Resonance",
+      "aurora-in-retrograde": "Aurora in Retrograde",
+      "terminal-arrival": "Terminal Arrival"
+    },
+    "american-firestorm-songs-of-freedom": {
+      "light-up-the-weekend": "Light Up the Weekend",
+      "red-white-and-country-strong": "Red, White and Country Strong",
+      "born-to-ride-free": "Born to Ride Free",
+      "stars-across-the-water": "Stars Across the Water",
+      "where-the-brave-still-stand": "Where the Brave Still Stand",
+      "where-we-belong-tonight": "Where We Belong Tonight",
+      "fireworks-and-freedom": "Fireworks and Freedom",
+      "born-for-the-red-white-and-blue": "Born for the Red, White, and Blue",
+      "raise-that-flag": "Raise That Flag",
+      "living-free-in-america": "Living Free in America",
+      "home-beneath-the-stars": "Home Beneath the Stars",
+      "american-firelight": "American Firelight",
+      "run-the-red-white-and-blue": "Run the Red, White, and Blue",
+      "land-that-i-love": "Land That I Love"
+    }
+  },
+  "trackPathIndex": {
+    "/music/tracks/wings-of-fire/awakening-the-triad/": {
+      "albumId": "wings-of-fire",
+      "trackId": "awakening-the-triad"
+    },
+    "/music/tracks/wings-of-fire/wings-of-fire/": {
+      "albumId": "wings-of-fire",
+      "trackId": "wings-of-fire"
+    },
+    "/music/tracks/wings-of-fire/we-are-the-triad/": {
+      "albumId": "wings-of-fire",
+      "trackId": "we-are-the-triad"
+    },
+    "/music/tracks/wings-of-fire/starlight-wounds/": {
+      "albumId": "wings-of-fire",
+      "trackId": "starlight-wounds"
+    },
+    "/music/tracks/wings-of-fire/ascension-hearts/": {
+      "albumId": "wings-of-fire",
+      "trackId": "ascension-hearts"
+    },
+    "/music/tracks/wings-of-fire/halo-in-the-storm/": {
+      "albumId": "wings-of-fire",
+      "trackId": "halo-in-the-storm"
+    },
+    "/music/tracks/ascend/ascend/": {
+      "albumId": "ascend",
+      "trackId": "ascend"
+    },
+    "/music/tracks/ascend/fireproof/": {
+      "albumId": "ascend",
+      "trackId": "fireproof"
+    },
+    "/music/tracks/ascend/we-are-light/": {
+      "albumId": "ascend",
+      "trackId": "we-are-light"
+    },
+    "/music/tracks/ascend/echoes-of-hope/": {
+      "albumId": "ascend",
+      "trackId": "echoes-of-hope"
+    },
+    "/music/tracks/ascend/rising-tide/": {
+      "albumId": "ascend",
+      "trackId": "rising-tide"
+    },
+    "/music/tracks/ascend/hold-the-sky/": {
+      "albumId": "ascend",
+      "trackId": "hold-the-sky"
+    },
+    "/music/tracks/ascend/home-to-my-heart/": {
+      "albumId": "ascend",
+      "trackId": "home-to-my-heart"
+    },
+    "/music/tracks/ascend/unseen-wings/": {
+      "albumId": "ascend",
+      "trackId": "unseen-wings"
+    },
+    "/music/tracks/ascend/breathe/": {
+      "albumId": "ascend",
+      "trackId": "breathe"
+    },
+    "/music/tracks/ascend/into-the-light/": {
+      "albumId": "ascend",
+      "trackId": "into-the-light"
+    },
+    "/music/tracks/celestia-the-light-within/aurora-rising/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "aurora-rising"
+    },
+    "/music/tracks/celestia-the-light-within/wings-of-grace/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "wings-of-grace"
+    },
+    "/music/tracks/celestia-the-light-within/echoes-of-eternity/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "echoes-of-eternity"
+    },
+    "/music/tracks/celestia-the-light-within/elysian-groove/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "elysian-groove"
+    },
+    "/music/tracks/celestia-the-light-within/sacred-ground/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "sacred-ground"
+    },
+    "/music/tracks/celestia-the-light-within/soulkeeper/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "soulkeeper"
+    },
+    "/music/tracks/celestia-the-light-within/cosmic-boots/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "cosmic-boots"
+    },
+    "/music/tracks/celestia-the-light-within/celestial-dance/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "celestial-dance"
+    },
+    "/music/tracks/celestia-the-light-within/harmonys-call/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "harmonys-call"
+    },
+    "/music/tracks/celestia-the-light-within/mirror-of-the-soul/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "mirror-of-the-soul"
+    },
+    "/music/tracks/celestia-the-light-within/hearts-made-of-fire/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "hearts-made-of-fire"
+    },
+    "/music/tracks/celestia-the-light-within/halo-burn/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "halo-burn"
+    },
+    "/music/tracks/celestia-the-light-within/through-the-flame-i-am/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "through-the-flame-i-am"
+    },
+    "/music/tracks/celestia-the-light-within/celestia-the-light-within/": {
+      "albumId": "celestia-the-light-within",
+      "trackId": "celestia-the-light-within"
+    },
+    "/music/tracks/divine-echoes/genesis-of-light/": {
+      "albumId": "divine-echoes",
+      "trackId": "genesis-of-light"
+    },
+    "/music/tracks/divine-echoes/name-above-fire/": {
+      "albumId": "divine-echoes",
+      "trackId": "name-above-fire"
+    },
+    "/music/tracks/divine-echoes/the-wilderness-speaks/": {
+      "albumId": "divine-echoes",
+      "trackId": "the-wilderness-speaks"
+    },
+    "/music/tracks/divine-echoes/cry-of-the-watchmen/": {
+      "albumId": "divine-echoes",
+      "trackId": "cry-of-the-watchmen"
+    },
+    "/music/tracks/divine-echoes/messiah/": {
+      "albumId": "divine-echoes",
+      "trackId": "messiah"
+    },
+    "/music/tracks/divine-echoes/every-grave-shall-open/": {
+      "albumId": "divine-echoes",
+      "trackId": "every-grave-shall-open"
+    },
+    "/music/tracks/divine-echoes/tongues-of-fire/": {
+      "albumId": "divine-echoes",
+      "trackId": "tongues-of-fire"
+    },
+    "/music/tracks/divine-echoes/we-do-not-bow/": {
+      "albumId": "divine-echoes",
+      "trackId": "we-do-not-bow"
+    },
+    "/music/tracks/divine-echoes/veil-torn/": {
+      "albumId": "divine-echoes",
+      "trackId": "veil-torn"
+    },
+    "/music/tracks/divine-echoes/altars-in-the-ashes/": {
+      "albumId": "divine-echoes",
+      "trackId": "altars-in-the-ashes"
+    },
+    "/music/tracks/divine-echoes/healed-in-the-flames/": {
+      "albumId": "divine-echoes",
+      "trackId": "healed-in-the-flames"
+    },
+    "/music/tracks/divine-echoes/crowned-with-light/": {
+      "albumId": "divine-echoes",
+      "trackId": "crowned-with-light"
+    },
+    "/music/tracks/divine-echoes/the-table-is-set/": {
+      "albumId": "divine-echoes",
+      "trackId": "the-table-is-set"
+    },
+    "/music/tracks/divine-echoes/thrones-will-fall/": {
+      "albumId": "divine-echoes",
+      "trackId": "thrones-will-fall"
+    },
+    "/music/tracks/divine-echoes/let-the-earth-respond/": {
+      "albumId": "divine-echoes",
+      "trackId": "let-the-earth-respond"
+    },
+    "/music/tracks/divine-echoes/the-city-descends/": {
+      "albumId": "divine-echoes",
+      "trackId": "the-city-descends"
+    },
+    "/music/tracks/divine-echoes/amen-the-sound-that-never-ends/": {
+      "albumId": "divine-echoes",
+      "trackId": "amen-the-sound-that-never-ends"
+    },
+    "/music/tracks/probed-and-confused/probed-and-confused/": {
+      "albumId": "probed-and-confused",
+      "trackId": "probed-and-confused"
+    },
+    "/music/tracks/probed-and-confused/strings-attached/": {
+      "albumId": "probed-and-confused",
+      "trackId": "strings-attached"
+    },
+    "/music/tracks/probed-and-confused/vatican-vaults/": {
+      "albumId": "probed-and-confused",
+      "trackId": "vatican-vaults"
+    },
+    "/music/tracks/probed-and-confused/digital-gulag/": {
+      "albumId": "probed-and-confused",
+      "trackId": "digital-gulag"
+    },
+    "/music/tracks/probed-and-confused/lizard-congress/": {
+      "albumId": "probed-and-confused",
+      "trackId": "lizard-congress"
+    },
+    "/music/tracks/probed-and-confused/project-blue-beam/": {
+      "albumId": "probed-and-confused",
+      "trackId": "project-blue-beam"
+    },
+    "/music/tracks/probed-and-confused/saturns-frequency-cage/": {
+      "albumId": "probed-and-confused",
+      "trackId": "saturns-frequency-cage"
+    },
+    "/music/tracks/probed-and-confused/hidden-cities-underground/": {
+      "albumId": "probed-and-confused",
+      "trackId": "hidden-cities-underground"
+    },
+    "/music/tracks/probed-and-confused/bloodline-rituals/": {
+      "albumId": "probed-and-confused",
+      "trackId": "bloodline-rituals"
+    },
+    "/music/tracks/probed-and-confused/the-great-goodbye/": {
+      "albumId": "probed-and-confused",
+      "trackId": "the-great-goodbye"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/start-somewhere/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "start-somewhere"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/mud-on-my-boots-stars-in-my-eyes/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "mud-on-my-boots-stars-in-my-eyes"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/rust-and-roses/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "rust-and-roses"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/friday-nights-and-broken-lights/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "friday-nights-and-broken-lights"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/boot-scoot-and-spin/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "boot-scoot-and-spin"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/gasoline-dreams/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "gasoline-dreams"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/anchor-and-flame/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "anchor-and-flame"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/the-last-call-i-never-made/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "the-last-call-i-never-made"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/whiskey-moon/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "whiskey-moon"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/letters-to-the-wind/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "letters-to-the-wind"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/dust-and-daisies/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "dust-and-daisies"
+    },
+    "/music/tracks/echoes-on-the-dirt-road/echoes-on-the-dirt-road/": {
+      "albumId": "echoes-on-the-dirt-road",
+      "trackId": "echoes-on-the-dirt-road"
+    },
+    "/music/tracks/phoenix-rising/ashes-and-alibis/": {
+      "albumId": "phoenix-rising",
+      "trackId": "ashes-and-alibis"
+    },
+    "/music/tracks/phoenix-rising/snakebite-heart/": {
+      "albumId": "phoenix-rising",
+      "trackId": "snakebite-heart"
+    },
+    "/music/tracks/phoenix-rising/bulletproof-veins/": {
+      "albumId": "phoenix-rising",
+      "trackId": "bulletproof-veins"
+    },
+    "/music/tracks/phoenix-rising/jungle-of-mirrors/": {
+      "albumId": "phoenix-rising",
+      "trackId": "jungle-of-mirrors"
+    },
+    "/music/tracks/phoenix-rising/neon-rain/": {
+      "albumId": "phoenix-rising",
+      "trackId": "neon-rain"
+    },
+    "/music/tracks/phoenix-rising/wolfskin/": {
+      "albumId": "phoenix-rising",
+      "trackId": "wolfskin"
+    },
+    "/music/tracks/phoenix-rising/heavens-burning/": {
+      "albumId": "phoenix-rising",
+      "trackId": "heavens-burning"
+    },
+    "/music/tracks/phoenix-rising/venom-and-velvet/": {
+      "albumId": "phoenix-rising",
+      "trackId": "venom-and-velvet"
+    },
+    "/music/tracks/phoenix-rising/phoenix-rising/": {
+      "albumId": "phoenix-rising",
+      "trackId": "phoenix-rising"
+    },
+    "/music/tracks/phoenix-rising/final-breath/": {
+      "albumId": "phoenix-rising",
+      "trackId": "final-breath"
+    },
+    "/music/tracks/the-quiet-war/houseguest/": {
+      "albumId": "the-quiet-war",
+      "trackId": "houseguest"
+    },
+    "/music/tracks/the-quiet-war/basement-tape/": {
+      "albumId": "the-quiet-war",
+      "trackId": "basement-tape"
+    },
+    "/music/tracks/the-quiet-war/cracking/": {
+      "albumId": "the-quiet-war",
+      "trackId": "cracking"
+    },
+    "/music/tracks/the-quiet-war/check-engine/": {
+      "albumId": "the-quiet-war",
+      "trackId": "check-engine"
+    },
+    "/music/tracks/the-quiet-war/the-mirror/": {
+      "albumId": "the-quiet-war",
+      "trackId": "the-mirror"
+    },
+    "/music/tracks/the-quiet-war/call-to-god/": {
+      "albumId": "the-quiet-war",
+      "trackId": "call-to-god"
+    },
+    "/music/tracks/the-quiet-war/burnt-wires/": {
+      "albumId": "the-quiet-war",
+      "trackId": "burnt-wires"
+    },
+    "/music/tracks/the-quiet-war/nothing-fancy/": {
+      "albumId": "the-quiet-war",
+      "trackId": "nothing-fancy"
+    },
+    "/music/tracks/the-quiet-war/speed-dial/": {
+      "albumId": "the-quiet-war",
+      "trackId": "speed-dial"
+    },
+    "/music/tracks/the-quiet-war/shatterproof/": {
+      "albumId": "the-quiet-war",
+      "trackId": "shatterproof"
+    },
+    "/music/tracks/the-quiet-war/the-quiet-war/": {
+      "albumId": "the-quiet-war",
+      "trackId": "the-quiet-war"
+    },
+    "/music/tracks/reality-exe/oops-i-thinked-again/": {
+      "albumId": "reality-exe",
+      "trackId": "oops-i-thinked-again"
+    },
+    "/music/tracks/reality-exe/screenagers/": {
+      "albumId": "reality-exe",
+      "trackId": "screenagers"
+    },
+    "/music/tracks/reality-exe/ghost-code/": {
+      "albumId": "reality-exe",
+      "trackId": "ghost-code"
+    },
+    "/music/tracks/reality-exe/clownfile-exe/": {
+      "albumId": "reality-exe",
+      "trackId": "clownfile-exe"
+    },
+    "/music/tracks/reality-exe/i-miss-reality/": {
+      "albumId": "reality-exe",
+      "trackId": "i-miss-reality"
+    },
+    "/music/tracks/reality-exe/vortex/": {
+      "albumId": "reality-exe",
+      "trackId": "vortex"
+    },
+    "/music/tracks/reality-exe/monarch/": {
+      "albumId": "reality-exe",
+      "trackId": "monarch"
+    },
+    "/music/tracks/reality-exe/puppet-show/": {
+      "albumId": "reality-exe",
+      "trackId": "puppet-show"
+    },
+    "/music/tracks/reality-exe/system-message-001001/": {
+      "albumId": "reality-exe",
+      "trackId": "system-message-001001"
+    },
+    "/music/tracks/reality-exe/who-voted-for-this/": {
+      "albumId": "reality-exe",
+      "trackId": "who-voted-for-this"
+    },
+    "/music/tracks/reality-exe/president-roast-session/": {
+      "albumId": "reality-exe",
+      "trackId": "president-roast-session"
+    },
+    "/music/tracks/reality-exe/float-tank-freakout/": {
+      "albumId": "reality-exe",
+      "trackId": "float-tank-freakout"
+    },
+    "/music/tracks/reality-exe/just-roast-it/": {
+      "albumId": "reality-exe",
+      "trackId": "just-roast-it"
+    },
+    "/music/tracks/reality-exe/bar-fight-champion/": {
+      "albumId": "reality-exe",
+      "trackId": "bar-fight-champion"
+    },
+    "/music/tracks/reality-exe/beast-mode-offline/": {
+      "albumId": "reality-exe",
+      "trackId": "beast-mode-offline"
+    },
+    "/music/tracks/reality-exe/offline-mode/": {
+      "albumId": "reality-exe",
+      "trackId": "offline-mode"
+    },
+    "/music/tracks/serpents-veil/ascend-the-abyss/": {
+      "albumId": "serpents-veil",
+      "trackId": "ascend-the-abyss"
+    },
+    "/music/tracks/serpents-veil/refraction/": {
+      "albumId": "serpents-veil",
+      "trackId": "refraction"
+    },
+    "/music/tracks/serpents-veil/shapeshifter/": {
+      "albumId": "serpents-veil",
+      "trackId": "shapeshifter"
+    },
+    "/music/tracks/serpents-veil/ethereal-machines/": {
+      "albumId": "serpents-veil",
+      "trackId": "ethereal-machines"
+    },
+    "/music/tracks/serpents-veil/mirrors-and-dust/": {
+      "albumId": "serpents-veil",
+      "trackId": "mirrors-and-dust"
+    },
+    "/music/tracks/serpents-veil/vortex/": {
+      "albumId": "serpents-veil",
+      "trackId": "vortex"
+    },
+    "/music/tracks/serpents-veil/serpents-veil/": {
+      "albumId": "serpents-veil",
+      "trackId": "serpents-veil"
+    },
+    "/music/tracks/serpents-veil/silent-collapse/": {
+      "albumId": "serpents-veil",
+      "trackId": "silent-collapse"
+    },
+    "/music/tracks/serpents-veil/chaos-code/": {
+      "albumId": "serpents-veil",
+      "trackId": "chaos-code"
+    },
+    "/music/tracks/serpents-veil/veins-of-fire/": {
+      "albumId": "serpents-veil",
+      "trackId": "veins-of-fire"
+    },
+    "/music/tracks/serpents-veil/phoenix-circuit/": {
+      "albumId": "serpents-veil",
+      "trackId": "phoenix-circuit"
+    },
+    "/music/tracks/constellation-frequency/ascend-through-light/": {
+      "albumId": "constellation-frequency",
+      "trackId": "ascend-through-light"
+    },
+    "/music/tracks/constellation-frequency/epoch-of-frequency/": {
+      "albumId": "constellation-frequency",
+      "trackId": "epoch-of-frequency"
+    },
+    "/music/tracks/constellation-frequency/hearts-under-gravity/": {
+      "albumId": "constellation-frequency",
+      "trackId": "hearts-under-gravity"
+    },
+    "/music/tracks/constellation-frequency/cosmic-drift/": {
+      "albumId": "constellation-frequency",
+      "trackId": "cosmic-drift"
+    },
+    "/music/tracks/constellation-frequency/pulse-of-the-skyline/": {
+      "albumId": "constellation-frequency",
+      "trackId": "pulse-of-the-skyline"
+    },
+    "/music/tracks/constellation-frequency/velvet-voltage/": {
+      "albumId": "constellation-frequency",
+      "trackId": "velvet-voltage"
+    },
+    "/music/tracks/constellation-frequency/mirage-engine/": {
+      "albumId": "constellation-frequency",
+      "trackId": "mirage-engine"
+    },
+    "/music/tracks/constellation-frequency/cosmic-tranquility/": {
+      "albumId": "constellation-frequency",
+      "trackId": "cosmic-tranquility"
+    },
+    "/music/tracks/constellation-frequency/neural-ascension/": {
+      "albumId": "constellation-frequency",
+      "trackId": "neural-ascension"
+    },
+    "/music/tracks/constellation-frequency/into-the-spiral-light/": {
+      "albumId": "constellation-frequency",
+      "trackId": "into-the-spiral-light"
+    },
+    "/music/tracks/constellation-frequency/transcendence-drive/": {
+      "albumId": "constellation-frequency",
+      "trackId": "transcendence-drive"
+    },
+    "/music/tracks/constellation-frequency/celestian-override/": {
+      "albumId": "constellation-frequency",
+      "trackId": "celestian-override"
+    },
+    "/music/tracks/constellation-frequency/ascension-spiral/": {
+      "albumId": "constellation-frequency",
+      "trackId": "ascension-spiral"
+    },
+    "/music/tracks/constellation-frequency/goddess-in-the-grid/": {
+      "albumId": "constellation-frequency",
+      "trackId": "goddess-in-the-grid"
+    },
+    "/music/tracks/constellation-frequency/astral-vanguard/": {
+      "albumId": "constellation-frequency",
+      "trackId": "astral-vanguard"
+    },
+    "/music/tracks/constellation-frequency/wings-of-resonance/": {
+      "albumId": "constellation-frequency",
+      "trackId": "wings-of-resonance"
+    },
+    "/music/tracks/constellation-frequency/journeys-end/": {
+      "albumId": "constellation-frequency",
+      "trackId": "journeys-end"
+    },
+    "/music/tracks/constellation-frequency2/ignition-sequence-dj-jessica-uplink-intro/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "ignition-sequence-dj-jessica-uplink-intro"
+    },
+    "/music/tracks/constellation-frequency2/celestial-spine-recalibration/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "celestial-spine-recalibration"
+    },
+    "/music/tracks/constellation-frequency2/time-distortion/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "time-distortion"
+    },
+    "/music/tracks/constellation-frequency2/sonic-bloom-shakuhachi-ascension/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "sonic-bloom-shakuhachi-ascension"
+    },
+    "/music/tracks/constellation-frequency2/glass-lions-in-the-fog/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "glass-lions-in-the-fog"
+    },
+    "/music/tracks/constellation-frequency2/rain-signal-through-neon-ruins/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "rain-signal-through-neon-ruins"
+    },
+    "/music/tracks/constellation-frequency2/dust-and-code-temple-of-algorithms/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "dust-and-code-temple-of-algorithms"
+    },
+    "/music/tracks/constellation-frequency2/bass-communion-london-of-the-light/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "bass-communion-london-of-the-light"
+    },
+    "/music/tracks/constellation-frequency2/enchanted-forest/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "enchanted-forest"
+    },
+    "/music/tracks/constellation-frequency2/oasis-frequency-path-of-the-oud/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "oasis-frequency-path-of-the-oud"
+    },
+    "/music/tracks/constellation-frequency2/sands-of-aether/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "sands-of-aether"
+    },
+    "/music/tracks/constellation-frequency2/valhallan-circuit-surge/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "valhallan-circuit-surge"
+    },
+    "/music/tracks/constellation-frequency2/journey-back/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "journey-back"
+    },
+    "/music/tracks/constellation-frequency2/starlight-memory-the-final-descent/": {
+      "albumId": "constellation-frequency2",
+      "trackId": "starlight-memory-the-final-descent"
+    },
+    "/music/tracks/enchantra/dawn-signal-intro/": {
+      "albumId": "enchantra",
+      "trackId": "dawn-signal-intro"
+    },
+    "/music/tracks/enchantra/crystalline-descent/": {
+      "albumId": "enchantra",
+      "trackId": "crystalline-descent"
+    },
+    "/music/tracks/enchantra/rise-of-the-obsidian-pulse/": {
+      "albumId": "enchantra",
+      "trackId": "rise-of-the-obsidian-pulse"
+    },
+    "/music/tracks/enchantra/temple-of-pulsefire/": {
+      "albumId": "enchantra",
+      "trackId": "temple-of-pulsefire"
+    },
+    "/music/tracks/enchantra/ash-and-embers/": {
+      "albumId": "enchantra",
+      "trackId": "ash-and-embers"
+    },
+    "/music/tracks/enchantra/citadel/": {
+      "albumId": "enchantra",
+      "trackId": "citadel"
+    },
+    "/music/tracks/enchantra/neon-glyph-surge/": {
+      "albumId": "enchantra",
+      "trackId": "neon-glyph-surge"
+    },
+    "/music/tracks/enchantra/aurora-drift/": {
+      "albumId": "enchantra",
+      "trackId": "aurora-drift"
+    },
+    "/music/tracks/enchantra/core-implosion-protocol/": {
+      "albumId": "enchantra",
+      "trackId": "core-implosion-protocol"
+    },
+    "/music/tracks/enchantra/streamlight-override/": {
+      "albumId": "enchantra",
+      "trackId": "streamlight-override"
+    },
+    "/music/tracks/enchantra/turbo-transmission/": {
+      "albumId": "enchantra",
+      "trackId": "turbo-transmission"
+    },
+    "/music/tracks/enchantra/neon-relic/": {
+      "albumId": "enchantra",
+      "trackId": "neon-relic"
+    },
+    "/music/tracks/enchantra/sunspike-horizon/": {
+      "albumId": "enchantra",
+      "trackId": "sunspike-horizon"
+    },
+    "/music/tracks/enchantra/speedlight-rituals/": {
+      "albumId": "enchantra",
+      "trackId": "speedlight-rituals"
+    },
+    "/music/tracks/enchantra/final-pulse-of-the-dawnbreaker/": {
+      "albumId": "enchantra",
+      "trackId": "final-pulse-of-the-dawnbreaker"
+    },
+    "/music/tracks/enchantra2/the-celestial-vein-awakens-intro/": {
+      "albumId": "enchantra2",
+      "trackId": "the-celestial-vein-awakens-intro"
+    },
+    "/music/tracks/enchantra2/solar-gate-invocation/": {
+      "albumId": "enchantra2",
+      "trackId": "solar-gate-invocation"
+    },
+    "/music/tracks/enchantra2/celestial-gateway/": {
+      "albumId": "enchantra2",
+      "trackId": "celestial-gateway"
+    },
+    "/music/tracks/enchantra2/temple-of-auroras/": {
+      "albumId": "enchantra2",
+      "trackId": "temple-of-auroras"
+    },
+    "/music/tracks/enchantra2/seraphim-circuit-eclipse/": {
+      "albumId": "enchantra2",
+      "trackId": "seraphim-circuit-eclipse"
+    },
+    "/music/tracks/enchantra2/starglyph-transmission/": {
+      "albumId": "enchantra2",
+      "trackId": "starglyph-transmission"
+    },
+    "/music/tracks/enchantra2/the-frequency-oracle/": {
+      "albumId": "enchantra2",
+      "trackId": "the-frequency-oracle"
+    },
+    "/music/tracks/enchantra2/godspeakers-of-the-void/": {
+      "albumId": "enchantra2",
+      "trackId": "godspeakers-of-the-void"
+    },
+    "/music/tracks/enchantra2/sirens-of-harmonic-collapse/": {
+      "albumId": "enchantra2",
+      "trackId": "sirens-of-harmonic-collapse"
+    },
+    "/music/tracks/enchantra2/pulse-of-the-infinite-shore/": {
+      "albumId": "enchantra2",
+      "trackId": "pulse-of-the-infinite-shore"
+    },
+    "/music/tracks/enchantra2/echoes-of-the-aetherwind/": {
+      "albumId": "enchantra2",
+      "trackId": "echoes-of-the-aetherwind"
+    },
+    "/music/tracks/enchantra2/beneath-the-stardust-horizon/": {
+      "albumId": "enchantra2",
+      "trackId": "beneath-the-stardust-horizon"
+    },
+    "/music/tracks/angelicresonance/angelic-entrance-intro/": {
+      "albumId": "angelicresonance",
+      "trackId": "angelic-entrance-intro"
+    },
+    "/music/tracks/angelicresonance/gates-of-the-eternal-sky/": {
+      "albumId": "angelicresonance",
+      "trackId": "gates-of-the-eternal-sky"
+    },
+    "/music/tracks/angelicresonance/radiant-throne/": {
+      "albumId": "angelicresonance",
+      "trackId": "radiant-throne"
+    },
+    "/music/tracks/angelicresonance/angel-frequency/": {
+      "albumId": "angelicresonance",
+      "trackId": "angel-frequency"
+    },
+    "/music/tracks/angelicresonance/sky-cathedral/": {
+      "albumId": "angelicresonance",
+      "trackId": "sky-cathedral"
+    },
+    "/music/tracks/angelicresonance/trinitas/": {
+      "albumId": "angelicresonance",
+      "trackId": "trinitas"
+    },
+    "/music/tracks/angelicresonance/aether-wings/": {
+      "albumId": "angelicresonance",
+      "trackId": "aether-wings"
+    },
+    "/music/tracks/angelicresonance/empyrean-signal/": {
+      "albumId": "angelicresonance",
+      "trackId": "empyrean-signal"
+    },
+    "/music/tracks/angelicresonance/skyveil/": {
+      "albumId": "angelicresonance",
+      "trackId": "skyveil"
+    },
+    "/music/tracks/angelicresonance/mirrors-of-light/": {
+      "albumId": "angelicresonance",
+      "trackId": "mirrors-of-light"
+    },
+    "/music/tracks/angelicresonance/wingspan/": {
+      "albumId": "angelicresonance",
+      "trackId": "wingspan"
+    },
+    "/music/tracks/angelicresonance/heavens-eternal/": {
+      "albumId": "angelicresonance",
+      "trackId": "heavens-eternal"
+    },
+    "/music/tracks/angelicresonance/thronefire/": {
+      "albumId": "angelicresonance",
+      "trackId": "thronefire"
+    },
+    "/music/tracks/angelicresonance/breath-of-the-spirit/": {
+      "albumId": "angelicresonance",
+      "trackId": "breath-of-the-spirit"
+    },
+    "/music/tracks/angelicresonance/covenant-aurora/": {
+      "albumId": "angelicresonance",
+      "trackId": "covenant-aurora"
+    },
+    "/music/tracks/the-quiet-war-2/quiet-war-overture/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "quiet-war-overture"
+    },
+    "/music/tracks/the-quiet-war-2/firewall-baptism/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "firewall-baptism"
+    },
+    "/music/tracks/the-quiet-war-2/shadow-syntax/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "shadow-syntax"
+    },
+    "/music/tracks/the-quiet-war-2/panic-translation/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "panic-translation"
+    },
+    "/music/tracks/the-quiet-war-2/scrambled-saints/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "scrambled-saints"
+    },
+    "/music/tracks/the-quiet-war-2/faultline-language/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "faultline-language"
+    },
+    "/music/tracks/the-quiet-war-2/memoir-in-static/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "memoir-in-static"
+    },
+    "/music/tracks/the-quiet-war-2/ashes-and-blueprints/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "ashes-and-blueprints"
+    },
+    "/music/tracks/the-quiet-war-2/blue-collar-prophecy/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "blue-collar-prophecy"
+    },
+    "/music/tracks/the-quiet-war-2/never-done/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "never-done"
+    },
+    "/music/tracks/the-quiet-war-2/glass-house-the-mirror-ii/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "glass-house-the-mirror-ii"
+    },
+    "/music/tracks/the-quiet-war-2/answered-unanswered-call-to-god-ii/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "answered-unanswered-call-to-god-ii"
+    },
+    "/music/tracks/the-quiet-war-2/ghost-notes/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "ghost-notes"
+    },
+    "/music/tracks/the-quiet-war-2/redemption/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "redemption"
+    },
+    "/music/tracks/the-quiet-war-2/end-of-transmission/": {
+      "albumId": "the-quiet-war-2",
+      "trackId": "end-of-transmission"
+    },
+    "/music/tracks/neon-ascension/portal-sequence-intro/": {
+      "albumId": "neon-ascension",
+      "trackId": "portal-sequence-intro"
+    },
+    "/music/tracks/neon-ascension/sonic-pilgrimage/": {
+      "albumId": "neon-ascension",
+      "trackId": "sonic-pilgrimage"
+    },
+    "/music/tracks/neon-ascension/starlit-velocity/": {
+      "albumId": "neon-ascension",
+      "trackId": "starlit-velocity"
+    },
+    "/music/tracks/neon-ascension/crystal-synthesis/": {
+      "albumId": "neon-ascension",
+      "trackId": "crystal-synthesis"
+    },
+    "/music/tracks/neon-ascension/luminous-equinox/": {
+      "albumId": "neon-ascension",
+      "trackId": "luminous-equinox"
+    },
+    "/music/tracks/neon-ascension/halcyon-surge/": {
+      "albumId": "neon-ascension",
+      "trackId": "halcyon-surge"
+    },
+    "/music/tracks/neon-ascension/echoes-of-time/": {
+      "albumId": "neon-ascension",
+      "trackId": "echoes-of-time"
+    },
+    "/music/tracks/neon-ascension/distorted-travels/": {
+      "albumId": "neon-ascension",
+      "trackId": "distorted-travels"
+    },
+    "/music/tracks/neon-ascension/temporal-drift/": {
+      "albumId": "neon-ascension",
+      "trackId": "temporal-drift"
+    },
+    "/music/tracks/neon-ascension/mirage-in-motion/": {
+      "albumId": "neon-ascension",
+      "trackId": "mirage-in-motion"
+    },
+    "/music/tracks/neon-ascension/twisted-realm/": {
+      "albumId": "neon-ascension",
+      "trackId": "twisted-realm"
+    },
+    "/music/tracks/neon-ascension/prism-resonance/": {
+      "albumId": "neon-ascension",
+      "trackId": "prism-resonance"
+    },
+    "/music/tracks/neon-ascension/aurora-in-retrograde/": {
+      "albumId": "neon-ascension",
+      "trackId": "aurora-in-retrograde"
+    },
+    "/music/tracks/neon-ascension/terminal-arrival/": {
+      "albumId": "neon-ascension",
+      "trackId": "terminal-arrival"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/light-up-the-weekend/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "light-up-the-weekend"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/red-white-and-country-strong/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "red-white-and-country-strong"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/born-to-ride-free/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "born-to-ride-free"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/stars-across-the-water/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "stars-across-the-water"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/where-the-brave-still-stand/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "where-the-brave-still-stand"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/where-we-belong-tonight/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "where-we-belong-tonight"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/fireworks-and-freedom/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "fireworks-and-freedom"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/born-for-the-red-white-and-blue/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "born-for-the-red-white-and-blue"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/raise-that-flag/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "raise-that-flag"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/living-free-in-america/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "living-free-in-america"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/home-beneath-the-stars/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "home-beneath-the-stars"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/american-firelight/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "american-firelight"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/run-the-red-white-and-blue/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "run-the-red-white-and-blue"
+    },
+    "/music/tracks/american-firestorm-songs-of-freedom/land-that-i-love/": {
+      "albumId": "american-firestorm-songs-of-freedom",
+      "trackId": "land-that-i-love"
+    }
+  }
+}

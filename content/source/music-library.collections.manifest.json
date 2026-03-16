@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "authorityId": "music",
+  "authoritativeSource": "content/source/music-library.authoritative.json",
+  "collections": [
+    {
+      "id": "albums",
+      "sourcePointer": "albums",
+      "entityKey": "id",
+      "canonicalPathBuilder": "albumCanonicalPath(id)",
+      "futureSplitPattern": "content/source/music/albums/<album-id>.json",
+      "generatedEntityArtifact": "content/generated/music-library.entities.json#albumsById",
+      "generatedLookupArtifact": "js/generated/music-library.lookup.js#albumsById",
+      "controllerConsumers": ["js/album.js", "js/track.js", "js/music.js", "js/search-page.js"]
+    },
+    {
+      "id": "tracks",
+      "derivedFrom": "albums[].tracks + albums[].lyrics",
+      "entityKey": "albumId:trackId",
+      "canonicalPathBuilder": "trackCanonicalPath(albumId, trackId)",
+      "futureSplitPattern": "content/source/music/tracks/<album-id>/<track-id>.json",
+      "generatedEntityArtifact": "content/generated/music-library.entities.json#trackCatalog",
+      "generatedLookupArtifact": "js/generated/music-library.lookup.js#tracksByAlbumAndId",
+      "controllerConsumers": ["js/track.js", "js/search-page.js"]
+    }
+  ]
+}

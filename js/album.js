@@ -1,9 +1,9 @@
 // js/album.js — Album detail page controller (ESM)
-// - Supports canonical folder routes and legacy query templates.
-// - Renders album meta + tracklist from js/data.js.
+// - Supports canonical folder routes and legacy query templates while preferring generated resolver ownership.
+// - Renders album meta + tracklist from generated-controller ownership plus music page helpers.
 // - Updates head/meta and injects JSON-LD (runtime) for correctness.
 
-import * as MusicData from './data.js';
+import { resolveAlbumControllerRecord } from './music-catalog-resolvers.js';
 import { sanitizeTrackId } from './utils.js';
 import { SITE_ORIGIN, getAlbumId, albumCanonicalAbs, albumCanonicalPath, trackCanonicalPath, trackCanonicalAbs } from './routes.js';
 import { applyAlbumCoverVariants } from './variants.js';
@@ -25,13 +25,6 @@ import {
 const DEFAULT_ART = '/assets/images/placeholder-album.webp';
 
 const norm = (s) => asString(s).toLowerCase();
-
-function pickAlbums(mod) {
-  if (Array.isArray(mod?.albums)) return mod.albums;
-  if (Array.isArray(mod?.default?.albums)) return mod.default.albums;
-  if (Array.isArray(mod?.ALBUMS)) return mod.ALBUMS;
-  return [];
-}
 
 function asString(v) {
   return typeof v === 'string' ? v.trim() : '';
@@ -739,14 +732,14 @@ function renderTracklist(album, albumId) {
 function main() {
   setBusy(true);
 
-  const albums = pickAlbums(MusicData);
   const albumId = getAlbumId();
   if (!albumId) {
     renderNotFound('Missing album id.');
     return;
   }
 
-  const album = albums.find((a) => asString(a?.id) === albumId) || albums.find((a) => asString(a?.slug) === albumId) || null;
+  const albumRecord = resolveAlbumControllerRecord(albumId);
+  const album = albumRecord?.album || null;
   if (!album) {
     renderNotFound(`Album not found: ${albumId}`);
     return;

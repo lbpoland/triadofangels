@@ -1,9 +1,9 @@
 // js/track.js — Track detail page controller (ESM)
-// - Supports canonical folder routes and legacy query templates.
-// - Renders track meta + lyrics/story/BTS/video from js/data.js.
+// - Supports canonical folder routes and legacy query templates while preferring generated resolver ownership.
+// - Renders track meta + lyrics/story/BTS/video from generated-controller ownership plus music page helpers.
 // - Updates head/meta and injects JSON-LD (runtime) for correctness.
 
-import * as MusicData from './data.js';
+import { resolveTrackControllerRecord } from './music-catalog-resolvers.js';
 import { sanitizeTrackId } from './utils.js';
 import {
 getTrackIds,
@@ -118,13 +118,6 @@ function hideIfEmpty(elm) {
   if (!elm) return;
   const t = (elm.textContent || '').trim();
   elm.hidden = !t;
-}
-
-function pickAlbums(mod) {
-  if (Array.isArray(mod?.albums)) return mod.albums;
-  if (Array.isArray(mod?.default?.albums)) return mod.default.albums;
-  if (Array.isArray(mod?.ALBUMS)) return mod.ALBUMS;
-  return [];
 }
 
 function asString(v) {
@@ -758,16 +751,16 @@ async function main() {
     return;
   }
 
-  const albums = pickAlbums(MusicData);
-  const album = albums.find((a) => asString(a?.id) === albumId) || albums.find((a) => asString(a?.slug) === albumId) || null;
+  const trackRecord = resolveTrackControllerRecord(albumId, trackId);
+  const album = trackRecord?.album || null;
   if (!album) {
     renderNotFound(`Album not found: ${albumId}`);
     return;
   }
 
-  const tracks = normalizeTracks(album);
-  const current = tracks.find((t) => t.id === trackId) || null;
-  const trackIndex = tracks.findIndex((t) => t.id === trackId);
+  const tracks = Array.isArray(trackRecord?.compactTracks) && trackRecord.compactTracks.length ? trackRecord.compactTracks : normalizeTracks(album);
+  const current = trackRecord?.track || tracks.find((t) => t.id === trackId) || null;
+  const trackIndex = typeof trackRecord?.trackIndex === 'number' && trackRecord.trackIndex >= 0 ? trackRecord.trackIndex : tracks.findIndex((t) => t.id === trackId);
   const trackNumLabel = trackIndex >= 0 ? ('Track ' + String(trackIndex + 1).padStart(2, '0')) : 'Track';
   const trackTitle = asString(current?.title) || trackId;
 

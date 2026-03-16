@@ -281,7 +281,7 @@ html[data-perf="low"] {
 
 .album-page #album-snapshot .detail-glance__actions .btn,
 .album-page #album-routes .detail-glance__actions .btn {
-  min-width: max-content;
+  min-width: 0;
 }
 
 @media (max-width: 768px) {

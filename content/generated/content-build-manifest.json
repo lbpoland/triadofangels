@@ -1,0 +1,244 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "builder": "tools/toa-content-build.mjs",
+  "sources": [
+    {
+      "id": "music-authoritative",
+      "file": "content/source/music-library.authoritative.json",
+      "sha256": "49c93e92d604b28f8047fe289b23629c7992a2fac9e55b76805fb88ede880417",
+      "counts": {
+        "albums": 18,
+        "tracks": 233
+      }
+    },
+    {
+      "id": "publishing-authoritative",
+      "file": "content/source/publishing-library.authoritative.json",
+      "sha256": "b7dfb3c8cd55f1aa1c793dddb229e5f6a5f50b48ea332a522e321c5d3b5cee00",
+      "counts": {
+        "sagas": 1,
+        "series": 1,
+        "books": 3
+      }
+    },
+    {
+      "id": "music-collections-manifest",
+      "file": "content/source/music-library.collections.manifest.json",
+      "sha256": "16ead6baaff1a7544d804f9564f2336b03565915d371439b1dffb90d8e374c65",
+      "counts": {
+        "collections": 2
+      }
+    },
+    {
+      "id": "publishing-collections-manifest",
+      "file": "content/source/publishing-library.collections.manifest.json",
+      "sha256": "e23451339fb1ce2cddf06a3288534b3c48b8b39a5e7497304fc1602540211f86",
+      "counts": {
+        "collections": 3
+      }
+    },
+    {
+      "id": "music-collection-input-manifest",
+      "file": "content/source/music/collection-inputs.manifest.json",
+      "sha256": "e3fe1eddc5c63b89c27ef87b9746bb6f39f60747c0092256df26c67ef49121a3",
+      "counts": {
+        "inputs": 2
+      }
+    },
+    {
+      "id": "publishing-collection-input-manifest",
+      "file": "content/source/publishing/collection-inputs.manifest.json",
+      "sha256": "21caee5e03184eba1bedc923185b979780e2a16296ce22f5296e0cf0d4a84990",
+      "counts": {
+        "inputs": 3
+      }
+    },
+    {
+      "id": "music-entry-manifest:albums",
+      "file": "content/source/music/albums/entries.manifest.json",
+      "sha256": "659cd44938b9226837cda092a975f94a047c0c855e1e0f8b2414ecdf3fda6657",
+      "counts": {
+        "declaredEntries": 0
+      }
+    },
+    {
+      "id": "music-entry-manifest:tracks",
+      "file": "content/source/music/tracks/entries.manifest.json",
+      "sha256": "b7e2ffa69b4fffb5011dbbe1f6504478bcc18ab92503534f184accb9f8497233",
+      "counts": {
+        "declaredEntries": 0
+      }
+    },
+    {
+      "id": "publishing-entry-manifest:sagas",
+      "file": "content/source/publishing/sagas/entries.manifest.json",
+      "sha256": "6b06256d9866e16f4d686069d358f3011839fcdd2750b960e69b5813e357459f",
+      "counts": {
+        "declaredEntries": 0
+      }
+    },
+    {
+      "id": "publishing-entry-manifest:series",
+      "file": "content/source/publishing/series/entries.manifest.json",
+      "sha256": "f1fad95f8d265733468251fe3a42a4f9bf07575d059db78f14d4ae9dc5730c2c",
+      "counts": {
+        "declaredEntries": 0
+      }
+    },
+    {
+      "id": "publishing-entry-manifest:books",
+      "file": "content/source/publishing/books/entries.manifest.json",
+      "sha256": "b8596b812e4ecc10fa181438011d229f9617861b413359f88b46ed97e3ec878e",
+      "counts": {
+        "declaredEntries": 0
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "file": "js/generated/music-library.data.js",
+      "sha256": "fd65eab073ead376d0e9319009de580f5731199729fc2b3bf2fd3b510f857976",
+      "bytes": 84872
+    },
+    {
+      "file": "js/generated/publishing-library.data.js",
+      "sha256": "7101d14c01b47a2e394947cb21565903a077c4df1cda4c4016320769a578af8d",
+      "bytes": 7046
+    },
+    {
+      "file": "js/generated/site-search.data.js",
+      "sha256": "0f0a33253315d65eb2781b20c4110f078fa085fca02642a4c71f0ce4bb744585",
+      "bytes": 508726
+    },
+    {
+      "file": "content/generated/search-runtime-contract.json",
+      "sha256": "204dbf1d45d3064ee5afbf47a495eef955853cf631b9f32a66da827692ff7ae7",
+      "bytes": 419378
+    },
+    {
+      "file": "content/generated/catalog.consumer-adoption.json",
+      "sha256": "5e36eceefbb007e4faaa94d9d6538cae34c3917952d1b7079d1e2d3970b3bd2c",
+      "bytes": 227938
+    },
+    {
+      "file": "content/generated/catalog.route-validation.json",
+      "sha256": "d1679dbfb9117e996d81bf4b6098f6ad025793a49d804309a8402b06c0cfeb11",
+      "bytes": 135739
+    },
+    {
+      "file": "js/generated/music-library.indexes.js",
+      "sha256": "4d1bd0a58915c540ae8e8814ffe50de412833b421df3094a7e884526c9da91cb",
+      "bytes": 46484
+    },
+    {
+      "file": "js/generated/publishing-library.indexes.js",
+      "sha256": "9279bc07d857d63dcbbf14630623fe1cd8c119b28cb49ec0465c9a788e455085",
+      "bytes": 1199
+    },
+    {
+      "file": "js/generated/music-library.lookup.js",
+      "sha256": "34d808c3def56847111d3ce7c34cc8b7307d2db266b7f509c28538a89626c2f9",
+      "bytes": 511844
+    },
+    {
+      "file": "js/generated/publishing-library.lookup.js",
+      "sha256": "a390ff2facf15cdc4e25570ac9e7243d70fa3796f6799c6daacd7d9767d9a428",
+      "bytes": 4500
+    },
+    {
+      "file": "content/generated/music-library.snapshot.json",
+      "sha256": "bd1358b62dd4fe88d4c01ccfbc4baa5163ab16ac44da7785a79181eab4b30a6a",
+      "bytes": 99629
+    },
+    {
+      "file": "content/generated/publishing-library.snapshot.json",
+      "sha256": "ed6f07dac44b7585dad08714ceec5ea47ab995513431845e94a0d8c724f42c9a",
+      "bytes": 4611
+    },
+    {
+      "file": "content/generated/catalog.index.json",
+      "sha256": "72ccfab0a202abafcd993349e7b17683286430becea53e1e6993416527166478",
+      "bytes": 2768
+    },
+    {
+      "file": "content/generated/music-library.entities.json",
+      "sha256": "984a2a5fc628454925aeae656dd05f54239271b1d188e51516be63b655782fc3",
+      "bytes": 261509
+    },
+    {
+      "file": "content/generated/music-library.relations.json",
+      "sha256": "c90f68af76d8f6a5687a819cff6388f93c7b0fef4f0de704cba46960ad478ea6",
+      "bytes": 61796
+    },
+    {
+      "file": "content/generated/publishing-library.entities.json",
+      "sha256": "8b6a91bc945e259f7c66adca6de9f081900aed4a493b872900e78a23672b2286",
+      "bytes": 2577
+    },
+    {
+      "file": "content/generated/publishing-library.relations.json",
+      "sha256": "a4d287b4876a4e72231ef56c69821091ab7021b471427befcbc48e65848d8c21",
+      "bytes": 1400
+    },
+    {
+      "file": "content/generated/catalog.route-ownership.json",
+      "sha256": "d43449ac7f2333684cd04c725254bae4a7e81f38f3c0d3e00cbfb081d538105c",
+      "bytes": 451211
+    },
+    {
+      "file": "content/generated/source-collections.index.json",
+      "sha256": "0f8b9cc8278ed3a50e9bfba12d2aaf82e9ad10f65c86ae598c909d92e8ea2b1d",
+      "bytes": 3482
+    },
+    {
+      "file": "content/generated/source-collection-readiness.json",
+      "sha256": "f3570af6449419af61ce4e766baa71f17606b0c28c729fb4143fd804fff15274",
+      "bytes": 1331
+    },
+    {
+      "file": "content/generated/source-collection-build-inputs.json",
+      "sha256": "a6920d3fe6f4ca839a158c238a578616cface2e9f00677c979c6c927e7075a76",
+      "bytes": 3290
+    },
+    {
+      "file": "content/generated/source-authority.index.json",
+      "sha256": "2434e36ee7f4dc3d07a4129626cf682070d094044aaa792e6de2f402c0d8f81c",
+      "bytes": 3834
+    },
+    {
+      "file": "content/generated/source-collection-entry-manifests.json",
+      "sha256": "532d7a81424d8830f2611e156d49cdededd979a72edbd6a8ca3e5a8e94d657fd",
+      "bytes": 1267
+    },
+    {
+      "file": "content/generated/catalog.controller-contracts.json",
+      "sha256": "76f81b305bee9679ecc1ed76850de635b4f8464f7028e9a548a6ff77161e5eef",
+      "bytes": 300646
+    },
+    {
+      "file": "content/generated/content-authority-report.json",
+      "sha256": "fd3668b4e7cf9fa0425d77e2d3ce4e8c0bda9387078ce21a7017dfe9e8be0a3b",
+      "bytes": 421926
+    },
+    {
+      "file": "content/generated/source-collection-consumption.json",
+      "sha256": "223444cf753c70fafae6a00a5c2156143e3aa6a937f37e4bbb5cba0450b49367",
+      "bytes": 2151
+    },
+    {
+      "file": "content/generated/source-collection-entry-consumption.json",
+      "sha256": "919694c422386918cbf0527d777044ddc3b068131649fbc949211af9d65e97a1",
+      "bytes": 15099
+    },
+    {
+      "file": "content/generated/source-collection-authority-readiness.json",
+      "sha256": "b3010dcf6cc842ebfbb73063a33de8a49b661775ead66da83f6034f5c28c6146",
+      "bytes": 5528
+    },
+    {
+      "file": "reports/closeout/architecture-elevation-closeout-summary.json",
+      "sha256": "b07fb815530995d1d51b2ea965f6915d246af814074204f2f3f390b84de888ec",
+      "bytes": 8054
+    }
+  ]
+}

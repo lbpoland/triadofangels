@@ -1,0 +1,430 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "mode": "authoritative-json-primary_with_optional-collection-entry-consumption_and_entry-manifest-governance",
+  "authorities": {
+    "music": [
+      {
+        "collectionId": "albums",
+        "inputMode": "collection-aware-manifest",
+        "builderConsumption": "optional-stub-dir",
+        "plannedInputDir": "content/source/music/albums",
+        "entryManifestFile": "content/source/music/albums/entries.manifest.json",
+        "entryManifestPresent": true,
+        "manifestDeclaredEntryCount": 0,
+        "manifestDeclaredEntryFiles": [],
+        "manifestMissingDiscoveredFiles": [],
+        "discoveredUndeclaredFiles": [],
+        "duplicateManifestDeclaredEntries": [],
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        },
+        "readinessStatus": "ready",
+        "entries": []
+      },
+      {
+        "collectionId": "tracks",
+        "inputMode": "derived-collection-manifest",
+        "builderConsumption": "optional-stub-dir",
+        "plannedInputDir": "content/source/music/tracks",
+        "entryManifestFile": "content/source/music/tracks/entries.manifest.json",
+        "entryManifestPresent": true,
+        "manifestDeclaredEntryCount": 0,
+        "manifestDeclaredEntryFiles": [],
+        "manifestMissingDiscoveredFiles": [],
+        "discoveredUndeclaredFiles": [],
+        "duplicateManifestDeclaredEntries": [],
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        },
+        "readinessStatus": "ready",
+        "entries": []
+      }
+    ],
+    "publishing": [
+      {
+        "collectionId": "sagas",
+        "inputMode": "collection-aware-manifest",
+        "builderConsumption": "optional-stub-dir",
+        "plannedInputDir": "content/source/publishing/sagas",
+        "entryManifestFile": "content/source/publishing/sagas/entries.manifest.json",
+        "entryManifestPresent": true,
+        "manifestDeclaredEntryCount": 0,
+        "manifestDeclaredEntryFiles": [],
+        "manifestMissingDiscoveredFiles": [],
+        "discoveredUndeclaredFiles": [],
+        "duplicateManifestDeclaredEntries": [],
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        },
+        "readinessStatus": "ready",
+        "entries": []
+      },
+      {
+        "collectionId": "series",
+        "inputMode": "collection-aware-manifest",
+        "builderConsumption": "optional-stub-dir",
+        "plannedInputDir": "content/source/publishing/series",
+        "entryManifestFile": "content/source/publishing/series/entries.manifest.json",
+        "entryManifestPresent": true,
+        "manifestDeclaredEntryCount": 0,
+        "manifestDeclaredEntryFiles": [],
+        "manifestMissingDiscoveredFiles": [],
+        "discoveredUndeclaredFiles": [],
+        "duplicateManifestDeclaredEntries": [],
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        },
+        "readinessStatus": "ready",
+        "entries": []
+      },
+      {
+        "collectionId": "books",
+        "inputMode": "collection-aware-manifest",
+        "builderConsumption": "optional-stub-dir",
+        "plannedInputDir": "content/source/publishing/books",
+        "entryManifestFile": "content/source/publishing/books/entries.manifest.json",
+        "entryManifestPresent": true,
+        "manifestDeclaredEntryCount": 0,
+        "manifestDeclaredEntryFiles": [],
+        "manifestMissingDiscoveredFiles": [],
+        "discoveredUndeclaredFiles": [],
+        "duplicateManifestDeclaredEntries": [],
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        },
+        "readinessStatus": "ready",
+        "entries": []
+      }
+    ]
+  },
+  "summary": {
+    "discoveredEntryCount": 0,
+    "manifestDeclaredEntryCount": 0,
+    "unmatchedEntryCount": 0,
+    "mismatchWarningCount": 0,
+    "matchedCleanlyCount": 0,
+    "manifestMissingDiscoveredCount": 0,
+    "discoveredUndeclaredCount": 0,
+    "mismatchClassCounts": {
+      "manifest_declared_but_missing": 0,
+      "discovered_not_declared": 0,
+      "duplicate_manifest_entry": 0,
+      "unsupported_entry_shape": 0,
+      "authority_id_mismatch": 0,
+      "authority_canonical_path_mismatch": 0,
+      "authority_album_id_mismatch": 0,
+      "invalid_entry": 0,
+      "unmatched_authority": 0
+    },
+    "authorityRollups": {
+      "music": {
+        "collectionCount": 2,
+        "readyCollections": 2,
+        "attentionCollections": 0,
+        "discoveredEntryCount": 0,
+        "manifestDeclaredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedEntryCount": 0,
+        "mismatchWarningCount": 0,
+        "cleanMatchRatio": 1,
+        "unresolvedEntryRatio": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        },
+        "divergenceCounts": {
+          "manifestDeclaredButMissing": 0,
+          "discoveredNotDeclared": 0,
+          "duplicateManifestEntries": 0
+        },
+        "declaredDiscoveredDivergence": {
+          "manifestDeclared": 0,
+          "discovered": 0,
+          "delta": 0,
+          "absDelta": 0,
+          "direction": "aligned",
+          "class": "aligned"
+        },
+        "readinessStatus": "ready",
+        "mismatchSeverity": "clean",
+        "severityDistribution": {
+          "clean": 1,
+          "attention": 0,
+          "critical": 0
+        },
+        "readinessDistribution": {
+          "ready": 1,
+          "attention_required": 0
+        },
+        "dominantMismatchClass": "none",
+        "dominantMismatchFamily": "none",
+        "comparisonUsefulness": "high",
+        "comparisonReasonCodes": [
+          "authority_ready"
+        ],
+        "comparisonNotes": "Authority comparison is clean and suitable for future normalized collection work.",
+        "unresolvedEntryRatioPct": 0,
+        "cleanMatchRatioPct": 100
+      },
+      "publishing": {
+        "collectionCount": 3,
+        "readyCollections": 3,
+        "attentionCollections": 0,
+        "discoveredEntryCount": 0,
+        "manifestDeclaredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedEntryCount": 0,
+        "mismatchWarningCount": 0,
+        "cleanMatchRatio": 1,
+        "unresolvedEntryRatio": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        },
+        "divergenceCounts": {
+          "manifestDeclaredButMissing": 0,
+          "discoveredNotDeclared": 0,
+          "duplicateManifestEntries": 0
+        },
+        "declaredDiscoveredDivergence": {
+          "manifestDeclared": 0,
+          "discovered": 0,
+          "delta": 0,
+          "absDelta": 0,
+          "direction": "aligned",
+          "class": "aligned"
+        },
+        "readinessStatus": "ready",
+        "mismatchSeverity": "clean",
+        "severityDistribution": {
+          "clean": 1,
+          "attention": 0,
+          "critical": 0
+        },
+        "readinessDistribution": {
+          "ready": 1,
+          "attention_required": 0
+        },
+        "dominantMismatchClass": "none",
+        "dominantMismatchFamily": "none",
+        "comparisonUsefulness": "high",
+        "comparisonReasonCodes": [
+          "authority_ready"
+        ],
+        "comparisonNotes": "Authority comparison is clean and suitable for future normalized collection work.",
+        "unresolvedEntryRatioPct": 0,
+        "cleanMatchRatioPct": 100
+      }
+    },
+    "collectionReadinessSummaries": {
+      "albums": {
+        "collectionId": "albums",
+        "readinessStatus": "ready",
+        "mismatchSeverity": "clean",
+        "declaredDiscoveredDivergenceClass": "aligned",
+        "cleanMatchRatio": 1,
+        "unresolvedEntryRatio": 0,
+        "declaredEntryCount": 0,
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        }
+      },
+      "tracks": {
+        "collectionId": "tracks",
+        "readinessStatus": "ready",
+        "mismatchSeverity": "clean",
+        "declaredDiscoveredDivergenceClass": "aligned",
+        "cleanMatchRatio": 1,
+        "unresolvedEntryRatio": 0,
+        "declaredEntryCount": 0,
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        }
+      },
+      "sagas": {
+        "collectionId": "sagas",
+        "readinessStatus": "ready",
+        "mismatchSeverity": "clean",
+        "declaredDiscoveredDivergenceClass": "aligned",
+        "cleanMatchRatio": 1,
+        "unresolvedEntryRatio": 0,
+        "declaredEntryCount": 0,
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        }
+      },
+      "series": {
+        "collectionId": "series",
+        "readinessStatus": "ready",
+        "mismatchSeverity": "clean",
+        "declaredDiscoveredDivergenceClass": "aligned",
+        "cleanMatchRatio": 1,
+        "unresolvedEntryRatio": 0,
+        "declaredEntryCount": 0,
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        }
+      },
+      "books": {
+        "collectionId": "books",
+        "readinessStatus": "ready",
+        "mismatchSeverity": "clean",
+        "declaredDiscoveredDivergenceClass": "aligned",
+        "cleanMatchRatio": 1,
+        "unresolvedEntryRatio": 0,
+        "declaredEntryCount": 0,
+        "discoveredEntryCount": 0,
+        "matchedCleanlyCount": 0,
+        "unmatchedCount": 0,
+        "mismatchClassCounts": {
+          "manifest_declared_but_missing": 0,
+          "discovered_not_declared": 0,
+          "duplicate_manifest_entry": 0,
+          "unsupported_entry_shape": 0,
+          "authority_id_mismatch": 0,
+          "authority_canonical_path_mismatch": 0,
+          "authority_album_id_mismatch": 0,
+          "invalid_entry": 0,
+          "unmatched_authority": 0
+        }
+      }
+    },
+    "readinessStatus": "ready"
+  },
+  "governance": {
+    "policyVersion": "2026-03-15-pass15",
+    "comparisonMode": "authoritative-json-primary_with_optional-entry-comparison_and_manifest-governance",
+    "mismatchDiagnostics": [
+      "authority_id_mismatch",
+      "authority_canonical_path_mismatch",
+      "authority_album_id_mismatch",
+      "unsupported_entry_shape",
+      "manifest_declared_but_missing",
+      "discovered_not_declared",
+      "duplicate_manifest_entry",
+      "invalid_entry",
+      "unmatched_authority"
+    ],
+    "readinessDiagnostics": [
+      "cleanMatchRatio",
+      "unresolvedEntryRatio",
+      "declaredDiscoveredDivergenceClass",
+      "mismatchSeverity",
+      "dominantMismatchClass"
+    ]
+  },
+  "nextSafeTarget": "Allow optional collection entry files to participate in governed comparison with richer mismatch classes, per-collection readiness summaries, and future split diagnostics before any authoritative split."
+}

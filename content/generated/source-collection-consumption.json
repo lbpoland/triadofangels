@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "mode": "authoritative-json-primary_with_collection-aware-stubs",
+  "authorities": {
+    "music": {
+      "manifestFile": "content/source/music/collection-inputs.manifest.json",
+      "collectionRoot": "content/source/music",
+      "inputs": [
+        {
+          "collectionId": "albums",
+          "inputMode": "collection-aware-manifest",
+          "builderConsumption": "optional-stub-dir",
+          "plannedInputDir": "content/source/music/albums",
+          "plannedInputDirExists": true,
+          "discoveredJsonEntries": []
+        },
+        {
+          "collectionId": "tracks",
+          "inputMode": "derived-collection-manifest",
+          "builderConsumption": "optional-stub-dir",
+          "plannedInputDir": "content/source/music/tracks",
+          "plannedInputDirExists": true,
+          "discoveredJsonEntries": []
+        }
+      ]
+    },
+    "publishing": {
+      "manifestFile": "content/source/publishing/collection-inputs.manifest.json",
+      "collectionRoot": "content/source/publishing",
+      "inputs": [
+        {
+          "collectionId": "sagas",
+          "inputMode": "collection-aware-manifest",
+          "builderConsumption": "optional-stub-dir",
+          "plannedInputDir": "content/source/publishing/sagas",
+          "plannedInputDirExists": true,
+          "discoveredJsonEntries": []
+        },
+        {
+          "collectionId": "series",
+          "inputMode": "collection-aware-manifest",
+          "builderConsumption": "optional-stub-dir",
+          "plannedInputDir": "content/source/publishing/series",
+          "plannedInputDirExists": true,
+          "discoveredJsonEntries": []
+        },
+        {
+          "collectionId": "books",
+          "inputMode": "collection-aware-manifest",
+          "builderConsumption": "optional-stub-dir",
+          "plannedInputDir": "content/source/publishing/books",
+          "plannedInputDirExists": true,
+          "discoveredJsonEntries": []
+        }
+      ]
+    }
+  },
+  "nextSafeTarget": "Adopt optional collection stub directories as real builder inputs before any full authoritative source split."
+}

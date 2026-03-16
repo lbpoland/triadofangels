@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "authorityId": "publishing",
+  "authoritativeSource": "content/source/publishing-library.authoritative.json",
+  "collections": [
+    {
+      "id": "sagas",
+      "sourcePointer": "sagas",
+      "entityKey": "id",
+      "canonicalPathBuilder": "canonicalPath",
+      "futureSplitPattern": "content/source/publishing/sagas/<saga-id>.json",
+      "generatedEntityArtifact": "content/generated/publishing-library.entities.json#sagasById",
+      "generatedLookupArtifact": "js/generated/publishing-library.lookup.js#sagasById",
+      "controllerConsumers": ["js/saga.js", "js/series.js", "js/book.js"]
+    },
+    {
+      "id": "series",
+      "sourcePointer": "series",
+      "entityKey": "id",
+      "canonicalPathBuilder": "canonicalPath",
+      "futureSplitPattern": "content/source/publishing/series/<series-id>.json",
+      "generatedEntityArtifact": "content/generated/publishing-library.entities.json#seriesById",
+      "generatedLookupArtifact": "js/generated/publishing-library.lookup.js#seriesById",
+      "controllerConsumers": ["js/series.js", "js/book.js", "js/saga.js"]
+    },
+    {
+      "id": "books",
+      "sourcePointer": "books",
+      "entityKey": "id",
+      "canonicalPathBuilder": "canonicalPath || bookCanonicalPath(id)",
+      "futureSplitPattern": "content/source/publishing/books/<book-id>.json",
+      "generatedEntityArtifact": "content/generated/publishing-library.entities.json#booksById",
+      "generatedLookupArtifact": "js/generated/publishing-library.lookup.js#booksById",
+      "controllerConsumers": ["js/book.js", "js/series.js", "js/saga.js", "js/search-page.js"]
+    }
+  ]
+}

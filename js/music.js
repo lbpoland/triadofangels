@@ -1,8 +1,9 @@
 // js/music.js — Music library page controller (ESM)
-// Renders the album catalog from js/data.js with fast filtering + stable layout.
+// Renders the album catalog from generated runtime artifacts with fast filtering + stable layout.
 // No unsafe HTML injection; everything is created via DOM APIs.
 
-import { albums, buildAlbumTrackList, inferAlbumBuckets, toAbsoluteSiteUrl, parseApproxDate } from './data.js';
+import { albums } from './generated/music-library.data.js';
+import { buildAlbumTrackList, inferAlbumBuckets, toAbsoluteSiteUrl, parseApproxDate } from './music-page-helpers.js';
 import { albumCanonicalPath, trackCanonicalPath } from './routes.js';
 import { applyAlbumCoverVariants, loadAlbumVariantManifest } from './variants.js';
 

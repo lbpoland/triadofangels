@@ -1,7 +1,8 @@
 // js/saga.js — Saga hub renderer (ESM)
-// Truth-locked: renders only what exists in js/publishing-data.js.
+// Truth-locked: renders only what exists in generated controller ownership plus publishing page helpers.
 
-import { sagas, series, books } from './publishing-data.js?v=5';
+import { resolveSagaControllerRecord } from './publishing-catalog-resolvers.js';
+import { detectAmazonRegion } from './publishing-page-helpers.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -9,41 +10,6 @@ const asString = (v) => (typeof v === 'string' ? v.trim() : '');
 
 const normalize = (v) => asString(v).toLowerCase();
 
-
-const detectAmazonRegion = (availableKeys) => {
-  const keys = new Set((availableKeys || []).map((k) => String(k || '').trim().toUpperCase()).filter(Boolean));
-  if (!keys.size) return 'US';
-
-  const lang = (() => { try { return String(navigator.language || navigator.userLanguage || '').trim(); } catch { return ''; } })();
-  const upper = lang.toUpperCase();
-  const tz = (() => { try { return String(Intl.DateTimeFormat().resolvedOptions().timeZone || '').trim(); } catch { return ''; } })();
-
-  const candidates = [];
-
-  // Language-region hints (best effort; deterministic; no geo IP)
-  const m = /-([A-Z]{2})\b/.exec(upper);
-  if (m && m[1]) candidates.push(m[1]);
-
-  // Timezone heuristics
-  if (/AUSTRALIA|SYDNEY|MELBOURNE|BRISBANE|PERTH/i.test(tz)) candidates.push('AU');
-  if (/EUROPE\/LONDON/i.test(tz)) candidates.push('UK');
-  if (/EUROPE\/BERLIN/i.test(tz)) candidates.push('DE');
-  if (/EUROPE\/PARIS/i.test(tz)) candidates.push('FR');
-  if (/EUROPE\/MADRID/i.test(tz)) candidates.push('ES');
-  if (/EUROPE\/ROME/i.test(tz)) candidates.push('IT');
-  if (/AMERICA\/TORONTO/i.test(tz)) candidates.push('CA');
-  if (/ASIA\/TOKYO/i.test(tz)) candidates.push('JP');
-  if (/ASIA\/KOLKATA/i.test(tz)) candidates.push('IN');
-
-  for (const c of candidates) {
-    if (keys.has(c)) return c;
-  }
-
-  if (keys.has('AU')) return 'AU';
-  if (keys.has('US')) return 'US';
-
-  return Array.from(keys).sort((a,b)=>a.localeCompare(b))[0];
-};
 
 const amazonRegionalEntries = (stores) => {
   const ar = stores && typeof stores === 'object' ? stores.amazonRegional : null;
@@ -209,8 +175,9 @@ const init = () => {
   wireRegionStores();
 
   const sagaId = document.body?.dataset?.sagaId ? asString(document.body.dataset.sagaId) : '';
-  const saga = sagas.find((s) => s.id === sagaId);
-  if (!saga) return;
+  const context = resolveSagaControllerRecord(sagaId);
+  if (!context) return;
+  const saga = context.saga;
 
   const title = saga.title || saga.id;
   const heroTitle = $('saga-title');
@@ -222,13 +189,11 @@ const init = () => {
   const heroArt = document.getElementById('saga-hero-art');
   if (heroArt && saga?.art?.wide) heroArt.style.backgroundImage = `url('${saga.art.wide}')`;
 
-  const relatedSeries = series
-    .filter((s) => s.sagaId === sagaId)
+  const relatedSeries = context.series
     .slice()
     .sort((a, b) => String(a.title || '').localeCompare(String(b.title || '')));
 
-  const relatedBooks = books
-    .filter((b) => normalize(b.sagaId || '') === normalize(sagaId))
+  const relatedBooks = context.books
     .slice()
     .sort((a, b) => (Number(a.seriesNumber || 9999) - Number(b.seriesNumber || 9999)) || String(a.title || '').localeCompare(String(b.title || '')));
 
@@ -280,7 +245,7 @@ const init = () => {
 
         const meta = document.createElement('span');
         meta.className = 'series-card__meta';
-        const count = books.filter((b) => b.seriesId === s.id).length;
+        const count = getBooksForSagaRecords(sagaId).filter((b) => b.seriesId === s.id).length;
         meta.textContent = count ? `${count} volume${count === 1 ? '' : 's'}` : 'Volumes listed soon';
 
         card.appendChild(kicker);
@@ -293,7 +258,7 @@ const init = () => {
   }
 
 
-  const vols = books
+  const vols = getBooksForSagaRecords(sagaId)
     .filter((b) => b.sagaId === sagaId)
     .slice()
     .sort((a, b) => (Number(a.seriesNumber) || 999) - (Number(b.seriesNumber) || 999));

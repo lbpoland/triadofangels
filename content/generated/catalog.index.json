@@ -1,0 +1,104 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "sources": [
+    "content/source/music-library.authoritative.json",
+    "content/source/publishing-library.authoritative.json"
+  ],
+  "artifacts": [
+    {
+      "id": "music-authoritative",
+      "file": "content/source/music-library.authoritative.json",
+      "count": 18
+    },
+    {
+      "id": "publishing-authoritative",
+      "file": "content/source/publishing-library.authoritative.json",
+      "count": 3
+    },
+    {
+      "id": "music-library",
+      "file": "content/generated/music-library.snapshot.json",
+      "count": 18
+    },
+    {
+      "id": "music-entities",
+      "file": "content/generated/music-library.entities.json",
+      "count": 251
+    },
+    {
+      "id": "publishing-library",
+      "file": "content/generated/publishing-library.snapshot.json",
+      "count": 3
+    },
+    {
+      "id": "publishing-entities",
+      "file": "content/generated/publishing-library.entities.json",
+      "count": 5
+    },
+    {
+      "id": "music-relations",
+      "file": "content/generated/music-library.relations.json",
+      "count": 233
+    },
+    {
+      "id": "publishing-relations",
+      "file": "content/generated/publishing-library.relations.json",
+      "count": 3
+    },
+    {
+      "id": "catalog-route-ownership",
+      "file": "content/generated/catalog.route-ownership.json",
+      "count": 256
+    },
+    {
+      "id": "source-collections-index",
+      "file": "content/generated/source-collections.index.json",
+      "count": 2
+    },
+    {
+      "id": "source-collection-readiness",
+      "file": "content/generated/source-collection-readiness.json",
+      "count": 2
+    },
+    {
+      "id": "source-collection-build-inputs",
+      "file": "content/generated/source-collection-build-inputs.json",
+      "count": 2
+    },
+    {
+      "id": "source-collection-entry-consumption",
+      "file": "content/generated/source-collection-entry-consumption.json",
+      "count": 2
+    },
+    {
+      "id": "source-collection-entry-manifests",
+      "file": "content/generated/source-collection-entry-manifests.json",
+      "count": 2
+    },
+    {
+      "id": "site-search-runtime",
+      "file": "js/generated/site-search.data.js",
+      "count": 254
+    },
+    {
+      "id": "search-runtime-contract",
+      "file": "content/generated/search-runtime-contract.json",
+      "count": 4
+    },
+    {
+      "id": "source-authority-index",
+      "file": "content/generated/source-authority.index.json",
+      "count": 2
+    },
+    {
+      "id": "controller-contracts",
+      "file": "content/generated/catalog.controller-contracts.json",
+      "count": 2
+    },
+    {
+      "id": "content-authority-report",
+      "file": "content/generated/content-authority-report.json",
+      "count": 5
+    }
+  ]
+}

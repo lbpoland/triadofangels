@@ -11,6 +11,7 @@
 // CSP-safe: no inline scripts, no eval, no inline handlers.
 
 import { albums } from './data.js';
+import { applyStreamFinderHistoryState, applyStreamFinderRenderedState, applyStreamFinderScopeSelectionRuntimeState, buildStreamFinderIndex, clearAndFocusStreamFinderRuntimeState, handleStreamFinderEscapeRuntimeState, syncStreamFinderFromUrlState } from './finder-runtime-helpers.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -407,80 +408,17 @@ function initStreamFinder() {
   const scopeButtons = $$('[data-stream-scope]', section);
   let scope = 'all';
 
-  const normalizeScope = (s) => {
-    const v = safeText(s).toLowerCase();
-    if (v === 'triad' || v === 'toa' || v === 'social') return v;
-    return 'all';
-  };
-
-  const setScopePressed = () => {
-    scopeButtons.forEach((b) => {
-      b.setAttribute('aria-pressed', (safeText(b.getAttribute('data-stream-scope')) === scope) ? 'true' : 'false');
-    });
-  };
-
-  const buildIndex = () => {
-    const cards = $$('.stream-card', grid);
-    return cards.map((card) => {
-      const cardScope = safeText(card.getAttribute('data-stream-scope') || card.id).toLowerCase();
-      const list = $('.stream-links', card);
-
-      const items = list ? $$('.stream-item', list) : [];
-      const anchors = list ? $$('a', list).filter((a) => !a.closest('.stream-item')) : [];
-
-      const units = items.length ? items : anchors;
-
-      const unitObjs = units.map((u) => {
-        const hay = items.length
-          ? safeText(u.dataset.search).toLowerCase()
-          : `${safeText(u.textContent)} ${safeText(u.getAttribute && u.getAttribute('href'))}`.toLowerCase();
-        return { el: u, hay };
-      });
-
-      return { card, cardScope, units: unitObjs };
-    });
-  };
-
-  let index = buildIndex();
+  let index = buildStreamFinderIndex(grid);
 
   // -----------------------------------------
   // URL state (q + scope) — no tracking
   // -----------------------------------------
-  const readUrlState = () => {
-    try {
-      const params = new URLSearchParams(window.location.search || '');
-      const q = safeText(params.get('q') || '');
-      const s = normalizeScope(params.get('scope') || 'all');
-      return { q, scope: s };
-    } catch {
-      return { q: '', scope: 'all' };
-    }
-  };
-
-  const writeUrlState = (q, nextScope) => {
-    try {
-      const params = new URLSearchParams(window.location.search || '');
-      const cleanQ = safeText(q);
-      const cleanScope = normalizeScope(nextScope);
-
-      if (cleanQ) params.set('q', cleanQ);
-      else params.delete('q');
-
-      if (cleanScope && cleanScope !== 'all') params.set('scope', cleanScope);
-      else params.delete('scope');
-
-      const qs = params.toString();
-      const next = qs ? `${window.location.pathname}?${qs}${window.location.hash || ''}` : `${window.location.pathname}${window.location.hash || ''}`;
-      history.replaceState(null, '', next);
-    } catch {}
-  };
-
   let urlRaf = 0;
   const scheduleUrlWrite = (q, nextScope) => {
     if (urlRaf) return;
     urlRaf = requestAnimationFrame(() => {
       urlRaf = 0;
-      writeUrlState(q, nextScope);
+      applyStreamFinderHistoryState({ historyObj: window.history, locationObj: window.location, query: q, scope: nextScope });
     });
   };
 
@@ -488,56 +426,12 @@ function initStreamFinder() {
   // Apply filter
   // -----------------------------------------
   const apply = () => {
-    const q = safeText(input.value).toLowerCase();
-    const hasQ = Boolean(q);
-
     // Keep index fresh if enhancement ran after init.
     // (Streaming boot order runs enhancement first, but this is defensive.)
-    if (!index || !index.length) index = buildIndex();
+    if (!index || !index.length) index = buildStreamFinderIndex(grid);
 
-    let shownCards = 0;
-    let shownLinks = 0;
-
-    index.forEach((entry) => {
-      const { card, cardScope, units } = entry;
-      const scopeOk = (scope === 'all') || (cardScope === scope);
-
-      if (!scopeOk) {
-        card.hidden = true;
-        return;
-      }
-
-      let any = false;
-
-      units.forEach((u) => {
-        const match = !hasQ || u.hay.includes(q);
-        u.el.hidden = !match;
-        if (match) {
-          any = true;
-          shownLinks += 1;
-        }
-      });
-
-      const showCard = !hasQ || any;
-      card.hidden = !showCard;
-      if (showCard) shownCards += 1;
-    });
-
-    // Clear button only when there is something to clear.
-    if (clearBtn) clearBtn.hidden = !hasQ;
-
-    if (status) {
-      const scopeLabel = scope === 'all' ? 'All' : (scope === 'toa' ? 'ToA Studios' : (scope === 'triad' ? 'Triad' : 'Social'));
-      if (!hasQ) {
-        status.textContent = `Showing all ${shownLinks} verified links across ${shownCards} sections (Scope: ${scopeLabel}).`;
-      } else if (shownLinks === 0) {
-        status.textContent = `No matches (Scope: ${scopeLabel}).`;
-      } else {
-        status.textContent = `${shownLinks} matches across ${shownCards} sections (Scope: ${scopeLabel}).`;
-      }
-    }
-
-    if (empty) empty.hidden = shownLinks !== 0;
+    const finderState = applyStreamFinderRenderedState(index, { inputEl: input, buttons: scopeButtons, clearBtn, statusEl: status, emptyEl: empty, query: input.value, scope });
+    scope = finderState.scope;
 
     scheduleUrlWrite(input.value, scope);
   };
@@ -547,25 +441,24 @@ function initStreamFinder() {
   // -----------------------------------------
   scopeButtons.forEach((b) => {
     b.addEventListener('click', () => {
-      scope = normalizeScope(b.getAttribute('data-stream-scope'));
-      setScopePressed();
-      apply();
+      const nextState = applyStreamFinderScopeSelectionRuntimeState({ buttonEl: b, index, inputEl: input, buttons: scopeButtons, clearBtn, statusEl: status, emptyEl: empty, scope });
+      scope = nextState.scope;
+      scheduleUrlWrite(input.value, scope);
     });
   });
 
   const reset = () => {
     scope = 'all';
-    setScopePressed();
-    input.value = '';
-    input.focus();
-    apply();
+    const nextState = clearAndFocusStreamFinderRuntimeState({ index, inputEl: input, buttons: scopeButtons, clearBtn, statusEl: status, emptyEl: empty, scope });
+    scope = nextState.scope;
+    scheduleUrlWrite('', scope);
   };
 
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
-      input.value = '';
-      input.focus();
-      apply();
+      const nextState = clearAndFocusStreamFinderRuntimeState({ index, inputEl: input, buttons: scopeButtons, clearBtn, statusEl: status, emptyEl: empty, scope });
+      scope = nextState.scope;
+      scheduleUrlWrite('', scope);
     });
   }
 
@@ -580,11 +473,11 @@ function initStreamFinder() {
   // - "/" focuses the finder when not typing elsewhere
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      const v = safeText(input.value);
-      if (v) {
+      const nextState = handleStreamFinderEscapeRuntimeState({ index, inputEl: input, buttons: scopeButtons, clearBtn, statusEl: status, emptyEl: empty, scope });
+      if (nextState.cleared) {
         e.preventDefault();
-        input.value = '';
-        apply();
+        scope = nextState.scope;
+        scheduleUrlWrite('', scope);
       }
     }
   });
@@ -604,11 +497,8 @@ function initStreamFinder() {
 
   // Initialize from URL (deep-linking) and support back/forward.
   const initFromUrl = () => {
-    const st = readUrlState();
-    input.value = st.q;
-    scope = st.scope;
-    setScopePressed();
-    apply();
+    const nextState = syncStreamFinderFromUrlState({ index, inputEl: input, buttons: scopeButtons, clearBtn, statusEl: status, emptyEl: empty, search: window.location.search || '' });
+    scope = nextState.scope;
   };
 
   window.addEventListener('popstate', initFromUrl, { passive: true });

@@ -36,8 +36,9 @@
         })
         .map(({ album }) => album);
 
+      const featuredAlbums = ordered.slice(0, 8);
       const frag = document.createDocumentFragment();
-      for (const album of ordered) {
+      for (const album of featuredAlbums) {
         const article = document.createElement('article');
         article.className = 'album-block';
 
@@ -55,24 +56,30 @@
         img.height = 1080;
         link.appendChild(img);
 
+        const info = document.createElement('div');
+        info.className = 'album-info';
+
         const title = document.createElement('h3');
-        title.className = 'album-block__title';
+        title.className = 'album-title album-block__title';
         title.textContent = album.title;
 
         const meta = document.createElement('p');
+        meta.className = 'album-meta';
         meta.textContent = `${album.genre} — ${album.artist}`;
 
         const year = document.createElement('p');
+        year.className = 'album-meta';
         const y = extractYear(album);
         year.textContent = y ? `Release Year ${y}` : 'Release Year TBA';
 
-        article.append(link, title, meta, year);
+        info.append(title, meta, year);
+        article.append(link, info);
         frag.appendChild(article);
       }
 
       track.replaceChildren(frag);
       try { window.dispatchEvent(new Event('resize')); } catch {}
-      return ordered.length;
+      return featuredAlbums.length;
     } catch (error) {
       console.warn('Home albums rail render skipped:', error);
       return count('.featured-albums-carousel .album-block');

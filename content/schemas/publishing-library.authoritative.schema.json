@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TOA publishing library authoritative source",
+  "type": "object",
+  "required": ["schemaVersion", "sagas", "series", "books"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "generatedFrom": { "type": "array", "items": { "type": "string" } },
+    "generatedAt": { "type": "string" },
+    "sagas": { "type": "array" },
+    "series": { "type": "array" },
+    "books": { "type": "array" }
+  }
+}

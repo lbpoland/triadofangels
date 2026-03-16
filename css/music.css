@@ -53,7 +53,7 @@
 .music-search { flex: 1 1 360px; min-width: 220px; }
 .music-sort { flex: 0 0 auto; min-width: 200px; }
 .music-reset { flex: 0 0 auto; }
-.music-reset .btn { border-radius: 14px; }
+.music-reset .btn { border-radius: 999px; }
 
 /* Mobile-first filter select (replaces chip row ≤768) */
 .music-filter-select {
@@ -178,93 +178,6 @@
 }
 
 
-/* =========================================================
-   HOME — FEATURED ALBUMS CAROUSEL (mobile-first)
-   ========================================================= */
-
-.index-page .featured-albums-carousel { position: relative; }
-
-.index-page .featured-albums-carousel .album-nav-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin: 14px 0 0;
-}
-
-.index-page .featured-albums-carousel .album-nav-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 42px;
-  width: 42px;
-  border-radius: 999px;
-  border: 1px solid rgba(var(--accent-rgb), 0.22);
-  background: var(--panel);
-  color: var(--accent);
-  box-shadow: var(--shadow-soft);
-  cursor: pointer;
-  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, opacity 160ms ease;
-  touch-action: manipulation;
-}
-
-.index-page .featured-albums-carousel .album-nav-button:hover,
-.index-page .featured-albums-carousel .album-nav-button:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 3px;
-  background: rgba(var(--accent-rgb), 0.10);
-  border-color: rgba(var(--accent-rgb), 0.34);
-  transform: translateY(-1px);
-}
-
-.index-page .featured-albums-carousel .album-nav-button[disabled] {
-  opacity: 0.45;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.index-page .featured-albums-carousel .album-nav-button .glyph {
-  font-size: 18px;
-  line-height: 1;
-}
-
-.index-page .featured-albums-carousel .album-track {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 18px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 18px 0 8px;
-  margin: 0;
-  max-width: none;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(var(--accent-rgb), 0.6) var(--panel);
-}
-
-.index-page .featured-albums-carousel .album-track::-webkit-scrollbar { height: 8px; }
-
-.index-page .featured-albums-carousel .album-track::-webkit-scrollbar-track {
-  background: var(--panel);
-  border-radius: 999px;
-}
-
-.index-page .featured-albums-carousel .album-track::-webkit-scrollbar-thumb {
-  background: rgba(var(--accent-rgb), 0.55);
-  border-radius: 999px;
-}
-
-.index-page .featured-albums-carousel .album-track:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 6px;
-}
-
-.index-page .featured-albums-carousel .album-block {
-  flex: 0 0 auto;
-  width: clamp(240px, 78vw, 320px);
-  scroll-snap-align: start;
-}
 
 
 /* =========================================================
@@ -311,16 +224,7 @@
 }
 
 
-/* Wave V10-39 — home/music continuity polish */
-.index-page .hero-signal-row {
-  max-width: 1120px;
-}
-
-.index-page .hero-signal__value {
-  max-width: 20ch;
-}
-
-.index-page #home-continuity .support-strip,
+/* Wave V10-39 — music continuity polish */
 .music-page #music-signals .support-strip,
 .music-page #music-spotlight,
 .music-page #music-proof .support-strip {
@@ -336,14 +240,10 @@
 }
 
 .music-page #music-spotlight .feature-spotlight__actions .cta-button {
-  min-width: max-content;
+  min-width: 0;
 }
 
 @media (max-width: 768px) {
-  .index-page .hero-signal-row {
-    margin-top: 16px;
-  }
-
   .music-page #music-spotlight .feature-spotlight__actions {
     flex-direction: column;
   }
@@ -373,114 +273,3 @@
 }
 
 
-/* =========================================================
-   Final visual/system unification — homepage rails
-   Make album/video rails use one stable layout and control model.
-   ========================================================= */
-.index-page .featured-albums-carousel > .album-nav-buttons:empty {
-  display: none !important;
-}
-
-.index-page .featured-albums-carousel,
-.index-page .index-video-carousel-container {
-  position: relative;
-}
-
-.index-page .featured-albums-carousel .album-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: clamp(236px, 24vw, 292px);
-  gap: clamp(14px, 1.5vw, 20px);
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 12px clamp(12px, 2vw, 18px) 18px;
-  scroll-padding-inline: clamp(12px, 2vw, 18px);
-  scroll-snap-type: x mandatory;
-}
-
-.index-page .featured-albums-carousel .album-block {
-  width: min(100%, 292px);
-  max-width: 292px;
-  min-width: 0;
-  display: grid;
-  align-content: start;
-  gap: 0;
-}
-
-.index-page .featured-albums-carousel .album-block p {
-  margin: 6px 0 0;
-}
-
-.index-page .index-video-carousel {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: clamp(300px, 42vw, 480px);
-  gap: clamp(16px, 1.6vw, 22px);
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 12px clamp(12px, 2vw, 18px) 18px;
-  scroll-padding-inline: clamp(12px, 2vw, 18px);
-  scroll-snap-type: x mandatory;
-}
-
-.index-page .index-video-item {
-  width: min(100%, 480px);
-  min-width: 0;
-  padding: 0;
-}
-
-.index-page .carousel-nav-buttons--overlay {
-  position: absolute;
-  inset-inline: 0;
-  inset-block: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-inline: clamp(6px, 1.5vw, 18px);
-  margin: 0;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.index-page .carousel-nav-buttons--overlay .carousel-nav-button,
-.index-page .carousel-nav-buttons--overlay .album-nav-button,
-.index-page .carousel-nav-buttons--overlay .index-video-nav-button {
-  pointer-events: auto;
-}
-
-.index-page .carousel-nav-buttons--overlay .carousel-nav-button,
-.index-page .carousel-nav-buttons--overlay .album-nav-button,
-.index-page .carousel-nav-buttons--overlay .index-video-nav-button {
-  background: color-mix(in srgb, var(--panel) 78%, rgba(0,0,0,0.18));
-  border: 1px solid rgba(var(--accent-rgb), 0.18);
-}
-
-@media (min-width: 769px) {
-  .index-page .featured-albums-carousel .carousel-nav-buttons--overlay,
-  .index-page .index-video-carousel-container .carousel-nav-buttons--overlay {
-    inset-inline: -10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .index-page .featured-albums-carousel .album-track {
-    grid-auto-columns: minmax(min(74vw, 258px), 1fr);
-    padding-inline: 12px;
-    scroll-padding-inline: 12px;
-  }
-
-  .index-page .index-video-carousel {
-    grid-auto-columns: minmax(min(86vw, 360px), 1fr);
-    padding-inline: 12px;
-    scroll-padding-inline: 12px;
-  }
-
-  .index-page .carousel-nav-buttons--overlay {
-    position: static;
-    justify-content: center;
-    padding-inline: 0;
-    margin-top: 14px;
-    opacity: 1;
-    transform: none;
-  }
-}

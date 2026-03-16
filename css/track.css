@@ -280,7 +280,7 @@ body.track-page::before {
 
 .track-page #track-snapshot .detail-glance__actions .btn,
 .track-page #track-routes .detail-glance__actions .btn {
-  min-width: max-content;
+  min-width: 0;
 }
 
 @media (max-width: 768px) {

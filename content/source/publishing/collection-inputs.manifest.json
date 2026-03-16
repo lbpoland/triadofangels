@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "authorityId": "publishing",
+  "sourceCollectionsManifest": "content/source/publishing-library.collections.manifest.json",
+  "collectionRoot": "content/source/publishing",
+  "inputs": [
+    {
+      "collectionId": "sagas",
+      "inputMode": "collection-aware-manifest",
+      "currentAuthorityPointer": "content/source/publishing-library.authoritative.json#sagas",
+      "plannedInputDir": "content/source/publishing/sagas",
+      "entityKey": "id",
+      "canonicalKey": "canonicalPath",
+      "routeOwner": "publishing.saga",
+      "stubEntryPattern": "content/source/publishing/sagas/<saga-id>.json",
+      "builderConsumption": "optional-stub-dir"
+    },
+    {
+      "collectionId": "series",
+      "inputMode": "collection-aware-manifest",
+      "currentAuthorityPointer": "content/source/publishing-library.authoritative.json#series",
+      "plannedInputDir": "content/source/publishing/series",
+      "entityKey": "id",
+      "canonicalKey": "canonicalPath",
+      "routeOwner": "publishing.series",
+      "stubEntryPattern": "content/source/publishing/series/<series-id>.json",
+      "builderConsumption": "optional-stub-dir"
+    },
+    {
+      "collectionId": "books",
+      "inputMode": "collection-aware-manifest",
+      "currentAuthorityPointer": "content/source/publishing-library.authoritative.json#books",
+      "plannedInputDir": "content/source/publishing/books",
+      "entityKey": "id",
+      "canonicalKey": "canonicalPath",
+      "routeOwner": "publishing.book",
+      "stubEntryPattern": "content/source/publishing/books/<book-id>.json",
+      "builderConsumption": "optional-stub-dir"
+    }
+  ],
+  "builderConsumptionMode": "authoritative-json-primary_with_collection-aware-stubs"
+}

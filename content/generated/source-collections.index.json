@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "sources": {
+    "music": {
+      "manifest": "content/source/music-library.collections.manifest.json",
+      "inputManifest": "content/source/music/collection-inputs.manifest.json",
+      "authoritative": "content/source/music-library.authoritative.json"
+    },
+    "publishing": {
+      "manifest": "content/source/publishing-library.collections.manifest.json",
+      "inputManifest": "content/source/publishing/collection-inputs.manifest.json",
+      "authoritative": "content/source/publishing-library.authoritative.json"
+    }
+  },
+  "collections": {
+    "music": [
+      {
+        "id": "albums",
+        "sourcePointer": "albums",
+        "entityKey": "id",
+        "canonicalPathBuilder": "albumCanonicalPath(id)",
+        "futureSplitPattern": "content/source/music/albums/<album-id>.json",
+        "generatedEntityArtifact": "content/generated/music-library.entities.json#albumsById",
+        "generatedLookupArtifact": "js/generated/music-library.lookup.js#albumsById",
+        "controllerConsumers": [
+          "js/album.js",
+          "js/track.js",
+          "js/music.js",
+          "js/search-page.js"
+        ]
+      },
+      {
+        "id": "tracks",
+        "derivedFrom": "albums[].tracks + albums[].lyrics",
+        "entityKey": "albumId:trackId",
+        "canonicalPathBuilder": "trackCanonicalPath(albumId, trackId)",
+        "futureSplitPattern": "content/source/music/tracks/<album-id>/<track-id>.json",
+        "generatedEntityArtifact": "content/generated/music-library.entities.json#trackCatalog",
+        "generatedLookupArtifact": "js/generated/music-library.lookup.js#tracksByAlbumAndId",
+        "controllerConsumers": [
+          "js/track.js",
+          "js/search-page.js"
+        ]
+      }
+    ],
+    "publishing": [
+      {
+        "id": "sagas",
+        "sourcePointer": "sagas",
+        "entityKey": "id",
+        "canonicalPathBuilder": "canonicalPath",
+        "futureSplitPattern": "content/source/publishing/sagas/<saga-id>.json",
+        "generatedEntityArtifact": "content/generated/publishing-library.entities.json#sagasById",
+        "generatedLookupArtifact": "js/generated/publishing-library.lookup.js#sagasById",
+        "controllerConsumers": [
+          "js/saga.js",
+          "js/series.js",
+          "js/book.js"
+        ]
+      },
+      {
+        "id": "series",
+        "sourcePointer": "series",
+        "entityKey": "id",
+        "canonicalPathBuilder": "canonicalPath",
+        "futureSplitPattern": "content/source/publishing/series/<series-id>.json",
+        "generatedEntityArtifact": "content/generated/publishing-library.entities.json#seriesById",
+        "generatedLookupArtifact": "js/generated/publishing-library.lookup.js#seriesById",
+        "controllerConsumers": [
+          "js/series.js",
+          "js/book.js",
+          "js/saga.js"
+        ]
+      },
+      {
+        "id": "books",
+        "sourcePointer": "books",
+        "entityKey": "id",
+        "canonicalPathBuilder": "canonicalPath || bookCanonicalPath(id)",
+        "futureSplitPattern": "content/source/publishing/books/<book-id>.json",
+        "generatedEntityArtifact": "content/generated/publishing-library.entities.json#booksById",
+        "generatedLookupArtifact": "js/generated/publishing-library.lookup.js#booksById",
+        "controllerConsumers": [
+          "js/book.js",
+          "js/series.js",
+          "js/saga.js",
+          "js/search-page.js"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,816 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+/* =========================================================
+   Hero Banner Art-Direction Overrides (Wave MW-AB)
+   - Same hero banner asset across pages
+   - Each pillar can nudge focal point for better composition + readability
+   ========================================================= */
+body.index-page { --hero-banner-object-position: 50% 30%; }
+body.about-page { --hero-banner-object-position: 50% 38%; }
+body.games-page { --hero-banner-object-position: 50% 28%; }
+body.apps-page { --hero-banner-object-position: 50% 36%; }
+body.merch-page { --hero-banner-object-position: 50% 35%; }
+body.publishing-page { --hero-banner-object-position: 50% 34%; }
+body.contact-page { --hero-banner-object-position: 50% 40%; }
+body.digital-store-page { --hero-banner-object-position: 50% 33%; }
+body.privacy-page { --hero-banner-object-position: 50% 34%; }
+body.terms-page { --hero-banner-object-position: 50% 34%; }
+body.error-page { --hero-banner-object-position: 50% 34%; }
+body.music-page { --hero-banner-object-position: 50% 32%; }
+body.videos-page { --hero-banner-object-position: 50% 28%; }
+body.streaming-page { --hero-banner-object-position: 50% 31%; }
+body.lyrics-page { --hero-banner-object-position: 50% 30%; }
+body.search-page { --hero-banner-object-position: 50% 30%; }
+body.album-page { --hero-banner-object-position: 50% 30%; }
+body.track-page { --hero-banner-object-position: 50% 30%; }
+body.book-page { --hero-banner-object-position: 50% 30%; }
+
+:root {
+    --font-body: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    --font-display: 'Orbitron', 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+/* =========================================================
+   Platform Icons — Official Pack (Rendered as Images)
+   Purpose:
+   - Cross-browser reliability (no CSS mask dependency)
+   - Still theme-aware via variable swapping in Light theme
+   - All assets derived from TOA_PLATFORM_ICONS_PACK__2026-03-02_v2
+   ========================================================= */
+--icon-youtube: url("/assets/icons/official/youtube.png?v=20260302");
+--icon-facebook: url("/assets/icons/official/facebook.png?v=20260302");
+--icon-apple-music: url("/assets/icons/official/apple-music.png?v=20260302");
+--icon-linktree: url("/assets/icons/official/linktree.png?v=20260302");
+
+/* Dark/ToA default uses white variants for black-only marks */
+--icon-spotify: url("/assets/icons/official/spotify-white.png?v=20260302");
+--icon-x: url("/assets/icons/official/x-white.png?v=20260302");
+--icon-instagram: url("/assets/icons/official/instagram-white.png?v=20260302");
+--icon-tiktok: url("/assets/icons/official/tiktok-white.png?v=20260302");
+
+    /* Platforms not included in current official pack (fallbacks until assets are provided) */
+
+    /* =========================================================
+       Wave V — Theme System + Responsive Tier Lock
+       - Themes: toa (brand), dark (neutral), light (daylight studio)
+       - Adds semantic tokens so every component can render correctly
+         in every theme without hard-coded color literals.
+       ========================================================= */
+    --brand-gold: #f1c40f;
+    --brand-gold-rgb: 241, 196, 15;
+    --brand-cyan: #15c9fa;
+    --brand-cyan-rgb: 21, 201, 250;
+    --brand-indigo: #1737c9;
+    --brand-indigo-rgb: 23, 55, 201;
+    --brand-violet: #5b2a8c;
+    --brand-violet-rgb: 91, 42, 140;
+
+    /* Focus & interactive glow (theme-driven)
+       - focus is an actual color (used for outlines)
+       - focus-rgb exists so we can build gradients/overlays without hard-coding palette literals */
+    --focus-rgb: 21, 201, 250;
+
+    /* Focus ring contract (centralized)
+       - Use vars so every component uses the same geometry.
+       - Forced-colors overrides these vars to system colors automatically. */
+    --focus-outline: 2px solid var(--focus);
+    --focus-outline-offset: 3px;
+    --focus-outline-offset-tight: 2px;
+    --focus-outline-offset-loose: 6px;
+
+    /* Hero system tokens (theme-driven)
+       - title uses accent but can be stylized per theme
+       - overlay is used by banner heroes to keep imagery readable
+       - lead shadow is a tiny readability lift for ToA/Dark; disabled in Light */
+    --hero-title-color: var(--accent);
+    --hero-title-shadow: none;
+    --hero-lead-shadow: none;
+    --hero-banner-overlay:
+      radial-gradient(1200px 520px at 18% 22%, rgba(var(--accent-rgb), 0.18), rgba(var(--accent-rgb), 0) 60%),
+      radial-gradient(1100px 520px at 82% 28%, rgba(var(--focus-rgb), 0.12), rgba(var(--focus-rgb), 0) 60%),
+      linear-gradient(to bottom, rgba(var(--bg-rgb), 0.26), rgba(var(--bg-rgb), 0.90));
+
+    /* Embedded media chrome (lite-youtube, iframes) */
+    --video-shell-bg: var(--surface-2);
+
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+    /* Header height contract (single source of truth)
+       - Used by body padding reservation, sticky stacking, hub panel placement, and scroll-padding.
+       - Edit here to change the fixed header height across all tiers (media queries may override). */
+    --header-h: 72px;
+    /* Blur tokens (performance-gated)
+       - All glass surfaces reference these vars (nav menus, JumpNav, toast, FAB).
+       - Gated off for low-end tiers + reduced transparency/motion.
+    */
+    --blur-sm: blur(6px);
+    --blur-md: blur(10px);
+    --blur-lg: blur(14px);
+    --surface-blur: var(--blur-md);
+    --scrim-blur: blur(2px);
+
+    /* Sticky stacking tokens (header + optional sticky bars)
+       - header is anchored at 84px (platform contract) + safe-top
+       - sticky-stack-top is used by page-specific sticky systems (e.g., Music filters) */
+    --sticky-top: calc(var(--header-h) + var(--safe-top));
+    --sticky-stack-top: var(--sticky-top);
+
+    /* =========================================================
+       Wave V8 — Z-Index Governance Tokens
+       Purpose:
+       - One source of truth for stacking layers.
+       - Prevent regressions where a page-specific component accidentally sits above menus.
+       - Make future dropdowns/popovers predictable across every page + media tier.
+       Notes:
+       - Negative layers are reserved for ambience/underlays only.
+       - Sticky utility bars should stay BELOW the fixed header.
+       - Overlays (Nav Hub, scrims) must always be above all content.
+       ========================================================= */
+    --z-ambient: -2;          /* ambience backgrounds */
+    --z-underlay: -1;         /* underlay gradients */
+    --z-base: 0;              /* normal content */
+    --z-raised: 1;            /* raised content */
+    --z-over: 2;              /* above raised */
+
+    --z-sticky: 5000;         /* sticky utility surfaces (below header) */
+
+    --z-header: 20000;        /* fixed site header */
+    --z-overlay-backdrop: 20010; /* overlay click-out layers */
+    --z-overlay-panel: 20020; /* overlay panels (Nav Hub) */
+    --z-popover: 21000;       /* dropdowns/popovers that must float above content */
+    --z-skip-link: 22000;     /* always reachable via keyboard */
+
+    /* Scrim / overlay (theme-driven) */
+    --scrim-rgb: 0, 0, 0;
+    --scrim-alpha: 0.55;
+    --scrim: rgba(var(--scrim-rgb), var(--scrim-alpha));
+
+    /* Header surface (dark theme): keep the look premium, but remove the harsh gold banding
+       that reads as a "yellow line" on laptop/desktop.
+       Accent remains present, but controlled and subtle. */
+    --header-bg: linear-gradient(120deg,
+      rgba(var(--bg-rgb), 0.92) 0%,
+      rgba(var(--bg-rgb), 0.82) 72%,
+      rgba(var(--accent-rgb), 0.06) 120%
+    );
+    --header-border: rgba(var(--accent-rgb), 0.10);
+    --header-shadow: var(--shadow-1);
+
+    /* Nav Hub (Riot-style expand header)
+       - header is transparent over hero at top (index only)
+       - when hub is open, we switch to an opaque surface so it feels like one system */
+    --hub-header-bg: linear-gradient(120deg,
+      rgba(var(--bg-rgb), 0.96) 0%,
+      rgba(var(--bg-rgb), 0.90) 70%,
+      rgba(var(--accent-rgb), 0.08) 120%
+    );
+    --hub-panel-bg: linear-gradient(120deg, rgb(18,18,24) 0%, rgb(24,24,32) 70%, rgb(12,48,60) 120%);
+    --hub-border: rgba(var(--accent-rgb), 0.12);
+
+    --nav-link-color: var(--accent);
+    --nav-link-hover-color: var(--accent-soft);
+    --nav-link-shadow: 0 0 4px rgba(255, 255, 255, 0.12), 0 0 10px rgba(var(--accent-rgb), 0.35);
+    --nav-link-hover-bg: rgba(var(--accent-rgb), 0.12);
+    --nav-link-current-bg: rgba(var(--accent-rgb), 0.16);
+
+    --brand-title-shadow: var(--nav-link-shadow);
+    --brand-logo-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.18), 0 10px 30px rgba(0, 0, 0, 0.25);
+
+    --control-bg: var(--panel);
+    --control-bg-hover: color-mix(in oklab, var(--panel) 72%, rgba(var(--accent-rgb), 0.10));
+    --control-border: rgba(var(--accent-rgb), 0.18);
+    --control-border-hover: rgba(var(--accent-rgb), 0.34);
+    --control-shadow: var(--shadow-1);
+    --control-text: var(--accent);
+
+    --btn-ghost-bg: var(--panel);
+    --btn-ghost-bg-hover: var(--panel-2);
+    --btn-ghost-border: var(--stroke-2);
+
+    --input-bg: var(--panel-3);
+    --input-border: var(--stroke-2);
+    --input-border-focus: rgba(var(--accent-rgb), 0.55);
+    --input-text: var(--text);
+    --input-placeholder: color-mix(in srgb, var(--text-muted) 85%, transparent);
+
+    --scrollbar-track: var(--panel);
+    --scrollbar-thumb: rgba(var(--accent-rgb), 0.55);
+
+    --selection-bg: rgba(var(--accent-rgb), 0.32);
+    --selection-text: var(--text);
+    --bg: #0b0c10;
+    --bg-rgb: 11, 12, 16;
+    --text: #f5f5f5;
+    --text-muted: #c6c8cf;
+    --surface: #181820;
+    --surface-2: #141519;
+    --accent: #f1c40f;
+    --accent-rgb: 241, 196, 15;
+    --accent-soft: #ffe17c;
+    --on-accent: #0b0c10;
+    --on-accent-muted: #12131a;
+    --link: var(--accent);
+    --link-hover: var(--accent-soft);
+    --link-visited: var(--accent);
+    --focus: #15c9fa;
+    --radius: 14px;
+    --shadow-1: 0 2px 16px 0 rgba(var(--accent-rgb), 0.10), 0 1.5px 4px 0 rgba(var(--bg-rgb), 0.25);
+    --shadow-2: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --stroke: rgba(255, 255, 255, 0.14);
+
+/* Platform shadow ink (theme-defined)
+   Purpose: remove hard-coded blacks from component shadows so Light/Dark/ToA stay pure. */
+--ink-rgb: 0, 0, 0;
+--shadow-ambient-alpha: 0.22;
+--shadow-badge-alpha: 0.35;
+
+/* Semantic strokes (used by feature-gated surfaces and card systems) */
+--stroke-1: var(--stroke);
+
+/* Extended radii */
+--radius-xl: 28px;
+
+/* CTA + badge shadows (token-driven) */
+--shadow-cta: 0 10px 26px rgba(var(--ink-rgb), var(--shadow-ambient-alpha)), 0 0 0 1px rgba(var(--accent-rgb), 0.18) inset;
+--shadow-cta-hover: 0 14px 34px rgba(var(--accent-rgb), 0.22), 0 10px 26px rgba(var(--ink-rgb), var(--shadow-ambient-alpha)), 0 0 0 1px rgba(var(--accent-rgb), 0.18) inset;
+--shadow-badge: 0 10px 24px rgba(var(--ink-rgb), var(--shadow-badge-alpha));
+    --pill-bg: rgba(255,255,255,0.06);
+    --pill-border: rgba(var(--accent-rgb), 0.18);
+
+    --stroke-2: rgba(255, 255, 255, 0.18);
+    --stroke-strong: rgba(var(--accent-rgb), 0.34);
+    --panel: rgba(255, 255, 255, 0.06);
+    --panel-2: rgba(255, 255, 255, 0.09);
+    --panel-3: rgba(0, 0, 0, 0.22);
+
+/* Section surface variants (token-driven, spine-safe) */
+--section-bg-alt: linear-gradient(180deg, var(--panel-2), var(--panel));
+--section-bg-featured:
+  radial-gradient(900px 420px at 20% 0%, rgba(var(--accent-rgb), 0.14), rgba(var(--accent-rgb), 0) 60%),
+  linear-gradient(180deg, var(--panel-2), var(--panel));
+    --glass: rgba(var(--bg-rgb), 0.76);
+    --glass-strong: rgba(var(--bg-rgb), 0.92);
+    --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.35);
+    --shadow-deep: 0 18px 50px rgba(0, 0, 0, 0.45);
+    /* Semantic elevation aliases (bind to theme shadows) */
+    --shadow-card: var(--shadow-soft);
+    --shadow-panel: var(--shadow-deep);
+
+    /* Media overlays (theme-defined for cover/video readability) */
+    --cover-overlay-blend: multiply;
+    --cover-overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.20) 70%, rgba(0,0,0,0.32) 100%);
+
+    --page-gutter-inline: clamp(14px, 4vw, 40px);
+    --panel-padding-inline: clamp(16px, 3.2vw, 40px);
+
+    /* =========================================================
+       Wave J — Global rhythm + component tokens
+       Purpose: one spine, one cadence, coherent components.
+       ========================================================= */
+    --layout-max: 1280px;
+    --layout-max-narrow: 960px;
+    --nav-max: 1440px;
+/* Skeleton tokens (theme-adaptive via text color mix) */
+    --skel-bg: color-mix(in srgb, var(--text) 7%, transparent);
+    --skel-border: color-mix(in srgb, var(--text) 12%, transparent);
+    --skel-shimmer: color-mix(in srgb, var(--text) 18%, transparent);
+
+    --gutter: var(--page-gutter-inline);
+
+    /* Spacing scale (fluid) */
+    --space-1: clamp(6px, 0.6vw, 10px);
+    --space-2: clamp(10px, 1.0vw, 14px);
+    --space-3: clamp(14px, 1.4vw, 18px);
+    --space-4: clamp(18px, 1.8vw, 24px);
+    --space-5: clamp(22px, 2.4vw, 30px);
+    --space-6: clamp(28px, 3.2vw, 42px);
+    --space-7: clamp(36px, 4.6vw, 64px);
+
+    --section-gap: var(--space-5);
+    --section-pad-sm: var(--space-4);
+    --section-pad-md: var(--space-6);
+    --section-pad-lg: var(--space-7);
+
+    /* Wave V10-02 — Rhythm helpers (hero/intro → utilities → content) */
+    --hero-after-gap: clamp(10px, 2.5vw, 20px);
+    --intro-after-gap: clamp(12px, 2.6vw, 22px);
+    --text-max: 74ch;
+
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    --card-pad: clamp(14px, 2.2vw, 22px);
+    --card-gap: clamp(14px, 2vw, 22px);
+
+    /* Typography scale */
+    --h1-size: clamp(2.0rem, 4.6vw, 3.2rem);
+    --h2-size: clamp(1.45rem, 3.2vw, 2.1rem);
+    --h3-size: clamp(1.10rem, 2.2vw, 1.35rem);
+
+    /* Type system (tokenized, platform-wide)
+       Purpose: one rhythm across pages/components, with fluid scaling across device tiers. */
+    --text-base: clamp(1.00rem, 0.98rem + 0.20vw, 1.08rem);
+    --text-sm: clamp(0.94rem, 0.92rem + 0.18vw, 1.00rem);
+    --text-xs: clamp(0.86rem, 0.84rem + 0.14vw, 0.92rem);
+    --text-micro: 0.78rem;
+
+    --lead-size: clamp(1.06rem, 1.02rem + 0.38vw, 1.18rem);
+
+    --nav-size: clamp(0.82rem, 0.80rem + 0.16vw, 0.90rem);
+    --menu-size: clamp(0.90rem, 0.88rem + 0.16vw, 0.98rem);
+    --label-size: var(--text-micro);
+    --btn-size: var(--text-sm);
+
+    --line-base: 1.68;
+    --line-tight: 1.18;
+
+    --prose-max: 72ch;
+
+}
+
+html {
+    background: var(--bg);
+    color: var(--text);
+    scroll-padding-top: calc(84px + var(--safe-top));
+}
+
+html, body {
+    background: var(--bg);
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--text);
+    font-size: var(--text-base);
+    line-height: var(--line-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+
+    /* Sticky footer: keep footer at the bottom on short pages without absolute positioning */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main { flex: 1 0 auto; }
+
+main {
+    width: min(100%, var(--layout-max));
+margin-inline: auto;
+    padding-inline: var(--gutter);
+}
+
+html[data-theme="toa"] {
+    /* ToA branded theme (default) — gold + celestial cyan */
+    --bg: #0b0c10;
+    --bg-rgb: 11, 12, 16;
+    --text: #f5f5f5;
+    --text-muted: #c6c8cf;
+    --surface: #181820;
+    --surface-2: #141519;
+    --accent: #f1c40f;
+    --accent-rgb: 241, 196, 15;
+    --accent-soft: #ffe17c;
+    --focus: #15c9fa;
+    --focus-rgb: 21, 201, 250;
+
+    /* Focus ring contract (centralized)
+       - Use vars so every component uses the same geometry.
+       - Forced-colors overrides these vars to system colors automatically. */
+    --focus-outline: 2px solid var(--focus);
+    --focus-outline-offset: 3px;
+    --focus-outline-offset-tight: 2px;
+    --focus-outline-offset-loose: 6px;
+
+    --stroke: rgba(255, 255, 255, 0.14);
+
+/* Platform shadow ink (theme-defined)
+   Purpose: remove hard-coded blacks from component shadows so Light/Dark/ToA stay pure. */
+--ink-rgb: 0, 0, 0;
+--shadow-ambient-alpha: 0.22;
+--shadow-badge-alpha: 0.35;
+
+/* Semantic strokes (used by feature-gated surfaces and card systems) */
+--stroke-1: var(--stroke);
+
+/* Extended radii */
+--radius-xl: 28px;
+
+/* CTA + badge shadows (token-driven) */
+--shadow-cta: 0 10px 26px rgba(var(--ink-rgb), var(--shadow-ambient-alpha)), 0 0 0 1px rgba(var(--accent-rgb), 0.18) inset;
+--shadow-cta-hover: 0 14px 34px rgba(var(--accent-rgb), 0.22), 0 10px 26px rgba(var(--ink-rgb), var(--shadow-ambient-alpha)), 0 0 0 1px rgba(var(--accent-rgb), 0.18) inset;
+--shadow-badge: 0 10px 24px rgba(var(--ink-rgb), var(--shadow-badge-alpha));
+    --stroke-2: rgba(255, 255, 255, 0.18);
+    --stroke-strong: rgba(var(--accent-rgb), 0.34);
+    --panel: rgba(255, 255, 255, 0.06);
+    --panel-2: rgba(255, 255, 255, 0.09);
+    --panel-3: rgba(0, 0, 0, 0.22);
+
+/* Section surface variants (token-driven, spine-safe) */
+--section-bg-alt: linear-gradient(180deg, var(--panel-2), var(--panel));
+--section-bg-featured:
+  radial-gradient(900px 420px at 20% 0%, rgba(var(--accent-rgb), 0.14), rgba(var(--accent-rgb), 0) 60%),
+  linear-gradient(180deg, var(--panel-2), var(--panel));
+    --glass: rgba(var(--bg-rgb), 0.76);
+    --glass-strong: rgba(var(--bg-rgb), 0.92);
+    --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.35);
+    --shadow-deep: 0 18px 50px rgba(0, 0, 0, 0.45);
+    --shadow-card: var(--shadow-soft);
+    --shadow-panel: var(--shadow-deep);
+    --scrim-rgb: 0, 0, 0;
+    --scrim-alpha: 0.55;
+    --scrim: rgba(var(--scrim-rgb), var(--scrim-alpha));
+    --cover-overlay-blend: multiply;
+    --cover-overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.20) 70%, rgba(0,0,0,0.32) 100%);
+
+    --footer-bg: linear-gradient(120deg, rgba(24, 24, 32, 0.92) 78%, rgba(21, 201, 250, 0.18) 100%);
+    --footer-border: rgba(21, 201, 250, 0.22);
+    --footer-text: #f5f5f5;
+    --footer-link: #8ee7ff;
+    --footer-link-hover: var(--accent);
+    --footer-shadow: 0 -2px 16px rgba(21,201,250,0.10), 0 -2px 10px rgba(241,196,15,0.10);
+    --header-bg: linear-gradient(120deg, rgba(var(--bg-rgb), 0.84) 0%, rgba(var(--bg-rgb), 0.68) 70%, rgba(var(--accent-rgb), 0.14) 120%);
+    --header-border: rgba(var(--accent-rgb), 0.18);
+    --nav-link-shadow: 0 0 4px rgba(255, 255, 255, 0.10), 0 0 12px rgba(var(--accent-rgb), 0.32);
+    --control-bg-hover: rgba(var(--accent-rgb), 0.10);
+    --input-bg: rgba(0, 0, 0, 0.18);
+    --input-border: rgba(255, 255, 255, 0.14);
+    --selection-bg: rgba(var(--accent-rgb), 0.34);
+
+    --hero-title-color: var(--accent);
+    --hero-title-shadow:
+      0 0 5px rgba(var(--accent-rgb), 0.35),
+      0 0 15px rgba(var(--accent-rgb), 0.55),
+      0 0 30px rgba(255, 255, 255, 0.14),
+      0 0 60px rgba(var(--focus-rgb), 0.10);
+    --hero-lead-shadow:
+      0 0 6px rgba(var(--accent-rgb), 0.22),
+      0 0 18px rgba(var(--focus-rgb), 0.08);
+    --hero-banner-overlay:
+      radial-gradient(1200px 520px at 18% 22%, rgba(var(--accent-rgb), 0.22), rgba(var(--accent-rgb), 0) 60%),
+      radial-gradient(1100px 520px at 82% 28%, rgba(var(--focus-rgb), 0.16), rgba(var(--focus-rgb), 0) 60%),
+      linear-gradient(to bottom, rgba(var(--bg-rgb), 0.30), rgba(var(--bg-rgb), 0.92));
+
+    --on-accent: #0b0c10;
+    --on-accent-muted: #12131a;
+}
+
+html[data-theme="dark"] {
+    /* Clean dark theme (less gold, more neutral) */
+    --bg: #0b0c10;
+    --bg-rgb: 11, 12, 16;
+    --text: #f5f5f5;
+    --text-muted: #c7d4e2;
+    --surface: #141519;
+    --surface-2: #0f1014;
+    --accent: #15c9fa;
+    --accent-rgb: 21, 201, 250;
+    --accent-soft: #7fe3ff;
+    --link: var(--accent);
+    --link-hover: var(--accent-soft);
+    --link-visited: var(--accent);
+    --focus: #f1c40f;
+    --focus-rgb: 241, 196, 15;
+    --stroke: rgba(255, 255, 255, 0.14);
+
+/* Platform shadow ink (theme-defined)
+   Purpose: remove hard-coded blacks from component shadows so Light/Dark/ToA stay pure. */
+--ink-rgb: 0, 0, 0;
+--shadow-ambient-alpha: 0.22;
+--shadow-badge-alpha: 0.35;
+
+/* Semantic strokes (used by feature-gated surfaces and card systems) */
+--stroke-1: var(--stroke);
+
+/* Extended radii */
+--radius-xl: 28px;
+
+/* CTA + badge shadows (token-driven) */
+--shadow-cta: 0 10px 26px rgba(var(--ink-rgb), var(--shadow-ambient-alpha)), 0 0 0 1px rgba(var(--accent-rgb), 0.18) inset;
+--shadow-cta-hover: 0 14px 34px rgba(var(--accent-rgb), 0.22), 0 10px 26px rgba(var(--ink-rgb), var(--shadow-ambient-alpha)), 0 0 0 1px rgba(var(--accent-rgb), 0.18) inset;
+--shadow-badge: 0 10px 24px rgba(var(--ink-rgb), var(--shadow-badge-alpha));
+    --stroke-2: rgba(255, 255, 255, 0.18);
+    --stroke-strong: rgba(var(--accent-rgb), 0.30);
+    --panel: rgba(255, 255, 255, 0.05);
+    --panel-2: rgba(255, 255, 255, 0.08);
+    --panel-3: rgba(0, 0, 0, 0.24);
+    --glass: rgba(var(--bg-rgb), 0.76);
+    --glass-strong: rgba(var(--bg-rgb), 0.92);
+    --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.35);
+    --shadow-deep: 0 18px 50px rgba(0, 0, 0, 0.45);
+    --shadow-card: var(--shadow-soft);
+    --shadow-panel: var(--shadow-deep);
+    --scrim-rgb: 0, 0, 0;
+    --scrim-alpha: 0.55;
+    --scrim: rgba(var(--scrim-rgb), var(--scrim-alpha));
+    --cover-overlay-blend: multiply;
+    --cover-overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.18) 70%, rgba(0,0,0,0.30) 100%);
+
+    --footer-bg: #07080c;
+    --footer-border: rgba(255, 255, 255, 0.10);
+    --footer-text: #f5f5f5;
+    --footer-link: #f5f5f5;
+    --footer-link-hover: var(--accent-soft);
+    --footer-shadow: 0 -1px 12px rgba(0,0,0,0.25);
+    --header-bg: linear-gradient(120deg, rgba(var(--bg-rgb), 0.88) 0%, rgba(var(--bg-rgb), 0.72) 70%, rgba(var(--accent-rgb), 0.14) 120%);
+    --header-border: rgba(var(--accent-rgb), 0.16);
+    --hub-header-bg: linear-gradient(120deg, rgba(var(--bg-rgb), 0.94) 0%, rgba(var(--bg-rgb), 0.88) 70%, rgba(var(--accent-rgb), 0.12) 120%);
+    --hub-panel-bg: linear-gradient(120deg, rgb(18,18,24) 0%, rgb(24,24,32) 70%, rgb(12,48,60) 120%);
+    --hub-border: rgba(var(--accent-rgb), 0.20);
+    --nav-link-shadow: 0 0 4px rgba(255, 255, 255, 0.10), 0 0 12px rgba(var(--accent-rgb), 0.26);
+    --control-bg-hover: rgba(var(--accent-rgb), 0.10);
+    --input-bg: rgba(0, 0, 0, 0.18);
+    --input-border: rgba(255, 255, 255, 0.14);
+    --selection-bg: rgba(var(--accent-rgb), 0.28);
+
+    --hero-title-color: var(--accent);
+    --hero-title-shadow:
+      0 0 4px rgba(255, 255, 255, 0.08),
+      0 0 12px rgba(var(--accent-rgb), 0.22);
+    --hero-lead-shadow:
+      0 0 10px rgba(var(--accent-rgb), 0.10);
+    --hero-banner-overlay:
+      radial-gradient(1100px 520px at 18% 20%, rgba(var(--accent-rgb), 0.16), rgba(var(--accent-rgb), 0) 60%),
+      radial-gradient(1000px 520px at 82% 30%, rgba(var(--focus-rgb), 0.10), rgba(var(--focus-rgb), 0) 60%),
+      linear-gradient(to bottom, rgba(var(--bg-rgb), 0.58), rgba(var(--bg-rgb), 0.98));
+
+    --on-accent: #041019;
+    --on-accent-muted: #06151f;
+}
+
+html[data-theme="light"] {
+    --bg: #f7f8fb;
+    --bg-rgb: 247, 248, 251;
+    --text: #101114;
+    --text-muted: #3b3d45;
+    --surface: #ffffff;
+    --surface-2: #f0f2f6;
+    --accent: #b8860b; /* DarkGoldenrod — matches ToA gold on light surfaces */
+    --accent-rgb: 184, 134, 11;
+    --accent-soft: #f1c40f;
+    --link: #7a5200;
+    --link-hover: #5c3c00;
+    --link-visited: #5b2a8c;
+    --focus: #8a5a00;
+    --focus-rgb: 138, 90, 0;
+    --stroke: rgba(0, 0, 0, 0.12);
+    --stroke-2: rgba(0, 0, 0, 0.16);
+    --stroke-strong: rgba(var(--accent-rgb), 0.28);
+    --panel: rgba(12, 15, 24, 0.055);
+    --panel-2: rgba(12, 15, 24, 0.082);
+    --panel-3: rgba(12, 15, 24, 0.11);
+    --glass: rgba(var(--bg-rgb), 0.92);
+    --glass-strong: rgba(var(--bg-rgb), 0.985);
+    --shadow-soft: 0 14px 34px rgba(15, 18, 28, 0.12);
+    --shadow-deep: 0 24px 64px rgba(15, 18, 28, 0.16);
+
+--shadow-ambient-alpha: 0.12;
+--shadow-badge-alpha: 0.18;
+    --shadow-card: var(--shadow-soft);
+    --shadow-panel: var(--shadow-deep);
+    --scrim-rgb: 12, 14, 24;
+    --scrim-alpha: 0.35;
+    --scrim: rgba(var(--scrim-rgb), var(--scrim-alpha));
+    --cover-overlay-blend: normal;
+    --cover-overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.06) 70%, rgba(0,0,0,0.14) 100%);
+
+    --footer-bg: #ffffff;
+    --footer-border: rgba(0, 0, 0, 0.10);
+    --footer-text: #101114;
+    --footer-link: #101114;
+    --footer-link-hover: var(--accent);
+    --footer-shadow: 0 -1px 12px rgba(0,0,0,0.06);
+
+    --pill-bg: rgba(0,0,0,0.04);
+    --pill-border: rgba(0,0,0,0.10);
+    --shadow-1: 0 2px 16px rgba(0,0,0,0.06), 0 1.5px 4px rgba(0,0,0,0.08);
+    --shadow-2: 0 12px 34px rgba(0,0,0,0.14);
+    --brand-logo-shadow: 0 0 0 1px rgba(0,0,0,0.10), 0 10px 24px rgba(0,0,0,0.12);
+    --header-bg: linear-gradient(120deg, rgba(255,255,255,0.96) 0%, rgba(243,245,249,0.98) 70%, rgba(var(--accent-rgb), 0.12) 120%);
+    --hub-header-bg: linear-gradient(120deg, rgba(255,255,255,0.98) 0%, rgba(247,248,252,1) 70%, rgba(var(--accent-rgb), 0.12) 120%);
+    --hub-panel-bg: linear-gradient(180deg, rgba(255,255,255,0.985), rgba(246,248,252,0.995));
+    --hub-border: rgba(var(--accent-rgb), 0.16);
+    --header-border: rgba(16, 18, 24, 0.09);
+    --nav-link-shadow: none;
+    --nav-link-hover-bg: rgba(var(--accent-rgb), 0.08);
+    --nav-link-current-bg: rgba(var(--accent-rgb), 0.10);
+    --control-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    --input-bg: #ffffff;
+    --input-border: rgba(16, 18, 24, 0.18);
+    --input-border-focus: rgba(var(--accent-rgb), 0.55);
+    --scrollbar-track: rgba(0,0,0,0.06);
+    --selection-bg: rgba(var(--accent-rgb), 0.22);
+    --selection-text: #ffffff;
+
+    --hero-title-color: var(--accent);
+    --hero-title-shadow: none;
+    --hero-lead-shadow: none;
+    --hero-banner-overlay:
+      radial-gradient(1000px 520px at 16% 20%, rgba(var(--accent-rgb), 0.10), rgba(var(--accent-rgb), 0) 60%),
+      linear-gradient(to bottom, rgba(var(--bg-rgb), 0.84), rgba(var(--bg-rgb), 0.98));
+
+    --on-accent: #ffffff;
+    --on-accent-muted: #f7f8fb;
+
+    --video-shell-bg: #0f1014;
+
+/* Platform icon swaps for Light theme (black marks on light surfaces) */
+--icon-spotify: url("/assets/icons/official/spotify-black.png?v=20260302");
+--icon-x: url("/assets/icons/official/x-black.png?v=20260302");
+--icon-instagram: url("/assets/icons/official/instagram-black.png?v=20260302");
+--icon-tiktok: url("/assets/icons/official/tiktok-black.png?v=20260302");
+
+  /* Controls: ensure icons/arrows are high-contrast in Light mode */
+  --control-bg: rgba(255,255,255,0.82);
+  --control-bg-hover: rgba(255,255,255,0.92);
+  --control-border: rgba(0,0,0,0.14);
+  --control-border-hover: rgba(0,0,0,0.22);
+  --control-shadow: 0 12px 30px rgba(16, 18, 24, 0.12);
+  --control-text: rgba(15,15,18,0.92);
+}
+
+html[data-theme="contrast"] {
+    /* High-contrast theme (forced-colors / prefers-contrast)
+       - Independent token layer (no inheritance from ToA/Dark/Light)
+       - Minimal decoration, maximum readability */
+    --bg: #000000;
+    --bg-rgb: 0, 0, 0;
+    --text: #ffffff;
+    --text-muted: #ffffff;
+    --surface: #000000;
+    --surface-2: #000000;
+
+    --accent: #ffe066;
+    --accent-rgb: 255, 224, 102;
+    --accent-soft: #ffffff;
+
+    --link: var(--accent);
+    --link-hover: #ffffff;
+    --link-visited: var(--accent);
+
+    --focus: #15c9fa;
+    --focus-rgb: 21, 201, 250;
+
+    /* Focus ring contract (centralized)
+       - Use vars so every component uses the same geometry.
+       - Forced-colors overrides these vars to system colors automatically. */
+    --focus-outline: 2px solid var(--focus);
+    --focus-outline-offset: 3px;
+    --focus-outline-offset-tight: 2px;
+    --focus-outline-offset-loose: 6px;
+
+    --stroke: #ffffff;
+    --stroke-1: #ffffff;
+    --stroke-2: #ffffff;
+    --stroke-strong: #ffffff;
+
+    --panel: #000000;
+    --panel-2: #000000;
+    --panel-3: #000000;
+
+    --glass: #000000;
+    --glass-strong: #000000;
+
+    --scrim-rgb: 0, 0, 0;
+    --scrim-alpha: 0.75;
+    --scrim: rgba(var(--scrim-rgb), var(--scrim-alpha));
+
+    --shadow-1: none;
+    --shadow-2: none;
+    --shadow-soft: none;
+    --shadow-deep: none;
+    --shadow-card: none;
+    --shadow-panel: none;
+
+    --control-bg: #000000;
+    --control-bg-hover: #000000;
+    --control-border: #ffffff;
+    --control-border-hover: #ffffff;
+    --control-shadow: none;
+    --control-text: #ffffff;
+
+    --btn-ghost-bg: #000000;
+    --btn-ghost-bg-hover: #000000;
+    --btn-ghost-border: #ffffff;
+
+    --input-bg: #000000;
+    --input-border: #ffffff;
+    --input-border-focus: #15c9fa;
+    --input-text: #ffffff;
+    --input-placeholder: #ffffff;
+
+    --scrollbar-track: #000000;
+    --scrollbar-thumb: #ffffff;
+
+    --selection-bg: rgba(255, 224, 102, 0.45);
+    --selection-text: #000000;
+
+    --header-bg: #000000;
+    --header-border: #ffffff;
+    --header-shadow: none;
+
+    --nav-link-color: #ffffff;
+    --nav-link-hover-color: #ffffff;
+    --nav-link-shadow: none;
+    --nav-link-hover-bg: transparent;
+    --nav-link-current-bg: transparent;
+
+    --brand-title-shadow: none;
+    --brand-logo-shadow: none;
+
+    --hero-title-color: #ffffff;
+    --hero-title-shadow: none;
+    --hero-lead-shadow: none;
+    --hero-banner-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.96));
+
+    --cover-overlay-blend: normal;
+    --cover-overlay-gradient: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.30) 70%, rgba(0,0,0,0.55) 100%);
+
+    --footer-bg: #000000;
+    --footer-border: #ffffff;
+    --footer-text: #ffffff;
+    --footer-link: #ffffff;
+    --footer-link-hover: var(--accent);
+    --footer-shadow: none;
+
+    --pill-bg: transparent;
+    --pill-border: #ffffff;
+
+    --on-accent: #000000;
+    --on-accent-muted: #000000;
+
+    --shadow-ambient-alpha: 0;
+    --shadow-badge-alpha: 0;
+    --shadow-cta: none;
+    --shadow-cta-hover: none;
+    --shadow-badge: none;
+
+    --section-bg-alt: #000000;
+    --section-bg-featured: #000000;
+
+    --video-shell-bg: #000000;
+}
+
+html.no-reduced-motion {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--text);
+    line-height: var(--line-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+}
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--accent);
+    color: var(--on-accent);
+    padding: 12px 14px;
+    min-height: 44px;
+    border-radius: 0 0 10px 0;
+    border: 2px solid transparent;
+    font-weight: 700;
+    z-index: var(--z-skip-link);
+
+    /* Never show unless intentionally focused via keyboard.
+       Prevents the "random yellow bar" artifact when focus is retained
+       by browser/devtools or on reload. */
+    transform: translateY(-130%);
+    transition: transform .18s ease;
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+    border-color: var(--focus);
+}
+
+.hero-banner,
+.page-hero--banner {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+}
+

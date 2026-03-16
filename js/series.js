@@ -1,51 +1,13 @@
 // js/series.js — Series hub renderer (ESM)
-// Truth-locked: renders only what exists in js/publishing-data.js.
+// Truth-locked: renders only what exists in generated controller ownership plus publishing page helpers.
 
-import {
-  series,
-  sagas,
-  getSeriesById,
-  getSagaById,
-  getBooksForSeries,
-  toAbsoluteSiteUrl,
-} from './publishing-data.js?v=5';
+import { toAbsoluteSiteUrl, resolveSeriesControllerRecord } from './publishing-catalog-resolvers.js';
+import { detectAmazonRegion } from './publishing-page-helpers.js';
 
 const $ = (id) => document.getElementById(id);
 
 const asString = (v) => (typeof v === 'string' ? v.trim() : '');
 
-
-const detectAmazonRegion = (availableKeys) => {
-  const keys = new Set((availableKeys || []).map((k) => String(k || '').trim().toUpperCase()).filter(Boolean));
-  if (!keys.size) return 'US';
-
-  const lang = (() => { try { return String(navigator.language || navigator.userLanguage || '').trim(); } catch { return ''; } })();
-  const upper = lang.toUpperCase();
-  const tz = (() => { try { return String(Intl.DateTimeFormat().resolvedOptions().timeZone || '').trim(); } catch { return ''; } })();
-
-  const candidates = [];
-  const m = /-([A-Z]{2})\b/.exec(upper);
-  if (m && m[1]) candidates.push(m[1]);
-
-  if (/AUSTRALIA|SYDNEY|MELBOURNE|BRISBANE|PERTH/i.test(tz)) candidates.push('AU');
-  if (/EUROPE\/LONDON/i.test(tz)) candidates.push('UK');
-  if (/EUROPE\/BERLIN/i.test(tz)) candidates.push('DE');
-  if (/EUROPE\/PARIS/i.test(tz)) candidates.push('FR');
-  if (/EUROPE\/MADRID/i.test(tz)) candidates.push('ES');
-  if (/EUROPE\/ROME/i.test(tz)) candidates.push('IT');
-  if (/AMERICA\/TORONTO/i.test(tz)) candidates.push('CA');
-  if (/ASIA\/TOKYO/i.test(tz)) candidates.push('JP');
-  if (/ASIA\/KOLKATA/i.test(tz)) candidates.push('IN');
-
-  for (const c of candidates) {
-    if (keys.has(c)) return c;
-  }
-
-  if (keys.has('AU')) return 'AU';
-  if (keys.has('US')) return 'US';
-
-  return Array.from(keys).sort((a, b) => a.localeCompare(b))[0];
-};
 
 const amazonRegionalEntries = (stores) => {
   const ar = stores && typeof stores === 'object' ? stores.amazonRegional : null;
@@ -216,11 +178,12 @@ const render = () => {
   const id = asString(body?.dataset?.seriesId);
   if (!id) return;
 
-  const s = getSeriesById(id);
-  if (!s) return;
+  const context = resolveSeriesControllerRecord(id);
+  if (!context) return;
 
-  const sagaObj = getSagaById(s.sagaId) || null;
-  const vols = getBooksForSeries(s.id);
+  const s = context.series;
+  const sagaObj = context.saga;
+  const vols = context.books;
 
   const title = $('series-title');
   if (title) title.textContent = s.title || s.id;

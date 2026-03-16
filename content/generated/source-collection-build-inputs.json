@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "manifests": {
+    "music": {
+      "file": "content/source/music/collection-inputs.manifest.json",
+      "sha256": "e3fe1eddc5c63b89c27ef87b9746bb6f39f60747c0092256df26c67ef49121a3",
+      "inputCount": 2,
+      "collectionRoot": "content/source/music"
+    },
+    "publishing": {
+      "file": "content/source/publishing/collection-inputs.manifest.json",
+      "sha256": "21caee5e03184eba1bedc923185b979780e2a16296ce22f5296e0cf0d4a84990",
+      "inputCount": 3,
+      "collectionRoot": "content/source/publishing"
+    }
+  },
+  "inputs": {
+    "music": [
+      {
+        "collectionId": "albums",
+        "inputMode": "collection-aware-manifest",
+        "currentAuthorityPointer": "content/source/music-library.authoritative.json#albums",
+        "plannedInputDir": "content/source/music/albums",
+        "entityKey": "id",
+        "canonicalKey": "canonicalPath",
+        "routeOwner": "music.album",
+        "stubEntryPattern": "content/source/music/albums/<album-id>.json",
+        "builderConsumption": "optional-stub-dir"
+      },
+      {
+        "collectionId": "tracks",
+        "inputMode": "derived-collection-manifest",
+        "currentAuthorityPointer": "content/source/music-library.authoritative.json#albums[].tracks + albums[].lyrics",
+        "plannedInputDir": "content/source/music/tracks",
+        "entityKey": "albumId:trackId",
+        "canonicalKey": "canonicalPath",
+        "routeOwner": "music.track",
+        "stubEntryPattern": "content/source/music/tracks/<album-id>/<track-id>.json",
+        "builderConsumption": "optional-stub-dir"
+      }
+    ],
+    "publishing": [
+      {
+        "collectionId": "sagas",
+        "inputMode": "collection-aware-manifest",
+        "currentAuthorityPointer": "content/source/publishing-library.authoritative.json#sagas",
+        "plannedInputDir": "content/source/publishing/sagas",
+        "entityKey": "id",
+        "canonicalKey": "canonicalPath",
+        "routeOwner": "publishing.saga",
+        "stubEntryPattern": "content/source/publishing/sagas/<saga-id>.json",
+        "builderConsumption": "optional-stub-dir"
+      },
+      {
+        "collectionId": "series",
+        "inputMode": "collection-aware-manifest",
+        "currentAuthorityPointer": "content/source/publishing-library.authoritative.json#series",
+        "plannedInputDir": "content/source/publishing/series",
+        "entityKey": "id",
+        "canonicalKey": "canonicalPath",
+        "routeOwner": "publishing.series",
+        "stubEntryPattern": "content/source/publishing/series/<series-id>.json",
+        "builderConsumption": "optional-stub-dir"
+      },
+      {
+        "collectionId": "books",
+        "inputMode": "collection-aware-manifest",
+        "currentAuthorityPointer": "content/source/publishing-library.authoritative.json#books",
+        "plannedInputDir": "content/source/publishing/books",
+        "entityKey": "id",
+        "canonicalKey": "canonicalPath",
+        "routeOwner": "publishing.book",
+        "stubEntryPattern": "content/source/publishing/books/<book-id>.json",
+        "builderConsumption": "optional-stub-dir"
+      }
+    ]
+  },
+  "nextSafeTarget": "Adopt collection-aware source directories as optional builder inputs before any full authoritative source split."
+}

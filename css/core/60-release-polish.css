@@ -1,0 +1,11 @@
+/* =========================================================
+   Release polish holdouts
+   This layer is intentionally minimal after the architecture elevation pass.
+   Stable homepage, component, shell, footer, and utility ownership moved to:
+   - css/home.css
+   - css/core/30-components.css
+   - css/core/50-navigation-shell.css
+
+   Keep this file only for short-lived pre-release deltas that have not yet
+   earned a permanent authoritative owner.
+   ========================================================= */

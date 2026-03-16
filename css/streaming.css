@@ -151,3 +151,362 @@
 .streaming-page #streaming-confidence .support-grid {
   align-items: stretch;
 }
+
+
+/* Architecture elevation 23 — streaming finder ownership reclamation
+   Streaming-page finder surface styles now live with the streaming owner instead of shared shell CSS. */
+.streaming-page .finder-input,
+.streaming-page .finder-summary {
+  border-color: var(--trinity-control-border);
+  box-shadow: var(--trinity-control-shadow);
+  background: var(--trinity-control-bg);
+}
+
+.streaming-page .finder-input:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 70%, white 18%);
+  outline-offset: 3px;
+}
+
+html[data-theme="light"] .streaming-page .finder-input,
+html[data-theme="light"] .streaming-page .finder-summary {
+  color: rgba(19, 20, 26, 0.94);
+}
+
+@media (forced-colors: active) {
+  .streaming-page .finder-input,
+  .streaming-page .finder-summary {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+    box-shadow: none;
+  }
+}
+
+
+/* Architecture elevation 24 — streaming section-header / proof-strip ownership reclamation
+   Streaming-only section header rhythm and page proof/profile confidence surfaces now live with the streaming owner. */
+.streaming-page #streaming-profiles .support-card--feature{
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.16), color-mix(in srgb, var(--panel) 90%, rgba(var(--accent-rgb), 0.08)));
+}
+
+.streaming-page #streaming-confidence .support-card{
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 88%, rgba(var(--accent-rgb), 0.06)), var(--panel));
+}
+
+.streaming-page .section-header__meta{
+  gap: 8px;
+}
+
+.streaming-page .section-header__lead,
+.streaming-page .verified-links .section-header__lead,
+.streaming-page .stream-finder .section-header__lead,
+.streaming-page .streaming-gateway .section-header__lead{
+  margin-inline: auto;
+  max-width: 56ch;
+}
+
+
+/* Architecture elevation 25 — streaming finder confidence ownership
+   Streaming-only finder/support rhythm no longer belongs to the shared shell owner. */
+.streaming-page .stream-finder .finder-summary,
+.streaming-page .streaming-gateway .finder-summary{
+  border-color: rgba(var(--accent-rgb), 0.16);
+}
+
+.streaming-page .stream-finder .finder-summary__routes,
+.streaming-page .streaming-gateway .finder-summary__routes{
+  justify-content: flex-start;
+}
+
+
+/* =========================================================
+   Architecture elevation 36 — streaming verified-links base card ownership
+   - These verified-links base card/list/link selectors only render on the streaming route and should no longer remain in the broader site-systems owner.
+   ========================================================= */
+
+.streaming-page .stream-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 24px 0 50px;
+  padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .streaming-page .stream-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .streaming-page .stream-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 18px 0 44px;
+  }
+}
+
+.streaming-page .stream-card {
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+  padding: clamp(18px, 1.8vw, 22px) clamp(16px, 1.6vw, 20px);
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .streaming-page .stream-card {
+    padding: 16px 14px;
+  }
+}
+
+.streaming-page .stream-card h2,
+.streaming-page .stream-card h3 {
+  margin: 0 0 10px;
+}
+
+.streaming-page .stream-card__title {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+.streaming-page .stream-card__desc {
+  margin: 0 0 12px;
+  opacity: 0.92;
+}
+
+.streaming-page .stream-card p {
+  margin: 0 0 12px;
+  opacity: 0.92;
+}
+
+.streaming-page .stream-links {
+  display: grid;
+  gap: 10px;
+}
+
+.streaming-page .stream-links a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.20);
+  background: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  min-width: 0;
+}
+
+.streaming-page .stream-links a:hover,
+.streaming-page .stream-links a:focus-visible {
+  background: rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.35);
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.streaming-page .stream-links a::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  opacity: 0.92;
+  background: var(--toa-stream-icon-img, none) no-repeat center / contain;
+  margin-right: 10px;
+  display: none;
+}
+
+.streaming-page .stream-links a[href*="open.spotify.com"]::before,
+.streaming-page .stream-links a[href*="music.apple.com"]::before,
+.streaming-page .stream-links a[href*="music.youtube.com"]::before,
+.streaming-page .stream-links a[href*="youtube.com"]::before,
+.streaming-page .stream-links a[href*="linktr.ee"]::before,
+.streaming-page .stream-links a[href*="instagram.com"]::before,
+.streaming-page .stream-links a[href*="tiktok.com"]::before,
+.streaming-page .stream-links a[href*="facebook.com"]::before,
+.streaming-page .stream-links a[href*="x.com"]::before,
+.streaming-page .stream-links a[href*="triadofangels.com"]::before {
+  display: inline-block;
+}
+
+.streaming-page .stream-links a[href*="open.spotify.com"] { --toa-stream-icon-img: var(--icon-spotify); }
+.streaming-page .stream-links a[href*="music.apple.com"] { --toa-stream-icon-img: var(--icon-apple-music); }
+.streaming-page .stream-links a[href*="music.youtube.com"] { --toa-stream-icon-img: url("/assets/icons/youtube-music.svg"); }
+.streaming-page .stream-links a[href*="youtube.com"] { --toa-stream-icon-img: var(--icon-youtube); }
+.streaming-page .stream-links a[href*="linktr.ee"] { --toa-stream-icon-img: var(--icon-linktree); }
+.streaming-page .stream-links a[href*="instagram.com"] { --toa-stream-icon-img: url("/assets/icons/instagram.svg"); }
+.streaming-page .stream-links a[href*="tiktok.com"] { --toa-stream-icon-img: url("/assets/icons/tiktok.svg"); }
+.streaming-page .stream-links a[href*="facebook.com"] { --toa-stream-icon-img: url("/assets/icons/facebook.svg"); }
+.streaming-page .stream-links a[href*="x.com"] { --toa-stream-icon-img: url("/assets/icons/x.svg"); }
+.streaming-page .stream-links a[href*="triadofangels.com"] { --toa-stream-icon-img: url("/assets/images/logo.webp"); }
+
+@media (max-width: 768px) {
+  .streaming-page .stream-links a::before { width: 20px; height: 20px; margin-right: 10px; }
+}
+
+.streaming-page .stream-links a > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.streaming-page .stream-links a > span.badge {
+  flex: 0 0 auto;
+  margin-left: auto;
+  font-size: 12px;
+  opacity: 0.80;
+  font-weight: 700;
+}
+
+
+@media (min-width: 1601px) {
+  .streaming-page .stream-grid {
+    gap: 22px;
+    margin-bottom: 58px;
+  }
+
+  .streaming-page .stream-card {
+    padding: 22px 20px;
+  }
+}
+
+/* Architecture elevation 26+27 — streaming proof/bridge/returns ownership
+   Streaming route-stage proof/bridge/returns presentation no longer lives in the shell-heavy layer,
+   and pass 27 removes the remaining mixed shell selectors so this file is the sole page owner. */
+.streaming-page #streaming-proof .route-stage-card,
+.streaming-page #streaming-bridge .route-stage-card,
+.streaming-page #streaming-returns .route-stage-card,
+.streaming-page .chip{
+  border-color: var(--trinity-control-border);
+  box-shadow: var(--trinity-control-shadow);
+}
+
+.streaming-page .chip{
+  background: var(--trinity-control-bg);
+}
+
+.streaming-page #streaming-proof,
+.streaming-page #streaming-bridge,
+.streaming-page #streaming-returns{
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+@media (max-width: 768px){
+  .streaming-page #streaming-proof .route-stage-card__actions,
+  .streaming-page #streaming-bridge .route-stage-card__actions,
+  .streaming-page #streaming-returns .route-stage-card__actions{
+    flex-direction: column;
+  }
+
+  .streaming-page #streaming-proof .route-stage-card__actions .cta-button,
+  .streaming-page #streaming-bridge .route-stage-card__actions .cta-button,
+  .streaming-page #streaming-returns .route-stage-card__actions .cta-button{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .streaming-page #streaming-returns .route-stage-grid{
+    flex-direction: column;
+  }
+}
+
+@media (forced-colors: active){
+  .streaming-page .chip,
+  .streaming-page #streaming-proof .route-stage-card,
+  .streaming-page #streaming-bridge .route-stage-card,
+  .streaming-page #streaming-returns .route-stage-card{
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+    box-shadow: none;
+  }
+}
+
+/* Pass 31 — streaming-only verified-link item/copy ownership
+   These classes are produced by the streaming verified-links enhancement and
+   belong to the streaming page owner instead of the broader site-systems layer. */
+.streaming-page .stream-item {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.streaming-page .stream-item a {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.streaming-page .stream-copy {
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.20);
+  background: var(--panel);
+  color: var(--text);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.streaming-page .stream-copy:hover {
+  background: rgba(var(--accent-rgb), 0.10);
+  border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+.streaming-page .stream-copy:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .streaming-page .stream-item { gap: 8px; }
+  .streaming-page .stream-copy { padding: 10px 12px; }
+}
+
+html[data-theme="contrast"] .streaming-page .stream-card {
+  background: var(--bg);
+  border-color: var(--stroke);
+}
+
+html[data-theme="contrast"] .streaming-page .stream-links a,
+html[data-theme="contrast"] .streaming-page .stream-copy {
+  background: var(--bg);
+  border-color: var(--stroke);
+  color: var(--text);
+}
+
+html[data-theme="contrast"] .stream-links a:hover,
+html[data-theme="contrast"] .stream-links a:focus-visible,
+html[data-theme="contrast"] .streaming-page .stream-copy:hover,
+html[data-theme="contrast"] .streaming-page .stream-copy:focus-visible {
+  background: var(--bg);
+}
+
+@media (forced-colors: active) {
+  .streaming-page .stream-copy {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+}
+
+/* Pass 35 — verified-link copy/text ownership
+   Verified-link item text rhythm is streaming-only and should stay explicitly page-scoped. */
+.streaming-page .stream-item a,
+.streaming-page .stream-copy {
+  align-self: center;
+}
+
+.streaming-page .stream-item a {
+  min-width: 0;
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TOA publishing library snapshot",
+  "type": "object",
+  "required": ["generatedAt", "sourceFiles", "counts", "sagas", "series", "books"],
+  "properties": {
+    "generatedAt": { "type": "string" },
+    "sourceFiles": { "type": "array", "items": { "type": "string" } },
+    "counts": {
+      "type": "object",
+      "required": ["sagas", "series", "books"],
+      "properties": {
+        "sagas": { "type": "integer", "minimum": 0 },
+        "series": { "type": "integer", "minimum": 0 },
+        "books": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "sagas": { "type": "array" },
+    "series": { "type": "array" },
+    "books": { "type": "array" }
+  }
+}

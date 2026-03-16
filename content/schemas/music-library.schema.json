@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TOA music library snapshot",
+  "type": "object",
+  "required": ["generatedAt", "sourceFiles", "counts", "albums"],
+  "properties": {
+    "generatedAt": { "type": "string" },
+    "sourceFiles": { "type": "array", "items": { "type": "string" } },
+    "counts": {
+      "type": "object",
+      "required": ["albums", "tracks"],
+      "properties": {
+        "albums": { "type": "integer", "minimum": 0 },
+        "tracks": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "albums": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "artist", "canonicalPath", "trackCount", "tracks"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "artist": { "type": "string" },
+          "canonicalPath": { "type": "string" },
+          "trackCount": { "type": "integer", "minimum": 0 },
+          "tracks": { "type": "array" }
+        }
+      }
+    }
+  }
+}

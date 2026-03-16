@@ -1,3 +1,14 @@
+// Ensure the full public-facing surface gets the same premium shell treatment.
+(function normalizePrioritySurfaceCoverage(){
+  const body = document.body;
+  if (!body) return;
+  if (body.classList.contains('priority-surface')) return;
+  if (body.classList.contains('game-runtime') || body.classList.contains('error-page')) return;
+  const publicPage = Array.from(body.classList).some((cls) => /-page$/.test(cls));
+  if (!publicPage) return;
+  body.classList.add('priority-surface');
+})();
+
 // Enable smooth scrolling only when users have not requested reduced motion.
 const prefersReducedMotion = () => {
   try {

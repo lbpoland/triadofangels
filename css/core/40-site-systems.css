@@ -1,0 +1,1594 @@
+/* =========================================================
+   TOA THEME: FULL-PAGE HERO BACKGROUND (ONLY IN ToA THEME)
+   Requirements:
+   - ToA theme: /assets/images/hero-banner.webp covers entire site background (scrolls behind content)
+   - Dark/Light/Contrast: no hero image; background is theme color
+   - Prevent duplicate image in the hero section
+   ========================================================= */
+
+/* Default: no site-wide background image */
+:root {
+  --toa-site-bg-image: none;
+  --toa-site-bg-image-mobile: none;
+}
+
+/* ToA theme only: enable the hero banner as the full-page background */
+html[data-theme="toa"] {
+  --toa-site-bg-image: url("/assets/images/hero-banner.webp");
+  --toa-site-bg-image-mobile: url("/assets/images/hero-banner-mobile.webp");
+  background: transparent; /* allow body pseudo-layer to be visible behind all content */
+}
+
+/* ToA theme: the document background comes from a fixed pseudo-layer behind everything */
+html[data-theme="toa"] body[data-page-role="flagship"] {
+  position: relative;
+  background: transparent !important; /* override earlier body background */
+}
+
+/* Full-page background image layer */
+html[data-theme="toa"] body[data-page-role="flagship"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image: var(--toa-site-bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+
+  transform: translateZ(0);
+}
+
+/* Cinematic readability overlay (ToA theme only) */
+html[data-theme="toa"] body[data-page-role="flagship"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(1200px 520px at 18% 22%, rgba(var(--accent-rgb), 0.18), rgba(var(--accent-rgb), 0) 60%),
+    radial-gradient(1100px 520px at 82% 28%, rgba(var(--focus-rgb), 0.14), rgba(var(--focus-rgb), 0) 60%),
+    linear-gradient(to bottom, rgba(var(--bg-rgb), 0.40), rgba(var(--bg-rgb), 0.78));
+}
+
+/* Prevent duplicate hero image at the top:
+   - In ToA theme, the site-wide background already shows the hero banner,
+     so we hide the hero section's internal picture layer. */
+html[data-theme="toa"] body[data-page-role="flagship"] .hero-banner .picture,
+html[data-theme="toa"] body[data-page-role="flagship"] .page-hero--banner .picture {
+  display: none !important;
+}
+
+/* ToA theme on non-home pages: keep premium palette without loading the full hero image */
+html[data-theme="toa"] body:not(.index-page) {
+  background:
+    radial-gradient(1000px 420px at 20% 15%, rgba(var(--accent-rgb), 0.10), rgba(var(--accent-rgb), 0) 62%),
+    radial-gradient(900px 420px at 80% 20%, rgba(var(--focus-rgb), 0.08), rgba(var(--focus-rgb), 0) 64%),
+    var(--bg) !important;
+}
+
+/* Non-ToA themes: ensure NO site-wide background layers exist */
+html[data-theme="dark"],
+html[data-theme="light"],
+html[data-theme="contrast"] {
+  background: var(--bg);
+}
+
+html[data-theme="dark"] body,
+html[data-theme="light"] body,
+html[data-theme="contrast"] body {
+  background: var(--bg) !important;
+}
+
+html[data-theme="dark"] body::before,
+html[data-theme="dark"] body::after,
+html[data-theme="light"] body::before,
+html[data-theme="light"] body::after,
+html[data-theme="contrast"] body::before,
+html[data-theme="contrast"] body::after {
+  content: none !important;
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  html[data-theme="toa"] body[data-page-role="flagship"]::before {
+    background-image: var(--toa-site-bg-image-mobile);
+    background-position: 62% center;
+  }
+
+  html[data-theme="toa"] body[data-page-role="flagship"]::after {
+    background:
+      radial-gradient(640px 340px at 18% 18%, rgba(var(--accent-rgb), 0.12), rgba(var(--accent-rgb), 0) 62%),
+      radial-gradient(520px 280px at 84% 24%, rgba(var(--focus-rgb), 0.10), rgba(var(--focus-rgb), 0) 66%),
+      linear-gradient(to bottom, rgba(var(--bg-rgb), 0.32), rgba(var(--bg-rgb), 0.74));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme="toa"] body[data-page-role="flagship"]::before {
+    background-attachment: scroll;
+  }
+
+  html[data-theme="toa"] body[data-page-role="flagship"]::after {
+    background: linear-gradient(to bottom, rgba(var(--bg-rgb), 0.34), rgba(var(--bg-rgb), 0.72));
+  }
+}
+
+@media (forced-colors: active) {
+  html[data-theme="toa"] body[data-page-role="flagship"]::before,
+  html[data-theme="toa"] body[data-page-role="flagship"]::after {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   Wave X — Banner Hero Rendering (theme-driven, cross-device)
+   - ToA: homepage uses full-page background image; banner hero stays transparent
+   - Dark/Light: banner hero uses the page picture + overlay wash for readability
+   - Contrast/forced-colors: banner hero disables imagery/overlays
+   ========================================================= */
+
+.page-hero--banner {
+  background: var(--bg);
+}
+
+.page-hero--banner .page-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page-hero--banner .page-hero__bg picture,
+.page-hero--banner .page-hero__bg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.page-hero--banner .page-hero__bg img {
+  object-fit: cover;
+  object-position: var(--hero-banner-object-position, center);
+}
+
+/* Hero banner art-direction (cross-device) */
+:root {
+  --hero-banner-object-position: center;
+}
+
+@media (max-width: 768px) {
+  :root { --hero-banner-object-position: 62% center; }
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+  :root { --hero-banner-object-position: 50% 20%; }
+}
+
+.page-hero--banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: var(--hero-banner-overlay);
+}
+
+.page-hero--banner .page-hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* ToA homepage: image + wash already lives as a full-page fixed layer */
+html[data-theme="toa"] body[data-page-role="flagship"] .page-hero--banner {
+  background: transparent;
+}
+html[data-theme="toa"] body[data-page-role="flagship"] .page-hero--banner::before {
+  content: none;
+}
+html[data-theme="toa"] body[data-page-role="flagship"] .page-hero--banner .page-hero__bg {
+  display: none;
+}
+
+/* Contrast/forced-colors: disable imagery and overlay wash */
+html[data-theme="contrast"] .page-hero--banner::before {
+  content: none;
+}
+html[data-theme="contrast"] .page-hero--banner .page-hero__bg {
+  display: none;
+}
+html[data-theme="contrast"] .page-hero--banner .page-hero__inner::before {
+  border-color: var(--stroke);
+  background: var(--bg);
+  box-shadow: none;
+}
+
+@media (forced-colors: active) {
+  .page-hero--banner::before {
+    content: none !important;
+    display: none !important;
+  }
+  .page-hero--banner .page-hero__bg {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links > li { width: 100%; }
+  .nav-item.nav-has-sub { display: flex; align-items: center; }
+  .nav-item.nav-has-sub > a { flex: 1 1 auto; min-width: 0; }
+}
+
+.store-card__title{
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================
+   Wave M — Pillar hub (Homepage) + Pillar strip (site-wide IA)
+   ========================================================= */
+
+/* Pillar strip uses chip-row/chip; add layout + current-state styling */
+
+.chip[aria-current="page"] {
+  border-color: rgba(var(--accent-rgb), 0.8);
+  background: rgba(var(--accent-rgb), 0.12);
+}
+
+.pillar-hub {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+.pillar-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(12, 1fr);
+  margin-top: 18px;
+}
+
+.pillar-card {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  gap: 14px;
+  align-items: start;
+  padding: 16px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: var(--glass);
+  box-shadow: var(--shadow-1);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+  min-height: 96px;
+}
+
+.pillar-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(var(--accent-rgb), 0.55);
+}
+
+.pillar-card:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.pillar-card__icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+  background: rgba(var(--accent-rgb), 0.08);
+  color: var(--accent);
+  font-size: 20px;
+  box-shadow: var(--shadow-badge);
+}
+
+.pillar-card__body {
+  display: grid;
+  gap: 6px;
+}
+
+.pillar-card__title {
+  font-family: var(--font-display);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: var(--menu-size);
+  color: var(--accent);
+}
+
+.pillar-card__desc {
+  color: var(--text-muted);
+  line-height: var(--line-base);
+  font-size: 0.98rem;
+}
+
+.pillar-card__meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.pillar-card__meta-text {
+  color: var(--text);
+  opacity: 0.92;
+  font-size: var(--menu-size);
+}
+
+.pillar-card__cta {
+  align-self: center;
+  justify-self: end;
+  color: var(--accent);
+  font-weight: 700;
+  opacity: 0.95;
+  padding-left: 10px;
+}
+
+@media (min-width: 769px) {
+  .pillar-card {
+    grid-column: span 6;
+    grid-template-columns: 42px 1fr;
+  }
+  .pillar-card__cta { display: none; }
+}
+
+@media (min-width: 1025px) {
+  .pillar-card { grid-column: span 4; }
+}
+
+/* =========================================================
+   WAVE P — HOME INDEX ELITE OVERHAUL (Command Deck + Live Cards + Performance Cadence)
+   Goals:
+   - World-class home cadence: hero → command deck → live deck → pillars → rich media
+   - Cross-device discipline: 320–480, 481–768, 769–1024, 1025–1200, 1201+
+   - A11Y: labeled search, large tap targets, focus-visible, reduced motion safe
+   - Perf: content-visibility for below-fold heavy sections
+   ========================================================= */
+
+/* ---------- Command Strip ---------- */
+/* Wave W — Command Strip visibility discipline (anti-bloat)
+   - Keep the Command Strip on the homepage (index) where it acts as a “platform launcher”.
+   - Hide it elsewhere; search remains available via nav-search icon + Ctrl/Cmd+K + / hotkey. */
+/* =========================================================
+   Wave V10-02 — Utility Bars Rhythm (hero/intro → utilities)
+   - Keep index-like cadence: hero/intro first, then optional utility bars.
+   - Use tokens so spacing remains consistent across media tiers.
+   ========================================================= */
+
+:where(.page-hero, .album-hero, .track-hero, .book-hero) + .breadcrumbs{
+  margin-top: var(--hero-after-gap);
+}
+
+.page-intro + .breadcrumbs{
+  margin-top: var(--intro-after-gap);
+}
+
+/* =========================================================
+   Shared album detail hero foundation (Wave V10-08)
+   Ownership:
+   - css/style.css = structural panel/grid/copy layout for album detail hero
+   - css/album.css = ambience, page-local art direction, and responsive nuance
+   ========================================================= */
+.album-hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: 14px;
+  border-radius: 20px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)), var(--panel);
+  box-shadow: var(--shadow-panel);
+}
+
+.album-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(220px, 360px) 1fr;
+  gap: 22px;
+  align-items: start;
+  padding: 18px;
+}
+
+.album-hero__cover {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  background: var(--panel-3);
+  aspect-ratio: 1 / 1;
+}
+
+.album-hero__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.album-hero__meta {
+  display: grid;
+  gap: 12px;
+}
+
+.album-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .album-hero__inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .album-hero { border-radius: 16px; }
+
+  .album-hero__inner {
+    padding: 14px;
+    gap: 16px;
+  }
+
+  .album-hero__cover {
+    border-radius: 16px;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (min-width: 1601px) {
+  .album-hero__inner {
+    grid-template-columns: minmax(260px, 390px) 1fr;
+    gap: 26px;
+    padding: 22px;
+  }
+
+  .track-hero__inner {
+    grid-template-columns: minmax(260px, 380px) 1fr;
+    gap: 26px;
+    padding: 22px;
+  }
+}
+
+/* =========================================================
+   Shared track detail hero foundation (Wave V10-07)
+   Ownership:
+   - css/style.css = structural panel/grid/copy layout for track detail hero
+   - css/track.css = ambience, page-local art direction, and responsive nuance
+   ========================================================= */
+.track-hero {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)), var(--panel);
+  box-shadow: var(--shadow-panel);
+}
+
+.track-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(240px, 340px) 1fr;
+  gap: 22px;
+  align-items: start;
+  padding: 18px;
+}
+
+.track-hero__cover {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  background: var(--panel-3);
+  aspect-ratio: 1 / 1;
+}
+
+.track-hero__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.track-hero__meta {
+  display: grid;
+  gap: 12px;
+}
+
+.track-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .track-hero__inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .track-hero { border-radius: 16px; }
+
+  .track-hero__inner {
+    padding: 14px;
+    gap: 16px;
+  }
+
+  .track-hero__cover {
+    border-radius: 16px;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* =========================================================
+   Wave V10-19 — Detail utility + hero action normalization
+   Ownership:
+   - css/style.css = shared detail utility rhythm, hero copy density, mobile scroll tabs, and action/button sizing
+   - page CSS = ambience, local artwork overlays, and truly page-specific spacing nuance
+   ========================================================= */
+.album-meta-line,
+.track-meta-line,
+.book-meta-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+}
+
+.album-description,
+.track-description,
+.book-logline {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  opacity: 0.92;
+  max-width: 72ch;
+}
+
+.album-hero__actions,
+.track-hero__actions,
+.book-hero__actions,
+.store-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.album-hero__actions,
+.track-hero__actions,
+.book-hero__actions {
+  margin-top: 6px;
+}
+
+.album-hero__actions .btn,
+.track-hero__actions .btn,
+.book-hero__actions .btn,
+.store-actions .btn {
+  min-height: 42px;
+}
+
+.link-tabs[data-scroll="true"] {
+  scroll-padding-inline: 2px;
+}
+
+@media (max-width: 768px) {
+  .link-tabs[data-scroll="true"] {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .link-tabs[data-scroll="true"]::-webkit-scrollbar {
+    display: none;
+  }
+
+  .link-tabs[data-scroll="true"] > .link-tab,
+  .link-tabs[data-scroll="true"] > a {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .album-description,
+  .track-description,
+  .book-logline {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .album-hero__actions,
+  .track-hero__actions,
+  .book-hero__actions,
+  .store-actions,
+  .share-row {
+    gap: 8px;
+  }
+
+  .link-tab {
+    min-height: 40px;
+    padding-inline: 11px;
+  }
+}
+
+@media (min-width: 1601px) {
+  .album-description,
+  .track-description,
+  .book-logline {
+    font-size: 16px;
+    max-width: 76ch;
+  }
+
+  .album-hero__actions,
+  .track-hero__actions,
+  .book-hero__actions,
+  .store-actions {
+    gap: 12px;
+  }
+}
+
+/* =========================================================
+   Shared book detail hero + content foundations (Wave V10-10)
+   Ownership:
+   - css/style.css = structural hero shell, book content panels, format cards, and shared related-volume rhythm
+   - css/book.css = ambience, book-only art direction, and page-local responsive polish
+   ========================================================= */
+.book-hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: 18px;
+  border-radius: 20px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)), var(--panel);
+  box-shadow: var(--shadow-panel);
+}
+
+.book-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 22px;
+  align-items: start;
+  padding: 18px;
+}
+
+.book-hero__cover {
+  position: relative;
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--panel-3);
+  box-shadow: var(--shadow-card);
+}
+
+#book-cover {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: var(--panel-3);
+}
+
+.book-hero__meta {
+  display: grid;
+  gap: 12px;
+}
+
+.book-meta-line,
+.pill-row,
+.book-hero__actions,
+.store-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.book-meta-line {
+  margin: 2px 0 0;
+  gap: 8px;
+}
+
+.pill-row {
+  gap: 8px;
+}
+
+.book-logline {
+  margin: 2px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 72ch;
+}
+
+.book-hero__actions {
+  margin-top: 4px;
+}
+
+.store-actions {
+  margin-top: 10px;
+}
+
+.store-actions .btn {
+  padding: 10px 12px;
+}
+
+.store-actions .btn--ghost {
+  border-color: var(--stroke-2);
+}
+
+.book-section {
+  margin-top: 26px;
+}
+
+.book-panel {
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 16px 18px;
+}
+
+.book-blurb {
+  margin: 0;
+  line-height: 1.68;
+  max-width: 80ch;
+}
+
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.format-card {
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border-radius: 18px;
+  padding: 14px 14px 12px;
+  display: grid;
+  gap: 8px;
+  min-height: 140px;
+}
+
+.format-card__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.format-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.format-card__desc {
+  margin: 0;
+  opacity: 0.86;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.format-card__actions {
+  margin-top: 4px;
+}
+
+.format-card__actions a {
+  text-decoration: none;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 10px 12px;
+  margin: 0;
+}
+
+.kv dt {
+  opacity: 0.78;
+}
+
+.kv dd {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .book-hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .book-hero__cover {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-hero {
+    border-radius: 16px;
+  }
+
+  .book-hero__inner {
+    padding: 14px;
+    gap: 16px;
+  }
+
+  .book-panel {
+    padding: 14px;
+  }
+
+  .kv {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1601px) {
+  .book-hero__inner {
+    grid-template-columns: minmax(260px, 360px) 1fr;
+    gap: 26px;
+    padding: 22px;
+  }
+
+  .format-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+  }
+
+  .book-panel {
+    padding: 18px 20px;
+  }
+}
+
+/* Shared breadcrumbs foundation — source of truth for album/track detail pages */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 10px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.breadcrumbs a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
+  border-bottom-color: rgba(var(--accent-rgb), 0.55);
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.breadcrumbs__current { opacity: 0.82; }
+
+.detail-glance--compact .detail-glance__grid{ gap: 12px; }
+.detail-glance--compact .detail-glance__card{ padding: 14px; border-radius: 18px; }
+
+@media (min-width: 769px) {
+  
+}
+
+@media (max-width: 768px) {
+/* =========================================================
+   Wave V10-02 — Nested Disclosure Pattern (outside Nav Hub)
+   Component: .menu-sub (details/summary inside a popover panel)
+   Purpose:
+   - Provide a reusable "menu inside menu" pattern that is:
+     - Keyboard accessible (native <details>/<summary>)
+     - Touch friendly (44px targets)
+     - QA-safe (no custom JS required)
+   Used in: .command-more__panel (discovery hubs like Streaming)
+   ========================================================= */
+
+.menu-sub{
+  border-radius: 12px;
+  border: 1px solid rgba(var(--accent-rgb), 0.14);
+  background: rgba(255,255,255,0.02);
+}
+
+.menu-sub__summary{
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: var(--text);
+}
+
+.menu-sub__summary::-webkit-details-marker{ display:none; }
+
+.menu-sub[open] > .menu-sub__summary{
+  background: rgba(var(--accent-rgb), 0.10);
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+}
+
+.menu-sub__panel{
+  padding: 8px;
+  display: grid;
+  gap: 6px;
+}
+
+.menu-sub__panel a{
+  min-height: 42px;
+}
+
+  
+}
+
+@media (min-width: 769px) {
+  
+  
+}
+
+@media (min-width: 1025px) {
+  
+  
+}
+
+/* Light theme polish for new surfaces */
+
+/* Wave S: notice polish (used by library empty states and templates) */
+.notice {
+  border: 1px solid rgba(var(--accent-rgb), 0.16);
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.06), color-mix(in srgb, var(--panel) 85%, transparent));
+}
+html[data-theme="light"] .notice {
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.04), color-mix(in srgb, var(--panel) 90%, transparent));
+}
+
+/* =========================================================
+   Wave V — UA color-scheme + selection (theme-driven)
+   ========================================================= */
+html[data-theme="toa"],
+html[data-theme="dark"],
+html[data-theme="contrast"] {
+  color-scheme: dark;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+::selection { background: var(--selection-bg); color: var(--selection-text); }
+::-moz-selection { background: var(--selection-bg); color: var(--selection-text); }
+
+/* Kill hover-lift on coarse pointers to prevent sticky hover states */
+@media (hover: none) and (pointer: coarse) {
+  .nav-links a:hover,
+  .btn:hover,
+  .cta-button:hover,
+  .index-video-nav-button:hover,
+  .carousel-nav-button:hover,
+  .platform-link:hover {
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   Wave AP — FILTER BAR + ABOUT LISTEN GRID (platform components)
+   Purpose:
+   - Filter Bar: reusable search surface for in-page filtering (Streaming “Find a platform”)
+   - Listen Grid: responsive layout for verified listen link blocks (About “Where to Listen”)
+   Behavior:
+   - Token-native surfaces + WCAG focus ring contract
+   - Forced-colors safe and reduced-motion friendly
+   ========================================================= */
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  box-shadow: var(--shadow-soft);
+}
+
+.filter-bar__input {
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--input-text);
+  margin: 0;
+}
+
+.filter-bar__input::placeholder { color: var(--muted); opacity: 0.95; }
+
+.filter-bar__input:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset-tight);
+  border-color: var(--input-border-focus);
+}
+
+.filter-bar__clear {
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-bar__clear:hover { background: rgba(var(--accent-rgb), 0.10); border-color: rgba(var(--accent-rgb), 0.35); }
+.filter-bar__clear:focus-visible { outline: var(--focus-outline); outline-offset: var(--focus-outline-offset); }
+
+@media (max-width: 480px) {
+  .filter-bar { grid-template-columns: 1fr; }
+  .filter-bar__clear { width: 100%; }
+}
+
+@media (forced-colors: active) {
+  .filter-bar {
+    background: Canvas;
+    border-color: CanvasText;
+    box-shadow: none;
+  }
+  .filter-bar__input {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+  .filter-bar__clear {
+    background: Canvas;
+    border-color: CanvasText;
+    color: CanvasText;
+  }
+}
+
+/* About: verified listen links layout */
+.listen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+@media (max-width: 768px) {
+  .listen-grid { grid-template-columns: 1fr; gap: 14px; }
+}
+
+/* About: quick listen gateway wrapper (keeps gateway panel spacing consistent outside Streaming page) */
+.listen-gateway {
+  margin: 18px 0 6px;
+}
+
+.listen-gateway .gateway-head { text-align: center; margin-bottom: 10px; }
+.listen-gateway .gateway-head h3 { margin: 0 0 6px; }
+.listen-gateway .gateway-head p { margin: 0; opacity: 0.92; }
+
+/* =========================================================
+   Wave Y — Explicit Media Device Tiers (strict + spine-aligned)
+   Mobile: 320–480
+   Tablets: 481–768
+   Laptops: 769–1024
+   Desktops: 1025–1200
+   Large Screens/TVs: 1201+
+   ========================================================= */
+
+@media (max-width: 480px) {
+  :root {
+    --layout-max: 980px;
+    --layout-max-narrow: 860px;
+    --nav-max: 980px;
+    --gutter: clamp(12px, 4vw, 18px);
+    --section-pad-md: clamp(22px, 6vw, 36px);
+    --section-pad-lg: clamp(28px, 7vw, 44px);
+  }
+  .nav-brand-title { font-size: 0.86rem !important; }
+  .nav-brand-subtitle { font-size: 0.66rem !important; }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  :root {
+    --layout-max: 1120px;
+    --layout-max-narrow: 920px;
+    --nav-max: 1120px;
+    --gutter: clamp(14px, 3.2vw, 28px);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --layout-max: 1240px;
+    --layout-max-narrow: 960px;
+    --nav-max: 1240px;
+    --gutter: clamp(18px, 2.6vw, 34px);
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  :root {
+    --layout-max: 1200px;
+    --layout-max-narrow: 960px;
+    --nav-max: 1200px;
+  }
+}
+
+@media (min-width: 1201px) {
+  :root {
+    --layout-max: 1440px;
+    --layout-max-narrow: 1040px;
+    --nav-max: 1600px;
+  }
+}
+
+/* TV tier polish (1601px+)
+   - Larger type + hero rhythm for distance viewing
+   - Keeps column width disciplined; boosts CTA hit area clarity
+*/
+@media (min-width: 1601px) {
+  :root {
+    --layout-max: 1680px;
+    --layout-max-narrow: 1120px;
+    --nav-max: 1760px;
+    --gutter: clamp(22px, 2.4vw, 44px);
+    --text-base: clamp(1.06rem, 0.98rem + 0.24vw, 1.18rem);
+    --nav-size: clamp(0.92rem, 0.90rem + 0.18vw, 1.02rem);
+    --menu-size: clamp(0.98rem, 0.96rem + 0.18vw, 1.10rem);
+    --focus-outline-offset: 4px;
+  }
+
+  .page-title {
+    font-size: clamp(36px, 2.4vw, 64px);
+    letter-spacing: 0.6px;
+  }
+
+  .page-lead {
+    font-size: clamp(1.15rem, 1.15vw, 1.55rem);
+  }
+
+  .page-subtitle {
+    font-size: clamp(16px, 0.95vw, 20px);
+  }
+
+  .page-hero--banner {
+    /* Tightened for TV tier: keeps hero cinematic without wasting vertical space */
+    min-height: clamp(52vh, 56vh, 66vh);
+  }
+
+  .page-hero--banner .page-hero__inner {
+    max-width: min(1180px, 66vw);
+    padding: calc(var(--section-pad-md) + var(--space-2)) var(--gutter);
+  }
+
+  .page-hero--pillar {
+    padding: calc(var(--section-pad-md) + var(--space-1)) 0 calc(var(--section-pad-sm) - var(--space-1));
+  }
+
+  .page-hero--pillar::after {
+    --hero-mark-size: clamp(260px, 22vw, 560px);
+    --hero-mark-position: 50% 34%;
+  }
+  /* TV chip ergonomics (Wave AG) */
+  .chip,
+  .command-chip,
+  .cta-button,
+  .btn,
+  .btn--ghost {
+    min-height: 54px;
+    padding: 12px 18px;
+    font-size: 1.02rem;
+  }
+
+  
+
+  .nav-actions :is(.nav-search, .theme-toggle, .nav-toggle) {
+    height: 52px;
+    width: 52px;
+  }
+
+  /* TV tier: platform rows + card rails (distance-friendly) */
+  .platform-link {
+    min-height: 54px;
+    padding: 12px 18px;
+    font-size: 1.02rem;
+  }
+
+  .deck-card,
+  .pillar-card,
+  .track-row {
+    min-height: 56px;
+  }
+
+  .deck-card { padding: 20px; }
+  .pillar-card { padding: 20px; }
+  .track-row { padding-block: 14px; }
+
+  .footer-list a,
+  .social-links a {
+    min-height: 48px;
+    padding-block: 10px;
+  }
+
+  /* TV tier: nav rail hit targets + tools padding */
+  .nav-links a { min-height: 50px; padding: 12px 16px; }
+  
+
+}
+
+@media (min-width: 2201px) {
+  .page-title { font-size: clamp(42px, 2.1vw, 72px); }
+  .page-hero--banner .page-hero__inner { max-width: min(1180px, 66vw); }
+}
+
+  .video-grid__grid {
+    gap: 20px;
+  }
+}
+
+/* =========================================================
+   FINDER SURFACES — Search / Videos / Streaming (Wave V10-13)
+   - Shared input + clear/search action shell for embedded discovery finders
+   - Keeps utility search surfaces visually related without flattening page identity
+   - Page CSS/HTML may layer local wrappers, chips, and section rhythm on top
+   ========================================================= */
+
+.finder-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 920px);
+  margin: 14px auto 0;
+}
+
+.finder-input {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 16px;
+  border: 1px solid var(--control-border);
+  background: color-mix(in oklab, var(--control-bg) 82%, transparent);
+  color: var(--control-text);
+  padding: 0 16px;
+  box-shadow: var(--control-shadow);
+  font-size: 14px;
+}
+
+.finder-input::placeholder {
+  color: var(--text-muted);
+}
+
+.finder-input:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  border-color: var(--control-border-hover);
+  background: var(--control-bg-hover);
+}
+
+.finder-clear,
+.finder-submit {
+  min-height: 46px;
+}
+
+.finder-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.finder-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.finder-hint,
+.finder-status {
+  margin-top: 10px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.finder-hint kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--stroke);
+  background: color-mix(in oklab, var(--panel-2) 70%, transparent);
+}
+
+.finder-summary {
+  width: min(100%, 980px);
+  margin: 12px auto 0;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in oklab, var(--stroke) 78%, transparent);
+  background: color-mix(in oklab, var(--panel) 88%, transparent);
+  box-shadow: var(--shadow-soft);
+}
+
+.finder-summary__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+}
+
+.finder-summary__status {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.finder-summary__status .finder-hint,
+.finder-summary__status .finder-status {
+  margin: 0;
+  text-align: left;
+}
+
+.finder-summary__status .finder-hint + .finder-status {
+  margin-top: 6px;
+}
+
+.finder-summary__routes {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.finder-summary__routes .chip,
+.finder-summary__routes .btn,
+.finder-summary__routes .cta-button {
+  min-height: 38px;
+}
+
+.finder-summary__routes-label {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+@media (max-width: 720px) {
+  .finder-summary {
+    padding: 12px 13px;
+  }
+
+  .finder-summary__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .finder-summary__status .finder-hint,
+  .finder-summary__status .finder-status {
+    text-align: center;
+  }
+
+  .finder-summary__routes {
+    justify-content: center;
+  }
+
+  .finder-form {
+    grid-template-columns: 1fr;
+  }
+
+  .finder-clear,
+  .finder-submit {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1601px) {
+  .finder-summary {
+    width: min(100%, 1040px);
+    padding: 18px 22px;
+  }
+
+  .finder-summary__row {
+    gap: 14px 20px;
+  }
+
+  .finder-form {
+    gap: 14px;
+    width: min(100%, 980px);
+  }
+
+  .finder-input,
+  .finder-clear,
+  .finder-submit {
+    min-height: 54px;
+    font-size: 1.02rem;
+  }
+
+  .finder-controls {
+    gap: 14px;
+  }
+}
+
+/* =========================================================
+   VIDEOS HUB — FINDER + GRID (Wave MW-AC)
+   - Advanced filtering (scope + query) pairs with js/videos.js
+   - Grid view is scan-first, rail view remains default
+   - Uses existing token system (panel/stroke/shadows)
+   ========================================================= */
+
+.video-finder {
+  padding: var(--section-pad-sm) var(--gutter);
+  max-width: var(--layout-max);
+  margin: 0 auto;
+}
+
+.video-finder__form {
+  width: min(100%, 760px);
+}
+
+.video-finder__input {
+  border-radius: 999px;
+}
+.video-grid {
+  padding: var(--section-pad-md) var(--gutter);
+  max-width: var(--layout-max);
+  margin: 0 auto;
+}
+
+.video-grid__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+@media (min-width: 1601px) {
+  .video-finder__form { width: min(100%, 900px); }
+  .video-grid__grid { gap: 22px; }
+}
+
+@media (max-width: 1024px) {
+  .video-grid__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .video-grid__grid { grid-template-columns: 1fr; }
+  .video-finder__form { flex-direction: column; }
+  .video-finder__input { width: 100%; }
+}
+
+.video-card {
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.video-card__player {
+  border-bottom: 1px solid var(--stroke);
+}
+
+.video-card__body {
+  padding: 14px 14px 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.video-card__kicker {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* Video hub tags (Wave V10-38)
+   Purpose:
+     - Give filtering a visible, premium anchor (type tags) without heavy UI.
+   Contract:
+     - tag-row is safe to reuse in other hubs (Merch, Search, etc.).
+*/
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke-2);
+  background: rgba(var(--panel-rgb), 0.60);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.tag--video {
+  border-color: rgba(var(--accent-rgb), 0.50);
+  background: rgba(var(--accent-rgb), 0.10);
+}
+
+.video-card__tags {
+  margin: 0;
+}
+
+.video-card__title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.video-card__actions {
+  margin: 0;
+}
+
+.videos-page .index-video-item {
+  position: relative;
+}
+
+.index-video-caption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .index-video-caption {
+    left: 10px;
+    bottom: 10px;
+  }
+}
+
+.yt-embed--grid {
+  border-radius: 0;
+}
+
+/* Pill links (clickable taxonomy chips) */
+.pill--link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.pill--link:hover {
+  border-color: rgba(208, 167, 58, 0.40);
+}
+
+.pill--link:focus-visible {
+  outline: 2px solid rgba(208, 167, 58, 0.85);
+  outline-offset: 3px;
+}
+

@@ -2,17 +2,24 @@
 // - Search + sort + filters (chips) + shelf browsing
 // - Keyboard accessible and CLS-hardened covers
 // - Dynamic JSON-LD ItemList injected into #dynamic-jsonld
+// - Catalog truth now comes from generated runtime artifacts, not bridge-owned arrays
 
 import {
   books,
   sagas,
   series,
-  getSagaById,
-  getSeriesById,
-  toAbsoluteSiteUrl,
+} from './generated/publishing-library.data.js';
+import {
+  resolveSagaRecord,
+  resolveSeriesRecord,
+} from './publishing-catalog-resolvers.js';
+import {
   parseApproxDate,
   amazonUrlFor,
-} from './publishing-data.js?v=5';
+  toAbsoluteSiteUrl,
+  bookHref,
+  bookAbsUrl,
+} from './publishing-page-helpers.js';
 
 const SITE_ORIGIN = 'https://www.triadofangels.com';
 const DEFAULT_COVER = '/assets/images/publishing/default-book-cover.webp';
@@ -129,16 +136,6 @@ const detectAmazonRegion = (availableKeys) => {
   return Array.from(keys).sort((a,b)=>a.localeCompare(b))[0];
 };
 
-const bookHref = (bookId, book) => {
-  const p = book && typeof book.canonicalPath === 'string' ? book.canonicalPath.trim() : '';
-  if (p) return p.endsWith('/') ? p : (p + '/');
-  return `/book.html?id=${encodeURIComponent(bookId)}`;
-};
-const bookAbsUrl = (bookId, book) => {
-  const p = book && typeof book.canonicalPath === 'string' ? book.canonicalPath.trim() : '';
-  if (p) return `${SITE_ORIGIN}${p.startsWith('/') ? '' : '/'}${p}`.replace(/\/index\.html$/,'');
-  return `${SITE_ORIGIN}/book.html?id=${encodeURIComponent(bookId)}`;
-};
 
 const getPrimaryCover = (book) => {
   const c = book?.covers || {};
@@ -263,8 +260,8 @@ const SAGA_ORDER = new Map(sagas.map((s, i) => [s.id, i]));
 const SERIES_ORDER = new Map(series.map((s, i) => [s.id, i]));
 
 const RECORDS = books.map((b) => {
-  const saga = getSagaById(b.sagaId);
-  const ser = getSeriesById(b.seriesId);
+  const saga = resolveSagaRecord(b.sagaId);
+  const ser = resolveSeriesRecord(b.seriesId);
   const parts = [
     b.id,
     b.title,
@@ -363,8 +360,8 @@ const applyDeepLinkFromUrl = () => {
       if (UI.sort) UI.sort.value = sort;
     }
 
-    sagaIds.forEach((id) => { if (getSagaById(id)) state.filters.saga.add(id); });
-    seriesIds.forEach((id) => { if (getSeriesById(id)) state.filters.series.add(id); });
+    sagaIds.forEach((id) => { if (resolveSagaRecord(id)) state.filters.saga.add(id); });
+    seriesIds.forEach((id) => { if (resolveSeriesRecord(id)) state.filters.series.add(id); });
 
     statuses.forEach((s) => { if (DISTINCT_STATUSES.includes(s)) state.filters.status.add(s); });
     formats.forEach((f) => { if (FORMAT_DEFS.some((x) => x.key === f)) state.filters.format.add(f); });
@@ -436,14 +433,14 @@ const getActiveFilterSummary = () => {
 
   if (state.filters.saga.size) {
     const labels = [...state.filters.saga]
-      .map((id) => getSagaById(id)?.shortTitle || getSagaById(id)?.title || id)
+      .map((id) => resolveSagaRecord(id)?.shortTitle || resolveSagaRecord(id)?.title || id)
       .filter(Boolean);
     if (labels.length) parts.push(`Saga: ${labels.join(', ')}`);
   }
 
   if (state.filters.series.size) {
     const labels = [...state.filters.series]
-      .map((id) => getSeriesById(id)?.shortTitle || getSeriesById(id)?.title || id)
+      .map((id) => resolveSeriesRecord(id)?.shortTitle || resolveSeriesRecord(id)?.title || id)
       .filter(Boolean);
     if (labels.length) parts.push(`Series: ${labels.join(', ')}`);
   }
@@ -610,8 +607,8 @@ const buildBookCard = (book) => {
     meta.appendChild(s);
   };
 
-  const saga = getSagaById(book.sagaId);
-  const ser = getSeriesById(book.seriesId);
+  const saga = resolveSagaRecord(book.sagaId);
+  const ser = resolveSeriesRecord(book.seriesId);
 
   addPill(saga?.shortTitle || saga?.title || '');
   addPill(ser?.shortTitle || ser?.title || '');
@@ -1146,7 +1143,7 @@ const init = () => {
     const btn = (t && t instanceof Element) ? t.closest('button[data-library-filter-series]') : null;
     if (!btn) return;
     const seriesId = String(btn.getAttribute('data-library-filter-series') || '').trim();
-    if (!seriesId || !getSeriesById(seriesId)) return;
+    if (!seriesId || !resolveSeriesRecord(seriesId)) return;
 
     e.preventDefault();
 

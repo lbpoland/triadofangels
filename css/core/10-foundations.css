@@ -1,0 +1,854 @@
+/* =========================================================
+   Wave AM — Target Highlight (in-page navigation)
+   Purpose: make hash navigation visually obvious and accessible
+   Behavior: :target receives an outline + gentle pulse (disabled for reduced motion)
+   Notes: used by JumpNav, hero action anchors, and skip-link destinations
+   ========================================================= */
+:where(main, .toa-main) :target {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset-loose);
+  border-radius: var(--radius-md);
+}
+
+html.no-reduced-motion :where(main, .toa-main) :target {
+  animation: toa-target-pulse 900ms ease-out 1;
+}
+
+@keyframes toa-target-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(var(--focus-rgb), 0.0); }
+  25% { box-shadow: 0 0 0 10px rgba(var(--focus-rgb), 0.14); }
+  60% { box-shadow: 0 0 0 14px rgba(var(--focus-rgb), 0.08); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--focus-rgb), 0.0); }
+}
+
+@media (forced-colors: active) {
+  html.no-reduced-motion :where(main, .toa-main) :target { animation: none; }
+}
+
+/* Universal Link Style */
+/* Universal Link Style (Governance)
+   - Default links are NOT underlined. Underlines are reserved for prose contexts
+     so UI components (nav, buttons, chips) never inherit unwanted underlines.
+   - Prose underlines are applied by the “Prose Link Style” rule below. */
+a {
+    color: var(--link);
+    text-decoration: none;
+    transition: color 0.18s ease;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--link-hover);
+}
+/*
+a:visited {
+  color: inherit;
+}
+
+a:visited:is(.cta-button, .cta-button--ghost, .btn, .btn--ghost, .deck-card, .pillar-card, .track-row, .link-tab, .platform-link, .nav-brand, .nav-search, .theme-toggle, .nav-toggle, .footer-brand-link, .footer-list a, .social-links a) {
+    color: inherit;
+    text-decoration-color: currentColor;
+}
+*/
+
+/* Primary CTA must always keep readable on-accent text, even when visited */
+a.cta-button:visited {
+    color: var(--on-accent);
+    -webkit-text-fill-color: currentColor;
+}
+
+/* Prose Link Style (Accessibility)
+   - Underlines are applied ONLY inside .prose blocks (legal pages + long-form content).
+   - UI components (nav, chips, buttons, footers, toolbars) remain decoration-free. */
+.prose :is(p, li, dd, dt, blockquote, figcaption, small) a:not(.btn):not(.button):not(.cta-button):not(.cta-button--ghost):not(.nav-link):not(.nav-brand):not(.nav-search):not(.theme-toggle):not(.nav-toggle):not(.deck-card):not(.pillar-card):not(.track-row):not(.link-tab):not(.platform-link):not(.footer-brand-link):not(.chip) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: rgba(var(--accent-rgb), 0.55);
+    transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.prose :is(p, li, dd, dt, blockquote, figcaption, small) a:not(.btn):not(.button):not(.cta-button):not(.cta-button--ghost):not(.nav-link):not(.nav-brand):not(.nav-search):not(.theme-toggle):not(.nav-toggle):not(.deck-card):not(.pillar-card):not(.track-row):not(.link-tab):not(.platform-link):not(.footer-brand-link):not(.chip):hover,
+.prose :is(p, li, dd, dt, blockquote, figcaption, small) a:not(.btn):not(.button):not(.cta-button):not(.cta-button--ghost):not(.nav-link):not(.nav-brand):not(.nav-search):not(.theme-toggle):not(.nav-toggle):not(.deck-card):not(.pillar-card):not(.track-row):not(.link-tab):not(.platform-link):not(.footer-brand-link):not(.chip):focus-visible {
+    text-decoration-color: rgba(var(--accent-rgb), 0.85);
+}
+
+/* =========================================================
+   Typography wrap discipline (Premium)
+   - Prevent mid-word breaks and browser hyphenation artifacts.
+   - Use modern text-wrap where supported for higher-end line breaking.
+   ========================================================= */
+:where(h1, h2, h3, .page-title, .section-title, .section-header__title) {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
+}
+
+:where(p, li, dd, dt, blockquote, figcaption) {
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: pretty;
+}
+
+/* Prose blocks (legal + long-form content) */
+.prose {
+  text-align: left;
+}
+
+.prose :is(h2, h3, h4) {
+  scroll-margin-top: var(--sticky-stack-top);
+}
+
+/* Navigation */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Nav Hub scroll lock (Riot: when menu is open, page does not scroll) */
+body.nav-hub-lock{
+  overflow: hidden;
+  padding-right: var(--toa-scrollbar-comp, 0px);
+}
+html.nav-hub-open{ overscroll-behavior: none; }
+html.nav-hub-open .site-header{
+  padding-right: var(--toa-scrollbar-comp, 0px);
+}
+.site-header {
+    background: var(--header-bg);
+    box-shadow: var(--header-shadow);
+    padding: calc(10px + var(--safe-top)) 0 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    
+    top: 0;
+    width: 100%;
+    z-index: var(--z-header);
+    border-bottom: 1px solid var(--header-border);
+    transition: background-color .22s ease, opacity .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+/* PASS 3 — homepage/header parity
+   Keep the home page on the same premium shell surface as the rest of the site.
+   The hero still carries the cinematic weight; the header should not become a special-case skin. */
+body.index-page:not(.nav-scrolled) .site-header{
+  background: var(--header-bg);
+  box-shadow: var(--header-shadow);
+  border-bottom-color: var(--header-border);
+}
+
+/* Hard guarantee: once scrolled, the header must become a solid readable surface.
+   This prevents any cascade edge-cases where transparency rules might linger. */
+body.nav-scrolled .site-header{
+  background: var(--header-bg);
+  box-shadow: var(--header-shadow);
+  border-bottom-color: var(--header-border);
+}
+
+/* When the Nav Hub is open, the header and hub become one continuous surface */
+html.nav-hub-open .site-header,
+html.nav-hub-open body.index-page:not(.nav-scrolled) .site-header{
+  background: var(--hub-header-bg);
+  border-bottom-color: var(--hub-border);
+  box-shadow: none;
+}
+
+/* When the hub menu is open, KEEP the sticky header visible (brand + theme + close).
+   The expanded panel handles the dropdown surface; do not zero opacity here or the panel becomes invisible. */
+html.nav-hub-open .site-header,
+html.nav-hub-open body.index-page:not(.nav-scrolled) .site-header{ opacity: 1; pointer-events: auto; }
+
+.nav-shell {
+  width: min(100%, var(--nav-max));
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 14px;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1101px) {
+  .nav-shell {
+    grid-template-columns: minmax(240px, 1fr) auto minmax(240px, 1fr);
+  }
+  .nav-actions { justify-self: end; }
+  .nav-links { justify-self: center; }
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+        min-width: 0;
+}
+
+.nav-logo-img {
+    border-radius: 10px;
+    box-shadow: var(--brand-logo-shadow);
+}
+
+.nav-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+}
+
+.nav-brand-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    color: var(--accent);
+    text-shadow: var(--brand-title-shadow);
+}
+
+.nav-brand-subtitle {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-self: end;}
+
+/* ---------- Wave F: header Search action (injected via JS) ---------- */
+.nav-search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+        background: var(--control-bg);
+    border: 1px solid var(--control-border);
+    border-radius: 999px;
+    cursor: pointer;
+    padding: 10px 14px;
+    min-height: 44px;
+    color: var(--control-text);
+    box-shadow: var(--control-shadow);
+    transition: transform 0.2s ease, background 0.2s ease;
+    text-decoration: none;
+}
+
+.nav-search:hover,
+.nav-search:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+    background: var(--control-bg-hover);
+    border-color: var(--control-border-hover);
+}
+
+.nav-search .nav-search__icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.nav-search .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.theme-toggle,
+.nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--control-bg);
+    border: 1px solid var(--control-border);
+    border-radius: 999px;
+    cursor: pointer;
+    padding: 10px 14px;
+    min-height: 44px;
+    color: var(--control-text);
+    box-shadow: var(--control-shadow);
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible,
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+    background: var(--control-bg-hover);
+    border-color: var(--control-border-hover);
+}
+
+.toa-glyph::before {
+    content: attr(data-glyph);
+}
+
+.nav-links {
+    justify-self: center;
+    list-style: none;
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0;
+    margin: 0;
+
+    /* Desktop rail stays single-line. Overflow is handled by the desktop "More" menu (Wave AD).
+       Keep fallbacks safe for older browsers; the desktop media query below restores overflow: visible
+       so dropdown menus are never clipped. */
+    overflow: hidden;
+    scrollbar-width: none;}
+
+.nav-links::-webkit-scrollbar { display: none; }
+
+/* Desktop rail: allow dropdown menus to extend outside the nav row without being clipped. */
+@media (min-width: 1101px) {
+  .nav-links {
+    overflow: visible;
+  }
+}
+
+/* Nav rail tightening for mid-size desktops */
+@media (max-width: 1400px) and (min-width: 1101px) {
+  .nav-shell { max-width: 1280px; }
+  .nav-links { gap: 6px; }
+}
+
+.nav-links > li {
+    display: flex;
+    align-items: center;
+}
+
+/* ---------- Nav dropdown submenus ---------- */
+.nav-item.nav-has-sub {
+    position: relative;
+    gap: 6px;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    font-size: var(--nav-size);
+    color: var(--nav-link-color);
+    text-shadow: var(--nav-link-shadow);
+    text-decoration: none;
+
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    background: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+.nav-links a[aria-current="page"] {
+    background: var(--nav-link-current-bg);
+    color: var(--nav-link-hover-color);
+}
+
+/* Branch-current: when a submenu item is current, elevate the parent rail item as current too */
+.nav-item.nav-has-sub.nav-branch-current > a {
+  background: var(--nav-link-current-bg);
+  color: var(--nav-link-hover-color);
+}
+
+.theme-menu[hidden] { display: none; }
+
+.theme-menu {
+    position: absolute;
+    z-index: var(--z-popover);
+    right: 14px;
+    top: calc(100% + 8px);
+    background: var(--glass-strong);
+    border: 1px solid var(--control-border);
+    border-radius: 14px;
+    padding: 6px;
+    min-width: 200px;
+    box-shadow: var(--shadow-2);
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+}
+
+/* Theme menu reveal: keep items inert while hidden, then animate in once open. */
+.theme-menu:not([hidden]) .theme-item {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.theme-item {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-family: var(--font-body);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: var(--label-size);
+    color: var(--text);
+    cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-2px);
+  transition: opacity .18s ease, transform .22s ease;
+}
+
+.theme-item:hover,
+.theme-item:focus-visible {
+    background: rgba(var(--accent-rgb), 0.12);
+    border-color: rgba(var(--accent-rgb), 0.18);
+}
+
+.theme-item[aria-checked="true"] {
+    background: rgba(var(--accent-rgb), 0.18);
+    border-color: rgba(var(--accent-rgb), 0.28);
+    color: var(--accent-soft);
+}
+
+@media (max-width: 1024px) {
+    .nav-shell {
+        gap: 10px;
+    }
+
+    .nav-brand {
+        min-width: 0;
+    }
+    .nav-links {
+        /* Premium drawer: fixed, full-height, thumb-first; no click-through due to .nav-scrim */
+        position: fixed;
+        left: 0;
+        top: calc(84px + var(--safe-top));
+        bottom: 0;
+
+        width: min(420px, 92vw);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 8px;
+
+        padding: 14px 14px calc(16px + var(--safe-bottom));
+        background: var(--glass-strong);
+        border: 1px solid var(--stroke-2);
+        border-left: 0;
+        border-radius: 0 22px 22px 0;
+        box-shadow: var(--shadow-deep);
+
+        /* Closed state */
+        transform: translateX(-106%);
+        opacity: 0.001;
+        pointer-events: none;
+
+        overscroll-behavior: contain;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-gutter: stable;
+
+        transition: transform 220ms ease, opacity 180ms ease;
+        z-index: 5600;
+    }
+
+    .nav-links.show {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+.nav-links > li > a {
+        width: 100%;
+        text-align: left;
+        padding: 12px 12px;
+        justify-content: flex-start;
+        border: 1px solid transparent;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+        transform: none;
+        border-color: rgba(var(--accent-rgb), 0.28);
+        text-decoration: none;
+    }
+
+    .nav-links a[aria-current="page"] {
+        border-color: rgba(var(--accent-rgb), 0.32);
+        box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.10) inset;
+    }
+
+    .nav-item.nav-has-sub > a {
+        width: auto;
+        padding-right: 8px;
+    }
+
+    /* ---------- Mobile submenu: second-panel (Option B) ---------- */
+    .nav-subpanel {
+        position: absolute;
+        left: var(--gutter);
+        top: calc(100% + 10px);
+        width: min(420px, calc(100vw - (var(--gutter) * 2)));
+        padding: 12px 14px calc(14px + var(--safe-bottom));
+        background: var(--glass-strong);
+        border: 1px solid var(--stroke-2);
+        border-radius: 18px;
+        box-shadow: var(--shadow-deep);
+        backdrop-filter: var(--blur-md);
+        -webkit-backdrop-filter: var(--blur-md);
+
+        max-height: calc(100dvh - (120px + var(--safe-bottom)));
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-6px);
+        pointer-events: none;
+        z-index: 5650;
+    }
+
+    .nav-shell.nav-subpanel-open .nav-subpanel {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .nav-shell.nav-subpanel-open .nav-links.show {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-6px);
+    }
+
+    .nav-subpanel[hidden] { display: none; }
+
+    .nav-subpanel__header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(var(--accent-rgb), 0.14);
+        margin-bottom: 10px;
+    }
+
+    .nav-subpanel__back {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        min-width: 44px;
+        border-radius: 12px;
+        border: 1px solid var(--control-border);
+        background: var(--control-bg);
+        color: var(--control-text);
+        cursor: pointer;
+        flex: 0 0 auto;
+    }
+
+    .nav-subpanel__back:hover,
+    .nav-subpanel__back:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-outline-offset);
+        background: var(--control-bg-hover);
+        border-color: var(--control-border-hover);
+    }
+
+    .nav-subpanel__title {
+        font-family: var(--font-body);
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        color: var(--text);
+        margin: 0;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .nav-subpanel__list {
+        list-style: none;
+        display: grid;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+        max-height: calc(100vh - 190px);
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-gutter: stable;
+    }
+
+    .nav-subpanel__list a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 12px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(var(--accent-rgb), 0.10);
+        background: var(--btn-ghost-bg);
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 900;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        font-size: 0.82rem;
+    }
+
+    .nav-subpanel__list a:hover,
+    .nav-subpanel__list a:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-outline-offset);
+        background: rgba(var(--accent-rgb), 0.12);
+        color: var(--accent-soft);
+        text-decoration: none;
+    }
+}
+
+/* ---------- Wave AG: Mobile nav drawer density + glass tokenization ---------- */
+@media (max-width: 480px) {
+  /* Wave AM — Sticky stacking height tweak (JumpNav label hides ≤480) */
+  .nav-links {
+    gap: 6px;
+    padding: 10px 12px calc(12px + var(--safe-bottom));
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    letter-spacing: 0.10em;
+  }
+  .nav-links > li > a {
+    padding: 11px 12px;
+  }
+}
+
+/* Ultra-narrow phones: reduce icon columns to preserve 44px targets */
+@media (max-width: 360px) {
+  .site-footer .footer-social .social-links {
+    grid-template-columns: repeat(4, minmax(44px, 1fr));
+  }
+}
+
+@media (min-width: 1101px) {
+    .nav-toggle {
+        display: none;
+    }
+}
+
+/* ---------- Mobile nav overlay + scroll lock ---------- */
+body.nav-open {
+    overflow: hidden;
+}
+
+/* Real overlay element (prevents click-through). Controlled by JS via [hidden]. */
+.nav-scrim {
+    position: fixed;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: var(--scrim);
+    backdrop-filter: var(--scrim-blur);
+    -webkit-backdrop-filter: var(--scrim-blur);
+    z-index: var(--z-overlay-backdrop);
+}
+
+.nav-scrim[hidden] { display: none; }
+
+@media (forced-colors: active) {
+  .nav-scrim {
+    forced-color-adjust: auto;
+    background: CanvasText;
+    opacity: 0.35;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* HERO SECTION - Sticky Scrolling Background Video */
+.hero-banner,
+.page-hero--banner {
+    position: relative;
+    min-height: 60vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Reduced motion: disable expensive blur effects */
+  :root { --blur-sm: none; --blur-md: none; --blur-lg: none; --surface-blur: none; --scrim-blur: none; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+        transform: none !important;
+    }
+}
+
+@media (forced-colors: active) {
+    /* Forced colors: ensure skip link is always legible and obvious */
+    .skip-link {
+        forced-color-adjust: auto;
+        background: ButtonFace;
+        color: ButtonText;
+        border: 2px solid ButtonText;
+        text-shadow: none;
+        box-shadow: none;
+    }
+
+    /* Forced-colors contract:
+       - Use system colors and remove decorative shadows/glows.
+       - Tighten focus ring geometry for clearer UA highlight.
+       - Preserve inline/prose links as inline (no borders/background). */
+    :root {
+        --focus-outline: 2px solid Highlight;
+        --focus-outline-offset: 2px;
+    }
+
+    /* Inline links (prose/content) */
+    a { forced-color-adjust: auto; color: LinkText; }
+/*    a:visited { color: VisitedText; } */
+    .prose :is(p, li, dd, dt, blockquote, figcaption, small) a {
+        text-decoration-line: underline;
+        text-decoration-thickness: 2px;
+        text-decoration-color: currentColor;
+        text-underline-offset: 0.16em;
+    }
+
+    /* Link-like surfaces (cards/chips/buttons that are anchors) */
+    .skip-link,
+    .social-links a,
+    .footer-brand-link,
+    .footer-list a,
+    a.cta-button,
+    a.cta-button--ghost,
+    a.btn,
+    a.btn--ghost,
+    .command-chip,
+    .deck-card,
+    .pillar-card,
+    .track-row,
+    .platform-link,
+    .link-tab {
+        forced-color-adjust: auto;
+        background: Canvas;
+        color: LinkText;
+        border: 1px solid LinkText;
+        text-shadow: none;
+        box-shadow: none;
+        filter: none;
+    }
+
+    /* Buttons and control-like surfaces */
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    .theme-toggle,
+    .nav-toggle,
+    .theme-item,
+        .carousel-nav-button,
+    .index-video-nav-button,
+    .video-nav-button,
+    .video-nav-button {
+        forced-color-adjust: auto;
+        background: ButtonFace;
+        color: ButtonText;
+        border: 1px solid ButtonText;
+        text-shadow: none;
+        box-shadow: none;
+        filter: none;
+    }
+
+    /* Footer: remain legible in forced-colors without decorative overlays */
+    .site-footer {
+      forced-color-adjust: auto;
+      background: Canvas;
+      color: CanvasText;
+      border-top: 1px solid ButtonText;
+      box-shadow: none;
+    }
+
+    /* Remove hover/active transforms in forced-colors (visual clarity first). */
+    .deck-card:hover,
+    .deck-card:focus-visible,
+    .pillar-card:hover,
+    .pillar-card:focus-visible,
+    .command-chip:hover,
+    .command-chip:focus-visible,
+    .platform-link:hover,
+    .platform-link:focus-visible,
+    .link-tab:hover,
+    .link-tab:focus-visible,
+    .cta-button:hover,
+    .cta-button:focus-visible,
+    .cta-button--ghost:hover,
+    .cta-button--ghost:focus-visible,
+        transform: none !important;
+    }
+
+.hero-banner .picture,
+.page-hero--banner .picture {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.picture picture {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Hero art-direction: per-page focal tuning for the shared banner asset */
+.page-hero--banner .picture img {
+  object-position: var(--hero-banner-object-position, 50% 35%);
+}
+
+.hero-banner::before,
+.page-hero--banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: var(--hero-banner-overlay);
+}
+.hero-banner::after,
+.page-hero--banner::after {
+    content: none;
+}
+

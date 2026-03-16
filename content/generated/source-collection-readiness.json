@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-03-16T19:24:12.362Z",
+  "manifests": {
+    "music": {
+      "file": "content/source/music-library.collections.manifest.json",
+      "sha256": "16ead6baaff1a7544d804f9564f2336b03565915d371439b1dffb90d8e374c65",
+      "collectionCount": 2,
+      "futureSplitPatterns": [
+        "content/source/music/albums/<album-id>.json",
+        "content/source/music/tracks/<album-id>/<track-id>.json"
+      ]
+    },
+    "publishing": {
+      "file": "content/source/publishing-library.collections.manifest.json",
+      "sha256": "e23451339fb1ce2cddf06a3288534b3c48b8b39a5e7497304fc1602540211f86",
+      "collectionCount": 3,
+      "futureSplitPatterns": [
+        "content/source/publishing/sagas/<saga-id>.json",
+        "content/source/publishing/series/<series-id>.json",
+        "content/source/publishing/books/<book-id>.json"
+      ]
+    }
+  },
+  "readiness": {
+    "music": {
+      "sourceEntityCount": 18,
+      "derivedTrackCount": 233,
+      "normalizedCollectionsReady": true
+    },
+    "publishing": {
+      "sourceSagaCount": 1,
+      "sourceSeriesCount": 1,
+      "sourceBookCount": 3,
+      "normalizedCollectionsReady": true
+    }
+  },
+  "nextSafeTarget": "Split authoritative source JSON into collection-aware source directories while preserving current build inputs and canonical route ownership."
+}

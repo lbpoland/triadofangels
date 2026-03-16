@@ -1,0 +1,1437 @@
+/* =========================================================
+   Wave L — Page Hero Component System (site-wide)
+   Purpose:
+   - One hero structure across all top-level pages
+   - Banner heroes and text heroes share the same inner spine
+   - LCP-friendly and reduced-motion safe
+   ========================================================= */
+
+.page-hero {
+  position: relative;
+  width: 100%;
+  padding: var(--section-pad-md) 0 var(--section-pad-sm);
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: min(100%, var(--layout-max-narrow));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.page-lead {
+  margin: var(--space-3) auto 0;
+  max-width: 64ch;
+  font-size: clamp(1.0rem, 2.2vw, 1.25rem);
+  line-height: 1.55;
+  font-weight: 650;
+}
+
+.page-hero__actions {
+  margin-top: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+/* =========================================================
+   Wave V10-01 — Page Intro System (Section / Compact)
+   Purpose:
+   - Replace site-wide banner heroes on non-flagship pages with premium editorial intros.
+   - Preserve H1 discipline, readability, and CTA clarity.
+   - Do NOT depend on /assets/images/hero-banner.webp.
+   Design intent:
+   - Section hubs: restrained “editorial platform intro” (glass surface + subtle ambient).
+   - Utility/support: compact, controlled intro (less vertical height, faster to content).
+   ========================================================= */
+
+.page-intro{
+  position: relative;
+  width: 100%;
+  padding: var(--section-pad-sm) 0 0;
+  margin-bottom: var(--intro-after-gap);
+}
+
+.page-intro__inner{
+  width: min(100%, var(--layout-max-narrow));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.page-intro__inner > *{ position: relative; z-index: 1; }
+
+/* The intro surface is a contained “glass panel” rather than a full-height banner. */
+.page-intro__inner{
+  padding: clamp(18px, 3.2vw, 28px);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--stroke);
+  background:
+    radial-gradient(900px 380px at 50% 0%, rgba(var(--accent-rgb), 0.12), rgba(var(--accent-rgb), 0.00) 64%),
+    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+    var(--panel);
+  box-shadow: var(--shadow-panel);
+}
+
+@supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))){
+  .page-intro__inner{
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+.page-intro--section .page-lead{ max-width: 70ch; }
+.page-intro--compact .page-lead{ max-width: 62ch; }
+
+/* Compact utility intro: slightly tighter padding and left-align for faster scanning. */
+.page-intro--compact .page-intro__inner{
+  text-align: left;
+  width: min(100%, 900px);
+}
+
+.page-intro__actions{
+  margin-top: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.page-intro--compact .page-intro__actions{
+  justify-content: flex-start;
+}
+
+@media (max-width: 640px){
+  .page-intro{ padding: calc(var(--section-pad-xs) + var(--space-2)) 0 0; margin-bottom: var(--intro-after-gap); }
+  .page-intro__inner{ padding: 16px; border-radius: var(--radius-lg); }
+}
+
+/* =========================================================
+   Wave V10-01 — Role-level shell gating
+   - Flagship pages may use cinematic full-page background layers (ToA theme).
+   - Non-flagship pages remain content-first (no site-wide hero image dependency).
+   ========================================================= */
+
+body[data-page-role="flagship"] .page-intro{ display: none; } /* safety: flagship pages should use page-hero */
+
+/* =========================================================
+   Hero System V2 — Pillar Hero Variant (Wave MW-AB)
+   Purpose: cinematic, readable heroes for non-banner pillar pages (Music/Streaming/Publishing)
+   - No new assets: uses existing pillar icons as subtle watermark
+   - Fully theme-token based
+   - Performance-gated: watermark disabled on low-perf and reduced transparency tiers
+   ========================================================= */
+
+.page-hero--pillar {
+  padding: calc(var(--section-pad-md) + var(--space-2)) 0 var(--section-pad-sm);
+  overflow: hidden;
+}
+
+.page-hero--pillar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(900px 420px at 20% 18%, rgba(var(--accent-rgb), 0.16), transparent 60%),
+    radial-gradient(900px 420px at 80% 22%, rgba(var(--focus-rgb), 0.10), transparent 60%),
+    linear-gradient(to bottom, rgba(var(--bg-rgb), 0.10), rgba(var(--bg-rgb), 0.70));
+}
+
+.page-hero--pillar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: var(--hero-mark, none);
+  background-repeat: no-repeat;
+  background-position: var(--hero-mark-position, 50% 35%);
+  background-size: var(--hero-mark-size, clamp(220px, 28vw, 520px));
+  opacity: 0.14;
+  filter: saturate(1.05) drop-shadow(0 16px 40px rgba(var(--ink-rgb), 0.35));
+}
+
+html[data-perf="low"] .page-hero--pillar::after { opacity: 0.00; }
+@media (prefers-reduced-transparency: reduce) {
+  .page-hero--pillar::after { opacity: 0.00; }
+}
+
+.page-hero--pillar .page-hero__inner {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+}
+
+.page-hero--pillar .page-hero__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(var(--accent-rgb), 0.14);
+  background: linear-gradient(to bottom, rgba(var(--bg-rgb), 0.44), rgba(var(--bg-rgb), 0.78));
+  box-shadow: var(--shadow-badge);
+  backdrop-filter: var(--surface-blur);
+  -webkit-backdrop-filter: var(--surface-blur);
+}
+
+@media (forced-colors: active) {
+  .page-hero--pillar .page-hero__inner::before { content: none !important; display: none !important; }
+}
+
+html[data-theme="contrast"] .page-hero--pillar::before {
+  background: linear-gradient(to bottom, rgba(var(--bg-rgb), 0.82), rgba(var(--bg-rgb), 0.98));
+}
+
+html[data-theme="contrast"] .page-hero--pillar::after {
+  opacity: 0.00;
+}
+
+html[data-theme="contrast"] .page-hero--pillar .page-hero__inner::before {
+  border-color: var(--stroke);
+  background: var(--bg);
+  box-shadow: none;
+}
+
+.music-hero { --hero-mark: url("/assets/images/icons/pillar-music.webp"); }
+.streaming-hero { --hero-mark: url("/assets/images/icons/pillar-music.webp"); }
+.publishing-hero { --hero-mark: url("/assets/images/icons/pillar-publishing.webp"); }
+.apps-hero { --hero-mark: url("/assets/images/icons/pillar-apps.webp"); }
+.digital-store-hero { --hero-mark: url("/assets/images/icons/pillar-store.webp"); }
+
+/* Pillar hero watermark art-direction (Wave MW_AD)
+   - Fine-tunes watermark placement per pillar without new assets */
+body.music-page .music-hero { --hero-mark-position: 52% 34%; }
+body.streaming-page .streaming-hero { --hero-mark-position: 48% 34%; }
+body.publishing-page .publishing-hero { --hero-mark-position: 50% 33%; }
+body.apps-page .apps-hero { --hero-mark-position: 50% 34%; }
+body.digital-store-page .digital-store-hero { --hero-mark-position: 50% 34%; }
+
+/* =========================================================
+   Shared publishing intro shell (Wave V10-08)
+   Ownership:
+   - css/style.css = shared section-intro shell rhythm and controlled measure
+   - css/publishing.css = publishing-only toolbar, shelves, cards, series/start-here choreography
+   ========================================================= */
+.publishing-hero {
+  padding: 40px 0 20px;
+}
+
+.publishing-hero .page-hero__inner {
+  width: min(100%, var(--layout-max));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (min-width: 1601px) {
+  .publishing-hero {
+    padding-block: 48px 24px;
+  }
+
+  .publishing-hero .page-hero__inner {
+    max-width: min(1200px, 88vw);
+  }
+}
+
+.cta-button--ghost {
+  background: var(--btn-ghost-bg);
+  color: var(--text);
+  border: 1px solid var(--btn-ghost-border);
+}
+
+.cta-button--ghost:hover,
+.cta-button--ghost:focus-visible {
+  background: var(--btn-ghost-bg-hover);
+  color: var(--text);
+}
+
+/* Banner variant (image + overlay wash) */
+.page-hero--banner {
+  min-height: clamp(54vh, 60vh, 72vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.page-hero--banner .page-hero__inner {
+  padding: var(--section-pad-lg) var(--gutter);
+  max-width: min(920px, 94vw);
+}
+
+.page-hero--banner .page-title {
+  color: var(--hero-title-color);
+  text-shadow: var(--hero-title-shadow);
+}
+
+.page-hero--banner .page-subtitle {
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  opacity: 0.92;
+}
+
+.page-hero--banner .page-lead {
+  text-shadow: var(--hero-lead-shadow);
+}
+
+/* Hero surface panel (banner heroes)
+   - Improves readability on high-contrast imagery without adding extra DOM
+   - Gated in forced-colors and reduced-transparency / low-perf tiers
+*/
+.page-hero--banner .page-hero__inner {
+  isolation: isolate;
+}
+
+.page-hero--banner .page-hero__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(var(--accent-rgb), 0.14);
+  background:
+    radial-gradient(900px 360px at 18% 18%, rgba(var(--accent-rgb), 0.12), rgba(var(--accent-rgb), 0) 62%),
+    radial-gradient(840px 340px at 82% 22%, rgba(var(--focus-rgb), 0.10), rgba(var(--focus-rgb), 0) 64%),
+    linear-gradient(to bottom, rgba(var(--bg-rgb), 0.52), rgba(var(--bg-rgb), 0.82));
+  box-shadow: var(--shadow-badge);
+}
+
+/* Home hero scroll cue (Wave MW-AB)
+   - Visible invitation to continue
+   - Reduced-motion + low-perf safe
+*/
+.hero-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: calc(14px + var(--safe-bottom));
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--accent-rgb), 0.22);
+  background: color-mix(in srgb, var(--panel) 70%, transparent);
+  box-shadow: var(--shadow-1);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.hero-scroll-cue__label {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.hero-scroll-cue__chev {
+  font-size: 1.0rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+html.no-reduced-motion .hero-scroll-cue__chev {
+  animation: toa-cue-bob 1200ms ease-in-out infinite;
+}
+
+@keyframes toa-cue-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+html[data-perf="low"] .hero-scroll-cue__chev { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-cue__chev { animation: none; }
+}
+
+@media (max-width: 480px) {
+  .page-hero--banner .page-hero__inner::before {
+    border-radius: 22px;
+  }
+}
+
+@media (forced-colors: active) {
+  .page-hero--banner .page-hero__inner::before {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+/* Priority-page reveal safety: keep main public surfaces visible in full-page capture, low-scroll, and delayed-IO contexts. */
+html.no-reduced-motion body.priority-surface [data-reveal] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto;
+}
+
+/* Shared micro-motion reveal (reduced-motion safe) */
+html.no-reduced-motion [data-reveal] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 480ms ease, transform 520ms ease;
+  will-change: opacity, transform;
+}
+
+html.no-reduced-motion [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Premium hover lift on core cards (reduced-motion safe) */
+html.no-reduced-motion .product-block,
+html.no-reduced-motion .album-card,
+html.no-reduced-motion .album-block,
+html.no-reduced-motion .stream-card,
+html.no-reduced-motion .faq-item {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+html.no-reduced-motion .product-block:hover,
+html.no-reduced-motion .album-card:hover,
+html.no-reduced-motion .album-block:hover,
+html.no-reduced-motion .stream-card:hover,
+html.no-reduced-motion .faq-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--accent-rgb), 0.34);
+  box-shadow: var(--shadow-deep);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--text);
+    padding: clamp(0.75rem, 1.5vw, 1.2rem) 18px;
+    max-width: min(920px, 94vw);
+    background: none;
+    box-shadow: none;
+}
+
+.hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 5.4vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: 0.02em;
+    color: var(--hero-title-color);
+    text-shadow: var(--hero-title-shadow);
+    margin: 0;
+}
+
+.hero-content__subtitle {
+    margin: clamp(0.3rem, 1vw, 0.55rem) 0 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    line-height: 1.2;
+    color: var(--text);
+}
+
+/* Headline glow is part of the ToA cinematic identity.
+   Keep it restrained in Dark; remove in Light to avoid haze/glare. */
+html[data-theme="toa"] h1,
+html[data-theme="toa"] h2,
+html[data-theme="toa"] h3 {
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.10),
+        0 0 8px rgba(var(--accent-rgb), 0.26),
+        0 0 14px rgba(var(--accent-rgb), 0.42);
+}
+
+/* Performance gates: reduce heavy compositing (blur + multi-layer gradients) on constrained devices */
+html[data-perf="low"] {
+  --blur-sm: none;
+  --blur-md: none;
+  --blur-lg: none;
+  --surface-blur: none;
+  --scrim-blur: none;
+  --shadow-2: 0 6px 16px rgba(var(--ink-rgb), 0.22);
+  --shadow-cta: 0 8px 18px rgba(var(--ink-rgb), 0.20), 0 0 0 1px rgba(var(--accent-rgb), 0.14) inset;
+  --shadow-cta-hover: 0 10px 22px rgba(var(--ink-rgb), 0.22), 0 0 0 1px rgba(var(--accent-rgb), 0.14) inset;
+  --hero-banner-overlay: linear-gradient(to bottom, rgba(var(--bg-rgb), 0.40), rgba(var(--bg-rgb), 0.92));
+}
+
+html[data-perf="low"].no-reduced-motion { scroll-behavior: auto; }
+
+html[data-perf="low"] .cta-button,
+html[data-perf="low"] .hero-content a,
+html[data-perf="low"] .site-footer .footer-list a,
+html[data-perf="low"] .site-footer .social-links a,
+
+html[data-perf="low"] .cta-button:hover,
+html[data-perf="low"] .hero-content a:hover,
+html[data-perf="low"] .site-footer .footer-list a:hover,
+html[data-perf="low"] .site-footer .social-links a:hover,
+
+html[data-perf="low"] :where(main, .toa-main) :target { animation: none; }
+
+html[data-perf="low"] .page-hero--banner .page-hero__inner::before {
+  box-shadow: none;
+}
+
+html[data-perf="low"] .skel::after { animation: none !important; }
+html[data-perf="low"] .scroll-hint { animation: none !important; }
+
+@media (prefers-reduced-transparency: reduce) {
+  :root { --blur-sm: none; --blur-md: none; --blur-lg: none; --surface-blur: none; --scrim-blur: none; }
+.page-hero--banner .page-hero__inner::before {
+    background: linear-gradient(to bottom, rgba(var(--bg-rgb), 0.56), rgba(var(--bg-rgb), 0.86));
+    box-shadow: none;
+  }
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3 {
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.08),
+        0 0 10px rgba(var(--accent-rgb), 0.18);
+}
+
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="contrast"] h1,
+html[data-theme="contrast"] h2,
+html[data-theme="contrast"] h3 {
+    text-shadow: none;
+}/* =========================================================
+   Wave J — headings + prose rhythm
+   ========================================================= */
+h1 { font-size: var(--h1-size); line-height: 1.08; }
+h2 { font-size: var(--h2-size); line-height: 1.18; }
+h3 { font-size: var(--h3-size); line-height: 1.25; }
+
+:where(main) :where(p, li) { max-width: var(--prose-max); }
+:where(main) :where(p, li).u-text-center { max-width: none; }
+
+.hero-content p {
+    font-size: clamp(1rem, 2.2vw, 1.45rem);
+    line-height: 1.45;
+    max-width: 42ch;
+    margin: clamp(0.8rem, 1.7vw, 1.25rem) auto 0;
+    color: var(--text);
+    text-shadow: var(--hero-lead-shadow);
+    font-weight: 700; 		
+}
+
+.hero-content a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: 1px solid rgba(var(--accent-rgb), 0.40);
+    background: linear-gradient(180deg,
+      color-mix(in oklab, var(--accent) 92%, white 8%),
+      var(--accent)
+    );
+    color: var(--on-accent);
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    box-shadow: var(--shadow-cta);
+    transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease, background 140ms ease, border-color 140ms ease;
+    cursor: pointer;
+}
+
+.hero-content a:hover {
+    transform: translateY(-1px);
+    border-color: rgba(var(--accent-rgb), 0.60);
+    background: linear-gradient(180deg,
+      color-mix(in oklab, var(--accent) 82%, white 18%),
+      color-mix(in oklab, var(--accent) 92%, black 8%)
+    );
+    box-shadow: var(--shadow-cta-hover);
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: 1px solid rgba(var(--accent-rgb), 0.40);
+    background: linear-gradient(180deg,
+      color-mix(in oklab, var(--accent) 92%, white 8%),
+      var(--accent)
+    );
+    color: var(--on-accent);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+    -webkit-text-fill-color: currentColor;
+    box-shadow: var(--shadow-cta);
+    transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease, background 140ms ease, border-color 140ms ease;
+    cursor: pointer;
+}
+
+.cta-button:active { transform: translateY(0); }
+
+.cta-button:hover,
+.cta-button:focus {
+    transform: translateY(-1px);
+    border-color: rgba(var(--accent-rgb), 0.60);
+    background: linear-gradient(180deg,
+      color-mix(in oklab, var(--accent) 82%, white 18%),
+      color-mix(in oklab, var(--accent) 92%, black 8%)
+    );
+    color: var(--on-accent);
+    box-shadow: var(--shadow-cta-hover);
+    text-decoration: none;
+    outline: none;
+}
+
+.cta-button:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+}
+
+/* =========================
+   LISTEN GATEWAY (Streaming / Music) — Platform Overhaul Wave O
+   - Fast “listen CTA row” components (profile + platform)
+   - Works for Streaming hub, Music library callouts, Album/Track listen panels
+   ========================= */
+
+.listen-panel,
+.gateway-panel {
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.listen-panel {
+  padding: 14px 14px;
+}
+
+.gateway-panel {
+  padding: 18px 16px;
+}
+
+@media (max-width: 480px) {
+  .gateway-panel { padding: 16px 14px; }
+  .listen-panel { padding: 12px 12px; }
+}
+
+.listen-panel__label,
+.gateway-kicker {
+  margin: 0 0 8px;
+  opacity: 0.9;
+}
+
+.listen-panel__label {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.seg-toggle {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--control-border);
+  background: var(--panel);
+}
+
+.seg-toggle__btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding: 10px 14px;
+  min-height: 44px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.seg-toggle__btn[aria-pressed="true"] {
+  background: rgba(var(--accent-rgb), 0.16);
+  border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+.seg-toggle__btn:hover,
+.seg-toggle__btn:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  background: var(--control-bg-hover);
+}
+
+.platform-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .platform-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--accent-rgb), 0.55) var(--panel);
+    padding: 4px 2px 10px;
+    scrollbar-gutter: stable;
+  }
+
+  .platform-row::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .platform-row::-webkit-scrollbar-track {
+    background: var(--panel);
+    border-radius: 999px;
+  }
+
+  .platform-row::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent-rgb), 0.45);
+    border-radius: 999px;
+  }
+
+  .platform-link {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 768px) and (orientation: portrait) {
+  html[data-theme="toa"] body[data-page-role="flagship"]::before {
+    background-image: url("/assets/images/hero-banner-mobile-portrait.webp");
+    background-position: 50% 20%;
+  }
+}
+
+.platform-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 14px;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--control-border);
+  background: var(--control-bg);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  box-shadow: var(--control-shadow);
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.platform-link:hover,
+.platform-link:focus-visible {
+  transform: translateY(-1px);
+  background: var(--control-bg-hover);
+  border-color: var(--control-border-hover);
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.platform-link[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.platform-link__icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  flex: 0 0 auto;
+  /* Neutralize legacy glyph (♪) without touching HTML/JS */
+  font-size: 0;
+  line-height: 0;
+  color: inherit;
+}
+
+.platform-link {
+  --toa-platform-icon-img: url("/assets/icons/generic-stream.svg");
+}
+
+.platform-link__icon::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.95;
+  background: var(--toa-platform-icon-img) no-repeat center / contain;
+}
+
+/* Platform mapping (official pack where available; generic fallback where not provided) */
+.platform-link[data-platform="spotify"],
+.platform-link[href*="open.spotify.com"] { --toa-platform-icon-img: var(--icon-spotify); }
+
+.platform-link[data-platform="appleMusic"],
+.platform-link[href*="music.apple.com"] { --toa-platform-icon-img: var(--icon-apple-music); }
+
+.platform-link[data-platform="youTubeMusic"],
+.platform-link[href*="music.youtube.com"] { --toa-platform-icon-img: url("/assets/icons/youtube-music.svg"); } /* no official pack mark provided */
+
+.platform-link[data-platform="youtube"],
+.platform-link[href*="youtube.com"] { --toa-platform-icon-img: var(--icon-youtube); }
+
+.link-tab:focus-visible,
+.menu a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* Small helper for “micro” muted lines near listen UI */
+.listen-hint {
+  margin: 10px 0 0;
+  opacity: 0.85;
+}
+
+/* Featured Section - Optimized for Performance */
+.featured {
+    text-align: center;
+    background: var(--section-bg-featured);
+}
+
+/* Footer is implemented via .site-footer (Wave Z). Legacy footer rules removed in Wave AC to avoid cross-tier conflicts. */
+
+/* ---------- Wave Z: Footer Tier-Locked Grid + Mobile/Tablet Fix ---------- */
+.site-footer {
+  position: relative;
+  isolation: isolate;
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  box-shadow: var(--footer-shadow);
+  text-align: left;
+  padding: calc(28px + env(safe-area-inset-bottom)) 0 30px;
+}
+
+.site-footer .footer-prelude {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(100%, var(--layout-max));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  box-sizing: border-box;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+  margin-top: 0;
+}
+
+.site-footer .support-grid--footer-routes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.site-footer .support-card--footer-route {
+  min-height: 100%;
+}
+
+.site-footer .support-card--footer-route .support-card__body {
+  max-width: 34ch;
+  margin-inline: auto;
+}
+
+.site-footer .support-card--footer-route .support-card__actions {
+  justify-content: center;
+}
+
+/* Subtle footer depth layer (keeps the cosmic background from "bleeding through" text-heavy content) */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 420px at 18% 0%, rgba(var(--accent-rgb), 0.10), transparent 60%),
+    radial-gradient(900px 420px at 82% 20%, rgba(var(--focus-rgb), 0.08), transparent 60%),
+    linear-gradient(to bottom, rgba(var(--bg-rgb), 0.20), rgba(var(--bg-rgb), 0.46));
+  opacity: 0.95;
+}
+
+.site-footer .footer-inner {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  width: min(100%, var(--layout-max));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  box-sizing: border-box;
+  align-items: start;
+  gap: 18px 22px;
+  /*
+    Tier-safe default (1025–1399 typical):
+    - Desktop tier can be as narrow as 1025–1200.
+    - A 5-column footer can collapse or overflow at these widths.
+    - Default to a 4-column, 2-row layout that preserves hierarchy.
+    - Upgrade to true 5-column only on wider screens.
+  */
+  grid-template-columns:
+    minmax(240px, 1.25fr)
+    repeat(2, minmax(150px, 1fr))
+    minmax(240px, 1.25fr);
+  grid-template-areas:
+    "brand pillars hubs social"
+    "brand playable playable social";
+}
+
+/* Wide desktop / TV: restore 5-column footer */
+@media (min-width: 1400px) {
+  .site-footer .footer-inner {
+    grid-template-columns:
+      minmax(240px, 1.25fr)
+      repeat(3, minmax(140px, 1fr))
+      minmax(240px, 1.25fr);
+    grid-template-areas: "brand pillars hubs playable social";
+  }
+}
+
+/*
+  Footer grid-area mapping
+  - Preferred: runtime data-footer-area mapping (robust across pages)
+  - Fallback: nth-child mapping for no-JS environments
+*/
+.site-footer .footer-inner > [data-footer-area="brand"] { grid-area: brand; }
+.site-footer .footer-inner > [data-footer-area="pillars"] { grid-area: pillars; }
+.site-footer .footer-inner > [data-footer-area="hubs"] { grid-area: hubs; }
+.site-footer .footer-inner > [data-footer-area="playable"] { grid-area: playable; }
+.site-footer .footer-inner > [data-footer-area="social"] { grid-area: social; }
+
+.site-footer .footer-inner > :nth-child(1) { grid-area: brand; }
+.site-footer .footer-inner > :nth-child(2) { grid-area: pillars; }
+.site-footer .footer-inner > :nth-child(3) { grid-area: hubs; }
+.site-footer .footer-inner > :nth-child(4) { grid-area: playable; }
+.site-footer .footer-inner > :nth-child(5) { grid-area: social; }
+
+.site-footer .footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Home (Featured / Streaming): ensure blocks lock to a consistent readable width on desktop/laptop */
+.featured .streaming-block {
+  width: min(100%, 980px);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.featured .streaming-block h3 {
+  text-align: center;
+}
+
+.featured .u-my-18,
+.featured .u-mb-8 {
+  text-align: center;
+}
+
+/* About: Meet the Angels — replace flex wrap with a deterministic grid on larger tiers */
+.about-bios .u-flex-wrap-center-gap-20 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .about-bios .u-flex-wrap-center-gap-20 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .about-bios .u-flex-wrap-center-gap-20 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-footer .footer-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--footer-text);
+}
+
+.site-footer .footer-logo {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.18), var(--shadow-1);
+}
+
+.site-footer .footer-brand-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: var(--menu-size);
+  color: var(--footer-text);
+}
+
+.site-footer .footer-brand-subtitle {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.70rem;
+  color: color-mix(in oklab, var(--footer-text) 70%, transparent);
+  margin-top: 2px;
+}
+
+.site-footer .footer-tagline {
+  max-width: 38ch;
+}
+
+.site-footer .footer-tagline,
+.site-footer .footer-copy,
+.site-footer .footer-contact {
+  margin: 0;
+  color: color-mix(in oklab, var(--footer-text) 78%, transparent);
+}
+
+.site-footer .footer-contact a {
+  color: var(--footer-link);
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* Footer utility link: Back to top (premium, text-based) */
+.site-footer .footer-utility {
+  margin: 0;
+}
+
+/* Keep the Ascend control anchored to the bottom of the Social column on desktop,
+   while remaining natural/stacked on smaller breakpoints. */
+.site-footer .footer-social{
+  display:flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.site-footer .footer-social .footer-utility{ margin-top: auto; padding-top: 18px; }
+@media (min-width: 1025px){
+  .site-footer .footer-social .footer-utility{ padding-top: 26px; }
+}
+
+.site-footer .footer-backtotop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(var(--accent-rgb), 0.18);
+  background: color-mix(in srgb, var(--panel) 70%, transparent);
+  box-shadow: var(--shadow-1);
+
+  color: var(--footer-link);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.site-footer .footer-backtotop:hover,
+.site-footer .footer-backtotop:focus-visible {
+  background: color-mix(in srgb, var(--panel-2) 72%, rgba(var(--accent-rgb), 0.10));
+  border-color: rgba(var(--accent-rgb), 0.38);
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+@media (forced-colors: active) {
+  .site-footer .footer-backtotop {
+    background: Canvas;
+    border-color: CanvasText;
+    color: LinkText;
+    box-shadow: none;
+  }
+}
+.site-footer .footer-heading {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: var(--label-size);
+  color: var(--footer-text);
+}
+
+@media (max-width: 768px) {
+  .site-footer .footer-heading {
+    margin: 0;
+  }
+
+  .site-footer .footer-heading > .footer-accordion-toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 44px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid var(--footer-border);
+    background: color-mix(in oklab, var(--footer-bg) 78%, transparent);
+    color: var(--footer-text);
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: var(--label-size);
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .site-footer .footer-heading > .footer-accordion-toggle:hover,
+  .site-footer .footer-heading > .footer-accordion-toggle:focus-visible {
+    border-color: color-mix(in oklab, var(--footer-link-hover) 55%, var(--footer-border));
+    background: color-mix(in oklab, var(--footer-bg) 86%, transparent);
+    outline: none;
+  }
+
+  .site-footer .footer-accordion-icon {
+    flex: 0 0 auto;
+    font-size: 1rem;
+    line-height: 1;
+    transform: rotate(0deg);
+  }
+
+  .site-footer .footer-accordion-toggle[aria-expanded="true"] .footer-accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  /* When expanded, keep a comfortable gap before the list */
+  .site-footer .footer-list[hidden] { display: none !important; }
+
+  .site-footer .footer-list {
+    margin-top: 10px;
+  }
+}
+
+.site-footer .footer-heading--sub {
+  margin-top: 14px;
+}
+
+.site-footer .footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.site-footer .footer-list a {
+  text-decoration: none;
+}
+
+/* Social links: footer-native (not chips)
+   - Desktop/Laptop: icon + label, same typography rhythm as footer lists
+   - Tablet/Mobile: icon + label in compact tiles (no pill-buttons), clean grid, 44px targets
+*/
+.site-footer .footer-social .social-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.site-footer .social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--footer-link);
+  text-decoration: none;
+  padding: 2px 0;
+  min-height: 32px;
+}
+
+.site-footer .social-links a:hover,
+.site-footer .social-links a:focus-visible {
+  color: var(--footer-link-hover);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.site-footer .social-links .social-text {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  /* Tablet + Mobile: compact tiles (icon + label) */
+  .site-footer .footer-social .social-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .site-footer .social-links a {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: 72px;
+    padding: 10px 8px;
+    border-radius: 16px;
+    text-decoration: none;
+  }
+
+  .site-footer .social-links a:hover,
+  .site-footer .social-links a:focus-visible {
+    text-decoration: none;
+    background: color-mix(in oklab, var(--footer-bg) 84%, rgba(var(--accent-rgb), 0.10));
+  }
+
+  .site-footer .social-links .social-text {
+    display: block;
+    font-size: var(--text-xs);
+    line-height: var(--line-tight);
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer .footer-social .social-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .site-footer .social-links a {
+    min-height: 68px;
+    border-radius: 16px;
+    padding: 10px 6px;
+  }
+
+  .site-footer .social-links .social-text {
+    font-size: var(--text-micro);
+  }
+}
+
+/* Tier lock — Laptop (769–1024): 3-column grid with brand spanning */
+@media (max-width: 1024px) {
+  .site-footer .footer-prelude {
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .site-footer .support-grid--footer-routes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-footer .footer-inner {
+    grid-template-columns: 1.35fr 1fr 1fr;
+    grid-template-areas:
+      "brand brand social"
+      "pillars hubs playable";
+  }
+
+  .site-footer .footer-tagline {
+    max-width: 60ch;
+  }
+}
+
+/* Tier lock — Tablet (481–768): 2 columns + clear ordering */
+@media (max-width: 768px) {
+  .site-footer .footer-prelude {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .site-footer .support-grid--footer-routes {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "pillars hubs"
+      "playable social";
+  }
+
+  /* Tablet + Mobile: compact tiles (icon + label), clean grid */
+  .site-footer .footer-social .social-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .site-footer .social-links a {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: 72px;
+    padding: 10px 8px;
+    border-radius: 16px;
+    text-decoration: none;
+  }
+
+  .site-footer .social-links a:hover,
+  .site-footer .social-links a:focus-visible {
+    text-decoration: none;
+    background: color-mix(in oklab, var(--footer-bg) 84%, rgba(var(--accent-rgb), 0.10));
+  }
+
+  .site-footer .social-links .social-text {
+    display: block;
+    font-size: var(--text-xs);
+    line-height: var(--line-tight);
+  }
+}
+
+/* Tier lock — Mobile (320–480): single column; social becomes 2-column grid */
+@media (max-width: 480px) {
+  .site-footer {
+    padding: calc(24px + env(safe-area-inset-bottom)) 0 26px;
+  }
+
+  .site-footer .footer-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "pillars"
+      "hubs"
+      "playable"
+      "social";
+    gap: 16px;
+  }
+  .site-footer .footer-social .social-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .site-footer .social-links a {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: 68px;
+    padding: 10px 6px;
+    border-radius: 16px;
+  }
+}
+/* ---------- Footer Social Icon System (official image-based; cross-browser) ---------- */
+/* Map link hosts to official icon variables */
+.site-footer .social-links a[href*="spotify.com"] { --toa-icon-img: var(--icon-spotify); }
+.site-footer .social-links a[href*="music.apple.com"] { --toa-icon-img: var(--icon-apple-music); }
+.site-footer .social-links a[href*="music.youtube.com"] { --toa-icon-img: url("/assets/icons/youtube-music.svg"); } /* no official pack mark provided */
+.site-footer .social-links a[href*="youtube.com"] { --toa-icon-img: var(--icon-youtube); }
+.site-footer .social-links a[href*="linktr.ee"] { --toa-icon-img: var(--icon-linktree); }
+.site-footer .social-links a[href*="instagram.com"] { --toa-icon-img: var(--icon-instagram); }
+.site-footer .social-links a[href*="tiktok.com"] { --toa-icon-img: var(--icon-tiktok); }
+.site-footer .social-links a[href*="facebook.com"] { --toa-icon-img: var(--icon-facebook); }
+.site-footer .social-links a[href*="x.com"] { --toa-icon-img: var(--icon-x); }
+
+/* Icons render for known social hosts (desktop + mobile) */
+.site-footer .social-links a:is(
+  [href*="spotify.com"],
+  [href*="music.apple.com"],
+  [href*="music.youtube.com"],
+  [href*="youtube.com"],
+  [href*="linktr.ee"],
+  [href*="instagram.com"],
+  [href*="tiktok.com"],
+  [href*="facebook.com"],
+  [href*="x.com"]
+)::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  opacity: 0.95;
+  background: var(--toa-icon-img) no-repeat center / contain;
+}
+
+@media (max-width: 768px) {
+  .site-footer .social-links a:is(
+    [href*="spotify.com"],
+    [href*="music.apple.com"],
+    [href*="music.youtube.com"],
+    [href*="youtube.com"],
+    [href*="linktr.ee"],
+    [href*="instagram.com"],
+    [href*="tiktok.com"],
+    [href*="facebook.com"],
+    [href*="x.com"]
+  )::before {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+
+/* Pass 43 — screenshot-driven hero/introduction premium fit polish
+   Tightens first-view action rhythm on laptop screenshots, strengthens panel depth,
+   and keeps intro/button groups cleaner across desktop and mobile. */
+.page-intro__inner{
+  box-shadow: 0 18px 44px rgba(var(--ink-rgb), 0.12), var(--shadow-panel);
+}
+
+.page-intro__actions > :is(.cta-button, .cta-button--ghost, .btn, .btn--ghost, .chip){
+  flex: 1 1 12rem;
+  max-width: 18rem;
+  justify-content: center;
+}
+
+.page-hero__actions > :is(.cta-button, .cta-button--ghost, .btn, .btn--ghost){
+  flex: 1 1 11rem;
+  max-width: 16rem;
+  justify-content: center;
+}
+
+@media (min-width: 860px){
+  .page-intro__actions,
+  .page-hero__actions{
+    width: min(100%, 920px);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 700px){
+  .page-intro__actions > :is(.cta-button, .cta-button--ghost, .btn, .btn--ghost, .chip),
+  .page-hero__actions > :is(.cta-button, .cta-button--ghost, .btn, .btn--ghost){
+    width: 100%;
+    max-width: none;
+  }
+}
+
+html[data-theme="light"] .page-intro__inner{
+  background:
+    radial-gradient(900px 320px at 50% 0%, rgba(var(--accent-rgb), 0.10), rgba(var(--accent-rgb), 0.00) 64%),
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(249,250,252,0.98)),
+    var(--glass);
+  border-color: rgba(var(--accent-rgb), 0.16);
+}

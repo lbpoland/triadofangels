@@ -14,6 +14,18 @@
     "toa:release:check": "node tools/toa-release-check.mjs --dir dist",
     "toa:lighthouse:desktop": "npm run toa:lhci:desktop",
     "toa:lighthouse:mobile": "npm run toa:lhci:mobile",
-    "toa:js-syntax": "node tools/toa-js-syntax-audit.mjs"
+    "toa:js-syntax": "node tools/toa-js-syntax-audit.mjs",
+    "toa:shell:audit": "node tools/toa-shell-audit.mjs",
+    "toa:content:export": "node tools/toa-content-build.mjs --write",
+    "toa:content:validate": "node tools/toa-content-validate.mjs",
+    "toa:shell:ledger": "node tools/toa-shell-ledger.mjs",
+    "toa:content:build": "node tools/toa-content-build.mjs --write",
+    "toa:sync-layout:check": "node tools/toa-layout-sync.mjs --sync --check --report",
+    "toa:shell:verify": "node tools/toa-shell-audit.mjs && node tools/toa-shell-ledger.mjs && node tools/toa-layout-sync.mjs --sync --check --report",
+    "toa:content:build:check": "node tools/toa-content-build.mjs",
+    "toa:content:contracts": "node tools/toa-content-validate.mjs",
+    "toa:shell:governance": "node tools/toa-shell-audit.mjs && node tools/toa-shell-ledger.mjs && node tools/toa-layout-sync.mjs --sync --check --report",
+    "toa:bundle:compat": "node tools/toa-bundle-compatibility-audit.mjs --write",
+    "toa:bundle:compat:prep": "node tools/toa-bundle-compatibility-audit.mjs --write"
   }
 }

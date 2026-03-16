@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TOA music library authoritative source",
+  "type": "object",
+  "required": ["schemaVersion", "albums"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "generatedFrom": { "type": "array", "items": { "type": "string" } },
+    "generatedAt": { "type": "string" },
+    "albums": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "artist", "tracks", "lyrics"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "artist": { "type": "string" },
+          "tracks": { "type": "array" },
+          "lyrics": { "type": "object" }
+        }
+      }
+    }
+  }
+}

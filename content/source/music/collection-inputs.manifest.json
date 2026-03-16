@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "authorityId": "music",
+  "sourceCollectionsManifest": "content/source/music-library.collections.manifest.json",
+  "collectionRoot": "content/source/music",
+  "inputs": [
+    {
+      "collectionId": "albums",
+      "inputMode": "collection-aware-manifest",
+      "currentAuthorityPointer": "content/source/music-library.authoritative.json#albums",
+      "plannedInputDir": "content/source/music/albums",
+      "entityKey": "id",
+      "canonicalKey": "canonicalPath",
+      "routeOwner": "music.album",
+      "stubEntryPattern": "content/source/music/albums/<album-id>.json",
+      "builderConsumption": "optional-stub-dir"
+    },
+    {
+      "collectionId": "tracks",
+      "inputMode": "derived-collection-manifest",
+      "currentAuthorityPointer": "content/source/music-library.authoritative.json#albums[].tracks + albums[].lyrics",
+      "plannedInputDir": "content/source/music/tracks",
+      "entityKey": "albumId:trackId",
+      "canonicalKey": "canonicalPath",
+      "routeOwner": "music.track",
+      "stubEntryPattern": "content/source/music/tracks/<album-id>/<track-id>.json",
+      "builderConsumption": "optional-stub-dir"
+    }
+  ],
+  "builderConsumptionMode": "authoritative-json-primary_with_collection-aware-stubs"
+}

@@ -1,0 +1,391 @@
+/* ==========================================================================
+   Search Page (Wave: Search + A11y + Token Discipline)
+   - Shared finder shell now lives in css/style.css
+   - This file keeps search-page-specific measure, results rhythm, and utility calmness
+   ========================================================================== */
+
+body.search-page .search-hero .page-hero__inner {
+  text-align: center;
+}
+
+.search-form {
+  width: min(100%, 920px);
+  margin: var(--space-4) auto 0;
+}
+
+.search-input {
+  min-height: 48px;
+}
+
+.search-help {
+  margin: var(--space-3) auto 0;
+  max-width: min(100%, 920px);
+  font-size: 0.95rem;
+}
+
+.results-summary {
+  margin: var(--space-3) auto 0;
+  max-width: min(100%, 920px);
+}
+
+.search-hero .finder-summary {
+  max-width: min(100%, 980px);
+}
+
+/* Search scope + suggestions (Wave V10-38)
+   - Chip-based scope clamp for faster scanning.
+   - Suggested query chips add a premium "start here" moment without noise.
+*/
+.search-scope-bar {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.finder-summary__suggest {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.results-empty__suggest {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.results-empty__suggest-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.search-hero .finder-summary .search-help,
+.search-hero .finder-summary .results-summary {
+  margin: 0;
+  max-width: none;
+}
+
+.search-results .search-group {
+  margin-top: var(--space-6);
+}
+
+.search-results .search-group:first-of-type {
+  margin-top: var(--space-4);
+}
+
+.search-results .results-empty {
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 1601px) {
+  .search-form {
+    width: min(100%, 980px);
+  }
+
+  .search-help,
+  .results-summary {
+    max-width: min(100%, 980px);
+  }
+
+  .search-hero .finder-summary {
+    max-width: min(100%, 1040px);
+  }
+
+  .search-results .search-group {
+    margin-top: calc(var(--space-6) + 8px);
+  }
+}
+
+
+@media (max-width: 359px) {
+  .search-scope-bar {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .search-scope-bar .chip {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Architecture elevation 08+15 — search ownership reclamation
+   Search-page-only scope chips, finder input rhythm, and light-theme utility controls live here instead of the shell layer. */
+html[data-theme="light"] body.priority-surface .search-scope-bar .chip{
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(245,247,251,.98));
+  border-color: rgba(12,16,24,.18);
+  box-shadow: 0 8px 22px rgba(10,14,24,.06);
+  color: #12151d;
+}
+
+html[data-theme="light"] body.priority-surface .search-scope-bar .chip:hover,
+html[data-theme="light"] body.priority-surface .search-scope-bar .chip:focus-visible{
+  border-color: rgba(var(--accent-rgb), .24);
+  background: linear-gradient(180deg, rgba(255,255,255,.995), rgba(249,250,252,.995));
+}
+
+body.priority-surface .search-form .finder-form__input-wrap,
+body.priority-surface .search-form .finder-input{
+  min-width: 0;
+}
+
+body.priority-surface .search-page .results-summary,
+body.priority-surface .search-page .search-help{
+  text-wrap: balance;
+}
+
+body.priority-surface .search-page .results-empty__suggest-label{
+  align-self: center;
+}
+
+/* Pass 40 — search empty-action ownership refinement
+   Search empty-state actions can carry longer route labels than other empty surfaces,
+   so keep their compact width balancing under the search owner instead of relying on
+   broad shell action wrapping alone. */
+body.priority-surface .search-page .results-empty__actions > *{
+  flex: 1 1 12rem;
+}
+
+@media (min-width: 360px) and (max-width: 699px){
+  .search-scope-bar{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .search-scope-bar .chip{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1024px){
+  .search-scope-bar{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .search-scope-bar .chip{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Architecture elevation 09 — search route ownership reclamation */
+body.priority-surface .search-results{
+  content-visibility: visible;
+  contain-intrinsic-size: auto;
+}
+
+#search-proof,
+#search-route-ladder{
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+@media (max-width: 768px){
+  #search-route-ladder .support-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Architecture elevation 10 — search ownership consolidation
+   Search scope bars and result cards now carry their own shared action/layout behavior
+   instead of borrowing those rules from the shell-heavy layer. */
+.search-scope-bar {
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.search-scope-bar > :is(.cta-button, .cta-button--ghost, .btn, .btn--ghost, .chip, .command-chip, .link-tab) {
+  flex: 0 1 auto;
+  min-inline-size: clamp(150px, 13vw, 196px);
+  max-inline-size: min(100%, 250px);
+  width: auto;
+  text-align: center;
+  white-space: normal !important;
+  text-wrap: balance;
+}
+
+.search-page .search-result-card {
+  min-width: 0;
+}
+
+@media (min-width: 701px) and (max-width: 1280px) {
+  .search-scope-bar > :is(.cta-button, .cta-button--ghost, .btn, .btn--ghost, .chip, .command-chip, .link-tab) {
+    min-inline-size: clamp(144px, 17vw, 210px);
+    max-inline-size: min(100%, 230px);
+  }
+}
+
+@media (max-width: 700px) {
+  .search-scope-bar > * {
+    flex: 1 1 100%;
+  }
+
+  .search-scope-bar .chip,
+  .search-scope-bar > :is(.cta-button, .cta-button--ghost, .btn, .btn--ghost, .chip, .command-chip, .link-tab) {
+    width: 100%;
+    min-inline-size: 0;
+    max-inline-size: none;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 359px) {
+  body.priority-surface .search-scope-bar {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* Architecture elevation 11 — search action-row ownership */
+.search-page .page-intro__actions{
+  justify-content: center;
+}
+
+
+body.priority-surface .search-form {
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  body.priority-surface .search-form :is(button, .btn, .cta-button) {
+    min-height: 48px;
+  }
+}
+
+
+/* Architecture elevation 13 — search form control ownership
+   Search-page submit and clear actions now live here instead of the shell-heavy layer. */
+body.priority-surface .search-page .search-form :is(button, .btn, .cta-button){
+  border-color: var(--priority-control-border);
+  border-radius: var(--priority-control-radius);
+  box-shadow: none;
+}
+
+html[data-theme="light"] body.priority-surface .search-page .search-form :is(button, .btn, .cta-button){
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.55), 0 10px 24px rgba(10,12,18,0.06), 0 1px 4px rgba(10,12,18,0.05);
+}
+
+
+/* Architecture elevation 14 — search input ownership reclamation
+   Search-page-only input surface styling now lives here instead of the shell-heavy layer. */
+body.priority-surface .search-input{
+  width: 100%;
+  border-color: var(--priority-control-border);
+  border-radius: var(--priority-control-radius);
+  background: var(--priority-control-bg);
+  box-shadow: none;
+}
+
+body.priority-surface .search-form .search-input{
+  min-width: 0;
+}
+
+html[data-theme="light"] body.priority-surface .search-input{
+  color: #11131a;
+  border-color: rgba(10, 12, 18, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.55), 0 10px 24px rgba(10,12,18,0.06), 0 1px 4px rgba(10,12,18,0.05);
+}
+
+
+/* Architecture elevation 16 — search result surface ownership
+   Search result surface containment belongs with search utility ownership, not the shell-heavy layer. */
+body.priority-surface .search-results{
+  border-color: var(--priority-surface-border);
+  box-shadow: var(--priority-surface-shadow);
+}
+
+
+/* Pass 39 — search results-summary overflow-wrap ownership
+   Search-only summary copy should not rely on the broader shell typography safeguard list. */
+body.priority-surface .search-page .results-summary {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+
+/* Pass 43 — screenshot-driven search/results calmness polish
+   The screenshot sweep showed the Matches surface feeling too wide and under-structured
+   when there are no active results yet. This keeps the section premium and more deliberate. */
+.search-page .search-help,
+.search-page .results-summary{
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--accent-rgb), 0.12);
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.06), rgba(var(--bg-rgb), 0.10));
+}
+
+.search-page .search-results > .u-maxw-1100{
+  width: min(100%, 980px);
+}
+
+.search-page .search-results .section-header.section-header--tight{
+  padding: clamp(20px, 2.4vw, 28px);
+  border-radius: 24px;
+  border: 1px solid rgba(var(--accent-rgb), 0.16);
+  background:
+    radial-gradient(900px 280px at 50% 0%, rgba(var(--accent-rgb), 0.08), rgba(var(--accent-rgb), 0.00) 65%),
+    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+    var(--panel);
+  box-shadow: var(--shadow-panel);
+}
+
+.search-page .search-results .section-header__lead{
+  max-width: 34ch;
+  margin-inline: auto;
+}
+
+.search-page .search-results .section-header__actions,
+.search-page .search-results .section-header__meta{
+  justify-content: center;
+}
+
+.search-page .search-results .section-header__meta{
+  gap: 10px;
+}
+
+.search-page .search-results .section-header__meta .section-header__stat{
+  min-width: 10rem;
+  justify-content: center;
+}
+
+.search-page .search-results .search-group,
+.search-page .search-results .results-empty{
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+@media (max-width: 700px){
+  .search-page .search-help,
+  .search-page .results-summary{
+    padding: 9px 12px;
+  }
+
+  .search-page .search-results .section-header.section-header--tight{
+    padding: 18px 14px;
+    border-radius: 20px;
+  }
+
+  .search-page .search-results .section-header__meta .section-header__stat{
+    min-width: 0;
+  }
+}
+
+html[data-theme="light"] .search-page .search-help,
+html[data-theme="light"] .search-page .results-summary,
+html[data-theme="light"] .search-page .search-results .section-header.section-header--tight{
+  border-color: rgba(116, 86, 24, 0.14);
+  background:
+    radial-gradient(900px 280px at 50% 0%, rgba(var(--accent-rgb), 0.06), rgba(var(--accent-rgb), 0.00) 68%),
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,248,251,0.98));
+  box-shadow: 0 18px 42px rgba(72, 54, 18, 0.08);
+}
